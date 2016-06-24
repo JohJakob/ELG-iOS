@@ -24,6 +24,7 @@
 		B9B5C4DD1D1D494800777BD9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B9B5C4E01D1D494800777BD9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B9B5C4E21D1D494800777BD9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B9B5C4E81D1D4BE200777BD9 /* ELG.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = ELG.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +57,48 @@
 		B9B5C4D31D1D494800777BD9 /* ELG */ = {
 			isa = PBXGroup;
 			children = (
-				B9B5C4D41D1D494800777BD9 /* AppDelegate.swift */,
-				B9B5C4D61D1D494800777BD9 /* MasterViewController.swift */,
-				B9B5C4D81D1D494800777BD9 /* DetailViewController.swift */,
-				B9B5C4DA1D1D494800777BD9 /* Main.storyboard */,
-				B9B5C4DD1D1D494800777BD9 /* Assets.xcassets */,
-				B9B5C4DF1D1D494800777BD9 /* LaunchScreen.storyboard */,
-				B9B5C4E21D1D494800777BD9 /* Info.plist */,
+				B9B5C4EC1D1D4C6300777BD9 /* Application */,
+				B9B5C4EB1D1D4C5600777BD9 /* Resources */,
+				B9B5C4EA1D1D4C4300777BD9 /* View Controllers */,
+				B9B5C4E91D1D4C2B00777BD9 /* Views */,
 			);
 			path = ELG;
+			sourceTree = "<group>";
+		};
+		B9B5C4E91D1D4C2B00777BD9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B9B5C4DA1D1D494800777BD9 /* Main.storyboard */,
+				B9B5C4DF1D1D494800777BD9 /* LaunchScreen.storyboard */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		B9B5C4EA1D1D4C4300777BD9 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				B9B5C4D61D1D494800777BD9 /* MasterViewController.swift */,
+				B9B5C4D81D1D494800777BD9 /* DetailViewController.swift */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		B9B5C4EB1D1D4C5600777BD9 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B9B5C4DD1D1D494800777BD9 /* Assets.xcassets */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		B9B5C4EC1D1D4C6300777BD9 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				B9B5C4D41D1D494800777BD9 /* AppDelegate.swift */,
+				B9B5C4E21D1D494800777BD9 /* Info.plist */,
+				B9B5C4E81D1D4BE200777BD9 /* ELG.entitlements */,
+			);
+			name = Application;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -99,6 +133,15 @@
 				TargetAttributes = {
 					B9B5C4D01D1D494700777BD9 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = ZKYCGLH74U;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -203,7 +246,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -243,7 +286,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -255,7 +298,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				CODE_SIGN_ENTITLEMENTS = ELG/ELG.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = ELG/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hardykrause.ELG;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -266,7 +313,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				CODE_SIGN_ENTITLEMENTS = ELG/ELG.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = ELG/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hardykrause.ELG;
 				PRODUCT_NAME = "$(TARGET_NAME)";
