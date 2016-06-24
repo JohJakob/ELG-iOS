@@ -2,8 +2,8 @@
 //  DetailViewController.swift
 //  ELG
 //
-//  Created by Johannes Jakob on 24.06.2016.
-//  Copyright © 2016 Elisabeth-Gymnasium Halle. All rights reserved.
+//  Created by Johannes Jakob on 24/06/2016
+//  ©2016 Elisabeth-Gymnasium Halle, Johannes Jakob
 //
 
 import UIKit
