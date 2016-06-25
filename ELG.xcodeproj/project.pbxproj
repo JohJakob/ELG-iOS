@@ -9,22 +9,28 @@
 /* Begin PBXBuildFile section */
 		B9B5C4D51D1D494800777BD9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B5C4D41D1D494800777BD9 /* AppDelegate.swift */; };
 		B9B5C4D71D1D494800777BD9 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B5C4D61D1D494800777BD9 /* MasterViewController.swift */; };
-		B9B5C4D91D1D494800777BD9 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B5C4D81D1D494800777BD9 /* DetailViewController.swift */; };
+		B9B5C4D91D1D494800777BD9 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B5C4D81D1D494800777BD9 /* StartViewController.swift */; };
 		B9B5C4DC1D1D494800777BD9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9B5C4DA1D1D494800777BD9 /* Main.storyboard */; };
 		B9B5C4DE1D1D494800777BD9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B9B5C4DD1D1D494800777BD9 /* Assets.xcassets */; };
 		B9B5C4E11D1D494800777BD9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9B5C4DF1D1D494800777BD9 /* LaunchScreen.storyboard */; };
+		B9B5C4F01D1D80C200777BD9 /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B5C4EF1D1D80C200777BD9 /* NewsViewController.swift */; };
+		B9B5C4F51D1ECB7900777BD9 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = B9B5C4F41D1ECB7900777BD9 /* Reachability.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		B9B5C4D11D1D494800777BD9 /* ELG.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ELG.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9B5C4D41D1D494800777BD9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B9B5C4D61D1D494800777BD9 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
-		B9B5C4D81D1D494800777BD9 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		B9B5C4D81D1D494800777BD9 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		B9B5C4DB1D1D494800777BD9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B9B5C4DD1D1D494800777BD9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B9B5C4E01D1D494800777BD9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B9B5C4E21D1D494800777BD9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B9B5C4E81D1D4BE200777BD9 /* ELG.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = ELG.entitlements; sourceTree = "<group>"; };
+		B9B5C4EF1D1D80C200777BD9 /* NewsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
+		B9B5C4F21D1ECB7800777BD9 /* ELG-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ELG-Bridging-Header.h"; sourceTree = "<group>"; };
+		B9B5C4F31D1ECB7900777BD9 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		B9B5C4F41D1ECB7900777BD9 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +64,7 @@
 			isa = PBXGroup;
 			children = (
 				B9B5C4EC1D1D4C6300777BD9 /* Application */,
+				B9B5C4F11D1EC97C00777BD9 /* Classes */,
 				B9B5C4EB1D1D4C5600777BD9 /* Resources */,
 				B9B5C4EA1D1D4C4300777BD9 /* View Controllers */,
 				B9B5C4E91D1D4C2B00777BD9 /* Views */,
@@ -78,7 +85,8 @@
 			isa = PBXGroup;
 			children = (
 				B9B5C4D61D1D494800777BD9 /* MasterViewController.swift */,
-				B9B5C4D81D1D494800777BD9 /* DetailViewController.swift */,
+				B9B5C4D81D1D494800777BD9 /* StartViewController.swift */,
+				B9B5C4EF1D1D80C200777BD9 /* NewsViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -99,6 +107,16 @@
 				B9B5C4E81D1D4BE200777BD9 /* ELG.entitlements */,
 			);
 			name = Application;
+			sourceTree = "<group>";
+		};
+		B9B5C4F11D1EC97C00777BD9 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				B9B5C4F31D1ECB7900777BD9 /* Reachability.h */,
+				B9B5C4F41D1ECB7900777BD9 /* Reachability.m */,
+				B9B5C4F21D1ECB7800777BD9 /* ELG-Bridging-Header.h */,
+			);
+			name = Classes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -181,9 +199,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B9B5C4D91D1D494800777BD9 /* DetailViewController.swift in Sources */,
+				B9B5C4D91D1D494800777BD9 /* StartViewController.swift in Sources */,
 				B9B5C4D71D1D494800777BD9 /* MasterViewController.swift in Sources */,
 				B9B5C4D51D1D494800777BD9 /* AppDelegate.swift in Sources */,
+				B9B5C4F01D1D80C200777BD9 /* NewsViewController.swift in Sources */,
+				B9B5C4F51D1ECB7900777BD9 /* Reachability.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -299,6 +319,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = ELG/ELG.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = ELG/Info.plist;
@@ -306,6 +327,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hardykrause.ELG;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ELG/ELG-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -314,6 +337,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = ELG/ELG.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = ELG/Info.plist;
@@ -321,6 +345,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hardykrause.ELG;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ELG/ELG-Bridging-Header.h";
 			};
 			name = Release;
 		};

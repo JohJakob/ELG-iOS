@@ -5,10 +5,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
-        <!--Master Navigation-->
+        <!--ELG-->
         <scene sceneID="pY4-Hu-kfo">
             <objects>
-                <navigationController title="Master Navigation" id="RMx-3f-FxP" sceneMemberID="viewController">
+                <navigationController title="ELG" id="RMx-3f-FxP" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="Pmd-2v-anx">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -20,10 +20,10 @@
             </objects>
             <point key="canvasLocation" x="-38" y="-630"/>
         </scene>
-        <!--Detail-->
+        <!--Start-->
         <scene sceneID="yUG-lL-AsK">
             <objects>
-                <viewController title="Detail" id="JEX-9P-axG" customClass="DetailViewController" customModule="ELG" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Start" id="JEX-9P-axG" customClass="StartViewController" customModule="ELG" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="SYR-Wa-9uf"/>
                         <viewControllerLayoutGuide type="bottom" id="GAO-Cl-Wes"/>
@@ -34,7 +34,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Detail" id="mOI-FS-AaM"/>
+                    <navigationItem key="navigationItem" title="Startseite" id="mOI-FS-AaM"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FJe-Yq-33r" sceneMemberID="firstResponder"/>
             </objects>
@@ -87,7 +87,7 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
-                                            <segue destination="vC3-pB-5Vb" kind="showDetail" identifier="showDetail" id="6S0-TO-JiA"/>
+                                            <segue destination="nES-sr-tO5" kind="showDetail" id="SlM-or-BoR"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="gray" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="KPo-6t-thG" imageView="vV6-6o-Kq6" style="IBUITableViewCellStyleDefault" id="2Sm-fR-Zzg">
@@ -218,6 +218,85 @@
             </objects>
             <point key="canvasLocation" x="709" y="-630"/>
         </scene>
+        <!--News Navigation-->
+        <scene sceneID="4nI-Y8-CVT">
+            <objects>
+                <navigationController title="News Navigation" id="nES-sr-tO5" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="D4g-Ti-s7k">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="2tO-oP-TeD" kind="relationship" relationship="rootViewController" id="D2b-Ts-sbb"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AKI-LK-RV6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1459" y="-630"/>
+        </scene>
+        <!--News-->
+        <scene sceneID="Xhh-FX-IF3">
+            <objects>
+                <viewController title="News" id="2tO-oP-TeD" customClass="NewsViewController" customModule="ELG" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="dy0-7A-Uu2"/>
+                        <viewControllerLayoutGuide type="bottom" id="wI5-w3-Ng1"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="NDd-x8-SfF">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qU7-xy-L8r">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="556"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <dataDetectorType key="dataDetectorTypes" link="YES"/>
+                            </webView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="V5H-jN-B5x">
+                                <rect key="frame" x="290" y="300" width="20" height="20"/>
+                            </activityIndicatorView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="85c-4r-xnx">
+                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                                <items>
+                                    <barButtonItem enabled="NO" image="Back" id="SDu-f0-1Ci">
+                                        <connections>
+                                            <action selector="goBack" destination="qU7-xy-L8r" id="kfa-GS-spd"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="G0C-NC-vPb"/>
+                                    <barButtonItem enabled="NO" image="Forward" id="CVN-Vh-zc9">
+                                        <connections>
+                                            <action selector="goForward" destination="qU7-xy-L8r" id="WZn-dL-Kfb"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="V5H-jN-B5x" firstAttribute="centerX" secondItem="85c-4r-xnx" secondAttribute="centerX" id="0xD-kO-8YX"/>
+                            <constraint firstItem="qU7-xy-L8r" firstAttribute="leading" secondItem="85c-4r-xnx" secondAttribute="leading" id="1ea-10-atq"/>
+                            <constraint firstAttribute="trailing" secondItem="qU7-xy-L8r" secondAttribute="trailing" id="8Ud-46-S7l"/>
+                            <constraint firstItem="qU7-xy-L8r" firstAttribute="trailing" secondItem="85c-4r-xnx" secondAttribute="trailing" id="JIz-od-lUY"/>
+                            <constraint firstItem="85c-4r-xnx" firstAttribute="top" secondItem="qU7-xy-L8r" secondAttribute="bottom" id="QtU-vc-WiA"/>
+                            <constraint firstItem="V5H-jN-B5x" firstAttribute="top" secondItem="dy0-7A-Uu2" secondAttribute="bottom" constant="236" id="Ytq-TZ-fMk"/>
+                            <constraint firstItem="85c-4r-xnx" firstAttribute="bottom" secondItem="wI5-w3-Ng1" secondAttribute="top" id="Zsb-dn-Xms"/>
+                            <constraint firstItem="qU7-xy-L8r" firstAttribute="top" secondItem="NDd-x8-SfF" secondAttribute="top" id="dXZ-tO-D7E"/>
+                            <constraint firstItem="qU7-xy-L8r" firstAttribute="leading" secondItem="NDd-x8-SfF" secondAttribute="leading" id="rUX-3D-LEn"/>
+                        </constraints>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="News" id="KCG-74-bwt"/>
+                    <connections>
+                        <outlet property="activityIndicator" destination="V5H-jN-B5x" id="6WS-JL-ksX"/>
+                        <outlet property="backButton" destination="SDu-f0-1Ci" id="NfK-Uo-fCy"/>
+                        <outlet property="forwardButton" destination="CVN-Vh-zc9" id="PbK-sT-bbd"/>
+                        <outlet property="newsWebView" destination="qU7-xy-L8r" id="zv9-bN-JLb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bF3-fn-JNa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2217" y="-630"/>
+        </scene>
         <!--Detail Navigation-->
         <scene sceneID="r7l-gg-dq7">
             <objects>
@@ -235,15 +314,14 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Back" width="21" height="21"/>
         <image name="Einstellungen" width="29" height="29"/>
         <image name="Foerderverein" width="29" height="29"/>
+        <image name="Forward" width="21" height="21"/>
         <image name="Info" width="29" height="29"/>
         <image name="News" width="29" height="29"/>
         <image name="Stundenplan" width="29" height="29"/>
         <image name="Vertretungsplan" width="29" height="29"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="6S0-TO-JiA"/>
-    </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.4965850711" green="0.090104170139999995" blue="0.20509195329999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
