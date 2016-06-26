@@ -115,6 +115,12 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <segue destination="Xvc-7q-NVL" kind="showDetail" id="1G1-r7-eQd">
+                                                <segue key="commit" inheritsFrom="parent" id="mWC-EO-Asu"/>
+                                                <segue key="preview" inheritsFrom="commit" id="3zf-6P-kWC"/>
+                                            </segue>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="gray" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="gnO-Rm-Nbh" imageView="zid-bg-DHS" style="IBUITableViewCellStyleDefault" id="yOE-Ci-C8p">
                                         <rect key="frame" x="0.0" y="187" width="600" height="44"/>
@@ -225,11 +231,16 @@
         <!--News Navigation-->
         <scene sceneID="4nI-Y8-CVT">
             <objects>
-                <navigationController title="News Navigation" id="nES-sr-tO5" sceneMemberID="viewController">
+                <navigationController title="News Navigation" toolbarHidden="NO" id="nES-sr-tO5" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="D4g-Ti-s7k">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="dtm-NK-YMT">
+                        <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.4965850711" green="0.090104170139999995" blue="0.20509195329999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </toolbar>
                     <connections>
                         <segue destination="2tO-oP-TeD" kind="relationship" relationship="rootViewController" id="D2b-Ts-sbb"/>
                     </connections>
@@ -258,48 +269,170 @@
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="V5H-jN-B5x">
                                 <rect key="frame" x="290" y="300" width="20" height="20"/>
                             </activityIndicatorView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="85c-4r-xnx">
-                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
-                                <items>
-                                    <barButtonItem enabled="NO" image="Back" id="SDu-f0-1Ci">
-                                        <connections>
-                                            <action selector="goBack" destination="qU7-xy-L8r" id="kfa-GS-spd"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="G0C-NC-vPb"/>
-                                    <barButtonItem enabled="NO" image="Forward" id="CVN-Vh-zc9">
-                                        <connections>
-                                            <action selector="goForward" destination="qU7-xy-L8r" id="WZn-dL-Kfb"/>
-                                        </connections>
-                                    </barButtonItem>
-                                </items>
-                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="V5H-jN-B5x" firstAttribute="centerX" secondItem="85c-4r-xnx" secondAttribute="centerX" id="0xD-kO-8YX"/>
-                            <constraint firstItem="qU7-xy-L8r" firstAttribute="leading" secondItem="85c-4r-xnx" secondAttribute="leading" id="1ea-10-atq"/>
-                            <constraint firstAttribute="trailing" secondItem="qU7-xy-L8r" secondAttribute="trailing" id="8Ud-46-S7l"/>
-                            <constraint firstItem="qU7-xy-L8r" firstAttribute="trailing" secondItem="85c-4r-xnx" secondAttribute="trailing" id="JIz-od-lUY"/>
-                            <constraint firstItem="85c-4r-xnx" firstAttribute="top" secondItem="qU7-xy-L8r" secondAttribute="bottom" id="QtU-vc-WiA"/>
-                            <constraint firstItem="V5H-jN-B5x" firstAttribute="top" secondItem="dy0-7A-Uu2" secondAttribute="bottom" constant="236" id="Ytq-TZ-fMk"/>
-                            <constraint firstItem="85c-4r-xnx" firstAttribute="bottom" secondItem="wI5-w3-Ng1" secondAttribute="top" id="Zsb-dn-Xms"/>
-                            <constraint firstItem="qU7-xy-L8r" firstAttribute="top" secondItem="NDd-x8-SfF" secondAttribute="top" id="dXZ-tO-D7E"/>
-                            <constraint firstItem="qU7-xy-L8r" firstAttribute="leading" secondItem="NDd-x8-SfF" secondAttribute="leading" id="rUX-3D-LEn"/>
+                            <constraint firstItem="qU7-xy-L8r" firstAttribute="centerX" secondItem="V5H-jN-B5x" secondAttribute="centerX" id="C86-QQ-sie"/>
+                            <constraint firstItem="qU7-xy-L8r" firstAttribute="top" secondItem="NDd-x8-SfF" secondAttribute="top" id="VjG-Er-zt0"/>
+                            <constraint firstItem="V5H-jN-B5x" firstAttribute="top" secondItem="dy0-7A-Uu2" secondAttribute="bottom" constant="236" id="gos-pj-Vbq"/>
+                            <constraint firstItem="qU7-xy-L8r" firstAttribute="bottom" secondItem="wI5-w3-Ng1" secondAttribute="top" id="jXB-eX-LGS"/>
+                            <constraint firstItem="qU7-xy-L8r" firstAttribute="leading" secondItem="NDd-x8-SfF" secondAttribute="leading" id="ulJ-OD-ysT"/>
+                            <constraint firstAttribute="trailing" secondItem="qU7-xy-L8r" secondAttribute="trailing" id="w9W-LS-ur7"/>
                         </constraints>
                     </view>
-                    <toolbarItems/>
+                    <toolbarItems>
+                        <barButtonItem enabled="NO" image="Back" id="yPr-dV-z2K">
+                            <connections>
+                                <action selector="goBack" destination="qU7-xy-L8r" id="ABQ-cf-ffH"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="VNB-no-GN1"/>
+                        <barButtonItem enabled="NO" image="Forward" id="l0S-Zy-fpb">
+                            <connections>
+                                <action selector="goForward" destination="qU7-xy-L8r" id="G1X-tW-hgw"/>
+                            </connections>
+                        </barButtonItem>
+                    </toolbarItems>
                     <navigationItem key="navigationItem" title="News" id="KCG-74-bwt"/>
                     <connections>
                         <outlet property="activityIndicator" destination="V5H-jN-B5x" id="6WS-JL-ksX"/>
-                        <outlet property="backButton" destination="SDu-f0-1Ci" id="NfK-Uo-fCy"/>
-                        <outlet property="forwardButton" destination="CVN-Vh-zc9" id="PbK-sT-bbd"/>
+                        <outlet property="backButton" destination="yPr-dV-z2K" id="zXF-RB-Mbr"/>
+                        <outlet property="forwardButton" destination="l0S-Zy-fpb" id="NSN-IU-fyo"/>
                         <outlet property="newsWebView" destination="qU7-xy-L8r" id="zv9-bN-JLb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bF3-fn-JNa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2217" y="-630"/>
+        </scene>
+        <!--Stundenplan-->
+        <scene sceneID="GGK-Cd-Np8">
+            <objects>
+                <tableViewController title="Stundenplan" id="vVQ-g4-vcA" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="SAg-A9-9QK">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="gray" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="StundenplanTableViewCell" textLabel="4o3-Cy-m74" style="IBUITableViewCellStyleDefault" id="trg-t9-naH">
+                                <rect key="frame" x="0.0" y="114" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="trg-t9-naH" id="Sna-Ox-tmY">
+                                    <rect key="frame" x="0.0" y="0.0" width="567" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="4o3-Cy-m74">
+                                            <rect key="frame" x="15" y="0.0" width="550" height="43"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <sections/>
+                        <connections>
+                            <outlet property="dataSource" destination="vVQ-g4-vcA" id="lrS-pC-ac7"/>
+                            <outlet property="delegate" destination="vVQ-g4-vcA" id="UHj-u6-YDq"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Stundenplan" id="3gs-b6-s4l"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MKo-zB-JdX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2279" y="129"/>
+        </scene>
+        <!--Stunden-->
+        <scene sceneID="DaN-IN-ORB">
+            <objects>
+                <tableViewController storyboardIdentifier="StundenTableViewController" title="Stunden" id="2Vb-iL-eTL" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="A98-01-Ol2">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" textLabel="Ao4-Wv-Fs7" style="IBUITableViewCellStyleDefault" id="aiY-Hl-Pnq">
+                                <rect key="frame" x="0.0" y="114" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aiY-Hl-Pnq" id="xVs-xI-1nq">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ao4-Wv-Fs7">
+                                            <rect key="frame" x="15" y="0.0" width="570" height="43"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <sections/>
+                        <connections>
+                            <outlet property="dataSource" destination="2Vb-iL-eTL" id="HwD-Jz-lWZ"/>
+                            <outlet property="delegate" destination="2Vb-iL-eTL" id="8et-QN-MzD"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Stunden" id="8uL-pM-9Pf">
+                        <barButtonItem key="rightBarButtonItem" title="Bearbeiten" id="JWr-4D-jvL">
+                            <color key="tintColor" red="0.4965850711" green="0.090104170139999995" blue="0.20509195329999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="W6s-xi-L3J" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3042" y="129"/>
+        </scene>
+        <!--Stundenplan Web-->
+        <scene sceneID="XCH-0p-IQh">
+            <objects>
+                <viewController storyboardIdentifier="WebStundenplanViewController" title="Stundenplan Web" id="JOv-Oh-0dj" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="CyS-0C-VmV"/>
+                        <viewControllerLayoutGuide type="bottom" id="NaB-CA-PS6"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="a6t-85-Rtj">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" fixedFrame="YES" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="feR-Bk-u1o">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                                <dataDetectorType key="dataDetectorTypes" link="YES"/>
+                            </webView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="bq3-Fp-v3i">
+                                <rect key="frame" x="290" y="290" width="20" height="20"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Stundenplan (Web)" id="w3P-2t-kKi"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="N8W-bU-Ubx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3785" y="129"/>
+        </scene>
+        <!--Stundenplan Navigation-->
+        <scene sceneID="F2E-dq-tmf">
+            <objects>
+                <navigationController title="Stundenplan Navigation" id="Xvc-7q-NVL" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="XCL-58-GUc">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="vVQ-g4-vcA" kind="relationship" relationship="rootViewController" id="34G-2F-kKl"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qV4-M4-iGE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1459" y="129"/>
         </scene>
         <!--Detail Navigation-->
         <scene sceneID="r7l-gg-dq7">
@@ -329,6 +462,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="SlM-or-BoR"/>
+        <segue reference="1G1-r7-eQd"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.4965850711" green="0.090104170139999995" blue="0.20509195329999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
