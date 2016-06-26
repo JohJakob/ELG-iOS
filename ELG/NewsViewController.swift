@@ -33,6 +33,15 @@ class NewsViewController: UIViewController, UIWebViewDelegate {
       // Load News website
       
       self.newsWebView.loadRequest(NSURLRequest(URL: NSURL(string: "http://elg-halle.de/Aktuell/News/news.asp")!))
+    } else {
+      // Load No Internet Connection website
+      
+      self.newsWebView.loadRequest(NSURLRequest(URL: NSBundle.mainBundle().URLForResource("noInternet", withExtension: ".html")!))
+      
+      // Show alert
+      
+      let noInternetAlert = UIAlertView(title: "Keine Internetverbindung", message: "Es besteht keine Verbindung zum Internet. Bitte überprüfe Deine Einstellungen.", delegate: self, cancelButtonTitle: "OK")
+      noInternetAlert.show()
     }
   }
   
@@ -69,7 +78,7 @@ class NewsViewController: UIViewController, UIWebViewDelegate {
     
     activityIndicator.stopAnimating()
     
-    // Show Alert
+    // Show alert
     
     let webViewErrorAlert = UIAlertView(title: "Fehler", message: "Beim Laden ist ein Fehler aufgetreten.", delegate: self, cancelButtonTitle: "OK")
     webViewErrorAlert.show()
