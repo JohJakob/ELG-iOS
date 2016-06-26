@@ -11,10 +11,10 @@ import UIKit
 class NewsViewController: UIViewController, UIWebViewDelegate {
   // Outlets
   
-  @IBOutlet var newsWebView: UIWebView!
-  @IBOutlet var backButton: UIBarButtonItem!
-  @IBOutlet var forwardButton: UIBarButtonItem!
-  @IBOutlet var activityIndicator: UIActivityIndicatorView!
+  @IBOutlet weak private var newsWebView: UIWebView!
+  @IBOutlet weak private var backButton: UIBarButtonItem!
+  @IBOutlet weak private var forwardButton: UIBarButtonItem!
+  @IBOutlet weak private var activityIndicator: UIActivityIndicatorView!
   
   // Variables
   
