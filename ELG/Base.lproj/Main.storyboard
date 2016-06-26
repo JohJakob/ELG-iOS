@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Segues with Peek and Pop" minToolsVersion="7.1"/>
     </dependencies>
     <scenes>
         <!--ELG-->
@@ -87,7 +88,10 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
-                                            <segue destination="nES-sr-tO5" kind="showDetail" id="SlM-or-BoR"/>
+                                            <segue destination="nES-sr-tO5" kind="showDetail" id="SlM-or-BoR">
+                                                <segue key="commit" inheritsFrom="parent" id="6hA-HO-Moc"/>
+                                                <segue key="preview" inheritsFrom="commit" id="hfU-At-nJB"/>
+                                            </segue>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="gray" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="KPo-6t-thG" imageView="vV6-6o-Kq6" style="IBUITableViewCellStyleDefault" id="2Sm-fR-Zzg">
@@ -323,5 +327,8 @@
         <image name="Stundenplan" width="29" height="29"/>
         <image name="Vertretungsplan" width="29" height="29"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="SlM-or-BoR"/>
+    </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.4965850711" green="0.090104170139999995" blue="0.20509195329999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
