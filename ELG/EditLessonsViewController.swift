@@ -30,23 +30,28 @@ class EditLessonsViewController: UITableViewController {
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
     
-    // Check selected day to retrieve lessons
+    // Check selected day to retrieve lessons and set navigation bar title
     
     switch defaults.integerForKey("selectedDay") {
     case 0:
       lessons = defaults.stringArrayForKey("monday")
+      navigationItem.title = "Montag"
       break
     case 1:
       lessons = defaults.stringArrayForKey("tuesday")
+      navigationItem.title = "Dienstag"
       break
     case 2:
       lessons = defaults.stringArrayForKey("wednesday")
+      navigationItem.title = "Mittwoch"
       break
     case 3:
       lessons = defaults.stringArrayForKey("thursday")
+      navigationItem.title = "Donnerstag"
       break
     case 4:
       lessons = defaults.stringArrayForKey("friday")
+      navigationItem.title = "Freitag"
       break
     default:
       break
