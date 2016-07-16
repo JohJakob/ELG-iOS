@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B960D7811D35464E00BCA477 /* EditScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B960D7801D35464E00BCA477 /* EditScheduleViewController.swift */; };
+		B960D7831D3547FA00BCA477 /* EditLessonsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B960D7821D3547FA00BCA477 /* EditLessonsViewController.swift */; };
+		B960D7851D37F68F00BCA477 /* SubjectsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B960D7841D37F68F00BCA477 /* SubjectsViewController.swift */; };
 		B9B5C4D51D1D494800777BD9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B5C4D41D1D494800777BD9 /* AppDelegate.swift */; };
 		B9B5C4D71D1D494800777BD9 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B5C4D61D1D494800777BD9 /* MasterViewController.swift */; };
 		B9B5C4D91D1D494800777BD9 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B5C4D81D1D494800777BD9 /* StartViewController.swift */; };
@@ -16,9 +19,15 @@
 		B9B5C4F01D1D80C200777BD9 /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B5C4EF1D1D80C200777BD9 /* NewsViewController.swift */; };
 		B9B5C4F51D1ECB7900777BD9 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = B9B5C4F41D1ECB7900777BD9 /* Reachability.m */; };
 		B9B5C4F71D1FA6D000777BD9 /* noInternet.html in Resources */ = {isa = PBXBuildFile; fileRef = B9B5C4F61D1FA6D000777BD9 /* noInternet.html */; };
+		B9B5C4F91D1FDA9F00777BD9 /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B5C4F81D1FDA9F00777BD9 /* ScheduleViewController.swift */; };
+		B9B5C4FB1D1FFF6100777BD9 /* LessonsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B5C4FA1D1FFF6100777BD9 /* LessonsViewController.swift */; };
+		B9CCE7D61D20FE3B00F44447 /* WebScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CCE7D51D20FE3B00F44447 /* WebScheduleViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B960D7801D35464E00BCA477 /* EditScheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditScheduleViewController.swift; sourceTree = "<group>"; };
+		B960D7821D3547FA00BCA477 /* EditLessonsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditLessonsViewController.swift; sourceTree = "<group>"; };
+		B960D7841D37F68F00BCA477 /* SubjectsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubjectsViewController.swift; sourceTree = "<group>"; };
 		B9B5C4D11D1D494800777BD9 /* ELG.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ELG.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9B5C4D41D1D494800777BD9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B9B5C4D61D1D494800777BD9 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
@@ -33,6 +42,9 @@
 		B9B5C4F31D1ECB7900777BD9 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		B9B5C4F41D1ECB7900777BD9 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		B9B5C4F61D1FA6D000777BD9 /* noInternet.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = noInternet.html; sourceTree = "<group>"; };
+		B9B5C4F81D1FDA9F00777BD9 /* ScheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
+		B9B5C4FA1D1FFF6100777BD9 /* LessonsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LessonsViewController.swift; sourceTree = "<group>"; };
+		B9CCE7D51D20FE3B00F44447 /* WebScheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebScheduleViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +101,12 @@
 				B9B5C4D61D1D494800777BD9 /* MasterViewController.swift */,
 				B9B5C4D81D1D494800777BD9 /* StartViewController.swift */,
 				B9B5C4EF1D1D80C200777BD9 /* NewsViewController.swift */,
+				B9B5C4F81D1FDA9F00777BD9 /* ScheduleViewController.swift */,
+				B9B5C4FA1D1FFF6100777BD9 /* LessonsViewController.swift */,
+				B9CCE7D51D20FE3B00F44447 /* WebScheduleViewController.swift */,
+				B960D7801D35464E00BCA477 /* EditScheduleViewController.swift */,
+				B960D7821D3547FA00BCA477 /* EditLessonsViewController.swift */,
+				B960D7841D37F68F00BCA477 /* SubjectsViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -203,11 +221,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B960D7851D37F68F00BCA477 /* SubjectsViewController.swift in Sources */,
+				B960D7811D35464E00BCA477 /* EditScheduleViewController.swift in Sources */,
 				B9B5C4D91D1D494800777BD9 /* StartViewController.swift in Sources */,
 				B9B5C4D71D1D494800777BD9 /* MasterViewController.swift in Sources */,
 				B9B5C4D51D1D494800777BD9 /* AppDelegate.swift in Sources */,
 				B9B5C4F01D1D80C200777BD9 /* NewsViewController.swift in Sources */,
 				B9B5C4F51D1ECB7900777BD9 /* Reachability.m in Sources */,
+				B9B5C4FB1D1FFF6100777BD9 /* LessonsViewController.swift in Sources */,
+				B9CCE7D61D20FE3B00F44447 /* WebScheduleViewController.swift in Sources */,
+				B9B5C4F91D1FDA9F00777BD9 /* ScheduleViewController.swift in Sources */,
+				B960D7831D3547FA00BCA477 /* EditLessonsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -372,6 +396,7 @@
 				B9B5C4E71D1D494800777BD9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -9,14 +9,25 @@
 import UIKit
 
 class MasterViewController: UITableViewController {
-  // var startViewController: StartViewController? = nil
-  var objects = [AnyObject]()
+  // Variables
   
+  // var startViewController: StartViewController? = nil
+  var defaults: NSUserDefaults!
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    // Do any additional setup after loading the view, typically from a nib.
+    // Initialize user defaults
+    
+    if #available(iOS 8, *) {
+      defaults = NSUserDefaults.standardUserDefaults()
+    } else {
+      defaults = NSUserDefaults.init(suiteName: "group.com.hardykrause.elg")
+    }
+    
+    // Set up app
+    
+    setUp()
     
     /* if let split = self.splitViewController {
      let controllers = split.viewControllers
@@ -25,34 +36,60 @@ class MasterViewController: UITableViewController {
   }
   
   override func viewWillAppear(animated: Bool) {
+    super.viewWillAppear(animated)
+    
     if #available(iOS 8.0, *) {
       self.clearsSelectionOnViewWillAppear = self.splitViewController!.collapsed
     }
     
-    super.viewWillAppear(animated)
+    // Remove temporary user defaults
+    
+    removeUserDefaults()
+  }
+  
+  // Custom functions
+  
+  func setUp() {
+    // Set empty schedules
+    
+    let emptySchedule = ["", "", "", "", "", "", "", "", "", ""]
+    let emptyFridaySchedule = ["", "", "", "", "", ""]
+    
+    if defaults.stringArrayForKey("monday") == nil {
+      defaults.setObject(emptySchedule, forKey: "monday")
+    }
+    
+    if defaults.stringArrayForKey("tuesday") == nil {
+      defaults.setObject(emptySchedule, forKey: "tuesday")
+    }
+    
+    if defaults.stringArrayForKey("wednesday") == nil {
+      defaults.setObject(emptySchedule, forKey: "wednesday")
+    }
+    
+    if defaults.stringArrayForKey("thursday") == nil {
+      defaults.setObject(emptySchedule, forKey: "thursday")
+    }
+    
+    if defaults.stringArrayForKey("friday") == nil {
+      defaults.setObject(emptyFridaySchedule, forKey: "friday")
+    }
+    
+    defaults.synchronize()
+  }
+  
+  func removeUserDefaults() {
+    // Remove temporary user defaults
+    
+    defaults.removeObjectForKey("selectedDay")
+    defaults.removeObjectForKey("selectedSubject")
+    defaults.removeObjectForKey("selectedRoom")
+    defaults.synchronize()
   }
   
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
     
-    // Dispose of any resources that can be recreated.
+    print("Memory Warning")
   }
-  
-  /* MARK: - Segues
-   
-   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-   if segue.identifier == "showDetail" {
-   if let indexPath = self.tableView.indexPathForSelectedRow {
-   let object = objects[indexPath.row] as! NSDate
-   let controller = (segue.destinationViewController as! UINavigationController).topViewController as! DetailViewController
-   controller.detailItem = object
-   if #available(iOS 8.0, *) {
-   controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
-   } else {
-   // Fallback on earlier versions
-   }
-   controller.navigationItem.leftItemsSupplementBackButton = true
-   }
-   }
-   } */
 }
