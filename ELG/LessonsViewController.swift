@@ -97,6 +97,18 @@ class LessonsViewController: UITableViewController {
       }
     }
     
+    // Set label as background view if there are no cells
+    
+    if numberOfRows == 0 {
+      let noScheduleLabel = UILabel.init()
+      noScheduleLabel.text = "Keine Stunden eingetragen"
+      noScheduleLabel.textColor = UIColor.lightGrayColor()
+      noScheduleLabel.font = UIFont.systemFontOfSize(16)
+      noScheduleLabel.textAlignment = .Center
+      
+      tableView.backgroundView = noScheduleLabel
+    }
+    
     return numberOfRows
   }
   
