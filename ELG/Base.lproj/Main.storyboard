@@ -55,6 +55,43 @@
             </objects>
             <point key="canvasLocation" x="-856" y="-330"/>
         </scene>
+        <!--Omissions-->
+        <scene sceneID="5CV-1H-sbl">
+            <objects>
+                <tableViewController storyboardIdentifier="OmissionsTableViewController" title="Omissions" id="sMM-Zt-aiz" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="n1B-zA-30a">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <connections>
+                            <outlet property="dataSource" destination="sMM-Zt-aiz" id="ehk-p0-nH8"/>
+                            <outlet property="delegate" destination="sMM-Zt-aiz" id="bzh-bK-Vi6"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Vertretungsplan" id="1fI-oM-WhC">
+                        <barButtonItem key="rightBarButtonItem" image="Download" id="Qc6-iz-92a"/>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="o4B-GQ-MBs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2279" y="896"/>
+        </scene>
+        <!--Omissions Navigation-->
+        <scene sceneID="1sh-LI-qC3">
+            <objects>
+                <navigationController title="Omissions Navigation" id="2Mo-yt-jcI" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="JXS-Ql-7cS">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="sMM-Zt-aiz" kind="relationship" relationship="rootViewController" id="zG6-6M-s6H"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aaW-FI-Cl7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1459" y="896"/>
+        </scene>
         <!--Master-->
         <scene sceneID="smW-Zh-WAh">
             <objects>
@@ -143,6 +180,12 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <segue destination="2Mo-yt-jcI" kind="showDetail" id="YAn-ma-uJI">
+                                                <segue key="commit" inheritsFrom="parent" id="o7w-Si-OOy"/>
+                                                <segue key="preview" inheritsFrom="commit" id="4Oc-oi-fCd"/>
+                                            </segue>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="FaB-pS-wsn" imageView="6bn-k8-BFY" style="IBUITableViewCellStyleDefault" id="IgQ-aN-6b3">
                                         <rect key="frame" x="0.0" y="231" width="600" height="44"/>
@@ -303,7 +346,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bF3-fn-JNa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2217" y="-630"/>
+            <point key="canvasLocation" x="2279" y="-630"/>
         </scene>
         <!--Schedule-->
         <scene sceneID="GGK-Cd-Np8">
@@ -389,7 +432,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W6s-xi-L3J" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3042" y="129"/>
+            <point key="canvasLocation" x="3099" y="129"/>
         </scene>
         <!--Schedule Web-->
         <scene sceneID="XCH-0p-IQh">
@@ -431,7 +474,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N8W-bU-Ubx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3785" y="129"/>
+            <point key="canvasLocation" x="3919" y="129"/>
         </scene>
         <!--Edit Schedule-->
         <scene sceneID="Jgw-N0-QBf">
@@ -470,7 +513,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="emd-Sb-qfn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4536" y="129"/>
+            <point key="canvasLocation" x="4739" y="129"/>
         </scene>
         <!--Edit Lessons-->
         <scene sceneID="vXW-sA-9py">
@@ -509,7 +552,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WXM-Ax-zfq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5294" y="129"/>
+            <point key="canvasLocation" x="5559" y="129"/>
         </scene>
         <!--Subjects-->
         <scene sceneID="SOR-uu-afE">
@@ -548,12 +591,12 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qs7-oX-AuW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6045" y="129"/>
+            <point key="canvasLocation" x="6379" y="129"/>
         </scene>
-        <!--Stundenplan Navigation-->
+        <!--Schedule Navigation-->
         <scene sceneID="F2E-dq-tmf">
             <objects>
-                <navigationController title="Stundenplan Navigation" id="Xvc-7q-NVL" sceneMemberID="viewController">
+                <navigationController title="Schedule Navigation" id="Xvc-7q-NVL" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="XCL-58-GUc">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -584,6 +627,7 @@
     </scenes>
     <resources>
         <image name="Back" width="21" height="21"/>
+        <image name="Download" width="21" height="21"/>
         <image name="Einstellungen" width="29" height="29"/>
         <image name="Foerderverein" width="29" height="29"/>
         <image name="Forward" width="21" height="21"/>
@@ -593,6 +637,7 @@
         <image name="Vertretungsplan" width="29" height="29"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="YAn-ma-uJI"/>
         <segue reference="SlM-or-BoR"/>
         <segue reference="1G1-r7-eQd"/>
     </inferredMetricsTieBreakers>

@@ -22,6 +22,7 @@
 		B9B5C4F91D1FDA9F00777BD9 /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B5C4F81D1FDA9F00777BD9 /* ScheduleViewController.swift */; };
 		B9B5C4FB1D1FFF6100777BD9 /* LessonsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B5C4FA1D1FFF6100777BD9 /* LessonsViewController.swift */; };
 		B9CCE7D61D20FE3B00F44447 /* WebScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CCE7D51D20FE3B00F44447 /* WebScheduleViewController.swift */; };
+		B9F590C31D3BE9BF00562E17 /* OmissionsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9F590C11D3BE9BF00562E17 /* OmissionsTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +46,7 @@
 		B9B5C4F81D1FDA9F00777BD9 /* ScheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
 		B9B5C4FA1D1FFF6100777BD9 /* LessonsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LessonsViewController.swift; sourceTree = "<group>"; };
 		B9CCE7D51D20FE3B00F44447 /* WebScheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebScheduleViewController.swift; sourceTree = "<group>"; };
+		B9F590C21D3BE9BF00562E17 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/OmissionsTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +93,7 @@
 			children = (
 				B9B5C4DA1D1D494800777BD9 /* Main.storyboard */,
 				B9B5C4DF1D1D494800777BD9 /* LaunchScreen.storyboard */,
+				B9F590C11D3BE9BF00562E17 /* OmissionsTableViewCell.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -211,6 +214,7 @@
 				B9B5C4E11D1D494800777BD9 /* LaunchScreen.storyboard in Resources */,
 				B9B5C4DE1D1D494800777BD9 /* Assets.xcassets in Resources */,
 				B9B5C4DC1D1D494800777BD9 /* Main.storyboard in Resources */,
+				B9F590C31D3BE9BF00562E17 /* OmissionsTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -252,6 +256,14 @@
 				B9B5C4E01D1D494800777BD9 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		B9F590C11D3BE9BF00562E17 /* OmissionsTableViewCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B9F590C21D3BE9BF00562E17 /* Base */,
+			);
+			name = OmissionsTableViewCell.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
