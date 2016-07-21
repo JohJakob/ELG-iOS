@@ -48,7 +48,7 @@ class MasterViewController: UITableViewController {
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
     
-    if #available(iOS 8.0, *) {
+    if #available(iOS 8, *) {
       self.clearsSelectionOnViewWillAppear = self.splitViewController!.collapsed
     }
     
