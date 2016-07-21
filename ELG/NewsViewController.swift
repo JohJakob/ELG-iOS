@@ -22,27 +22,8 @@ class NewsViewController: UIViewController, UIWebViewDelegate {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    
-    // Set Web View delegate
-    
-    newsWebView.delegate = self
-    
-    // Check Internet reachability
-    
-    if reachabilityStatus != NotReachable {
-      // Load News website
-      
-      newsWebView.loadRequest(NSURLRequest(URL: NSURL(string: "http://elg-halle.de/Aktuell/News/news.asp")!))
-    } else {
-      // Load No Internet Connection website
-      
-      newsWebView.loadRequest(NSURLRequest(URL: NSBundle.mainBundle().URLForResource("noInternet", withExtension: ".html")!))
-      
-      // Show alert
-      
-      let noInternetAlert = UIAlertView(title: "Keine Internetverbindung", message: "Es besteht keine Verbindung zum Internet. Bitte überprüfe Deine Einstellungen.", delegate: self, cancelButtonTitle: "OK")
-      noInternetAlert.show()
-    }
+
+    loadNews()
   }
   
   // Web View functions
@@ -82,6 +63,31 @@ class NewsViewController: UIViewController, UIWebViewDelegate {
     
     let webViewErrorAlert = UIAlertView(title: "Fehler", message: "Beim Laden ist ein Fehler aufgetreten.", delegate: self, cancelButtonTitle: "OK")
     webViewErrorAlert.show()
+  }
+  
+  // Custom functions
+  
+  func loadNews() {
+    // Set web view delegate
+    
+    newsWebView.delegate = self
+    
+    // Check internet reachability
+    
+    if reachabilityStatus != NotReachable {
+      // Load news website
+      
+      newsWebView.loadRequest(NSURLRequest(URL: NSURL(string: "http://elg-halle.de/Aktuell/News/news.asp")!))
+    } else {
+      // Load message website
+      
+      newsWebView.loadRequest(NSURLRequest(URL: NSBundle.mainBundle().URLForResource("noInternet", withExtension: ".html")!))
+      
+      // Show alert
+      
+      let noInternetAlert = UIAlertView(title: "Keine Internetverbindung", message: "Es besteht keine Verbindung zum Internet. Bitte überprüfe Deine Einstellungen.", delegate: self, cancelButtonTitle: "OK")
+      noInternetAlert.show()
+    }
   }
   
   override func didReceiveMemoryWarning() {
