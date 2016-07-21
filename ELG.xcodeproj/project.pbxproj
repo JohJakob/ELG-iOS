@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B9562A6E1D4126B3001BD19E /* OmissionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9562A6D1D4126B3001BD19E /* OmissionsViewController.swift */; };
 		B960D7811D35464E00BCA477 /* EditScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B960D7801D35464E00BCA477 /* EditScheduleViewController.swift */; };
 		B960D7831D3547FA00BCA477 /* EditLessonsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B960D7821D3547FA00BCA477 /* EditLessonsViewController.swift */; };
 		B960D7851D37F68F00BCA477 /* SubjectsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B960D7841D37F68F00BCA477 /* SubjectsViewController.swift */; };
@@ -26,6 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B9562A6D1D4126B3001BD19E /* OmissionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OmissionsViewController.swift; sourceTree = "<group>"; };
 		B960D7801D35464E00BCA477 /* EditScheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditScheduleViewController.swift; sourceTree = "<group>"; };
 		B960D7821D3547FA00BCA477 /* EditLessonsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditLessonsViewController.swift; sourceTree = "<group>"; };
 		B960D7841D37F68F00BCA477 /* SubjectsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubjectsViewController.swift; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 				B960D7801D35464E00BCA477 /* EditScheduleViewController.swift */,
 				B960D7821D3547FA00BCA477 /* EditLessonsViewController.swift */,
 				B960D7841D37F68F00BCA477 /* SubjectsViewController.swift */,
+				B9562A6D1D4126B3001BD19E /* OmissionsViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -236,6 +239,7 @@
 				B9CCE7D61D20FE3B00F44447 /* WebScheduleViewController.swift in Sources */,
 				B9B5C4F91D1FDA9F00777BD9 /* ScheduleViewController.swift in Sources */,
 				B960D7831D3547FA00BCA477 /* EditLessonsViewController.swift in Sources */,
+				B9562A6E1D4126B3001BD19E /* OmissionsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
