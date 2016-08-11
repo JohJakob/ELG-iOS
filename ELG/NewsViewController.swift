@@ -81,7 +81,7 @@ class NewsViewController: UIViewController, UIWebViewDelegate {
     } else {
       // Load message website
       
-      newsWebView.loadRequest(NSURLRequest(URL: NSBundle.mainBundle().URLForResource("noInternet", withExtension: ".html")!))
+      newsWebView.loadRequest(NSURLRequest(URL: NSBundle.mainBundle().URLForResource("NoConnection", withExtension: ".html")!))
       
       // Show alert
       

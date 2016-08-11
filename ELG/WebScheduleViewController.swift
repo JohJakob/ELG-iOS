@@ -103,7 +103,7 @@ class WebScheduleViewController: UIViewController, UIWebViewDelegate {
     } else {
       // Load No Internet Connection website
       
-      scheduleWebView.loadRequest(NSURLRequest(URL: NSBundle.mainBundle().URLForResource("noInternet", withExtension: ".html")!))
+      scheduleWebView.loadRequest(NSURLRequest(URL: NSBundle.mainBundle().URLForResource("NoConnection", withExtension: ".html")!))
       
       // Show alert
       
