@@ -42,7 +42,7 @@ class WebScheduleViewController: UIViewController, UIWebViewDelegate {
       // Get user defaults
       
       let grade = defaults.integerForKey("grade")
-      let contraction = defaults.stringForKey("contraction")
+      let token = defaults.stringForKey("token")
       
       // Set schedule URL
       
@@ -90,10 +90,10 @@ class WebScheduleViewController: UIViewController, UIWebViewDelegate {
       if url == "http://www.elg-halle.de/Aktuell/Intern/default.aspx?ReturnUrl=/Aktuell/Intern/Stundenplaene/schueler/stu1.aspx" {
         // Check contraction
         
-        if contraction != "" {
+        if token != "" {
           // Update schedule URL
           
-          url = "http://www.elg-halle.de/Aktuell/Intern/default.aspx?ReturnUrl=/Aktuell/Intern/Stundenplaene/schueler/stu1_" + contraction! + ".aspx"
+          url = "http://www.elg-halle.de/Aktuell/Intern/default.aspx?ReturnUrl=/Aktuell/Intern/Stundenplaene/schueler/stu1_" + token! + ".aspx"
         }
       }
       
