@@ -32,6 +32,68 @@ class WebScheduleViewController: UIViewController, UIWebViewDelegate {
       defaults = NSUserDefaults.init(suiteName: "group.com.hardykrause.elg")
     }
     
+    loadSchedule()
+  }
+  
+  // Web View functions
+  
+  func webViewDidStartLoad(webView: UIWebView) {
+    // Start Activity Indicator
+    
+    activityIndicator.startAnimating()
+  }
+  
+  func webViewDidFinishLoad(webView: UIWebView) {
+    // Stop Activity Indicator
+    
+    activityIndicator.stopAnimating()
+    
+    // Get user defaults
+    
+    let username = defaults.stringForKey("username")
+    let password = defaults.stringForKey("password")
+    
+    // Check Internet reachability
+    
+    if reachabilityStatus != NotReachable {
+      // Get grade user default
+      
+      let grade = defaults.integerForKey("grade")
+      
+      // Log in and load individual schedule website
+      
+      if grade > 25 {
+        if username != "" || password != "" {
+          // Create JavaScript
+          
+          let fillUsernameScript = "var inputFields = document.getElementsByTagName('input'); for (var i = inputFields.length >>> 0; i--;) { if (inputFields[i].name == 'txtBenutzername') { inputFields[i].value = '" + username! + "'; } }"
+          let fillPasswordScript = "for (var i = inputFields.length >>> 0; i--;) { if (inputFields[i].name == 'txtKennwort') { inputFields[i].value = '" + password! + "'; } }"
+          let loginScript = "document.getElementById('btnAnmelden').click();"
+          
+          // Execute JavaScript in Web View
+          
+          scheduleWebView.stringByEvaluatingJavaScriptFromString(fillUsernameScript)
+          scheduleWebView.stringByEvaluatingJavaScriptFromString(fillPasswordScript)
+          scheduleWebView.stringByEvaluatingJavaScriptFromString(loginScript)
+        }
+      }
+    }
+  }
+  
+  func webView(webView: UIWebView, didFailLoadWithError error: NSError?) {
+    // Stop Activity Indicator
+    
+    activityIndicator.stopAnimating()
+    
+    // Show alert
+    
+    let webViewErrorAlert = UIAlertView(title: "Fehler", message: "Beim Laden ist ein Fehler aufgetreten.", delegate: self, cancelButtonTitle: "OK")
+    webViewErrorAlert.show()
+  }
+  
+  // Custom functions
+  
+  func loadSchedule() {
     // Set Web View delegate
     
     scheduleWebView.delegate = self
@@ -112,61 +174,6 @@ class WebScheduleViewController: UIViewController, UIWebViewDelegate {
     }
   }
   
-  // Web View functions
-  
-  func webViewDidStartLoad(webView: UIWebView) {
-    // Start Activity Indicator
-    
-    activityIndicator.startAnimating()
-  }
-  
-  func webViewDidFinishLoad(webView: UIWebView) {
-    // Stop Activity Indicator
-    
-    activityIndicator.stopAnimating()
-    
-    // Get user defaults
-    
-    let username = defaults.stringForKey("username")
-    let password = defaults.stringForKey("password")
-    
-    // Check Internet reachability
-    
-    if reachabilityStatus != NotReachable {
-      // Get grade user default
-      
-      let grade = defaults.integerForKey("grade")
-      
-      // Log in and load individual schedule website
-      
-      if grade > 25 {
-        if username != "" || password != "" {
-          // Create JavaScript
-          
-          let fillUsernameScript = "var inputFields = document.getElementsByTagName('input'); for (var i = inputFields.length >>> 0; i--;) { if (inputFields[i].name == 'txtBenutzername') { inputFields[i].value = '" + username! + "'; } }"
-          let fillPasswordScript = "for (var i = inputFields.length >>> 0; i--;) { if (inputFields[i].name == 'txtKennwort') { inputFields[i].value = '" + password! + "'; } }"
-          let loginScript = "document.getElementById('btnAnmelden').click();"
-          
-          // Execute JavaScript in Web View
-          
-          scheduleWebView.stringByEvaluatingJavaScriptFromString(fillUsernameScript)
-          scheduleWebView.stringByEvaluatingJavaScriptFromString(fillPasswordScript)
-          scheduleWebView.stringByEvaluatingJavaScriptFromString(loginScript)
-        }
-      }
-    }
-  }
-  
-  func webView(webView: UIWebView, didFailLoadWithError error: NSError?) {
-    // Stop Activity Indicator
-    
-    activityIndicator.stopAnimating()
-    
-    // Show alert
-    
-    let webViewErrorAlert = UIAlertView(title: "Fehler", message: "Beim Laden ist ein Fehler aufgetreten.", delegate: self, cancelButtonTitle: "OK")
-    webViewErrorAlert.show()
-  }
   
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
