@@ -58,7 +58,7 @@
         <!--Omissions-->
         <scene sceneID="5CV-1H-sbl">
             <objects>
-                <tableViewController storyboardIdentifier="OmissionsTableViewController" title="Omissions" id="sMM-Zt-aiz" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="OmissionsTableViewController" title="Omissions" id="sMM-Zt-aiz" customClass="OmissionsViewController" customModule="ELG" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="n1B-zA-30a">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -71,6 +71,9 @@
                     <navigationItem key="navigationItem" title="Vertretungsplan" id="1fI-oM-WhC">
                         <barButtonItem key="rightBarButtonItem" image="Download" id="Qc6-iz-92a"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="saveButton" destination="Qc6-iz-92a" id="433-ca-CuP"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o4B-GQ-MBs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
