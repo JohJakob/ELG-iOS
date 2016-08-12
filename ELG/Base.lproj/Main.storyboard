@@ -79,6 +79,118 @@
             </objects>
             <point key="canvasLocation" x="2279" y="896"/>
         </scene>
+        <!--Förderverein-->
+        <scene sceneID="7c4-7o-Lan">
+            <objects>
+                <tableViewController title="Förderverein" id="id8-Yf-pWV" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="goN-4v-tuJ">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="FoerdervereinTableViewCell" textLabel="Rar-C3-UPr" detailTextLabel="UVd-sz-Sp7" style="IBUITableViewCellStyleSubtitle" id="sZo-ru-Dsc">
+                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sZo-ru-Dsc" id="XJv-em-rbs">
+                                    <rect key="frame" x="0.0" y="0.0" width="567" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Rar-C3-UPr">
+                                            <rect key="frame" x="15" y="4" width="32" height="20"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="UVd-sz-Sp7">
+                                            <rect key="frame" x="15" y="24" width="44" height="15"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="id8-Yf-pWV" id="XF8-aZ-hZB"/>
+                            <outlet property="delegate" destination="id8-Yf-pWV" id="ICb-q8-n0r"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Förderverein" id="oXh-Ed-Kq3"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Lqr-9e-qlF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2279" y="1719"/>
+        </scene>
+        <!--Förderverein Article-->
+        <scene sceneID="1Cj-FE-h7K">
+            <objects>
+                <viewController title="Förderverein Article" id="wNy-JF-tV1" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="uzA-Ph-45O"/>
+                        <viewControllerLayoutGuide type="bottom" id="gwD-1K-YOZ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="NPY-Hw-xzZ">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4T6-hF-fUr">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                            </webView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="FO4-vu-31j">
+                                <rect key="frame" x="290" y="290" width="20" height="20"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="4T6-hF-fUr" secondAttribute="bottom" id="1h6-uB-X6X"/>
+                            <constraint firstAttribute="trailing" secondItem="4T6-hF-fUr" secondAttribute="trailing" id="3nm-Na-Eip"/>
+                            <constraint firstItem="4T6-hF-fUr" firstAttribute="centerY" secondItem="FO4-vu-31j" secondAttribute="centerY" id="MTZ-fq-CYj"/>
+                            <constraint firstItem="4T6-hF-fUr" firstAttribute="top" secondItem="NPY-Hw-xzZ" secondAttribute="top" id="kJ4-bB-YIB"/>
+                            <constraint firstItem="4T6-hF-fUr" firstAttribute="centerX" secondItem="FO4-vu-31j" secondAttribute="centerX" id="lsV-Qd-74K"/>
+                            <constraint firstItem="4T6-hF-fUr" firstAttribute="leading" secondItem="NPY-Hw-xzZ" secondAttribute="leading" id="ogV-7U-E2u"/>
+                        </constraints>
+                    </view>
+                    <toolbarItems>
+                        <barButtonItem enabled="NO" image="Back" id="uKl-pf-9Rz">
+                            <connections>
+                                <action selector="goBack" destination="4T6-hF-fUr" id="YVw-sb-kE5"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="d4x-lC-TUL"/>
+                        <barButtonItem enabled="NO" image="Forward" id="STq-EP-YZI">
+                            <connections>
+                                <action selector="goForward" destination="4T6-hF-fUr" id="sSj-BA-MrH"/>
+                            </connections>
+                        </barButtonItem>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" title="Article" id="86m-aV-VfN"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Hxl-dz-GIa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3099" y="1719"/>
+        </scene>
+        <!--Förderverein Navigation-->
+        <scene sceneID="saQ-my-DD2">
+            <objects>
+                <navigationController title="Förderverein Navigation" id="YFU-oK-ycP" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="gQL-Ep-YBa">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="id8-Yf-pWV" kind="relationship" relationship="rootViewController" id="3u5-5B-QxZ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2rJ-pG-Jgq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1459" y="1719"/>
+        </scene>
         <!--Omissions Navigation-->
         <scene sceneID="1sh-LI-qC3">
             <objects>
@@ -211,6 +323,9 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <segue destination="YFU-oK-ycP" kind="showDetail" trigger="accessoryAction" id="158-3H-Ua3"/>
+                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
