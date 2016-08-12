@@ -16,10 +16,6 @@ class NewsViewController: UIViewController, UIWebViewDelegate {
   @IBOutlet weak private var forwardButton: UIBarButtonItem!
   @IBOutlet weak private var activityIndicator: UIActivityIndicatorView!
   
-  // Constants
-  
-  let reachabilityStatus: NetworkStatus = Reachability.reachabilityForInternetConnection().currentReachabilityStatus()
-  
   override func viewDidLoad() {
     super.viewDidLoad()
 
@@ -73,6 +69,8 @@ class NewsViewController: UIViewController, UIWebViewDelegate {
     newsWebView.delegate = self
     
     // Check internet reachability
+    
+    let reachabilityStatus: NetworkStatus = Reachability.reachabilityForInternetConnection().currentReachabilityStatus()
     
     if reachabilityStatus != NotReachable {
       // Load news website
