@@ -85,8 +85,8 @@ class NewsViewController: UIViewController, UIWebViewDelegate {
       
       // Show alert
       
-      let noInternetAlert = UIAlertView(title: "Keine Internetverbindung", message: "Es besteht keine Verbindung zum Internet. Bitte überprüfe Deine Einstellungen.", delegate: self, cancelButtonTitle: "OK")
-      noInternetAlert.show()
+      let noConnectionAlert = UIAlertView(title: "Keine Internetverbindung", message: "Es besteht keine Verbindung zum Internet. Bitte überprüfe Deine Einstellungen.", delegate: self, cancelButtonTitle: "OK")
+      noConnectionAlert.show()
     }
   }
   
