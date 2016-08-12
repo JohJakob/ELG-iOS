@@ -8,7 +8,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="OmissionsTableViewCell" rowHeight="65" id="WjA-fD-fE3">
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="OmissionsTableViewCell" rowHeight="65" id="WjA-fD-fE3" customClass="OmissionsTableViewCell" customModule="ELG" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="320" height="65"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WjA-fD-fE3" id="jBU-PH-LKa">
@@ -54,6 +54,11 @@
                     <constraint firstItem="CbW-YO-wCe" firstAttribute="trailing" secondItem="18K-q4-yu0" secondAttribute="trailing" id="uH3-Ja-1NM"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="DetailsLabel" destination="18K-q4-yu0" id="ZlS-t7-Tyl"/>
+                <outlet property="GradeLabel" destination="vid-3p-za1" id="m4R-iL-t4a"/>
+                <outlet property="LessonLabel" destination="CbW-YO-wCe" id="ms4-Vn-yrQ"/>
+            </connections>
             <point key="canvasLocation" x="408" y="400.5"/>
         </tableViewCell>
     </objects>
