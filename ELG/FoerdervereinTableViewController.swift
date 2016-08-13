@@ -33,7 +33,7 @@ class FoerdervereinTableViewController: UITableViewController {
     
     let articlesRefreshControl = UIRefreshControl.init()
     
-    articlesRefreshControl.addTarget(self, action: #selector(FoerdervereinViewController.refreshTableView), forControlEvents: .ValueChanged)
+    articlesRefreshControl.addTarget(self, action: #selector(FoerdervereinTableViewController.refreshTableView), forControlEvents: .ValueChanged)
     
     refreshControl = articlesRefreshControl
     
