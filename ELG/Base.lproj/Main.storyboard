@@ -324,7 +324,10 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
-                                            <segue destination="YFU-oK-ycP" kind="showDetail" id="itS-eF-Jlu"/>
+                                            <segue destination="YFU-oK-ycP" kind="showDetail" id="itS-eF-Jlu">
+                                                <segue key="commit" inheritsFrom="parent" id="vkJ-ND-Ghf"/>
+                                                <segue key="preview" inheritsFrom="commit" id="qIc-nf-4u5"/>
+                                            </segue>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -756,8 +759,9 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="1G1-r7-eQd"/>
-        <segue reference="YAn-ma-uJI"/>
+        <segue reference="itS-eF-Jlu"/>
         <segue reference="SlM-or-BoR"/>
+        <segue reference="YAn-ma-uJI"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.4965850711" green="0.090104170139999995" blue="0.20509195329999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
