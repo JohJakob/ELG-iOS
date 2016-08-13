@@ -64,6 +64,8 @@ class OmissionsViewController: UITableViewController {
     } else {
       numberOfSections = 0
       
+      // Display label instead of table view
+      
       let noConnectionLabel = UILabel.init()
       noConnectionLabel.text = "Keine Internetverbindung"
       noConnectionLabel.textColor = UIColor.lightGrayColor()
