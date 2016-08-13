@@ -1,5 +1,5 @@
 //
-//  FoerdervereinTableViewController.swift
+//  FoerdervereinViewController.swift
 //  ELG
 //
 //  Created by Johannes Jakob on 13/08/2016
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FoerdervereinTableViewController: UITableViewController {
+class FoerdervereinViewController: UITableViewController {
   // Variables
   
   var defaults: NSUserDefaults!
@@ -33,7 +33,7 @@ class FoerdervereinTableViewController: UITableViewController {
     
     let articlesRefreshControl = UIRefreshControl.init()
     
-    articlesRefreshControl.addTarget(self, action: #selector(FoerdervereinTableViewController.refreshTableView), forControlEvents: .ValueChanged)
+    articlesRefreshControl.addTarget(self, action: #selector(FoerdervereinViewController.refreshTableView), forControlEvents: .ValueChanged)
     
     refreshControl = articlesRefreshControl
     
