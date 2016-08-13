@@ -57,8 +57,8 @@ class FoerdervereinTableViewController: UITableViewController {
       noConnectionLabel.font = UIFont.systemFontOfSize(16)
       noConnectionLabel.textAlignment = .Center
       
-      tableView.separatorStyle = .None
       tableView.backgroundColor = UIColor.groupTableViewBackgroundColor()
+      tableView.separatorStyle = .None
       tableView.backgroundView = noConnectionLabel
     }
   }
