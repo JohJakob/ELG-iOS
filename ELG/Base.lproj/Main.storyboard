@@ -324,7 +324,10 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
-                                            <segue destination="YFU-oK-ycP" kind="showDetail" trigger="accessoryAction" id="158-3H-Ua3"/>
+                                            <segue destination="YFU-oK-ycP" kind="showDetail" trigger="accessoryAction" id="158-3H-Ua3">
+                                                <segue key="commit" inheritsFrom="parent" id="LOI-Bf-9K5"/>
+                                                <segue key="preview" inheritsFrom="commit" id="eKh-MC-00g"/>
+                                            </segue>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -755,9 +758,10 @@
         <image name="Settings" width="29" height="29"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="YAn-ma-uJI"/>
-        <segue reference="SlM-or-BoR"/>
+        <segue reference="158-3H-Ua3"/>
         <segue reference="1G1-r7-eQd"/>
+        <segue reference="SlM-or-BoR"/>
+        <segue reference="YAn-ma-uJI"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.4965850711" green="0.090104170139999995" blue="0.20509195329999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
