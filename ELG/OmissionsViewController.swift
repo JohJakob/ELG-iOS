@@ -24,6 +24,13 @@ class OmissionsViewController: UITableViewController {
   var teacherMode = Bool()
   var teacherToken = String()
   let grades = ["5a", "5b", "5c", "5d", "5e", "6a", "6b", "6c", "6d", "6e", "7a", "7b", "7c", "7d", "8a", "8b", "8c", "8d", "9a", "9b", "9c", "9d", "10a", "10b", "10c", "10d", "11a", "11b", "11c", "11d", "11e", "12a", "12b", "12c", "12d", "12e"]
+  
+  // Actions
+  
+  @IBAction func saveButtonTap(sender: UIBarButtonItem) {
+    saveOmissions()
+  }
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     
@@ -72,6 +79,7 @@ class OmissionsViewController: UITableViewController {
       noConnectionLabel.font = UIFont.systemFontOfSize(16)
       noConnectionLabel.textAlignment = .Center
       
+      tableView.backgroundColor = UIColor.groupTableViewBackgroundColor()
       tableView.separatorStyle = .None
       tableView.backgroundView = noConnectionLabel
     }
@@ -236,7 +244,9 @@ class OmissionsViewController: UITableViewController {
     offlineAvailable = defaults.boolForKey("offlineAvailable")
     autoSave = defaults.boolForKey("autoSave")
     teacherMode = defaults.boolForKey("teacherMode")
-    teacherToken = defaults.stringForKey("teacherToken")!
+    // teacherToken = defaults.stringForKey("teacherToken")!
+    
+    teacherToken = ""
     
     // Retrieve offline omissions if available
     
@@ -334,6 +344,11 @@ class OmissionsViewController: UITableViewController {
       
       // Save omissions if setting is activated
       
+      // Reset table view appearance
+      
+      tableView.backgroundColor = UIColor.whiteColor()
+      tableView.separatorStyle = .SingleLine
+      
       // Enable save button
       
       saveButton.enabled = true
@@ -350,6 +365,11 @@ class OmissionsViewController: UITableViewController {
       
       let noConnectionAlert = UIAlertView(title: "Keine Internetverbindung", message: "Es besteht keine Verbindung zum Internet. Bitte überprüfe Deine Einstellungen.", delegate: self, cancelButtonTitle: "OK")
       noConnectionAlert.show()
+      
+      // Change table view appearance
+      
+      tableView.backgroundColor = UIColor.groupTableViewBackgroundColor()
+      tableView.separatorStyle = .None
     }
   }
   
@@ -371,6 +391,15 @@ class OmissionsViewController: UITableViewController {
       // Disable save button
       
       saveButton.enabled = false
+    } else {
+      // Disable save button
+      
+      saveButton.enabled = false
+      
+      // Show alert
+      
+      let noConnectionAlert = UIAlertView(title: "Keine Internetverbindung", message: "Es besteht keine Verbindung zum Internet. Dadurch kann der Vertretungsplan nicht gesichert werden. Bitte überprüfe Deine Einstellungen.", delegate: self, cancelButtonTitle: "OK")
+      noConnectionAlert.show()
     }
   }
   

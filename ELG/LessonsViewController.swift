@@ -17,7 +17,7 @@ class LessonsViewController: UITableViewController {
   
   // Actions
   
-  @IBAction func edit(sender: UIBarButtonItem) {
+  @IBAction func editButtonTap(sender: UIBarButtonItem) {
     navigationController?.pushViewController(editLessonsViewController, animated: true)
   }
   

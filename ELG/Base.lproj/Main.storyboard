@@ -69,10 +69,14 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Vertretungsplan" id="1fI-oM-WhC">
-                        <barButtonItem key="rightBarButtonItem" image="Download" id="Qc6-iz-92a"/>
+                        <barButtonItem key="rightBarButtonItem" image="Download" id="Qc6-iz-92a">
+                            <connections>
+                                <action selector="saveButtonTap:" destination="sMM-Zt-aiz" id="LnG-ou-vcb"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="saveButton" destination="Qc6-iz-92a" id="433-ca-CuP"/>
+                        <outlet property="saveButton" destination="Qc6-iz-92a" id="cU1-zE-JNW"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o4B-GQ-MBs" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -545,7 +549,7 @@
                         <barButtonItem key="rightBarButtonItem" title="Bearbeiten" id="JWr-4D-jvL">
                             <color key="tintColor" red="0.4965850711" green="0.090104170139999995" blue="0.20509195329999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
-                                <action selector="edit:" destination="2Vb-iL-eTL" id="90I-Gs-s9x"/>
+                                <action selector="editButtonTap:" destination="2Vb-iL-eTL" id="WJu-i3-zI5"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
