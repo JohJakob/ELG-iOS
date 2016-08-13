@@ -68,9 +68,17 @@ class ScheduleViewController: UITableViewController {
       defaults.setInteger(indexPath.row, forKey: "selectedDay")
       defaults.synchronize()
       
-      self.navigationController?.pushViewController(lessonsViewController, animated: true)
+      if #available(iOS 8, *) {
+        navigationController?.showViewController(lessonsViewController, sender: self)
+      } else {
+        navigationController?.pushViewController(lessonsViewController, animated: true)
+      }
     } else {
-      self.navigationController?.pushViewController(webScheduleViewController, animated: true)
+      if #available(iOS 8, *) {
+        navigationController?.showViewController(webScheduleViewController, sender: self)
+      } else {
+        navigationController?.pushViewController(webScheduleViewController, animated: true)
+      }
     }
   }
   
