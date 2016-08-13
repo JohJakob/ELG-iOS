@@ -26,6 +26,7 @@
 		B9B5C4F91D1FDA9F00777BD9 /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B5C4F81D1FDA9F00777BD9 /* ScheduleViewController.swift */; };
 		B9B5C4FB1D1FFF6100777BD9 /* LessonsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B5C4FA1D1FFF6100777BD9 /* LessonsViewController.swift */; };
 		B9CBF5711D5F332B00F67682 /* FoerdervereinArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CBF5701D5F332B00F67682 /* FoerdervereinArticleViewController.swift */; };
+		B9CBF5731D5F68BE00F67682 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CBF5721D5F68BE00F67682 /* SettingsViewController.swift */; };
 		B9CCE7D61D20FE3B00F44447 /* WebScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CCE7D51D20FE3B00F44447 /* WebScheduleViewController.swift */; };
 		B9F590C31D3BE9BF00562E17 /* OmissionsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9F590C11D3BE9BF00562E17 /* OmissionsTableViewCell.xib */; };
 /* End PBXBuildFile section */
@@ -55,6 +56,7 @@
 		B9B5C4F81D1FDA9F00777BD9 /* ScheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
 		B9B5C4FA1D1FFF6100777BD9 /* LessonsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LessonsViewController.swift; sourceTree = "<group>"; };
 		B9CBF5701D5F332B00F67682 /* FoerdervereinArticleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoerdervereinArticleViewController.swift; sourceTree = "<group>"; };
+		B9CBF5721D5F68BE00F67682 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		B9CCE7D51D20FE3B00F44447 /* WebScheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebScheduleViewController.swift; sourceTree = "<group>"; };
 		B9F590C21D3BE9BF00562E17 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/OmissionsTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -124,6 +126,7 @@
 				B982C8771D5DF35600B021C9 /* OmissionsTableViewCell.swift */,
 				B95732F21D5F04E800A758AC /* FoerdervereinViewController.swift */,
 				B9CBF5701D5F332B00F67682 /* FoerdervereinArticleViewController.swift */,
+				B9CBF5721D5F68BE00F67682 /* SettingsViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -252,6 +255,7 @@
 				B9B5C4F51D1ECB7900777BD9 /* Reachability.m in Sources */,
 				B9B5C4FB1D1FFF6100777BD9 /* LessonsViewController.swift in Sources */,
 				B982C87A1D5E5EB500B021C9 /* SWXMLHash.swift in Sources */,
+				B9CBF5731D5F68BE00F67682 /* SettingsViewController.swift in Sources */,
 				B9CCE7D61D20FE3B00F44447 /* WebScheduleViewController.swift in Sources */,
 				B9B5C4F91D1FDA9F00777BD9 /* ScheduleViewController.swift in Sources */,
 				B960D7831D3547FA00BCA477 /* EditLessonsViewController.swift in Sources */,
