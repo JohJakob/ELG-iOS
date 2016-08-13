@@ -9,7 +9,7 @@
 import UIKit
 
 class FoerdervereinViewController: UITableViewController {
-  // Variables
+  // Variables + constants
   
   var defaults: NSUserDefaults!
   var items = [[String: String]]()
@@ -17,6 +17,7 @@ class FoerdervereinViewController: UITableViewController {
   var itemTitle = String()
   var itemDescription = String()
   var itemLink = String()
+  let articleViewController = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("FoerdervereinArticleViewController")
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -96,6 +97,18 @@ class FoerdervereinViewController: UITableViewController {
     cell.detailTextLabel!.text = items[indexPath.row]["description"]
     
     return cell
+  }
+  
+  override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    // Save user defaults
+    
+    defaults.setValue(items[indexPath.row]["title"], forKey: "selectedArticleTitle")
+    defaults.setValue(items[indexPath.row]["link"], forKey: "selectedArticleLink")
+    defaults.synchronize()
+    
+    // Push view controller
+    
+    navigationController?.pushViewController(articleViewController, animated: true)
   }
   
   // Custom functions
