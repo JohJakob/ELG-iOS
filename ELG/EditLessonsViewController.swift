@@ -130,7 +130,11 @@ class EditLessonsViewController: UITableViewController {
     defaults.setInteger(indexPath.row, forKey: "selectedLesson")
     defaults.synchronize()
     
-    self.navigationController?.pushViewController(subjectsViewController, animated: true)
+    if #available(iOS 8, *) {
+      navigationController?.showViewController(subjectsViewController, sender: self)
+    } else {
+      navigationController?.pushViewController(subjectsViewController, animated: true)
+    }
   }
   
   override func didReceiveMemoryWarning() {
