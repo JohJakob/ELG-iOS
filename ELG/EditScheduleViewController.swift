@@ -49,7 +49,11 @@ class EditScheduleViewController: UITableViewController {
     defaults.setInteger(indexPath.row, forKey: "selectedDay")
     defaults.synchronize()
     
-    self.navigationController?.pushViewController(editLessonsViewController, animated: true)
+    if #available(iOS 8, *) {
+      navigationController?.showViewController(editLessonsViewController, sender: self)
+    } else {
+      navigationController?.pushViewController(editLessonsViewController, animated: true)
+    }
   }
   
   override func didReceiveMemoryWarning() {
