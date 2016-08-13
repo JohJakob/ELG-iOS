@@ -195,7 +195,7 @@
         <!--Choose grade-->
         <scene sceneID="FCn-6P-xfo">
             <objects>
-                <tableViewController title="Choose grade" id="DYz-4Z-6iZ" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="GradeTableViewController" title="Choose grade" id="DYz-4Z-6iZ" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="xdY-vK-ccN">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -234,7 +234,7 @@
         <!--Login-->
         <scene sceneID="Q3Q-AP-YlU">
             <objects>
-                <tableViewController title="Login" id="PMn-dt-P0r" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="LoginTableViewController" title="Login" id="PMn-dt-P0r" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="VHn-3z-TFd">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -277,7 +277,7 @@
         <!--Teacher Mode-->
         <scene sceneID="2Wq-MZ-chM">
             <objects>
-                <tableViewController title="Teacher Mode" id="sm6-HG-eMo" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="TeacherModeTableViewController" title="Teacher Mode" id="sm6-HG-eMo" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="oEZ-Id-wdm">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
