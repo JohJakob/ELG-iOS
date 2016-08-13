@@ -58,6 +58,7 @@ class FoerdervereinTableViewController: UITableViewController {
       noConnectionLabel.textAlignment = .Center
       
       tableView.separatorStyle = .None
+      tableView.backgroundColor = UIColor.groupTableViewBackgroundColor()
       tableView.backgroundView = noConnectionLabel
     }
   }
@@ -135,6 +136,11 @@ class FoerdervereinTableViewController: UITableViewController {
         // Reload table view
         
         self.tableView.reloadData()
+        
+        // Reset table view appearance
+        
+        self.tableView.backgroundColor = UIColor.whiteColor()
+        self.tableView.separatorStyle = .SingleLine
       }
       
       // Run task asynchronously
@@ -151,6 +157,10 @@ class FoerdervereinTableViewController: UITableViewController {
     if reachabilityStatus != NotReachable {
       initParser()
     } else {
+      // Reload table view
+      
+      tableView.reloadData()
+      
       // Show alert
       
       let noConnectionAlert = UIAlertView(title: "Keine Internetverbindung", message: "Es besteht keine Verbindung zum Internet. Bitte überprüfe Deine Einstellungen.", delegate: self, cancelButtonTitle: "OK")
