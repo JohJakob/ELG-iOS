@@ -18,7 +18,11 @@ class LessonsViewController: UITableViewController {
   // Actions
   
   @IBAction func editButtonTap(sender: UIBarButtonItem) {
-    navigationController?.pushViewController(editLessonsViewController, animated: true)
+    if #available(iOS 8, *) {
+      navigationController?.showViewController(editLessonsViewController, sender: self)
+    } else {
+      navigationController?.pushViewController(editLessonsViewController, animated: true)
+    }
   }
   
   override func viewDidLoad() {
