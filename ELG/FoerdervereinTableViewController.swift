@@ -1,5 +1,5 @@
 //
-//  FoerdervereinViewController.swift
+//  FoerdervereinTableViewController.swift
 //  ELG
 //
 //  Created by Johannes Jakob on 13/08/2016
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FoerdervereinViewController: UITableViewController {
+class FoerdervereinTableViewController: UITableViewController {
   // Variables
   
   var defaults: NSUserDefaults!
