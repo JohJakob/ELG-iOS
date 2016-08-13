@@ -82,7 +82,7 @@
         <!--Förderverein-->
         <scene sceneID="7c4-7o-Lan">
             <objects>
-                <tableViewController title="Förderverein" id="id8-Yf-pWV" sceneMemberID="viewController">
+                <tableViewController title="Förderverein" id="id8-Yf-pWV" customClass="FoerdervereinViewController" customModule="ELG" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="goN-4v-tuJ">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
