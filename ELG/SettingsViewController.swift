@@ -9,13 +9,17 @@
 import UIKit
 
 class SettingsViewController: UITableViewController {
-  // Variables
+  // Variables + constants
   
   var defaults: NSUserDefaults!
   var autoSave = Bool()
   var iCloudEnabled = Bool()
   var autoSaveSwitch = UISwitch()
   var iCloudSwitch = UISwitch()
+  let gradeViewController = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("GradeTableViewController")
+  let loginViewController = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("LoginTableViewController")
+  let editScheduleViewController = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("EditScheduleTableViewController")
+  let teacherModeViewController = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("TeacherModeTableViewController")
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -129,6 +133,49 @@ class SettingsViewController: UITableViewController {
     }
     
     return titleForHeader
+  }
+  
+  override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    switch indexPath.section {
+    case 0:
+      switch indexPath.row {
+      case 0:
+        if #available(iOS 8, *) {
+          navigationController?.showViewController(gradeViewController, sender: self)
+        } else {
+          navigationController?.pushViewController(gradeViewController, animated: true)
+        }
+        break
+      case 1:
+        if #available(iOS 8, *) {
+          navigationController?.showViewController(loginViewController, sender: self)
+        } else {
+          navigationController?.pushViewController(loginViewController, animated: true)
+        }
+        break
+      case 2:
+        if #available(iOS 8, *) {
+          navigationController?.showViewController(editScheduleViewController, sender: self)
+        } else {
+          navigationController?.pushViewController(editScheduleViewController, animated: true)
+        }
+        break
+      default:
+        break
+      }
+      break
+    case 1:
+      if indexPath.row == 1 {
+        if #available(iOS 8, *) {
+          navigationController?.showViewController(teacherModeViewController, sender: self)
+        } else {
+          navigationController?.pushViewController(teacherModeViewController, animated: true)
+        }
+      }
+      break
+    default:
+      break
+    }
   }
   
   // Custom functions
