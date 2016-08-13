@@ -106,9 +106,11 @@ class FoerdervereinViewController: UITableViewController {
     defaults.setValue(items[indexPath.row]["link"], forKey: "selectedArticleLink")
     defaults.synchronize()
     
-    // Push view controller
-    
-    navigationController?.pushViewController(articleViewController, animated: true)
+    if #available(iOS 8, *) {
+      navigationController?.showViewController(articleViewController, sender: self)
+    } else {
+      navigationController?.pushViewController(articleViewController, animated: true)
+    }
   }
   
   // Custom functions
