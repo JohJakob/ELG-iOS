@@ -58,7 +58,7 @@
         <!--Omissions-->
         <scene sceneID="5CV-1H-sbl">
             <objects>
-                <tableViewController storyboardIdentifier="OmissionsTableViewController" title="Omissions" id="sMM-Zt-aiz" customClass="OmissionsViewController" customModule="ELG" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="Omissions" id="sMM-Zt-aiz" customClass="OmissionsViewController" customModule="ELG" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="n1B-zA-30a">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
