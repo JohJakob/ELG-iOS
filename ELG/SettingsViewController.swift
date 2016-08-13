@@ -20,6 +20,7 @@ class SettingsViewController: UITableViewController {
   let loginViewController = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("LoginTableViewController")
   let editScheduleViewController = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("EditScheduleTableViewController")
   let teacherModeViewController = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("TeacherModeTableViewController")
+  let startViewController = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("ChooseStartTableViewController")
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -171,6 +172,13 @@ class SettingsViewController: UITableViewController {
         } else {
           navigationController?.pushViewController(teacherModeViewController, animated: true)
         }
+      }
+      break
+    case 2:
+      if #available(iOS 8, *) {
+        navigationController?.showViewController(startViewController, sender: self)
+      } else {
+        navigationController?.pushViewController(startViewController, animated: true)
       }
       break
     default:
