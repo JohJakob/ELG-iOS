@@ -28,6 +28,9 @@
                 </constraints>
             </tableViewCellContentView>
             <color key="tintColor" red="0.4965850711" green="0.090104170139999995" blue="0.20509195329999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <connections>
+                <outlet property="textField" destination="VQ7-kU-SAJ" id="z7r-9l-SOL"/>
+            </connections>
         </tableViewCell>
     </objects>
 </document>
