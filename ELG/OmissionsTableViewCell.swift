@@ -11,9 +11,9 @@ import UIKit
 class OmissionsTableViewCell: UITableViewCell {
   // Outlets
   
-  @IBOutlet weak var GradeLabel: UILabel!
-  @IBOutlet weak var LessonLabel: UILabel!
-  @IBOutlet weak var DetailsLabel: UILabel!
+  @IBOutlet weak var gradeLabel: UILabel!
+  @IBOutlet weak var lessonLabel: UILabel!
+  @IBOutlet weak var detailsLabel: UILabel!
   
   override func awakeFromNib() {
     super.awakeFromNib()

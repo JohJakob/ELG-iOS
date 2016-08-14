@@ -56,9 +56,9 @@
             </tableViewCellContentView>
             <color key="tintColor" red="0.4965850711" green="0.090104170139999995" blue="0.20509195329999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <connections>
-                <outlet property="DetailsLabel" destination="18K-q4-yu0" id="ZlS-t7-Tyl"/>
-                <outlet property="GradeLabel" destination="vid-3p-za1" id="m4R-iL-t4a"/>
-                <outlet property="LessonLabel" destination="CbW-YO-wCe" id="ms4-Vn-yrQ"/>
+                <outlet property="detailsLabel" destination="18K-q4-yu0" id="z1Q-HD-QjF"/>
+                <outlet property="gradeLabel" destination="vid-3p-za1" id="tt3-Ny-0jl"/>
+                <outlet property="lessonLabel" destination="CbW-YO-wCe" id="vCa-Rp-YS8"/>
             </connections>
             <point key="canvasLocation" x="408" y="400.5"/>
         </tableViewCell>
