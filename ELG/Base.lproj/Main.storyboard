@@ -195,7 +195,7 @@
         <!--Grade-->
         <scene sceneID="FCn-6P-xfo">
             <objects>
-                <tableViewController storyboardIdentifier="GradeTableViewController" title="Grade" id="DYz-4Z-6iZ" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="GradeTableViewController" title="Grade" id="DYz-4Z-6iZ" customClass="GradeViewController" customModule="ELG" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="xdY-vK-ccN">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
