@@ -30,7 +30,7 @@
                             <constraint firstAttribute="height" constant="21" id="Nd0-BV-x1x"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Details" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="18K-q4-yu0">
@@ -54,6 +54,7 @@
                     <constraint firstItem="CbW-YO-wCe" firstAttribute="trailing" secondItem="18K-q4-yu0" secondAttribute="trailing" id="uH3-Ja-1NM"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="tintColor" red="0.4965850711" green="0.090104170139999995" blue="0.20509195329999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <connections>
                 <outlet property="DetailsLabel" destination="18K-q4-yu0" id="ZlS-t7-Tyl"/>
                 <outlet property="GradeLabel" destination="vid-3p-za1" id="m4R-iL-t4a"/>
