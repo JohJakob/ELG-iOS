@@ -133,43 +133,43 @@ class OmissionsViewController: UITableViewController {
     // Set cell's text
     
     if grade.characters.count < 4 {
-      cell.GradeLabel.text = grade
+      cell.gradeLabel.text = grade
     } else {
       if grade.characters.first == "1" {
-        cell.GradeLabel.text = grade.substringToIndex(grade.startIndex.advancedBy(2))
+        cell.gradeLabel.text = grade.substringToIndex(grade.startIndex.advancedBy(2))
       } else {
-        cell.GradeLabel.text = grade.substringToIndex(grade.startIndex.advancedBy(1))
+        cell.gradeLabel.text = grade.substringToIndex(grade.startIndex.advancedBy(1))
       }
     }
     
     if subject == "" && teacher == "" {
-      cell.LessonLabel.text = lesson + ". Stunde"
+      cell.lessonLabel.text = lesson + ". Stunde"
     } else if subject == "" {
-      cell.LessonLabel.text = lesson + ". Stunde" + " (" + teacher + ")"
+      cell.lessonLabel.text = lesson + ". Stunde" + " (" + teacher + ")"
     } else if teacher == "" {
-      cell.LessonLabel.text = lesson + ". Stunde" + ": " + subject
+      cell.lessonLabel.text = lesson + ". Stunde" + ": " + subject
     } else {
-      cell.LessonLabel.text = lesson + ". Stunde" + ": " + subject + " (" + teacher + ")"
+      cell.lessonLabel.text = lesson + ". Stunde" + ": " + subject + " (" + teacher + ")"
     }
     
     if room == "" {
-      cell.DetailsLabel.text = text + "   " + comment
+      cell.detailsLabel.text = text + "   " + comment
     } else {
-      cell.DetailsLabel.text = "Raum " + room + "   " + text + "   " + comment
+      cell.detailsLabel.text = "Raum " + room + "   " + text + "   " + comment
     }
     
     // Remove unnecessary whitespaces
     
-    cell.DetailsLabel.text = cell.DetailsLabel.text?.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
+    cell.detailsLabel.text = cell.detailsLabel.text?.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
     
-    cell.DetailsLabel.text = cell.DetailsLabel.text?.stringByReplacingOccurrencesOfString("      ", withString: "   ")
+    cell.detailsLabel.text = cell.detailsLabel.text?.stringByReplacingOccurrencesOfString("      ", withString: "   ")
     
     // Change color of lesson label
     
     if comment == "Entfall" {
-      cell.LessonLabel.textColor = UIColor(red: 0.498, green: 0.09, blue: 0.203, alpha: 1)
+      cell.lessonLabel.textColor = UIColor(red: 0.498, green: 0.09, blue: 0.203, alpha: 1)
     } else {
-      cell.LessonLabel.textColor = UIColor.blackColor()
+      cell.lessonLabel.textColor = UIColor.blackColor()
     }
     
     return cell
