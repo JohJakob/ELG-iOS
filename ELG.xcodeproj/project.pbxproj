@@ -29,6 +29,7 @@
 		B9CBF5731D5F68BE00F67682 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CBF5721D5F68BE00F67682 /* SettingsViewController.swift */; };
 		B9CBF5751D60493D00F67682 /* GradeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CBF5741D60493D00F67682 /* GradeViewController.swift */; };
 		B9CBF5771D609DD900F67682 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CBF5761D609DD800F67682 /* LoginViewController.swift */; };
+		B9CBF5791D60CE4900F67682 /* TextFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CBF5781D60CE4900F67682 /* TextFieldTableViewCell.swift */; };
 		B9CCE7D61D20FE3B00F44447 /* WebScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CCE7D51D20FE3B00F44447 /* WebScheduleViewController.swift */; };
 		B9F590C31D3BE9BF00562E17 /* OmissionsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9F590C11D3BE9BF00562E17 /* OmissionsTableViewCell.xib */; };
 /* End PBXBuildFile section */
@@ -61,6 +62,7 @@
 		B9CBF5721D5F68BE00F67682 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		B9CBF5741D60493D00F67682 /* GradeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradeViewController.swift; sourceTree = "<group>"; };
 		B9CBF5761D609DD800F67682 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		B9CBF5781D60CE4900F67682 /* TextFieldTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldTableViewCell.swift; sourceTree = "<group>"; };
 		B9CCE7D51D20FE3B00F44447 /* WebScheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebScheduleViewController.swift; sourceTree = "<group>"; };
 		B9F590C21D3BE9BF00562E17 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/OmissionsTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -133,6 +135,7 @@
 				B9CBF5721D5F68BE00F67682 /* SettingsViewController.swift */,
 				B9CBF5741D60493D00F67682 /* GradeViewController.swift */,
 				B9CBF5761D609DD800F67682 /* LoginViewController.swift */,
+				B9CBF5781D60CE4900F67682 /* TextFieldTableViewCell.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -268,6 +271,7 @@
 				B9B5C4F91D1FDA9F00777BD9 /* ScheduleViewController.swift in Sources */,
 				B960D7831D3547FA00BCA477 /* EditLessonsViewController.swift in Sources */,
 				B9562A6E1D4126B3001BD19E /* OmissionsViewController.swift in Sources */,
+				B9CBF5791D60CE4900F67682 /* TextFieldTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
