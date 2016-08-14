@@ -28,6 +28,7 @@
 		B9CBF5711D5F332B00F67682 /* FoerdervereinArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CBF5701D5F332B00F67682 /* FoerdervereinArticleViewController.swift */; };
 		B9CBF5731D5F68BE00F67682 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CBF5721D5F68BE00F67682 /* SettingsViewController.swift */; };
 		B9CBF5751D60493D00F67682 /* GradeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CBF5741D60493D00F67682 /* GradeViewController.swift */; };
+		B9CBF5771D609DD900F67682 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CBF5761D609DD800F67682 /* LoginViewController.swift */; };
 		B9CCE7D61D20FE3B00F44447 /* WebScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CCE7D51D20FE3B00F44447 /* WebScheduleViewController.swift */; };
 		B9F590C31D3BE9BF00562E17 /* OmissionsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9F590C11D3BE9BF00562E17 /* OmissionsTableViewCell.xib */; };
 /* End PBXBuildFile section */
@@ -59,6 +60,7 @@
 		B9CBF5701D5F332B00F67682 /* FoerdervereinArticleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoerdervereinArticleViewController.swift; sourceTree = "<group>"; };
 		B9CBF5721D5F68BE00F67682 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		B9CBF5741D60493D00F67682 /* GradeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradeViewController.swift; sourceTree = "<group>"; };
+		B9CBF5761D609DD800F67682 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		B9CCE7D51D20FE3B00F44447 /* WebScheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebScheduleViewController.swift; sourceTree = "<group>"; };
 		B9F590C21D3BE9BF00562E17 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/OmissionsTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -130,6 +132,7 @@
 				B9CBF5701D5F332B00F67682 /* FoerdervereinArticleViewController.swift */,
 				B9CBF5721D5F68BE00F67682 /* SettingsViewController.swift */,
 				B9CBF5741D60493D00F67682 /* GradeViewController.swift */,
+				B9CBF5761D609DD800F67682 /* LoginViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -250,6 +253,7 @@
 				B960D7851D37F68F00BCA477 /* SubjectsViewController.swift in Sources */,
 				B960D7811D35464E00BCA477 /* EditScheduleViewController.swift in Sources */,
 				B9B5C4D91D1D494800777BD9 /* StartViewController.swift in Sources */,
+				B9CBF5771D609DD900F67682 /* LoginViewController.swift in Sources */,
 				B982C8781D5DF35600B021C9 /* OmissionsTableViewCell.swift in Sources */,
 				B9B5C4D71D1D494800777BD9 /* MasterViewController.swift in Sources */,
 				B9CBF5711D5F332B00F67682 /* FoerdervereinArticleViewController.swift in Sources */,
