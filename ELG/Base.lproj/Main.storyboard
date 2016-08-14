@@ -234,7 +234,7 @@
         <!--Login-->
         <scene sceneID="Q3Q-AP-YlU">
             <objects>
-                <tableViewController storyboardIdentifier="LoginTableViewController" title="Login" id="PMn-dt-P0r" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="LoginTableViewController" title="Login" id="PMn-dt-P0r" customClass="LoginViewController" customModule="ELG" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="VHn-3z-TFd">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
