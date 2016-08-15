@@ -245,7 +245,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Zugangsdaten" id="4e4-TQ-8Tn">
-                        <barButtonItem key="rightBarButtonItem" image="OnePassword" id="1cb-2Y-SNI">
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" image="OnePassword" id="1cb-2Y-SNI">
                             <color key="tintColor" red="0.4965850711" green="0.090104170139999995" blue="0.20509195329999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="loginButtonTap:" destination="PMn-dt-P0r" id="zDx-tg-SNa"/>
