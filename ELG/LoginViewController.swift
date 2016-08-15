@@ -9,12 +9,22 @@
 import UIKit
 
 class LoginViewController: UITableViewController, UITextFieldDelegate {
+  // Outlets
+  
+  @IBOutlet weak var loginButton: UIBarButtonItem!
+  
   // Variables
   
   var defaults: NSUserDefaults!
   var username = String()
   var password = String()
   var token = String()
+  
+  // Actions
+  
+  @IBAction func loginButtonTap(sender: UIBarButtonItem) {
+    
+  }
   
   override func viewDidLoad() {
     super.viewDidLoad()
