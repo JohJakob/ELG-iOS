@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LoginViewController: UITableViewController {
+class LoginViewController: UITableViewController, UITextFieldDelegate {
   // Variables
   
   var defaults: NSUserDefaults!
@@ -43,17 +43,11 @@ class LoginViewController: UITableViewController {
   override func viewWillDisappear(animated: Bool) {
     super.viewWillDisappear(animated)
     
-    // Get table view cells
-    
-    let usernameTableViewCell = tableView.dequeueReusableCellWithIdentifier("TextFieldTableViewCell", forIndexPath: NSIndexPath(forRow: 0, inSection: 0)) as! TextFieldTableViewCell
-    let passwordTableViewCell = tableView.dequeueReusableCellWithIdentifier("TextFieldTableViewCell", forIndexPath: NSIndexPath(forRow: 1, inSection: 0)) as! TextFieldTableViewCell
-    let tokenTableViewCell = tableView.dequeueReusableCellWithIdentifier("TextFieldTableViewCell", forIndexPath: NSIndexPath(forRow: 0, inSection: 1)) as! TextFieldTableViewCell
-    
     // Set user defaults
     
-    defaults.setValue(usernameTableViewCell.textField.text, forKey: "username")
-    defaults.setValue(passwordTableViewCell.textField.text, forKey: "password")
-    defaults.setValue(tokenTableViewCell.textField.text, forKey: "token")
+    defaults.setValue(username, forKey: "username")
+    defaults.setValue(password, forKey: "password")
+    defaults.setValue(token, forKey: "token")
     defaults.synchronize()
   }
   
@@ -84,21 +78,58 @@ class LoginViewController: UITableViewController {
       if indexPath.row == 0 {
         cell.textField.placeholder = "Benutzername"
         cell.textField.text = username
-        cell.textField.returnKeyType = .Done
+        cell.textField.tag = 1
       } else {
         cell.textField.placeholder = "Passwort"
         cell.textField.text = password
         cell.textField.secureTextEntry = true
         cell.textField.keyboardType = .NumbersAndPunctuation
-        cell.textField.returnKeyType = .Done
+        cell.textField.keyboardAppearance = .Dark
+        cell.textField.tag = 2
       }
     } else {
       cell.textField.placeholder = "Kürzel"
       cell.textField.text = token
-      cell.textField.returnKeyType = .Done
+      cell.textField.autocapitalizationType = .Words
+      cell.textField.tag = 3
     }
     
+    cell.textField.delegate = self
+    
+    
     return cell
+  }
+  
+  // Text field functions
+  
+  func textFieldDidEndEditing(textField: UITextField) {
+    // Check text field tag and set variables
+    
+    switch textField.tag {
+    case 1:
+      username = textField.text!
+      break
+    case 2:
+      password = textField.text!
+      break
+    case 3:
+      token = textField.text!
+      break
+    default:
+      break
+    }
+    
+    // Resign first responder
+    
+    textField.resignFirstResponder()
+  }
+  
+  func textFieldShouldReturn(textField: UITextField) -> Bool {
+    // Resign first responder
+    
+    textField.resignFirstResponder()
+    
+    return true
   }
   
   // Custom functions
