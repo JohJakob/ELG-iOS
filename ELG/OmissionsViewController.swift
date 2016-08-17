@@ -240,7 +240,7 @@ class OmissionsViewController: UITableViewController {
   func prepare() {
     // Retrieve variables from user defaults
     
-    selectedGrade = defaults.integerForKey("grade")
+    selectedGrade = defaults.integerForKey("selectedGrade")
     offlineAvailable = defaults.boolForKey("offlineAvailable")
     autoSave = defaults.boolForKey("autoSave")
     teacherMode = defaults.boolForKey("teacherMode")
@@ -258,7 +258,7 @@ class OmissionsViewController: UITableViewController {
   }
   
   func refreshTableView() {
-    prepare()
+    downloadOmissions()
     
     tableView.reloadData()
     
