@@ -32,6 +32,8 @@
 		B9CBF57C1D60CFBB00F67682 /* TextFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CBF57A1D60CFBB00F67682 /* TextFieldTableViewCell.swift */; };
 		B9CBF57D1D60CFBB00F67682 /* TextFieldTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9CBF57B1D60CFBB00F67682 /* TextFieldTableViewCell.xib */; };
 		B9CBF5801D61C0C300F67682 /* OnePasswordExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = B9CBF57F1D61C0C300F67682 /* OnePasswordExtension.m */; };
+		B9CBF5821D61D90500F67682 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9CBF5811D61D90500F67682 /* MobileCoreServices.framework */; };
+		B9CBF5841D61D90C00F67682 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9CBF5831D61D90C00F67682 /* WebKit.framework */; };
 		B9CCE7D61D20FE3B00F44447 /* WebScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CCE7D51D20FE3B00F44447 /* WebScheduleViewController.swift */; };
 		B9F590C31D3BE9BF00562E17 /* OmissionsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9F590C11D3BE9BF00562E17 /* OmissionsTableViewCell.xib */; };
 /* End PBXBuildFile section */
@@ -68,6 +70,8 @@
 		B9CBF57B1D60CFBB00F67682 /* TextFieldTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextFieldTableViewCell.xib; sourceTree = "<group>"; };
 		B9CBF57E1D61C0C300F67682 /* OnePasswordExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OnePasswordExtension.h; sourceTree = "<group>"; };
 		B9CBF57F1D61C0C300F67682 /* OnePasswordExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OnePasswordExtension.m; sourceTree = "<group>"; };
+		B9CBF5811D61D90500F67682 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		B9CBF5831D61D90C00F67682 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		B9CCE7D51D20FE3B00F44447 /* WebScheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebScheduleViewController.swift; sourceTree = "<group>"; };
 		B9F590C21D3BE9BF00562E17 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/OmissionsTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -77,6 +81,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B9CBF5841D61D90C00F67682 /* WebKit.framework in Frameworks */,
+				B9CBF5821D61D90500F67682 /* MobileCoreServices.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,6 +92,8 @@
 		B9B5C4C81D1D494700777BD9 = {
 			isa = PBXGroup;
 			children = (
+				B9CBF5831D61D90C00F67682 /* WebKit.framework */,
+				B9CBF5811D61D90500F67682 /* MobileCoreServices.framework */,
 				B9B5C4D31D1D494800777BD9 /* ELG */,
 				B9B5C4D21D1D494800777BD9 /* Products */,
 			);

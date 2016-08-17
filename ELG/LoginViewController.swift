@@ -23,7 +23,26 @@ class LoginViewController: UITableViewController, UITextFieldDelegate {
   // Actions
   
   @IBAction func loginButtonTap(sender: UIBarButtonItem) {
+    // Find credentials from 1Password
     
+    OnePasswordExtension.sharedExtension().findLoginForURLString("http://www.elg-halle.de", forViewController: self, sender: loginButton, completion: {(loginDictionary: Dictionary<NSObject, AnyObject>?, error: NSError?) in
+      if loginDictionary!.count == 0 {
+        if Int32(error!.code) != AppExtensionErrorCodeCancelledByUser {
+          print("Error invoking 1Password App Extension for finding credentials:" + String(error!))
+        }
+        
+        return
+      }
+      
+      // Set variables
+      
+      self.username = "\(loginDictionary![AppExtensionUsernameKey]!)"
+      self.password = "\(loginDictionary![AppExtensionPasswordKey]!)"
+      
+      // Reload table view
+      
+      self.tableView.reloadData()
+    })
   }
   
   override func viewDidLoad() {
@@ -40,6 +59,10 @@ class LoginViewController: UITableViewController, UITextFieldDelegate {
     // Register custom table view cell
     
     tableView.registerNib(UINib(nibName: "TextFieldTableViewCell", bundle: nil), forCellReuseIdentifier: "TextFieldTableViewCell")
+    
+    // Enable login button if password manager is installed
+    
+    loginButton.enabled = OnePasswordExtension.sharedExtension().isAppExtensionAvailable()
   }
   
   override func viewWillAppear(animated: Bool) {
