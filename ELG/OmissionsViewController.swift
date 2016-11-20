@@ -349,6 +349,15 @@ class OmissionsViewController: UITableViewController {
       tableView.backgroundColor = UIColor.whiteColor()
       tableView.separatorStyle = .SingleLine
       
+      // Set offline availability status
+      
+      offlineAvailable = false
+      
+      // Set user default
+      
+      defaults.setBool(offlineAvailable, forKey: "offlineAvailable")
+      defaults.synchronize()
+      
       // Enable save button
       
       saveButton.enabled = true
