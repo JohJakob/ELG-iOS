@@ -3,7 +3,7 @@
 //  ELG
 //
 //  Created by Johannes Jakob on 21/07/2016
-//  ©2016 Elisabeth-Gymnasium Halle, Johannes Jakob
+//  © 2016 Elisabeth-Gymnasium Halle, Johannes Jakob
 //
 
 import UIKit
@@ -244,9 +244,7 @@ class OmissionsViewController: UITableViewController {
     offlineAvailable = defaults.boolForKey("offlineAvailable")
     autoSave = defaults.boolForKey("autoSave")
     teacherMode = defaults.boolForKey("teacherMode")
-    // teacherToken = defaults.stringForKey("teacherToken")!
-    
-    teacherToken = ""
+    teacherToken = defaults.stringForKey("teacherToken")!
     
     // Retrieve offline omissions if available
     
