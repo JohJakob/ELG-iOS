@@ -102,6 +102,10 @@ class MasterViewController: UITableViewController {
       defaults.setObject(emptyFridaySchedule, forKey: "friday")
     }
     
+    if defaults.stringForKey("teacherToken") == nil {
+      defaults.setObject("", forKey: "teacherToken")
+    }
+    
     defaults.synchronize()
   }
   
