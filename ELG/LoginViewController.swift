@@ -76,6 +76,8 @@ class LoginViewController: UITableViewController, UITextFieldDelegate {
   override func viewWillDisappear(animated: Bool) {
     super.viewWillDisappear(animated)
     
+    // Set user defaults
+    
     setUserDefaults()
   }
   
