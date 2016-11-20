@@ -76,12 +76,7 @@ class LoginViewController: UITableViewController, UITextFieldDelegate {
   override func viewWillDisappear(animated: Bool) {
     super.viewWillDisappear(animated)
     
-    // Set user defaults
-    
-    defaults.setValue(username, forKey: "username")
-    defaults.setValue(password, forKey: "password")
-    defaults.setValue(token, forKey: "token")
-    defaults.synchronize()
+    setUserDefaults()
   }
   
   // Table view functions
@@ -173,6 +168,15 @@ class LoginViewController: UITableViewController, UITextFieldDelegate {
     username = defaults.stringForKey("username")!
     password = defaults.stringForKey("password")!
     token = defaults.stringForKey("token")!
+  }
+  
+  func setUserDefaults() {
+    // Set user defaults
+    
+    defaults.setValue(username, forKey: "username")
+    defaults.setValue(password, forKey: "password")
+    defaults.setValue(token, forKey: "token")
+    defaults.synchronize()
   }
   
   override func didReceiveMemoryWarning() {
