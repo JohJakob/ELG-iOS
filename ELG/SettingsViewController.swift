@@ -3,7 +3,7 @@
 //  ELG
 //
 //  Created by Johannes Jakob on 13/08/2016
-//  ©2016 Elisabeth-Gymnasium Halle, Johannes Jakob
+//  © 2016 Elisabeth-Gymnasium Halle, Johannes Jakob
 //
 
 import UIKit
@@ -13,9 +13,7 @@ class SettingsViewController: UITableViewController {
   
   var defaults: NSUserDefaults!
   var autoSave = Bool()
-  var iCloudEnabled = Bool()
   var autoSaveSwitch = UISwitch()
-  var iCloudSwitch = UISwitch()
   let gradeViewController = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("GradeTableViewController")
   let loginViewController = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("LoginTableViewController")
   let editScheduleViewController = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("EditScheduleTableViewController")
@@ -41,7 +39,7 @@ class SettingsViewController: UITableViewController {
   // Table view functions
   
   override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-    return 4
+    return 3
   }
   
   override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -55,9 +53,6 @@ class SettingsViewController: UITableViewController {
       numberOfRows = 2
       break
     case 2:
-      numberOfRows = 1
-      break
-    case 3:
       numberOfRows = 1
       break
     default:
@@ -100,11 +95,6 @@ class SettingsViewController: UITableViewController {
       break
     case 2:
       cell.textLabel!.text = "Startseite auswählen"
-      break
-    case 3:
-      cell.textLabel!.text = "In iCloud sichern"
-      cell.accessoryView = iCloudSwitch
-      cell.selectionStyle = .None
       break
     default:
       break
@@ -192,7 +182,6 @@ class SettingsViewController: UITableViewController {
     // Retrieve user defaults
     
     autoSave = defaults.boolForKey("autoSave")
-    iCloudEnabled = defaults.boolForKey("iCloudEnabled")
     
     // Initialize switches
     
@@ -205,17 +194,9 @@ class SettingsViewController: UITableViewController {
       autoSaveSwitch.setOn(false, animated: false)
     }
     
-    if iCloudEnabled {
-      iCloudSwitch.setOn(true, animated: false)
-    } else {
-      iCloudSwitch.setOn(false, animated: false)
-    }
-    
     autoSaveSwitch.addTarget(self, action: #selector(SettingsViewController.toggleAutoSave), forControlEvents: .ValueChanged)
-    iCloudSwitch.addTarget(self, action: #selector(SettingsViewController.toggleiCloud), forControlEvents: .ValueChanged)
     
     autoSaveSwitch.onTintColor = UIColor(red: 0.498, green: 0.09, blue: 0.203, alpha: 1)
-    iCloudSwitch.onTintColor = UIColor(red: 0.498, green: 0.09, blue: 0.203, alpha: 1)
   }
   
   func toggleAutoSave() {
@@ -229,18 +210,6 @@ class SettingsViewController: UITableViewController {
     
     defaults.setBool(autoSave, forKey: "autoSave")
     defaults.synchronize()
-  }
-  
-  func toggleiCloud() {
-    // Set user default
-    
-    if iCloudSwitch.on {
-      iCloudEnabled = true
-    } else {
-      iCloudEnabled = false
-    }
-    
-    defaults.setBool(iCloudEnabled, forKey: "iCloudEnabled")
   }
   
   override func didReceiveMemoryWarning() {
