@@ -16,7 +16,6 @@
 		B982C87A1D5E5EB500B021C9 /* SWXMLHash.swift in Sources */ = {isa = PBXBuildFile; fileRef = B982C8791D5E5EB500B021C9 /* SWXMLHash.swift */; };
 		B9B5C4D51D1D494800777BD9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B5C4D41D1D494800777BD9 /* AppDelegate.swift */; };
 		B9B5C4D71D1D494800777BD9 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B5C4D61D1D494800777BD9 /* MasterViewController.swift */; };
-		B9B5C4D91D1D494800777BD9 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B5C4D81D1D494800777BD9 /* StartViewController.swift */; };
 		B9B5C4DC1D1D494800777BD9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9B5C4DA1D1D494800777BD9 /* Main.storyboard */; };
 		B9B5C4DE1D1D494800777BD9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B9B5C4DD1D1D494800777BD9 /* Assets.xcassets */; };
 		B9B5C4E11D1D494800777BD9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9B5C4DF1D1D494800777BD9 /* LaunchScreen.storyboard */; };
@@ -131,7 +130,6 @@
 			isa = PBXGroup;
 			children = (
 				B9B5C4D61D1D494800777BD9 /* MasterViewController.swift */,
-				B9B5C4D81D1D494800777BD9 /* StartViewController.swift */,
 				B9B5C4EF1D1D80C200777BD9 /* NewsViewController.swift */,
 				B9B5C4F81D1FDA9F00777BD9 /* ScheduleViewController.swift */,
 				B9B5C4FA1D1FFF6100777BD9 /* LessonsViewController.swift */,
@@ -271,7 +269,6 @@
 				B95732F31D5F04E800A758AC /* FoerdervereinViewController.swift in Sources */,
 				B960D7851D37F68F00BCA477 /* SubjectsViewController.swift in Sources */,
 				B960D7811D35464E00BCA477 /* EditScheduleViewController.swift in Sources */,
-				B9B5C4D91D1D494800777BD9 /* StartViewController.swift in Sources */,
 				B9CBF5771D609DD900F67682 /* LoginViewController.swift in Sources */,
 				B982C8781D5DF35600B021C9 /* OmissionsTableViewCell.swift in Sources */,
 				B9B5C4D71D1D494800777BD9 /* MasterViewController.swift in Sources */,
