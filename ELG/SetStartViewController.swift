@@ -75,4 +75,10 @@ class SetStartViewController: UITableViewController {
     
     tableView.reloadData()
   }
+  
+  override func didReceiveMemoryWarning() {
+    super.didReceiveMemoryWarning()
+    
+    print("Memory Warning")
+  }
 }
