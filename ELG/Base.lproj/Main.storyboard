@@ -21,26 +21,6 @@
             </objects>
             <point key="canvasLocation" x="-38" y="-630"/>
         </scene>
-        <!--Start-->
-        <scene sceneID="yUG-lL-AsK">
-            <objects>
-                <viewController title="Start" id="JEX-9P-axG" customClass="StartViewController" customModule="ELG" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="SYR-Wa-9uf"/>
-                        <viewControllerLayoutGuide type="bottom" id="GAO-Cl-Wes"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="svH-Pt-448">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Startseite" id="mOI-FS-AaM"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="FJe-Yq-33r" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="709" y="129"/>
-        </scene>
         <!--Split View-->
         <scene sceneID="Nki-YV-4Qg">
             <objects>
@@ -342,7 +322,7 @@
         <!--Förderverein Navigation-->
         <scene sceneID="saQ-my-DD2">
             <objects>
-                <navigationController title="Förderverein Navigation" id="YFU-oK-ycP" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="FoerdervereinNavigationController" title="Förderverein Navigation" id="YFU-oK-ycP" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="gQL-Ep-YBa">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -358,7 +338,7 @@
         <!--Omissions Navigation-->
         <scene sceneID="1sh-LI-qC3">
             <objects>
-                <navigationController title="Omissions Navigation" id="2Mo-yt-jcI" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="OmissionsNavigationController" title="Omissions Navigation" id="2Mo-yt-jcI" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="JXS-Ql-7cS">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -616,7 +596,7 @@
         <!--News Navigation-->
         <scene sceneID="4nI-Y8-CVT">
             <objects>
-                <navigationController title="News Navigation" toolbarHidden="NO" id="nES-sr-tO5" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="NewsNavigationController" title="News Navigation" toolbarHidden="NO" id="nES-sr-tO5" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="D4g-Ti-s7k">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -938,7 +918,7 @@
         <!--Schedule Navigation-->
         <scene sceneID="F2E-dq-tmf">
             <objects>
-                <navigationController title="Schedule Navigation" id="Xvc-7q-NVL" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="ScheduleNavigationController" title="Schedule Navigation" id="Xvc-7q-NVL" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="XCL-58-GUc">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -954,13 +934,10 @@
         <!--Detail Navigation-->
         <scene sceneID="r7l-gg-dq7">
             <objects>
-                <navigationController title="Detail Navigation" id="vC3-pB-5Vb" sceneMemberID="viewController">
+                <navigationController title="Detail Navigation" id="vC3-pB-5Vb" customClass="StartViewController" customModule="ELG" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="DjV-YW-jjY">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
-                    <connections>
-                        <segue destination="JEX-9P-axG" kind="relationship" relationship="rootViewController" id="GKi-kA-LjT"/>
-                    </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SLD-UC-DBI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

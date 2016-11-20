@@ -3,16 +3,21 @@
 //  ELG
 //
 //  Created by Johannes Jakob on 24/06/2016
-//  ©2016 Elisabeth-Gymnasium Halle, Johannes Jakob
+//  © 2016 Elisabeth-Gymnasium Halle, Johannes Jakob
 //
 
 import UIKit
 
 class MasterViewController: UITableViewController {
-  // Variables
+  // Variables + constants
   
   // var startViewController: StartViewController? = nil
   var defaults: NSUserDefaults!
+  var startView = Int()
+  let newsViewController = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("NewsNavigationController")
+  let scheduleViewController = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("ScheduleNavigationController")
+  let omissionsViewController = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("OmissionsNavigationController")
+  let foerdervereinViewController = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("FoerdervereinNavigationController")
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -33,6 +38,18 @@ class MasterViewController: UITableViewController {
      let controllers = split.viewControllers
      self.startViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? StartViewController
      } */
+    
+    // Check first launch
+    
+    if (defaults.boolForKey("launched2.0") != true) {
+      // Show introduction
+      
+      showIntroduction()
+    }
+    
+    // Show start view
+    
+    showStartView()
   }
   
   override func viewWillAppear(animated: Bool) {
@@ -86,6 +103,51 @@ class MasterViewController: UITableViewController {
     }
     
     defaults.synchronize()
+  }
+  
+  func showIntroduction() {
+    // TODO: Introduction
+  }
+  
+  func showStartView() {
+    // Get user default
+    
+    startView = defaults.integerForKey("startView")
+    
+    // Show start view based on user setting
+    
+    switch startView {
+    case 1:
+      if #available(iOS 8, *) {
+        navigationController?.showDetailViewController(newsViewController, sender: self)
+      } else {
+        navigationController?.pushViewController(newsViewController, animated: true)
+      }
+      break
+    case 2:
+      if #available(iOS 8, *) {
+        navigationController?.showDetailViewController(scheduleViewController, sender: self)
+      } else {
+        navigationController?.pushViewController(scheduleViewController, animated: true)
+      }
+      break
+    case 3:
+      if #available(iOS 8, *) {
+        navigationController?.showDetailViewController(omissionsViewController, sender: self)
+      } else {
+        navigationController?.pushViewController(omissionsViewController, animated: true)
+      }
+      break
+    case 4:
+      if #available(iOS 8, *) {
+        navigationController?.showDetailViewController(foerdervereinViewController, sender: self)
+      } else {
+        navigationController?.pushViewController(foerdervereinViewController, animated: true)
+      }
+      break
+    default:
+      break
+    }
   }
   
   func removeUserDefaults() {
