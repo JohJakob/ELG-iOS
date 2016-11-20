@@ -186,7 +186,6 @@ class SettingsViewController: UITableViewController {
     // Initialize switches
     
     autoSaveSwitch = UISwitch.init(frame: CGRectZero)
-    iCloudSwitch = UISwitch.init(frame: CGRectZero)
     
     if autoSave {
       autoSaveSwitch.setOn(true, animated: false)
