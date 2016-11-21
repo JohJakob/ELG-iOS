@@ -300,6 +300,10 @@ class OmissionsViewController: UITableViewController {
       
       rows = NSMutableArray.init(array: cleanedOmissions.componentsSeparatedByString("\n"))
       
+      // Reset own omissions
+      
+      ownOmissions = NSMutableArray()
+      
       // Process array
       
       for i in 1 ..< rows.count - 1 {
@@ -324,7 +328,7 @@ class OmissionsViewController: UITableViewController {
         // Check teacher mode or selected grade to get own omissions
         
         if teacherMode {
-          if teacher == teacherToken {
+          if teacher == teacherToken && teacher != "" {
             ownOmissions.addObject(rows[i])
           }
         } else {
