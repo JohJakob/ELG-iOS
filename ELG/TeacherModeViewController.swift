@@ -76,6 +76,9 @@ class TeacherModeViewController: UITableViewController, UITextFieldDelegate {
       
       cell.textField.placeholder = "Kürzel"
       cell.textField.text = teacherToken
+      cell.textField.autocapitalizationType = .AllCharacters
+      cell.textField.autocorrectionType = .No
+      cell.textField.returnKeyType = .Done
       
       cell.textField.delegate = self
       
@@ -105,6 +108,20 @@ class TeacherModeViewController: UITableViewController, UITextFieldDelegate {
     textField.resignFirstResponder()
     
     return true
+  }
+  
+  func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+    // Allow 3 characters in text field
+    
+    let currentCharacterCount = textField.text?.characters.count ?? 0
+    
+    if range.length + range.location > currentCharacterCount {
+      return false
+    }
+    
+    let newLength = currentCharacterCount + string.characters.count - range.length
+    
+    return newLength <= 3
   }
   
   // Custom functions
