@@ -126,7 +126,7 @@ class MasterViewController: UITableViewController {
     // Show start view based on user setting
     
     if startView != 0 {
-      if #available(iOS 8.0, *) {
+      if #available(iOS 8, *) {
         navigationController?.showDetailViewController(UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier(startViewControllers[startView - 1]), sender: self)
       }
     }
