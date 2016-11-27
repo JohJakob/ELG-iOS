@@ -3,7 +3,7 @@
 //  ELG
 //
 //  Created by Johannes Jakob on 14/08/2016
-//  ©2016 Elisabeth-Gymnasium Halle, Johannes Jakob
+//  © 2016 Elisabeth-Gymnasium Halle, Johannes Jakob
 //
 
 import UIKit
@@ -52,7 +52,7 @@ class GradeViewController: UITableViewController {
   override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCellWithIdentifier("GradeTableViewCell", forIndexPath: indexPath)
     
-    // Set cell's text and accessory type
+    // Set table view cell's text and accessory type
     
     if indexPath.section == 0 {
       cell.textLabel!.text = "Keine Klasse"
@@ -76,6 +76,10 @@ class GradeViewController: UITableViewController {
   }
   
   override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    // Deselect table view cell
+    
+    tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    
     // Set user default
     
     if indexPath.section == 0 {
@@ -86,10 +90,6 @@ class GradeViewController: UITableViewController {
     
     defaults.setInteger(selectedGrade, forKey: "selectedGrade")
     defaults.synchronize()
-    
-    // Deselect selected row
-    
-    tableView.deselectRowAtIndexPath(indexPath, animated: true)
     
     // Reload table view
     
