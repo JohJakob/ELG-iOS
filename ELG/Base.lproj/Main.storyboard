@@ -633,7 +633,7 @@
                             <constraint firstItem="ABI-Uw-fq8" firstAttribute="top" secondItem="PTp-mG-4mI" secondAttribute="top" id="uDy-NE-oac"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Was ist neu?" id="X96-dA-aTq"/>
+                    <navigationItem key="navigationItem" title="Title" id="X96-dA-aTq"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5hH-6r-jn6" userLabel="First Responder" sceneMemberID="firstResponder"/>
