@@ -138,6 +138,7 @@ class MasterViewController: UITableViewController {
     defaults.removeObjectForKey("selectedDay")
     defaults.removeObjectForKey("selectedSubject")
     defaults.removeObjectForKey("selectedRoom")
+    defaults.removeObjectForKey("selectedAboutWebView")
     defaults.synchronize()
   }
   
