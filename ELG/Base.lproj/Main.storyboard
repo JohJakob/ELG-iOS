@@ -610,7 +610,7 @@
         <!--About Web Views-->
         <scene sceneID="eBz-ht-RPp">
             <objects>
-                <viewController storyboardIdentifier="AboutWebViewController" title="About Web Views" id="dw7-x4-RsP" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AboutWebViewController" title="About Web Views" id="dw7-x4-RsP" customClass="AboutWebViewController" customModule="ELG" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="1ba-Hi-eUG"/>
                         <viewControllerLayoutGuide type="bottom" id="NCN-gR-krm"/>
@@ -635,6 +635,9 @@
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="X96-dA-aTq"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="aboutWebView" destination="ABI-Uw-fq8" id="cjt-ps-CQX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5hH-6r-jn6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
