@@ -40,7 +40,7 @@ class SetStartViewController: UITableViewController {
   override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCellWithIdentifier("SetStartTableViewCell", forIndexPath: indexPath)
     
-    // Set cell's text
+    // Set table view cell's text
     
     cell.textLabel!.text = views[indexPath.row]
     
@@ -58,6 +58,10 @@ class SetStartViewController: UITableViewController {
   }
   
   override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    // Deselect table view cell
+    
+    tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    
     // Set new start view
     
     startView = indexPath.row
@@ -66,10 +70,6 @@ class SetStartViewController: UITableViewController {
     
     defaults.setInteger(startView, forKey: "startView")
     defaults.synchronize()
-    
-    // Deselect cell
-    
-    tableView.deselectRowAtIndexPath(indexPath, animated: true)
     
     // Reload table view
     
