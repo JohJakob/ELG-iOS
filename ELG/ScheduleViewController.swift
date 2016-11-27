@@ -3,7 +3,7 @@
 //  ELG
 //
 //  Created by Johannes Jakob on 26/06/2016
-//  ©2016 Elisabeth-Gymnasium Halle, Johannes Jakob
+//  © 2016 Elisabeth-Gymnasium Halle, Johannes Jakob
 //
 
 import UIKit
@@ -49,6 +49,8 @@ class ScheduleViewController: UITableViewController {
     let cell = tableView.dequeueReusableCellWithIdentifier("ScheduleTableViewCell", forIndexPath: indexPath)
     let days = ["Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag"]
     
+    // Set cell's text
+    
     switch indexPath.section {
     case 0:
       cell.textLabel!.text = days[indexPath.row];
@@ -64,6 +66,12 @@ class ScheduleViewController: UITableViewController {
   }
   
   override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    // Deselect table view cell
+    
+    tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    
+    // Check selected cell and navigate to new view based on selection
+    
     if indexPath.section == 0 {
       defaults.setInteger(indexPath.row, forKey: "selectedDay")
       defaults.synchronize()
