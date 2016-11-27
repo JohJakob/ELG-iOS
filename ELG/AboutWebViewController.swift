@@ -43,6 +43,10 @@ class AboutWebViewController: UIViewController {
   }
   
   func loadPage() {
+    // Set navigation bar title
+    
+    navigationItem.title = titles[selectedAboutWebView]
+    
     // Load page
     
     aboutWebView.loadRequest(NSURLRequest(URL: NSBundle.mainBundle().URLForResource(pages[selectedAboutWebView], withExtension: ".html")!))
