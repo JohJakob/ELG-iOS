@@ -607,6 +607,39 @@
             </objects>
             <point key="canvasLocation" x="2279" y="3319"/>
         </scene>
+        <!--Release Notes-->
+        <scene sceneID="eBz-ht-RPp">
+            <objects>
+                <viewController storyboardIdentifier="ReleaseNotesViewController" title="Release Notes" id="dw7-x4-RsP" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="1ba-Hi-eUG"/>
+                        <viewControllerLayoutGuide type="bottom" id="NCN-gR-krm"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="PTp-mG-4mI">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ABI-Uw-fq8">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <dataDetectorType key="dataDetectorTypes"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ABI-Uw-fq8" firstAttribute="bottom" secondItem="NCN-gR-krm" secondAttribute="top" id="9lL-QI-Yfx"/>
+                            <constraint firstItem="ABI-Uw-fq8" firstAttribute="leading" secondItem="PTp-mG-4mI" secondAttribute="leading" id="ZuF-Hb-qGJ"/>
+                            <constraint firstAttribute="trailing" secondItem="ABI-Uw-fq8" secondAttribute="trailing" id="a2b-Wa-5ve"/>
+                            <constraint firstItem="ABI-Uw-fq8" firstAttribute="top" secondItem="PTp-mG-4mI" secondAttribute="top" id="uDy-NE-oac"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Was ist neu?" id="X96-dA-aTq"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5hH-6r-jn6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3099" y="3319"/>
+        </scene>
         <!--About Navigation-->
         <scene sceneID="QQd-5e-7ah">
             <objects>
