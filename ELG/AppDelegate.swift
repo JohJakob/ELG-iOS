@@ -3,7 +3,7 @@
 //  ELG
 //
 //  Created by Johannes Jakob on 24/06/2016
-//  ©2016 Elisabeth-Gymnasium Halle, Johannes Jakob
+//  © 2016 Elisabeth-Gymnasium Halle, Johannes Jakob
 //
 
 import UIKit
@@ -17,13 +17,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
   func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
     // Override point for customization after application launch.
     
-    let splitViewController = self.window!.rootViewController as! UISplitViewController
-    
-    splitViewController.delegate = self
-    
-    // Show Master and Detail side-by-side in Portrait and Landscape on iPad
-    
     if #available(iOS 8.0, *) {
+      let splitViewController = self.window!.rootViewController as! UISplitViewController
+      
+      splitViewController.delegate = self
+      
+      // Show Master and Detail side-by-side in Portrait and Landscape on iPad
+
       splitViewController.preferredDisplayMode = .AllVisible
     }
     
