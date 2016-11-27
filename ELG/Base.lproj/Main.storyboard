@@ -607,10 +607,10 @@
             </objects>
             <point key="canvasLocation" x="2279" y="3319"/>
         </scene>
-        <!--Release Notes-->
+        <!--About Web Views-->
         <scene sceneID="eBz-ht-RPp">
             <objects>
-                <viewController storyboardIdentifier="ReleaseNotesViewController" title="Release Notes" id="dw7-x4-RsP" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AboutWebViewController" title="About Web Views" id="dw7-x4-RsP" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="1ba-Hi-eUG"/>
                         <viewControllerLayoutGuide type="bottom" id="NCN-gR-krm"/>
