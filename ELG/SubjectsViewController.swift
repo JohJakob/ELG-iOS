@@ -3,7 +3,7 @@
 //  ELG
 //
 //  Created by Johannes Jakob on 14/07/2016
-//  ©2016 Elisabeth-Gymnasium Halle, Johannes Jakob
+//  © 2016 Elisabeth-Gymnasium Halle, Johannes Jakob
 //
 
 import UIKit
