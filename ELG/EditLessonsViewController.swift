@@ -3,7 +3,7 @@
 //  ELG
 //
 //  Created by Johannes Jakob on 12/07/2016
-//  ©2016 Elisabeth-Gymnasium Halle, Johannes Jakob
+//  © 2016 Elisabeth-Gymnasium Halle, Johannes Jakob
 //
 
 import UIKit
@@ -127,8 +127,16 @@ class EditLessonsViewController: UITableViewController {
   }
   
   override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    // Deselect table view cell
+    
+    tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    
+    // Set user default
+    
     defaults.setInteger(indexPath.row, forKey: "selectedLesson")
     defaults.synchronize()
+    
+    // Navigate to new view
     
     if #available(iOS 8, *) {
       navigationController?.showViewController(subjectsViewController, sender: self)
