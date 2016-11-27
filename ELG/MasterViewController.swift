@@ -61,6 +61,14 @@ class MasterViewController: UITableViewController {
     removeUserDefaults()
   }
   
+  // Table view functions
+  
+  override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    // Deselect table view cell
+    
+    tableView.deselectRowAtIndexPath(indexPath, animated: true)
+  }
+  
   // Custom functions
   
   func setUp() {
