@@ -102,7 +102,7 @@ class LoginViewController: UITableViewController, UITextFieldDelegate {
   override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCellWithIdentifier("TextFieldTableViewCell", forIndexPath: indexPath) as! TextFieldTableViewCell
     
-    // Set text field's placeholder and text in cell
+    // Set text field's placeholder and text in table view cell
     
     if indexPath.section == 0 {
       if indexPath.row == 0 {
