@@ -3,7 +3,7 @@
 //  ELG
 //
 //  Created by Johannes Jakob on 13/08/2016
-//  ©2016 Elisabeth-Gymnasium Halle, Johannes Jakob
+//  © 2016 Elisabeth-Gymnasium Halle, Johannes Jakob
 //
 
 import UIKit
@@ -91,7 +91,7 @@ class FoerdervereinViewController: UITableViewController {
   override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCellWithIdentifier("FoerdervereinTableViewCell", forIndexPath: indexPath)
     
-    // Set cell's text
+    // Set table view cell's text
     
     cell.textLabel!.text = items[indexPath.row]["title"]
     cell.detailTextLabel!.text = items[indexPath.row]["description"]
@@ -105,6 +105,8 @@ class FoerdervereinViewController: UITableViewController {
     defaults.setValue(items[indexPath.row]["title"], forKey: "selectedArticleTitle")
     defaults.setValue(items[indexPath.row]["link"], forKey: "selectedArticleLink")
     defaults.synchronize()
+    
+    // Navigate to new view
     
     if #available(iOS 8, *) {
       navigationController?.showViewController(articleViewController, sender: self)
