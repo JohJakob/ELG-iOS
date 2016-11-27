@@ -49,7 +49,7 @@ class ScheduleViewController: UITableViewController {
     let cell = tableView.dequeueReusableCellWithIdentifier("ScheduleTableViewCell", forIndexPath: indexPath)
     let days = ["Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag"]
     
-    // Set cell's text
+    // Set table view cell's text
     
     switch indexPath.section {
     case 0:
