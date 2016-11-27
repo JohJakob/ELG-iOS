@@ -3,7 +3,7 @@
 //  ELG
 //
 //  Created by Johannes Jakob on 14/08/2016
-//  ©2016 Elisabeth-Gymnasium Halle, Johannes Jakob
+//  © 2016 Elisabeth-Gymnasium Halle, Johannes Jakob
 //
 
 import UIKit
@@ -124,8 +124,9 @@ class LoginViewController: UITableViewController, UITextFieldDelegate {
       cell.textField.tag = 3
     }
     
-    cell.textField.delegate = self
+    // Set text field's delegate
     
+    cell.textField.delegate = self
     
     return cell
   }
