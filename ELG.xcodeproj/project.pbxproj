@@ -12,6 +12,7 @@
 		B960D7811D35464E00BCA477 /* EditScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B960D7801D35464E00BCA477 /* EditScheduleViewController.swift */; };
 		B960D7831D3547FA00BCA477 /* EditLessonsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B960D7821D3547FA00BCA477 /* EditLessonsViewController.swift */; };
 		B960D7851D37F68F00BCA477 /* SubjectsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B960D7841D37F68F00BCA477 /* SubjectsViewController.swift */; };
+		B972692E1DEB0292006819D3 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B972692D1DEB0292006819D3 /* AboutViewController.swift */; };
 		B982C8781D5DF35600B021C9 /* OmissionsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B982C8771D5DF35600B021C9 /* OmissionsTableViewCell.swift */; };
 		B982C87A1D5E5EB500B021C9 /* SWXMLHash.swift in Sources */ = {isa = PBXBuildFile; fileRef = B982C8791D5E5EB500B021C9 /* SWXMLHash.swift */; };
 		B9B5C4D51D1D494800777BD9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B5C4D41D1D494800777BD9 /* AppDelegate.swift */; };
@@ -44,6 +45,7 @@
 		B960D7801D35464E00BCA477 /* EditScheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditScheduleViewController.swift; sourceTree = "<group>"; };
 		B960D7821D3547FA00BCA477 /* EditLessonsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditLessonsViewController.swift; sourceTree = "<group>"; };
 		B960D7841D37F68F00BCA477 /* SubjectsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubjectsViewController.swift; sourceTree = "<group>"; };
+		B972692D1DEB0292006819D3 /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		B982C8771D5DF35600B021C9 /* OmissionsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OmissionsTableViewCell.swift; sourceTree = "<group>"; };
 		B982C8791D5E5EB500B021C9 /* SWXMLHash.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SWXMLHash.swift; sourceTree = "<group>"; };
 		B9B5C4D11D1D494800777BD9 /* ELG.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ELG.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -147,6 +149,7 @@
 				B9CBF5761D609DD800F67682 /* LoginViewController.swift */,
 				B9BDBA0A1DE22EED0025E30A /* TeacherModeViewController.swift */,
 				B9BDBA081DE1C00A0025E30A /* SetStartViewController.swift */,
+				B972692D1DEB0292006819D3 /* AboutViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -290,6 +293,7 @@
 				B960D7831D3547FA00BCA477 /* EditLessonsViewController.swift in Sources */,
 				B9562A6E1D4126B3001BD19E /* OmissionsViewController.swift in Sources */,
 				B9CBF57C1D60CFBB00F67682 /* TextFieldTableViewCell.swift in Sources */,
+				B972692E1DEB0292006819D3 /* AboutViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
