@@ -14,10 +14,7 @@ class MasterViewController: UITableViewController {
   // var startViewController: StartViewController? = nil
   var defaults: NSUserDefaults!
   var startView = Int()
-  let newsViewController = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("NewsNavigationController")
-  let scheduleViewController = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("ScheduleNavigationController")
-  let omissionsViewController = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("OmissionsNavigationController")
-  let foerdervereinViewController = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("FoerdervereinNavigationController")
+  let startViewControllers = ["NewsNavigationController", "ScheduleNavigationController", "OmissionsNavigationController", "FoerdervereinNavigationController"]
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -120,37 +117,10 @@ class MasterViewController: UITableViewController {
     
     // Show start view based on user setting
     
-    switch startView {
-    case 1:
-      if #available(iOS 8, *) {
-        navigationController?.showDetailViewController(newsViewController, sender: self)
-      } else {
-        navigationController?.pushViewController(newsViewController, animated: true)
+    if startView != 0 {
+      if #available(iOS 8.0, *) {
+        navigationController?.showDetailViewController(UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier(startViewControllers[startView - 1]), sender: self)
       }
-      break
-    case 2:
-      if #available(iOS 8, *) {
-        navigationController?.showDetailViewController(scheduleViewController, sender: self)
-      } else {
-        navigationController?.pushViewController(scheduleViewController, animated: true)
-      }
-      break
-    case 3:
-      if #available(iOS 8, *) {
-        navigationController?.showDetailViewController(omissionsViewController, sender: self)
-      } else {
-        navigationController?.pushViewController(omissionsViewController, animated: true)
-      }
-      break
-    case 4:
-      if #available(iOS 8, *) {
-        navigationController?.showDetailViewController(foerdervereinViewController, sender: self)
-      } else {
-        navigationController?.pushViewController(foerdervereinViewController, animated: true)
-      }
-      break
-    default:
-      break
     }
   }
   
