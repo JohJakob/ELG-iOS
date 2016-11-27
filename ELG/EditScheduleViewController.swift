@@ -3,7 +3,7 @@
 //  ELG
 //
 //  Created by Johannes Jakob on 12/07/2016
-//  ©2016 Elisabeth-Gymnasium Halle, Johannes Jakob
+//  © 2016 Elisabeth-Gymnasium Halle, Johannes Jakob
 //
 
 import UIKit
@@ -40,14 +40,24 @@ class EditScheduleViewController: UITableViewController {
     let cell = tableView.dequeueReusableCellWithIdentifier("EditScheduleTableViewCell", forIndexPath: indexPath)
     let days = ["Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag"]
     
+    // Set table view cell's text
+    
     cell.textLabel!.text = days[indexPath.row];
     
     return cell
   }
   
   override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    // Deselect table view cell
+    
+    tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    
+    // Set user default
+    
     defaults.setInteger(indexPath.row, forKey: "selectedDay")
     defaults.synchronize()
+    
+    // Navigate to new view
     
     if #available(iOS 8, *) {
       navigationController?.showViewController(editLessonsViewController, sender: self)
