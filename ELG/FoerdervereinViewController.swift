@@ -100,6 +100,10 @@ class FoerdervereinViewController: UITableViewController {
   }
   
   override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    // Deselect table view cell
+    
+    tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    
     // Save user defaults
     
     defaults.setValue(items[indexPath.row]["title"], forKey: "selectedArticleTitle")
