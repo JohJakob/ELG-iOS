@@ -63,6 +63,8 @@ class TeacherModeViewController: UITableViewController, UITextFieldDelegate {
   }
   
   override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    // Check index path and set table view cell's properties
+    
     if indexPath.row == 0 {
       let cell = tableView.dequeueReusableCellWithIdentifier("TeacherModeTableViewCell", forIndexPath: indexPath)
       
