@@ -3,7 +3,7 @@
 //  ELG
 //
 //  Created by Johannes Jakob on 26/06/2016
-//  ©2016 Elisabeth-Gymnasium Halle, Johannes Jakob
+//  © 2016 Elisabeth-Gymnasium Halle, Johannes Jakob
 //
 
 import UIKit
@@ -124,6 +124,12 @@ class LessonsViewController: UITableViewController {
     cell.textLabel!.text = lessons[indexPath.row]
     
     return cell
+  }
+  
+  override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    // Deselect table view cell
+    
+    tableView.deselectRowAtIndexPath(indexPath, animated: true)
   }
   
   override func didReceiveMemoryWarning() {
