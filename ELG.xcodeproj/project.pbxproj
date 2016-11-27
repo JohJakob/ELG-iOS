@@ -36,6 +36,7 @@
 		B9CBF5801D61C0C300F67682 /* OnePasswordExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = B9CBF57F1D61C0C300F67682 /* OnePasswordExtension.m */; };
 		B9CBF5841D61D90C00F67682 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9CBF5831D61D90C00F67682 /* WebKit.framework */; };
 		B9CCE7D61D20FE3B00F44447 /* WebScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CCE7D51D20FE3B00F44447 /* WebScheduleViewController.swift */; };
+		B9DEB5691DEB102F00B700AE /* AboutWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9DEB5681DEB102F00B700AE /* AboutWebViewController.swift */; };
 		B9F590C31D3BE9BF00562E17 /* OmissionsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9F590C11D3BE9BF00562E17 /* OmissionsTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
@@ -75,6 +76,7 @@
 		B9CBF57F1D61C0C300F67682 /* OnePasswordExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OnePasswordExtension.m; sourceTree = "<group>"; };
 		B9CBF5831D61D90C00F67682 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		B9CCE7D51D20FE3B00F44447 /* WebScheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebScheduleViewController.swift; sourceTree = "<group>"; };
+		B9DEB5681DEB102F00B700AE /* AboutWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutWebViewController.swift; sourceTree = "<group>"; };
 		B9F590C21D3BE9BF00562E17 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/OmissionsTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -150,6 +152,7 @@
 				B9BDBA0A1DE22EED0025E30A /* TeacherModeViewController.swift */,
 				B9BDBA081DE1C00A0025E30A /* SetStartViewController.swift */,
 				B972692D1DEB0292006819D3 /* AboutViewController.swift */,
+				B9DEB5681DEB102F00B700AE /* AboutWebViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -278,6 +281,7 @@
 				B960D7811D35464E00BCA477 /* EditScheduleViewController.swift in Sources */,
 				B9CBF5771D609DD900F67682 /* LoginViewController.swift in Sources */,
 				B982C8781D5DF35600B021C9 /* OmissionsTableViewCell.swift in Sources */,
+				B9DEB5691DEB102F00B700AE /* AboutWebViewController.swift in Sources */,
 				B9B5C4D71D1D494800777BD9 /* MasterViewController.swift in Sources */,
 				B9BDBA091DE1C00A0025E30A /* SetStartViewController.swift in Sources */,
 				B9CBF5711D5F332B00F67682 /* FoerdervereinArticleViewController.swift in Sources */,
