@@ -127,6 +127,12 @@ class SettingsViewController: UITableViewController {
   }
   
   override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    // Deselect table view cell
+    
+    tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    
+    // Check selected cell and navigate to new view based on selection
+    
     switch indexPath.section {
     case 0:
       switch indexPath.row {
