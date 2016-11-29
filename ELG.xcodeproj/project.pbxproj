@@ -39,6 +39,7 @@
 		B9DEB5691DEB102F00B700AE /* AboutWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9DEB5681DEB102F00B700AE /* AboutWebViewController.swift */; };
 		B9F590C31D3BE9BF00562E17 /* OmissionsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9F590C11D3BE9BF00562E17 /* OmissionsTableViewCell.xib */; };
 		B9F73BFA1DEDFE77004F3470 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9F73BF91DEDFE77004F3470 /* MessageUI.framework */; };
+		B9F73BFC1DEE01F9004F3470 /* ReleaseNotes.html in Resources */ = {isa = PBXBuildFile; fileRef = B9F73BFB1DEE01F9004F3470 /* ReleaseNotes.html */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -80,6 +81,7 @@
 		B9DEB5681DEB102F00B700AE /* AboutWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutWebViewController.swift; sourceTree = "<group>"; };
 		B9F590C21D3BE9BF00562E17 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/OmissionsTableViewCell.xib; sourceTree = "<group>"; };
 		B9F73BF91DEDFE77004F3470 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		B9F73BFB1DEE01F9004F3470 /* ReleaseNotes.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = ReleaseNotes.html; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,6 +168,7 @@
 			children = (
 				B9B5C4DD1D1D494800777BD9 /* Assets.xcassets */,
 				B9B5C4F61D1FA6D000777BD9 /* NoConnection.html */,
+				B9F73BFB1DEE01F9004F3470 /* ReleaseNotes.html */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -267,6 +270,7 @@
 				B9B5C4E11D1D494800777BD9 /* LaunchScreen.storyboard in Resources */,
 				B9B5C4DE1D1D494800777BD9 /* Assets.xcassets in Resources */,
 				B9B5C4DC1D1D494800777BD9 /* Main.storyboard in Resources */,
+				B9F73BFC1DEE01F9004F3470 /* ReleaseNotes.html in Resources */,
 				B9F590C31D3BE9BF00562E17 /* OmissionsTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
