@@ -7,12 +7,14 @@
 //
 
 import UIKit
+import MessageUI
 
-class AboutViewController: UITableViewController {
+class AboutViewController: UITableViewController, MFMailComposeViewControllerDelegate {
   // Variables + constants
   
   var defaults: NSUserDefaults!
   let aboutWebViewController = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("AboutWebViewController")
+  let version = NSBundle.mainBundle().infoDictionary?["CFBundleShortVersionString"] as? String
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -59,7 +61,7 @@ class AboutViewController: UITableViewController {
         
         if indexPath.row == 0 {
           cell.textLabel!.text = "Version"
-          cell.detailTextLabel!.text = NSBundle.mainBundle().infoDictionary?["CFBundleShortVersionString"] as? String
+          cell.detailTextLabel!.text = version
         } else {
           cell.textLabel!.text = "Entwickler"
           cell.detailTextLabel!.text = "Johannes Jakob"
@@ -113,10 +115,16 @@ class AboutViewController: UITableViewController {
     switch indexPath.section {
     case 0:
       if indexPath.row == 1 {
+        // Open URL
+        
         UIApplication.sharedApplication().openURL(NSURL.init(string: "http://www.johjakob.de")!)
       } else if indexPath.row == 2 {
+        // Set user default
+        
         defaults.setInteger(0, forKey: "selectedAboutWebView")
         defaults.synchronize()
+        
+        // Navigate to new view
         
         if #available(iOS 8, *) {
           navigationController?.showViewController(aboutWebViewController, sender: self)
@@ -128,15 +136,42 @@ class AboutViewController: UITableViewController {
       break
     case 1:
       if indexPath.row == 0 {
+        // Check whether device can send mail
         
+        if MFMailComposeViewController.canSendMail() {
+          // Compose mail
+          
+          let mailController = MFMailComposeViewController.init()
+          
+          mailController.setToRecipients(["johannes.jakob@elg-halle.de"])
+          mailController.setSubject("ELG v" + version! + " (iOS)")
+          mailController.setMessageBody("", isHTML: true)
+          
+          mailController.mailComposeDelegate = self
+          
+          // Present mail compose view
+          
+          presentViewController(mailController, animated: true, completion: nil)
+        } else {
+          // Show alert
+          
+          let mailErrorAlert = UIAlertView(title: "Senden nicht möglich", message: "Dein Gerät kann keine E-Mails senden. Bitte überprüfe Deine Einstellungen.", delegate: self, cancelButtonTitle: "OK")
+          mailErrorAlert.show()
+        }
       } else {
+        // Open URL
+        
         UIApplication.sharedApplication().openURL(NSURL.init(string: "itms-apps://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?id=968363965&onlyLatestVersion=true&pageNumber=0&sortOrdering=1&type=Purple+Software")!)
       }
       
       break
     case 2:
+      // Set user default
+      
       defaults.setInteger(1, forKey: "selectedAboutWebView")
       defaults.synchronize()
+      
+      // Navigate to new view
       
       if #available(iOS 8, *) {
         navigationController?.showViewController(aboutWebViewController, sender: self)
@@ -146,8 +181,12 @@ class AboutViewController: UITableViewController {
       
       break
     case 3:
+      // Set user default
+      
       defaults.setInteger(2, forKey: "selectedAboutWebView")
       defaults.synchronize()
+      
+      // Navigate to new view
       
       if #available(iOS 8, *) {
         navigationController?.showViewController(aboutWebViewController, sender: self)
