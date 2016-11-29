@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AboutWebViewController: UIViewController {
+class AboutWebViewController: UIViewController, UIWebViewDelegate {
   // Outlets
   
   @IBOutlet weak private var aboutWebView: UIWebView!
@@ -34,6 +34,22 @@ class AboutWebViewController: UIViewController {
     retrieveUserDefault()
     
     loadPage()
+  }
+  
+  // Web view functions
+  
+  func webView(webView: UIWebView, shouldStartLoadWithRequest request: NSURLRequest, navigationType: UIWebViewNavigationType) -> Bool {
+    // Check web view navigation type
+    
+    if navigationType == .LinkClicked {
+      // Open URL in shared app
+      
+      UIApplication.sharedApplication().openURL(request.URL!)
+      
+      return false
+    }
+    
+    return true
   }
   
   // Custom functions
