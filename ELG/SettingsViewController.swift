@@ -39,7 +39,15 @@ class SettingsViewController: UITableViewController {
   // Table view functions
   
   override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-    return 3
+    var numberOfRows = Int()
+    
+    if #available(iOS 8, *) {
+      numberOfRows = 3
+    } else {
+      numberOfRows = 2
+    }
+    
+    return numberOfRows
   }
   
   override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
