@@ -40,6 +40,7 @@
 		B9F590C31D3BE9BF00562E17 /* OmissionsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9F590C11D3BE9BF00562E17 /* OmissionsTableViewCell.xib */; };
 		B9F73BFA1DEDFE77004F3470 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9F73BF91DEDFE77004F3470 /* MessageUI.framework */; };
 		B9F73BFC1DEE01F9004F3470 /* ReleaseNotes.html in Resources */ = {isa = PBXBuildFile; fileRef = B9F73BFB1DEE01F9004F3470 /* ReleaseNotes.html */; };
+		B9FB652D1DF5FEB3009B7D13 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9FB652C1DF5FEB3009B7D13 /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -82,6 +83,7 @@
 		B9F590C21D3BE9BF00562E17 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/OmissionsTableViewCell.xib; sourceTree = "<group>"; };
 		B9F73BF91DEDFE77004F3470 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		B9F73BFB1DEE01F9004F3470 /* ReleaseNotes.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = ReleaseNotes.html; sourceTree = "<group>"; };
+		B9FB652C1DF5FEB3009B7D13 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +144,7 @@
 			isa = PBXGroup;
 			children = (
 				B9B5C4D61D1D494800777BD9 /* MasterViewController.swift */,
+				B9FB652C1DF5FEB3009B7D13 /* DetailViewController.swift */,
 				B9B5C4EF1D1D80C200777BD9 /* NewsViewController.swift */,
 				B9B5C4F81D1FDA9F00777BD9 /* ScheduleViewController.swift */,
 				B9B5C4FA1D1FFF6100777BD9 /* LessonsViewController.swift */,
@@ -284,6 +287,7 @@
 			files = (
 				B9BDBA0B1DE22EED0025E30A /* TeacherModeViewController.swift in Sources */,
 				B9CBF5801D61C0C300F67682 /* OnePasswordExtension.m in Sources */,
+				B9FB652D1DF5FEB3009B7D13 /* DetailViewController.swift in Sources */,
 				B95732F31D5F04E800A758AC /* FoerdervereinViewController.swift in Sources */,
 				B960D7851D37F68F00BCA477 /* SubjectsViewController.swift in Sources */,
 				B960D7811D35464E00BCA477 /* EditScheduleViewController.swift in Sources */,
