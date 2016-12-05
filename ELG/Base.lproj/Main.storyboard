@@ -1065,6 +1065,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="HCV-hH-Ns5"/>
+                    <connections>
+                        <outlet property="detailLabel" destination="Nl9-qM-IcG" id="dBZ-H4-5nf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g3s-gO-EOl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
