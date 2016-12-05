@@ -1035,10 +1035,10 @@
             </objects>
             <point key="canvasLocation" x="6379" y="129"/>
         </scene>
-        <!--View Controller-->
+        <!--Detail View Controller-->
         <scene sceneID="ORY-Cc-FqT">
             <objects>
-                <viewController id="JvE-l5-FOu" sceneMemberID="viewController">
+                <viewController id="JvE-l5-FOu" customClass="DetailViewController" customModule="ELG" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="k1I-Ca-L8P"/>
                         <viewControllerLayoutGuide type="bottom" id="F6G-lI-5xZ"/>
