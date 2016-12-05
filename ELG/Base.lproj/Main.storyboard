@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Segues with Peek and Pop" minToolsVersion="7.1"/>
     </dependencies>
     <scenes>
@@ -1048,10 +1049,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nl9-qM-IcG">
-                                <rect key="frame" x="279" y="289" width="42" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="42" id="KHt-K8-hub"/>
-                                </constraints>
+                                <rect key="frame" x="20" y="289" width="560" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -1059,9 +1057,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Nl9-qM-IcG" firstAttribute="centerY" secondItem="AAs-gG-o5u" secondAttribute="centerY" id="Frv-bw-JDj"/>
-                            <constraint firstItem="Nl9-qM-IcG" firstAttribute="top" secondItem="k1I-Ca-L8P" secondAttribute="bottom" constant="225" id="c7f-iC-YsB"/>
-                            <constraint firstItem="Nl9-qM-IcG" firstAttribute="centerX" secondItem="AAs-gG-o5u" secondAttribute="centerX" id="x0x-A5-2cM"/>
+                            <constraint firstItem="Nl9-qM-IcG" firstAttribute="top" secondItem="k1I-Ca-L8P" secondAttribute="bottom" constant="225" id="AUQ-fk-Zfr"/>
+                            <constraint firstItem="Nl9-qM-IcG" firstAttribute="leading" secondItem="AAs-gG-o5u" secondAttribute="leadingMargin" id="dhV-on-PyC"/>
+                            <constraint firstItem="Nl9-qM-IcG" firstAttribute="trailing" secondItem="AAs-gG-o5u" secondAttribute="trailingMargin" id="mhL-6p-ekY"/>
+                            <constraint firstItem="Nl9-qM-IcG" firstAttribute="centerY" secondItem="AAs-gG-o5u" secondAttribute="centerY" id="ppX-5V-ZNv"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="HCV-hH-Ns5"/>
