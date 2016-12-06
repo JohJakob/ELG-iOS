@@ -15,7 +15,10 @@ class SettingsViewController: UITableViewController {
   var autoSave = Bool()
   var autoSaveSwitch = UISwitch()
   let gradeViewController = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("GradeTableViewController")
-  let loginViewController = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("LoginTableViewController")
+  
+  // Use when online schedules are available again
+  
+  /* let loginViewController = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("LoginTableViewController") */
   let editScheduleViewController = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("EditScheduleTableViewController")
   let teacherModeViewController = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("TeacherModeTableViewController")
   let startViewController = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("ChooseStartTableViewController")
@@ -55,7 +58,11 @@ class SettingsViewController: UITableViewController {
     
     switch section {
     case 0:
-      numberOfRows = 3
+      numberOfRows = 2
+      
+      // Use when online schedules are available again
+      
+      /* numberOfRows = 3 */
       break
     case 1:
       numberOfRows = 2
@@ -80,10 +87,17 @@ class SettingsViewController: UITableViewController {
         cell.textLabel!.text = "Klasse auswählen"
         break
       case 1:
-        cell.textLabel!.text = "Zugangsdaten"
-        break
-      case 2:
         cell.textLabel!.text = "Stundenplan bearbeiten"
+        
+        // Use when online schedules are available again
+        
+        /* cell.textLabel!.text = "Zugangsdaten" */
+        break
+      // Use when online schedules are available again
+        
+      /* case 2:
+        cell.textLabel!.text = "Stundenplan bearbeiten"
+        break */
       default:
         break
       }
@@ -153,18 +167,28 @@ class SettingsViewController: UITableViewController {
         break
       case 1:
         if #available(iOS 8, *) {
+          navigationController?.showViewController(editScheduleViewController, sender: self)
+        } else {
+          navigationController?.pushViewController(editScheduleViewController, animated: true)
+        }
+        
+        // Use when online schedules are available again
+        
+        /* if #available(iOS 8, *) {
           navigationController?.showViewController(loginViewController, sender: self)
         } else {
           navigationController?.pushViewController(loginViewController, animated: true)
-        }
+        } */
         break
-      case 2:
+      // Use when online schedules are available again
+        
+      /* case 2:
         if #available(iOS 8, *) {
           navigationController?.showViewController(editScheduleViewController, sender: self)
         } else {
           navigationController?.pushViewController(editScheduleViewController, animated: true)
         }
-        break
+        break */
       default:
         break
       }
