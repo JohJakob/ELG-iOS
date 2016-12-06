@@ -15,6 +15,7 @@ class MasterViewController: UITableViewController {
   var defaults: NSUserDefaults!
   var startView = Int()
   let startViewControllers = ["NewsNavigationController", "ScheduleNavigationController", "OmissionsNavigationController", "FoerdervereinNavigationController"]
+  let lessonsViewController = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("LessonsTableViewController")
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -126,8 +127,32 @@ class MasterViewController: UITableViewController {
     // Show start view based on user setting
     
     if startView != 0 {
-      if #available(iOS 8, *) {
-        navigationController?.showDetailViewController(UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier(startViewControllers[startView - 1]), sender: self)
+      if startView == 2 {
+        // Get current weekday
+        
+        let gregorianCalendar = NSCalendar.init(calendarIdentifier: NSGregorianCalendar)
+        let dateComponents = gregorianCalendar!.components(.Weekday, fromDate: NSDate())
+        
+        // Check current weekday
+        
+        if dateComponents.weekday != 1 || dateComponents.weekday != 7 {
+          // Set user default
+          
+          defaults.setInteger(dateComponents.weekday - 2, forKey: "selectedDay")
+          defaults.synchronize()
+          
+          // Show start view
+          
+          if #available(iOS 8, *) {
+            navigationController?.showDetailViewController(lessonsViewController, sender: self)
+          }
+        }
+      } else {
+        // Show start view
+        
+        if #available(iOS 8, *) {
+          navigationController?.showDetailViewController(UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier(startViewControllers[startView - 1]), sender: self)
+        }
       }
     }
   }
@@ -135,7 +160,6 @@ class MasterViewController: UITableViewController {
   func removeUserDefaults() {
     // Remove temporary user defaults
     
-    defaults.removeObjectForKey("selectedDay")
     defaults.removeObjectForKey("selectedSubject")
     defaults.removeObjectForKey("selectedRoom")
     defaults.removeObjectForKey("selectedAboutWebView")
