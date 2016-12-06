@@ -13,7 +13,10 @@ class ScheduleViewController: UITableViewController {
   
   var defaults: NSUserDefaults!
   let lessonsViewController = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("LessonsTableViewController")
-  let webScheduleViewController = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("WebScheduleViewController")
+  
+  // Use when online schedule are available again
+  
+  /* let webScheduleViewController = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("WebScheduleViewController") */
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -30,11 +33,19 @@ class ScheduleViewController: UITableViewController {
   // Table view functions
   
   override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-    return 2
+    return 1
+    
+    // Use when online schedule are available again
+    
+    /* return 2 */
   }
   
   override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    var numberOfRows: Int
+    return 5
+    
+    // Use when online schedules are available again
+    
+    /* var numberOfRows: Int
     
     if section == 0 {
       numberOfRows = 5
@@ -42,7 +53,7 @@ class ScheduleViewController: UITableViewController {
       numberOfRows = 1
     }
     
-    return numberOfRows
+    return numberOfRows */
   }
   
   override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -51,7 +62,11 @@ class ScheduleViewController: UITableViewController {
     
     // Set table view cell's text
     
-    switch indexPath.section {
+    cell.textLabel!.text = days[indexPath.row]
+    
+    // Use when online schedules are available again
+    
+    /* switch indexPath.section {
     case 0:
       cell.textLabel!.text = days[indexPath.row];
       break
@@ -60,7 +75,7 @@ class ScheduleViewController: UITableViewController {
       break
     default:
       break
-    }
+    } */
     
     return cell
   }
@@ -72,7 +87,18 @@ class ScheduleViewController: UITableViewController {
     
     // Check selected cell and navigate to new view based on selection
     
-    if indexPath.section == 0 {
+    defaults.setInteger(indexPath.row, forKey: "selectedDay")
+    defaults.synchronize()
+    
+    if #available(iOS 8, *) {
+      navigationController?.showViewController(lessonsViewController, sender: self)
+    } else {
+      navigationController?.pushViewController(lessonsViewController, animated: true)
+    }
+    
+    // Use when online schedules are available again
+    
+    /* if indexPath.section == 0 {
       defaults.setInteger(indexPath.row, forKey: "selectedDay")
       defaults.synchronize()
       
@@ -87,7 +113,7 @@ class ScheduleViewController: UITableViewController {
       } else {
         navigationController?.pushViewController(webScheduleViewController, animated: true)
       }
-    }
+    } */
   }
   
   override func didReceiveMemoryWarning() {
