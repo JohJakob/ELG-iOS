@@ -146,6 +146,12 @@ class MasterViewController: UITableViewController {
           if #available(iOS 8, *) {
             navigationController?.showDetailViewController(lessonsViewController, sender: self)
           }
+        } else {
+          // Show start view
+          
+          if #available(iOS 8, *) {
+            navigationController?.showDetailViewController(UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier(startViewControllers[1]), sender: self)
+          }
         }
       } else {
         // Show start view
