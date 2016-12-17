@@ -529,9 +529,9 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
-                                            <segue destination="Xba-pQ-mgw" kind="showDetail" action="showViewController:sender:" id="g24-gf-q30">
-                                                <segue key="commit" inheritsFrom="parent" id="onm-Ia-BfM"/>
-                                                <segue key="preview" inheritsFrom="commit" id="vpl-Jm-ENO"/>
+                                            <segue destination="Xba-pQ-mgw" kind="showDetail" id="VC5-J8-E2D">
+                                                <segue key="commit" inheritsFrom="parent" id="vy8-VV-JKk"/>
+                                                <segue key="preview" inheritsFrom="commit" id="wN2-Jf-0zX"/>
                                             </segue>
                                         </connections>
                                     </tableViewCell>
@@ -1121,11 +1121,11 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="SlM-or-BoR"/>
+        <segue reference="VC5-J8-E2D"/>
         <segue reference="itS-eF-Jlu"/>
         <segue reference="YAn-ma-uJI"/>
         <segue reference="1G1-r7-eQd"/>
         <segue reference="Ky7-r4-S2y"/>
-        <segue reference="g24-gf-q30"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.4965850711" green="0.090104170139999995" blue="0.20509195329999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
