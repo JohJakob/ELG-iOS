@@ -526,7 +526,7 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
-                                            <segue destination="Xba-pQ-mgw" kind="show" id="g24-gf-q30">
+                                            <segue destination="Xba-pQ-mgw" kind="showDetail" action="showViewController:sender:" id="g24-gf-q30">
                                                 <segue key="commit" inheritsFrom="parent" id="onm-Ia-BfM"/>
                                                 <segue key="preview" inheritsFrom="commit" id="vpl-Jm-ENO"/>
                                             </segue>
@@ -1055,7 +1055,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="Nl9-qM-IcG" firstAttribute="top" secondItem="k1I-Ca-L8P" secondAttribute="bottom" constant="225" id="AUQ-fk-Zfr"/>
                             <constraint firstItem="Nl9-qM-IcG" firstAttribute="leading" secondItem="AAs-gG-o5u" secondAttribute="leadingMargin" id="dhV-on-PyC"/>
@@ -1117,11 +1117,11 @@
         <image name="Settings" width="29" height="29"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="SlM-or-BoR"/>
+        <segue reference="itS-eF-Jlu"/>
         <segue reference="YAn-ma-uJI"/>
         <segue reference="1G1-r7-eQd"/>
-        <segue reference="itS-eF-Jlu"/>
         <segue reference="g24-gf-q30"/>
-        <segue reference="SlM-or-BoR"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.4965850711" green="0.090104170139999995" blue="0.20509195329999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
