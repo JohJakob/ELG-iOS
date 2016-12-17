@@ -501,7 +501,10 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
-                                            <segue destination="k8e-XL-xcH" kind="showDetail" id="Ky7-r4-S2y"/>
+                                            <segue destination="k8e-XL-xcH" kind="showDetail" id="Ky7-r4-S2y">
+                                                <segue key="commit" inheritsFrom="parent" id="3mu-vd-Hcq"/>
+                                                <segue key="preview" inheritsFrom="commit" id="WVH-kA-Hte"/>
+                                            </segue>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="98s-YD-3NW" imageView="Cqi-v4-05u" style="IBUITableViewCellStyleDefault" id="rWu-Cb-PEk">
@@ -1121,6 +1124,7 @@
         <segue reference="itS-eF-Jlu"/>
         <segue reference="YAn-ma-uJI"/>
         <segue reference="1G1-r7-eQd"/>
+        <segue reference="Ky7-r4-S2y"/>
         <segue reference="g24-gf-q30"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.4965850711" green="0.090104170139999995" blue="0.20509195329999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
