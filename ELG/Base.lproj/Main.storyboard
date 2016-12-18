@@ -1094,7 +1094,7 @@
         <!--Detail Navigation-->
         <scene sceneID="r7l-gg-dq7">
             <objects>
-                <navigationController title="Detail Navigation" id="vC3-pB-5Vb" customClass="StartViewController" customModule="ELG" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController title="Detail Navigation" id="vC3-pB-5Vb" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="DjV-YW-jjY">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
