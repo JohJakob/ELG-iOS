@@ -94,7 +94,7 @@ class AboutViewController: UITableViewController, MFMailComposeViewControllerDel
         cell.accessoryType = .DisclosureIndicator
         break
       case 3:
-        cell.textLabel!.text = "Impressum"
+        cell.textLabel!.text = "Impressum der Website"
         cell.accessoryType = .DisclosureIndicator
         break
       default:
