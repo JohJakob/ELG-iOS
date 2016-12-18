@@ -32,6 +32,10 @@ class MasterViewController: UITableViewController {
     
     setUp()
     
+    // Remove temporary user defaults
+    
+    removeUserDefaults()
+    
     /* if let split = self.splitViewController {
      let controllers = split.viewControllers
      self.startViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? StartViewController
@@ -56,10 +60,6 @@ class MasterViewController: UITableViewController {
     if #available(iOS 8, *) {
       self.clearsSelectionOnViewWillAppear = self.splitViewController!.collapsed
     }
-    
-    // Remove temporary user defaults
-    
-    removeUserDefaults()
   }
   
   // Table view functions
@@ -88,23 +88,23 @@ class MasterViewController: UITableViewController {
     let emptySchedule = ["", "", "", "", "", "", "", "", "", ""]
     let emptyFridaySchedule = ["", "", "", "", "", ""]
     
-    if defaults.stringArrayForKey("monday") == nil {
+    if defaults.stringArrayForKey("tuesday")?.count == 0 {
       defaults.setObject(emptySchedule, forKey: "monday")
     }
     
-    if defaults.stringArrayForKey("tuesday") == nil {
+    if defaults.stringArrayForKey("tuesday")?.count == 0 {
       defaults.setObject(emptySchedule, forKey: "tuesday")
     }
     
-    if defaults.stringArrayForKey("wednesday") == nil {
+    if defaults.stringArrayForKey("wednesday")?.count == 0 {
       defaults.setObject(emptySchedule, forKey: "wednesday")
     }
     
-    if defaults.stringArrayForKey("thursday") == nil {
+    if defaults.stringArrayForKey("thursday")?.count == 0 {
       defaults.setObject(emptySchedule, forKey: "thursday")
     }
     
-    if defaults.stringArrayForKey("friday") == nil {
+    if defaults.stringArrayForKey("friday")?.count == 0 {
       defaults.setObject(emptyFridaySchedule, forKey: "friday")
     }
     
@@ -135,7 +135,9 @@ class MasterViewController: UITableViewController {
         
         // Check current weekday
         
-        if dateComponents.weekday != 1 || dateComponents.weekday != 7 {
+        print(dateComponents.weekday)
+        
+        if dateComponents.weekday != 1 && dateComponents.weekday != 7 {
           // Set user default
           
           defaults.setInteger(dateComponents.weekday - 2, forKey: "selectedDay")
@@ -147,10 +149,15 @@ class MasterViewController: UITableViewController {
             navigationController?.showDetailViewController(lessonsViewController, sender: self)
           }
         } else {
+          // Set user default
+          
+          defaults.setInteger(0, forKey: "selectedDay")
+          defaults.synchronize()
+          
           // Show start view
           
           if #available(iOS 8, *) {
-            navigationController?.showDetailViewController(UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier(startViewControllers[1]), sender: self)
+            navigationController?.showDetailViewController(lessonsViewController, sender: self)
           }
         }
       } else {
