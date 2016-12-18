@@ -30,8 +30,16 @@ class AboutWebViewController: UIViewController, UIWebViewDelegate {
     } else {
       defaults = NSUserDefaults.init(suiteName: "group.com.hardykrause.elg")
     }
+  }
+  
+  override func viewWillAppear(animated: Bool) {
+    super.viewWillAppear(animated)
+    
+    // Retrieve user default
     
     retrieveUserDefault()
+    
+    // Load page in web view
     
     loadPage()
   }
