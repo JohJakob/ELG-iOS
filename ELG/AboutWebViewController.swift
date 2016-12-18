@@ -17,7 +17,7 @@ class AboutWebViewController: UIViewController, UIWebViewDelegate {
   
   var defaults: NSUserDefaults!
   var selectedAboutWebView = Int()
-  let titles = ["Was ist neu?", "Open Source", "Impressum"]
+  let titles = ["Was ist neu?", "Open Source", "Impressum der Website"]
   let pages = ["ReleaseNotes", "OpenSource", "Imprint"]
   
   override func viewDidLoad() {
