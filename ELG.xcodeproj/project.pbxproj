@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B91DB9FF1E07165000D1EC86 /* OpenSource.html in Resources */ = {isa = PBXBuildFile; fileRef = B91DB9FE1E07165000D1EC86 /* OpenSource.html */; };
+		B91DBA011E071A1300D1EC86 /* Imprint.html in Resources */ = {isa = PBXBuildFile; fileRef = B91DBA001E071A1300D1EC86 /* Imprint.html */; };
 		B9562A6E1D4126B3001BD19E /* OmissionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9562A6D1D4126B3001BD19E /* OmissionsViewController.swift */; };
 		B95732F31D5F04E800A758AC /* FoerdervereinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95732F21D5F04E800A758AC /* FoerdervereinViewController.swift */; };
 		B960D7811D35464E00BCA477 /* EditScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B960D7801D35464E00BCA477 /* EditScheduleViewController.swift */; };
@@ -46,6 +47,7 @@
 
 /* Begin PBXFileReference section */
 		B91DB9FE1E07165000D1EC86 /* OpenSource.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = OpenSource.html; sourceTree = "<group>"; };
+		B91DBA001E071A1300D1EC86 /* Imprint.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = Imprint.html; sourceTree = "<group>"; };
 		B9562A6D1D4126B3001BD19E /* OmissionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OmissionsViewController.swift; sourceTree = "<group>"; };
 		B95732F21D5F04E800A758AC /* FoerdervereinViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoerdervereinViewController.swift; sourceTree = "<group>"; };
 		B960D7801D35464E00BCA477 /* EditScheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditScheduleViewController.swift; sourceTree = "<group>"; };
@@ -175,6 +177,7 @@
 				B9B5C4F61D1FA6D000777BD9 /* NoConnection.html */,
 				B9F73BFB1DEE01F9004F3470 /* ReleaseNotes.html */,
 				B91DB9FE1E07165000D1EC86 /* OpenSource.html */,
+				B91DBA001E071A1300D1EC86 /* Imprint.html */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -277,6 +280,7 @@
 				B9B5C4DE1D1D494800777BD9 /* Assets.xcassets in Resources */,
 				B9B5C4DC1D1D494800777BD9 /* Main.storyboard in Resources */,
 				B91DB9FF1E07165000D1EC86 /* OpenSource.html in Resources */,
+				B91DBA011E071A1300D1EC86 /* Imprint.html in Resources */,
 				B9F73BFC1DEE01F9004F3470 /* ReleaseNotes.html in Resources */,
 				B9F590C31D3BE9BF00562E17 /* OmissionsTableViewCell.xib in Resources */,
 			);
