@@ -19,6 +19,8 @@ class NewsViewController: UIViewController, UIWebViewDelegate {
   override func viewDidLoad() {
     super.viewDidLoad()
 
+    // Load news in web view
+    
     loadNews()
   }
   
