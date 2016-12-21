@@ -9,7 +9,7 @@
 import UIKit
 import NotificationCenter
 
-class TodayViewController: UIViewController, NCWidgetProviding {
+class TodayViewController: UITableViewController, NCWidgetProviding {
   override func viewDidLoad() {
     super.viewDidLoad()
   }
