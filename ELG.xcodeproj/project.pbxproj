@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		B913C91B1E0B1E190061B531 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B913C91A1E0B1E190061B531 /* NotificationCenter.framework */; };
 		B913C91E1E0B1E190061B531 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B913C91D1E0B1E190061B531 /* TodayViewController.swift */; };
-		B913C9211E0B1E190061B531 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B913C91F1E0B1E190061B531 /* MainInterface.storyboard */; };
+		B913C9211E0B1E190061B531 /* MainWidget.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B913C91F1E0B1E190061B531 /* MainWidget.storyboard */; };
 		B913C9251E0B1E190061B531 /* OmissionsWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = B913C9181E0B1E190061B531 /* OmissionsWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		B91DB9FF1E07165000D1EC86 /* OpenSource.html in Resources */ = {isa = PBXBuildFile; fileRef = B91DB9FE1E07165000D1EC86 /* OpenSource.html */; };
 		B91DBA011E071A1300D1EC86 /* Imprint.html in Resources */ = {isa = PBXBuildFile; fileRef = B91DBA001E071A1300D1EC86 /* Imprint.html */; };
@@ -77,7 +77,7 @@
 		B913C9181E0B1E190061B531 /* OmissionsWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = OmissionsWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		B913C91A1E0B1E190061B531 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		B913C91D1E0B1E190061B531 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
-		B913C9201E0B1E190061B531 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		B913C9201E0B1E190061B531 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainWidget.storyboard; sourceTree = "<group>"; };
 		B913C9221E0B1E190061B531 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B91DB9FE1E07165000D1EC86 /* OpenSource.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = OpenSource.html; sourceTree = "<group>"; };
 		B91DBA001E071A1300D1EC86 /* Imprint.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = Imprint.html; sourceTree = "<group>"; };
@@ -173,7 +173,7 @@
 		B913C92B1E0B1EE20061B531 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				B913C91F1E0B1E190061B531 /* MainInterface.storyboard */,
+				B913C91F1E0B1E190061B531 /* MainWidget.storyboard */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -384,7 +384,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B913C9211E0B1E190061B531 /* MainInterface.storyboard in Resources */,
+				B913C9211E0B1E190061B531 /* MainWidget.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -458,12 +458,12 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		B913C91F1E0B1E190061B531 /* MainInterface.storyboard */ = {
+		B913C91F1E0B1E190061B531 /* MainWidget.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				B913C9201E0B1E190061B531 /* Base */,
 			);
-			name = MainInterface.storyboard;
+			name = MainWidget.storyboard;
 			sourceTree = "<group>";
 		};
 		B9B5C4DA1D1D494800777BD9 /* Main.storyboard */ = {
