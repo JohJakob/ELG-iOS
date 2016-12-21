@@ -155,11 +155,35 @@
 		B913C91C1E0B1E190061B531 /* OmissionsWidget */ = {
 			isa = PBXGroup;
 			children = (
-				B913C91D1E0B1E190061B531 /* TodayViewController.swift */,
-				B913C91F1E0B1E190061B531 /* MainInterface.storyboard */,
-				B913C9221E0B1E190061B531 /* Info.plist */,
+				B913C92C1E0B1EFF0061B531 /* Extension */,
+				B913C92B1E0B1EE20061B531 /* Views */,
+				B913C92A1E0B1ED30061B531 /* View Controllers */,
 			);
 			path = OmissionsWidget;
+			sourceTree = "<group>";
+		};
+		B913C92A1E0B1ED30061B531 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				B913C91D1E0B1E190061B531 /* TodayViewController.swift */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		B913C92B1E0B1EE20061B531 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B913C91F1E0B1E190061B531 /* MainInterface.storyboard */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		B913C92C1E0B1EFF0061B531 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				B913C9221E0B1E190061B531 /* Info.plist */,
+			);
+			name = Extension;
 			sourceTree = "<group>";
 		};
 		B9B5C4C81D1D494700777BD9 = {
