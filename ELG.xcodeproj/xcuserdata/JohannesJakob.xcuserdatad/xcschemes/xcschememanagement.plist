@@ -9,9 +9,19 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>OmissionsWidget.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>B913C9171E0B1E190061B531</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>B9B5C4D01D1D494700777BD9</key>
 		<dict>
 			<key>primary</key>

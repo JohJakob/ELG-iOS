@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B913C91B1E0B1E190061B531 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B913C91A1E0B1E190061B531 /* NotificationCenter.framework */; };
+		B913C91E1E0B1E190061B531 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B913C91D1E0B1E190061B531 /* TodayViewController.swift */; };
+		B913C9211E0B1E190061B531 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B913C91F1E0B1E190061B531 /* MainInterface.storyboard */; };
+		B913C9251E0B1E190061B531 /* OmissionsWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = B913C9181E0B1E190061B531 /* OmissionsWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		B91DB9FF1E07165000D1EC86 /* OpenSource.html in Resources */ = {isa = PBXBuildFile; fileRef = B91DB9FE1E07165000D1EC86 /* OpenSource.html */; };
 		B91DBA011E071A1300D1EC86 /* Imprint.html in Resources */ = {isa = PBXBuildFile; fileRef = B91DBA001E071A1300D1EC86 /* Imprint.html */; };
 		B9562A6E1D4126B3001BD19E /* OmissionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9562A6D1D4126B3001BD19E /* OmissionsViewController.swift */; };
@@ -45,7 +49,36 @@
 		B9FB652D1DF5FEB3009B7D13 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9FB652C1DF5FEB3009B7D13 /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		B913C9231E0B1E190061B531 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B9B5C4C91D1D494700777BD9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B913C9171E0B1E190061B531;
+			remoteInfo = OmissionsWidget;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		B913C9291E0B1E190061B531 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				B913C9251E0B1E190061B531 /* OmissionsWidget.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		B913C9181E0B1E190061B531 /* OmissionsWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = OmissionsWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		B913C91A1E0B1E190061B531 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		B913C91D1E0B1E190061B531 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
+		B913C9201E0B1E190061B531 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		B913C9221E0B1E190061B531 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B91DB9FE1E07165000D1EC86 /* OpenSource.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = OpenSource.html; sourceTree = "<group>"; };
 		B91DBA001E071A1300D1EC86 /* Imprint.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = Imprint.html; sourceTree = "<group>"; };
 		B9562A6D1D4126B3001BD19E /* OmissionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OmissionsViewController.swift; sourceTree = "<group>"; };
@@ -91,6 +124,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		B913C9151E0B1E190061B531 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B913C91B1E0B1E190061B531 /* NotificationCenter.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B9B5C4CE1D1D494700777BD9 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -103,12 +144,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B913C9191E0B1E190061B531 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B913C91A1E0B1E190061B531 /* NotificationCenter.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B913C91C1E0B1E190061B531 /* OmissionsWidget */ = {
+			isa = PBXGroup;
+			children = (
+				B913C91D1E0B1E190061B531 /* TodayViewController.swift */,
+				B913C91F1E0B1E190061B531 /* MainInterface.storyboard */,
+				B913C9221E0B1E190061B531 /* Info.plist */,
+			);
+			path = OmissionsWidget;
+			sourceTree = "<group>";
+		};
 		B9B5C4C81D1D494700777BD9 = {
 			isa = PBXGroup;
 			children = (
 				B9F73BF91DEDFE77004F3470 /* MessageUI.framework */,
 				B9CBF5831D61D90C00F67682 /* WebKit.framework */,
 				B9B5C4D31D1D494800777BD9 /* ELG */,
+				B913C91C1E0B1E190061B531 /* OmissionsWidget */,
+				B913C9191E0B1E190061B531 /* Frameworks */,
 				B9B5C4D21D1D494800777BD9 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -117,6 +178,7 @@
 			isa = PBXGroup;
 			children = (
 				B9B5C4D11D1D494800777BD9 /* ELG.app */,
+				B913C9181E0B1E190061B531 /* OmissionsWidget.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -210,6 +272,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		B913C9171E0B1E190061B531 /* OmissionsWidget */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B913C9281E0B1E190061B531 /* Build configuration list for PBXNativeTarget "OmissionsWidget" */;
+			buildPhases = (
+				B913C9141E0B1E190061B531 /* Sources */,
+				B913C9151E0B1E190061B531 /* Frameworks */,
+				B913C9161E0B1E190061B531 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = OmissionsWidget;
+			productName = OmissionsWidget;
+			productReference = B913C9181E0B1E190061B531 /* OmissionsWidget.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		B9B5C4D01D1D494700777BD9 /* ELG */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = B9B5C4E51D1D494800777BD9 /* Build configuration list for PBXNativeTarget "ELG" */;
@@ -217,10 +296,12 @@
 				B9B5C4CD1D1D494700777BD9 /* Sources */,
 				B9B5C4CE1D1D494700777BD9 /* Frameworks */,
 				B9B5C4CF1D1D494700777BD9 /* Resources */,
+				B913C9291E0B1E190061B531 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				B913C9241E0B1E190061B531 /* PBXTargetDependency */,
 			);
 			name = ELG;
 			productName = ELG;
@@ -237,6 +318,10 @@
 				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = "Elisabeth-Gymnasium Halle";
 				TargetAttributes = {
+					B913C9171E0B1E190061B531 = {
+						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = ZKYCGLH74U;
+					};
 					B9B5C4D01D1D494700777BD9 = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = ZKYCGLH74U;
@@ -265,11 +350,20 @@
 			projectRoot = "";
 			targets = (
 				B9B5C4D01D1D494700777BD9 /* ELG */,
+				B913C9171E0B1E190061B531 /* OmissionsWidget */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		B913C9161E0B1E190061B531 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B913C9211E0B1E190061B531 /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B9B5C4CF1D1D494700777BD9 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -289,6 +383,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		B913C9141E0B1E190061B531 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B913C91E1E0B1E190061B531 /* TodayViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B9B5C4CD1D1D494700777BD9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -323,7 +425,23 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		B913C9241E0B1E190061B531 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B913C9171E0B1E190061B531 /* OmissionsWidget */;
+			targetProxy = B913C9231E0B1E190061B531 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
+		B913C91F1E0B1E190061B531 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B913C9201E0B1E190061B531 /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
 		B9B5C4DA1D1D494800777BD9 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -351,6 +469,32 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		B913C9261E0B1E190061B531 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = OmissionsWidget/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.hardykrause.ELG.OmissionsWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		B913C9271E0B1E190061B531 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = OmissionsWidget/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.hardykrause.ELG.OmissionsWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 		B9B5C4E31D1D494800777BD9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -444,6 +588,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = ELG/ELG.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = ELG/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -462,6 +607,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = ELG/ELG.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = ELG/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -474,6 +620,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		B913C9281E0B1E190061B531 /* Build configuration list for PBXNativeTarget "OmissionsWidget" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B913C9261E0B1E190061B531 /* Debug */,
+				B913C9271E0B1E190061B531 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		B9B5C4CC1D1D494700777BD9 /* Build configuration list for PBXProject "ELG" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
