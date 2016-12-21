@@ -11,6 +11,7 @@
 		B913C91E1E0B1E190061B531 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B913C91D1E0B1E190061B531 /* TodayViewController.swift */; };
 		B913C9211E0B1E190061B531 /* MainWidget.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B913C91F1E0B1E190061B531 /* MainWidget.storyboard */; };
 		B913C9251E0B1E190061B531 /* OmissionsWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = B913C9181E0B1E190061B531 /* OmissionsWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		B913C9321E0B22F10061B531 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = B913C9311E0B22F10061B531 /* Reachability.m */; };
 		B91DB9FF1E07165000D1EC86 /* OpenSource.html in Resources */ = {isa = PBXBuildFile; fileRef = B91DB9FE1E07165000D1EC86 /* OpenSource.html */; };
 		B91DBA011E071A1300D1EC86 /* Imprint.html in Resources */ = {isa = PBXBuildFile; fileRef = B91DBA001E071A1300D1EC86 /* Imprint.html */; };
 		B9562A6E1D4126B3001BD19E /* OmissionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9562A6D1D4126B3001BD19E /* OmissionsViewController.swift */; };
@@ -79,6 +80,9 @@
 		B913C91D1E0B1E190061B531 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
 		B913C9201E0B1E190061B531 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainWidget.storyboard; sourceTree = "<group>"; };
 		B913C9221E0B1E190061B531 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B913C92F1E0B22F10061B531 /* OmissionsWidget-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OmissionsWidget-Bridging-Header.h"; sourceTree = "<group>"; };
+		B913C9301E0B22F10061B531 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		B913C9311E0B22F10061B531 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		B91DB9FE1E07165000D1EC86 /* OpenSource.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = OpenSource.html; sourceTree = "<group>"; };
 		B91DBA001E071A1300D1EC86 /* Imprint.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = Imprint.html; sourceTree = "<group>"; };
 		B9562A6D1D4126B3001BD19E /* OmissionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OmissionsViewController.swift; sourceTree = "<group>"; };
@@ -155,6 +159,7 @@
 		B913C91C1E0B1E190061B531 /* OmissionsWidget */ = {
 			isa = PBXGroup;
 			children = (
+				B913C92D1E0B226F0061B531 /* Classes */,
 				B913C92C1E0B1EFF0061B531 /* Extension */,
 				B913C92B1E0B1EE20061B531 /* Views */,
 				B913C92A1E0B1ED30061B531 /* View Controllers */,
@@ -184,6 +189,16 @@
 				B913C9221E0B1E190061B531 /* Info.plist */,
 			);
 			name = Extension;
+			sourceTree = "<group>";
+		};
+		B913C92D1E0B226F0061B531 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				B913C9301E0B22F10061B531 /* Reachability.h */,
+				B913C9311E0B22F10061B531 /* Reachability.m */,
+				B913C92F1E0B22F10061B531 /* OmissionsWidget-Bridging-Header.h */,
+			);
+			name = Classes;
 			sourceTree = "<group>";
 		};
 		B9B5C4C81D1D494700777BD9 = {
@@ -411,6 +426,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B913C9321E0B22F10061B531 /* Reachability.m in Sources */,
 				B913C91E1E0B1E190061B531 /* TodayViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -496,6 +512,7 @@
 		B913C9261E0B1E190061B531 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = OmissionsWidget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -503,12 +520,15 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.hardykrause.ELG.OmissionsWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "OmissionsWidget/OmissionsWidget-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		B913C9271E0B1E190061B531 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = OmissionsWidget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -516,6 +536,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.hardykrause.ELG.OmissionsWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "OmissionsWidget/OmissionsWidget-Bridging-Header.h";
 			};
 			name = Release;
 		};
