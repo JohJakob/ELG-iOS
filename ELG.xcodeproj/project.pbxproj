@@ -22,6 +22,7 @@
 		B972692E1DEB0292006819D3 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B972692D1DEB0292006819D3 /* AboutViewController.swift */; };
 		B982C8781D5DF35600B021C9 /* OmissionsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B982C8771D5DF35600B021C9 /* OmissionsTableViewCell.swift */; };
 		B982C87A1D5E5EB500B021C9 /* SWXMLHash.swift in Sources */ = {isa = PBXBuildFile; fileRef = B982C8791D5E5EB500B021C9 /* SWXMLHash.swift */; };
+		B98C637D1E193E7100B515E6 /* IntroductionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98C637C1E193E7100B515E6 /* IntroductionViewController.swift */; };
 		B9B5C4D51D1D494800777BD9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B5C4D41D1D494800777BD9 /* AppDelegate.swift */; };
 		B9B5C4D71D1D494800777BD9 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B5C4D61D1D494800777BD9 /* MasterViewController.swift */; };
 		B9B5C4DC1D1D494800777BD9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9B5C4DA1D1D494800777BD9 /* Main.storyboard */; };
@@ -93,6 +94,7 @@
 		B972692D1DEB0292006819D3 /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		B982C8771D5DF35600B021C9 /* OmissionsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OmissionsTableViewCell.swift; sourceTree = "<group>"; };
 		B982C8791D5E5EB500B021C9 /* SWXMLHash.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SWXMLHash.swift; sourceTree = "<group>"; };
+		B98C637C1E193E7100B515E6 /* IntroductionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroductionViewController.swift; sourceTree = "<group>"; };
 		B9B5C4D11D1D494800777BD9 /* ELG.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ELG.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9B5C4D41D1D494800777BD9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B9B5C4D61D1D494800777BD9 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
@@ -267,6 +269,7 @@
 				B9BDBA081DE1C00A0025E30A /* SetStartViewController.swift */,
 				B972692D1DEB0292006819D3 /* AboutViewController.swift */,
 				B9DEB5681DEB102F00B700AE /* AboutWebViewController.swift */,
+				B98C637C1E193E7100B515E6 /* IntroductionViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -437,6 +440,7 @@
 			files = (
 				B9BDBA0B1DE22EED0025E30A /* TeacherModeViewController.swift in Sources */,
 				B9CBF5801D61C0C300F67682 /* OnePasswordExtension.m in Sources */,
+				B98C637D1E193E7100B515E6 /* IntroductionViewController.swift in Sources */,
 				B9FB652D1DF5FEB3009B7D13 /* DetailViewController.swift in Sources */,
 				B95732F31D5F04E800A758AC /* FoerdervereinViewController.swift in Sources */,
 				B960D7851D37F68F00BCA477 /* SubjectsViewController.swift in Sources */,
@@ -672,6 +676,7 @@
 				B913C9271E0B1E190061B531 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B9B5C4CC1D1D494700777BD9 /* Build configuration list for PBXProject "ELG" */ = {
 			isa = XCConfigurationList;
