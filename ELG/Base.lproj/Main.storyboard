@@ -666,7 +666,7 @@
         <!--Introduction-->
         <scene sceneID="o8W-2G-j2H">
             <objects>
-                <tableViewController title="Introduction" id="Imu-CG-orj" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="IntroductionTableViewController" title="Introduction" id="Imu-CG-orj" customClass="IntroductionViewController" customModule="ELG" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="IJK-al-9Ru">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
