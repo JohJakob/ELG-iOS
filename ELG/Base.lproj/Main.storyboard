@@ -734,7 +734,9 @@
                             <outlet property="delegate" destination="XeZ-L0-FfD" id="EHr-1f-6Co"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Einstellungen" id="CCW-Y2-8B6"/>
+                    <navigationItem key="navigationItem" title="Einstellungen" id="CCW-Y2-8B6">
+                        <barButtonItem key="rightBarButtonItem" title="Fertig" style="done" id="0fv-ik-zTO"/>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dq9-mX-zkc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
