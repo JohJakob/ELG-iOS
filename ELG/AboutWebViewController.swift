@@ -17,8 +17,11 @@ class AboutWebViewController: UIViewController, UIWebViewDelegate {
   
   var defaults: NSUserDefaults!
   var selectedAboutWebView = Int()
+  var didLaunch = Bool()
   let titles = ["Was ist neu?", "Open Source", "Impressum der Website"]
   let pages = ["ReleaseNotes", "OpenSource", "Imprint"]
+  let introductionViewController = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("IntroductionTableViewController")
+  let version = NSBundle.mainBundle().infoDictionary?["CFBundleShortVersionString"] as? String
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -35,13 +38,17 @@ class AboutWebViewController: UIViewController, UIWebViewDelegate {
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
     
-    // Retrieve user default
+    // Retrieve user defaults
     
-    retrieveUserDefault()
+    retrieveUserDefaults()
     
     // Load page in web view
     
     loadPage()
+    
+    // Show button in navigation bar on first launch
+    
+    showFirstLaunchButton()
   }
   
   // Web view functions
@@ -62,8 +69,17 @@ class AboutWebViewController: UIViewController, UIWebViewDelegate {
   
   // Custom functions
   
-  func retrieveUserDefault() {
+  func retrieveUserDefaults() {
+    // Retrieve user defaults
+    
+    didLaunch = defaults.boolForKey("launched\(version)")
     selectedAboutWebView = defaults.integerForKey("selectedAboutWebView")
+    
+    // Check whether the app has been launched for the first time
+    
+    if !didLaunch {
+      selectedAboutWebView = 0
+    }
   }
   
   func loadPage() {
@@ -74,6 +90,26 @@ class AboutWebViewController: UIViewController, UIWebViewDelegate {
     // Load page
     
     aboutWebView.loadRequest(NSURLRequest(URL: NSBundle.mainBundle().URLForResource(pages[selectedAboutWebView], withExtension: ".html")!))
+  }
+  
+  func showFirstLaunchButton() {
+    // Check whether the app has been launched for the first time
+    
+    if !didLaunch {
+      // Add button to navigation bar
+      
+      navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Weiter", style: .Plain, target: self, action: #selector(nextButtonTapped))
+    }
+  }
+  
+  func nextButtonTapped() {
+    // Navigate to new view
+    
+    if #available(iOS 8, *) {
+      navigationController?.showViewController(introductionViewController, sender: self)
+    } else {
+      navigationController?.pushViewController(introductionViewController, animated: true)
+    }
   }
   
   override func didReceiveMemoryWarning() {
