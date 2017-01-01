@@ -120,7 +120,11 @@ class MasterViewController: UITableViewController {
   func showIntroduction() {
     // Show release notes
     
-    navigationController?.presentViewController(aboutWebViewController, animated: true, completion: nil)
+    if #available(iOS 8, *) {
+      navigationController?.showViewController(aboutWebViewController, sender: self)
+    } else {
+      navigationController?.pushViewController(aboutWebViewController, animated: true)
+    }
   }
   
   func showStartView() {
