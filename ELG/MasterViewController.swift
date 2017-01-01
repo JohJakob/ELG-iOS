@@ -14,8 +14,10 @@ class MasterViewController: UITableViewController {
   // var startViewController: StartViewController? = nil
   var defaults: NSUserDefaults!
   var startView = Int()
+  let aboutWebViewController = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("AboutWebViewController")
   let startViewControllers = ["NewsNavigationController", "ScheduleNavigationController", "OmissionsNavigationController", "FoerdervereinNavigationController"]
   let lessonsViewController = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("LessonsTableViewController")
+  let version = NSBundle.mainBundle().infoDictionary?["CFBundleShortVersionString"] as? String
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -43,7 +45,7 @@ class MasterViewController: UITableViewController {
     
     // Check first launch
     
-    if (defaults.boolForKey("launched2.0") != true) {
+    if (defaults.boolForKey("launched\(version)") != true) {
       // Show introduction
       
       showIntroduction()
@@ -116,7 +118,9 @@ class MasterViewController: UITableViewController {
   }
   
   func showIntroduction() {
-    // TODO: Introduction
+    // Show release notes
+    
+    navigationController?.presentViewController(aboutWebViewController, animated: true, completion: nil)
   }
   
   func showStartView() {
