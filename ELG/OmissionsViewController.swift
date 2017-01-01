@@ -344,8 +344,6 @@ class OmissionsViewController: UITableViewController {
       
       navigationItem.title = rows[0] as? String
       
-      // Save omissions if setting is activated
-      
       // Reset table view appearance
       
       tableView.backgroundColor = UIColor.whiteColor()
