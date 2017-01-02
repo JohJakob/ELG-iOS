@@ -17,12 +17,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
   func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
     // Override point for customization after application launch.
     
-    if #available(iOS 8.0, *) {
+    if #available(iOS 8, *) {
       let splitViewController = self.window!.rootViewController as! UISplitViewController
       
       splitViewController.delegate = self
       
-      // Show Master and Detail side-by-side in Portrait and Landscape on iPad
+      // Show master and detail side-by-side in portrait and landscape on iPad
 
       splitViewController.preferredDisplayMode = .AllVisible
     }
