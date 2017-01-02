@@ -14,7 +14,7 @@ class MasterViewController: UITableViewController {
   // var startViewController: StartViewController? = nil
   var defaults: NSUserDefaults!
   var startView = Int()
-  let aboutWebViewController = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("AboutWebViewController")
+  let introductionNavigationController = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("IntroductionNavigationController")
   let startViewControllers = ["NewsNavigationController", "ScheduleNavigationController", "OmissionsNavigationController", "FoerdervereinNavigationController"]
   let lessonsViewController = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("LessonsTableViewController")
   let version = NSBundle.mainBundle().infoDictionary?["CFBundleShortVersionString"] as? String
@@ -85,7 +85,7 @@ class MasterViewController: UITableViewController {
     
     navigationItem.titleView = UIImageView.init(image: UIImage(named: "Schulkreuz"))
     
-    // Set empty schedules
+    // Set empty schedules in user defaults
     
     let emptySchedule = ["", "", "", "", "", "", "", "", "", ""]
     let emptyFridaySchedule = ["", "", "", "", "", ""]
@@ -110,21 +110,29 @@ class MasterViewController: UITableViewController {
       defaults.setObject(emptyFridaySchedule, forKey: "friday")
     }
     
+    // Set empty teacher token in user defaults
+    
     if defaults.stringForKey("teacherToken") == nil {
       defaults.setObject("", forKey: "teacherToken")
     }
+    
+    // Synchronize user defaults
     
     defaults.synchronize()
   }
   
   func showIntroduction() {
+    // Remove all user defaults
+    
+    defaults.removePersistentDomainForName(NSBundle.mainBundle().bundleIdentifier!)
+    
+    // Set up app
+    
+    setUp()
+    
     // Show release notes
     
-    if #available(iOS 8, *) {
-      navigationController?.showViewController(aboutWebViewController, sender: self)
-    } else {
-      navigationController?.pushViewController(aboutWebViewController, animated: true)
-    }
+    UIApplication.sharedApplication().delegate?.window!!.rootViewController = introductionNavigationController
   }
   
   func showStartView() {
