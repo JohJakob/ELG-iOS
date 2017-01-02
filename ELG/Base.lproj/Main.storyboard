@@ -663,6 +663,22 @@
             </objects>
             <point key="canvasLocation" x="1459" y="3319"/>
         </scene>
+        <!--Introduction Navigation-->
+        <scene sceneID="9Bs-2S-77k">
+            <objects>
+                <navigationController storyboardIdentifier="IntroductionNavigationController" title="Introduction Navigation" id="xIL-1I-upZ" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="moK-3a-nc3">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="dw7-x4-RsP" kind="relationship" relationship="rootViewController" id="GI9-7r-Bfw"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FnS-iU-1M1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1459" y="4151"/>
+        </scene>
         <!--Introduction-->
         <scene sceneID="o8W-2G-j2H">
             <objects>
@@ -707,7 +723,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wKb-eS-Hnu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1459" y="4081"/>
+            <point key="canvasLocation" x="2279" y="4151"/>
         </scene>
         <!--Settings-->
         <scene sceneID="7E0-Sx-xQz">
