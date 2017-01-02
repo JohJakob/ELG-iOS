@@ -74,7 +74,7 @@ class IntroductionViewController: UITableViewController {
   }
   
   override func tableView(tableView: UITableView, titleForFooterInSection section: Int) -> String? {
-    return "Aufgrund der Neuentwicklung der App und der Veränderung einiger Vorgänge mussten sämtliche gesicherten Daten entfernt werden. In den Einstellungen kannst Du sie erneut eingeben. Ich hoffe auf Dein Verständnis!"
+    return "Aufgrund der Neuentwicklung der App und der Veränderung einiger Vorgänge mussten sämtliche gesicherten Daten entfernt werden. In den Einstellungen kannst Du sie erneut eingeben. Ich hoffe auf Dein Verständnis."
   }
   
   override func didReceiveMemoryWarning() {
