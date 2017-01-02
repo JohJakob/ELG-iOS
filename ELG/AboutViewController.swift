@@ -3,7 +3,7 @@
 //  ELG
 //
 //  Created by Johannes Jakob on 27/11/2016
-//  © 2016 Elisabeth-Gymnasium Halle, Johannes Jakob
+//  © 2016-2017 Elisabeth-Gymnasium Halle, Johannes Jakob
 //
 
 import UIKit
@@ -204,7 +204,7 @@ class AboutViewController: UITableViewController, MFMailComposeViewControllerDel
     // Check table view section and set title for table view section footer
     
     if section == 3 {
-      return "© 2012-2016 Elisabeth-Gymnasium Halle, Johannes Jakob"
+      return "© 2012-2017 Elisabeth-Gymnasium Halle, Johannes Jakob"
     } else {
       return nil
     }

@@ -3,7 +3,7 @@
 //  OmissionsWidget
 //
 //  Created by Johannes Jakob on 21/12/2016
-//  © 2016 Elisabeth-Gymnasium Halle, Johannes Jakob
+//  © 2016-2017 Elisabeth-Gymnasium Halle, Johannes Jakob
 //
 
 import UIKit
