@@ -32,9 +32,9 @@ class IntroductionViewController: UITableViewController {
     
     defaults.synchronize()
     
-    // Pop view
+    // Dismiss view
     
-    navigationController?.popToRootViewControllerAnimated(true)
+    dismissViewControllerAnimated(true, completion: nil)
   }
   
   override func viewDidLoad() {
