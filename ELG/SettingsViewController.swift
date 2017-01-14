@@ -125,29 +125,6 @@ class SettingsViewController: UITableViewController {
     return cell
   }
   
-  override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-    var titleForHeader = String()
-    
-    switch section {
-    case 0:
-      titleForHeader = "Allgemein"
-      break
-    case 1:
-      titleForHeader = "Vertretungsplan"
-      break
-    case 2:
-      titleForHeader = "Startseite"
-      break
-    case 3:
-      titleForHeader = "Einstellungen"
-      break
-    default:
-      break
-    }
-    
-    return titleForHeader
-  }
-  
   override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     // Deselect table view cell
     
