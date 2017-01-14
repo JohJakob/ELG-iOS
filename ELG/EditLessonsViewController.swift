@@ -57,6 +57,17 @@ class EditLessonsViewController: UITableViewController {
       break
     }
     
+    if lessons == nil {
+      switch defaults.integerForKey("selectedDay") {
+      case 4:
+        lessons = ["", "", "", "", "", ""]
+        break;
+      default:
+        lessons = ["", "", "", "", "", "", "", "", "", ""]
+        break
+      }
+    }
+    
     // Reload table view
     
     tableView.reloadData()

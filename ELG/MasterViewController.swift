@@ -30,14 +30,6 @@ class MasterViewController: UITableViewController {
       defaults = NSUserDefaults.init(suiteName: "group.com.hardykrause.elg")
     }
     
-    // Set up app
-    
-    setUp()
-    
-    // Remove temporary user defaults
-    
-    removeUserDefaults()
-    
     /* if let split = self.splitViewController {
      let controllers = split.viewControllers
      self.startViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? StartViewController
@@ -66,6 +58,14 @@ class MasterViewController: UITableViewController {
       
       showIntroduction()
     }
+    
+    // Set up app
+    
+    setUp()
+    
+    // Remove temporary user defaults
+    
+    removeUserDefaults()
   }
   
   // Table view functions
@@ -88,31 +88,6 @@ class MasterViewController: UITableViewController {
     // Set title view
     
     navigationItem.titleView = UIImageView.init(image: UIImage(named: "Schulkreuz"))
-    
-    // Set empty schedules in user defaults
-    
-    let emptySchedule = ["", "", "", "", "", "", "", "", "", ""]
-    let emptyFridaySchedule = ["", "", "", "", "", ""]
-    
-    if defaults.stringArrayForKey("tuesday")?.count == 0 {
-      defaults.setObject(emptySchedule, forKey: "monday")
-    }
-    
-    if defaults.stringArrayForKey("tuesday")?.count == 0 {
-      defaults.setObject(emptySchedule, forKey: "tuesday")
-    }
-    
-    if defaults.stringArrayForKey("wednesday")?.count == 0 {
-      defaults.setObject(emptySchedule, forKey: "wednesday")
-    }
-    
-    if defaults.stringArrayForKey("thursday")?.count == 0 {
-      defaults.setObject(emptySchedule, forKey: "thursday")
-    }
-    
-    if defaults.stringArrayForKey("friday")?.count == 0 {
-      defaults.setObject(emptyFridaySchedule, forKey: "friday")
-    }
     
     // Set empty teacher token in user defaults
     
