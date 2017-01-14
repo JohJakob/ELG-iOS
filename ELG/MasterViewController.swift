@@ -14,7 +14,7 @@ class MasterViewController: UITableViewController {
   // var startViewController: StartViewController? = nil
   var defaults: NSUserDefaults!
   var startView = Int()
-  let introductionNavigationController = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("IntroductionNavigationController")
+  let introductionViewController = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("IntroductionNavigationController")
   let startViewControllers = ["NewsNavigationController", "ScheduleNavigationController", "OmissionsNavigationController", "FoerdervereinNavigationController"]
   let lessonsViewController = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("LessonsTableViewController")
   let version = NSBundle.mainBundle().infoDictionary?["CFBundleShortVersionString"] as? String
@@ -43,14 +43,6 @@ class MasterViewController: UITableViewController {
      self.startViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? StartViewController
      } */
     
-    // Check first launch
-    
-    if (defaults.boolForKey("launched\(version)") != true) {
-      // Show introduction
-      
-      showIntroduction()
-    }
-    
     // Show start view
     
     showStartView()
@@ -61,6 +53,18 @@ class MasterViewController: UITableViewController {
     
     if #available(iOS 8, *) {
       self.clearsSelectionOnViewWillAppear = self.splitViewController!.collapsed
+    }
+  }
+  
+  override func viewDidAppear(animated: Bool) {
+    super.viewDidAppear(animated)
+    
+    // Check first launch
+    
+    if (defaults.boolForKey("launched\(version)") != true) {
+      // Show introduction
+      
+      showIntroduction()
     }
   }
   
@@ -132,7 +136,13 @@ class MasterViewController: UITableViewController {
     
     // Show release notes
     
-    UIApplication.sharedApplication().delegate?.window!!.rootViewController = introductionNavigationController
+    /* if #available(iOS 8, *) {
+      navigationController?.showViewController(aboutWebViewController, sender: self)
+    } else {
+      navigationController?.pushViewController(aboutWebViewController, animated: true)
+    } */
+    
+    presentViewController(introductionViewController, animated: true, completion: nil)
   }
   
   func showStartView() {
