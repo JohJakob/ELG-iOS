@@ -67,6 +67,10 @@ class LessonsViewController: UITableViewController {
       break
     }
     
+    // Clear background view
+    
+    tableView.backgroundView = nil
+    
     // Reload table view
     
     tableView.reloadData()
@@ -81,22 +85,29 @@ class LessonsViewController: UITableViewController {
   override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     // Check schedule for empty lessons at the end to shorten the table view
     
-    var numberOfRows = lessons.count
-    var followingEmpty = true
+    var numberOfRows = Int()
     
-    for i in 0 ..< lessons.count {
-      followingEmpty = true
+    if lessons == nil {
+      numberOfRows = 0
+    } else {
+      numberOfRows = lessons.count
       
-      if lessons[i] == "" {
-        for n in i + 1 ..< lessons.count {
-          if lessons[n] != "" {
-            followingEmpty = false
-          }
-        }
+      var followingEmpty = true
+      
+      for i in 0 ..< lessons.count {
+        followingEmpty = true
         
-        if followingEmpty {
-          numberOfRows = lessons.count - (lessons.count - i)
-          break
+        if lessons[i] == "" {
+          for n in i + 1 ..< lessons.count {
+            if lessons[n] != "" {
+              followingEmpty = false
+            }
+          }
+          
+          if followingEmpty {
+            numberOfRows = lessons.count - (lessons.count - i)
+            break
+          }
         }
       }
     }
