@@ -66,7 +66,7 @@ class OmissionsViewController: UITableViewController {
     
     let reachabilityStatus: NetworkStatus = Reachability.reachabilityForInternetConnection().currentReachabilityStatus()
     
-    if reachabilityStatus != NotReachable {
+    if reachabilityStatus != NotReachable || (reachabilityStatus == NotReachable && offlineAvailable) {
       numberOfSections = 2
     } else {
       numberOfSections = 0
@@ -93,14 +93,10 @@ class OmissionsViewController: UITableViewController {
     if section == 0 {
       numberOfRows = ownOmissions.count
     } else {
-      let reachabilityStatus: NetworkStatus = Reachability.reachabilityForInternetConnection().currentReachabilityStatus()
-      
-      if reachabilityStatus != NotReachable {
-        numberOfRows = rows.count - 2
-      } else if rows.count < 3 && reachabilityStatus != NotReachable {
+      if rows.count < 3 {
         numberOfRows = 0
       } else {
-        numberOfRows = 0
+        numberOfRows = rows.count - 2
       }
     }
     
