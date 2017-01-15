@@ -358,9 +358,13 @@ class OmissionsViewController: UITableViewController {
       defaults.setBool(offlineAvailable, forKey: "offlineAvailable")
       defaults.synchronize()
       
-      // Enable save button
+      // Enable/Disable save button
       
-      saveButton.enabled = true
+      if rows.count < 3 {
+        saveButton.enabled = false
+      } else {
+        saveButton.enabled = true
+      }
       
       if autoSave {
         saveOmissions()
