@@ -89,7 +89,15 @@ class AboutWebViewController: UIViewController, UIWebViewDelegate {
     
     // Load page
     
-    aboutWebView.loadRequest(NSURLRequest(URL: NSBundle.mainBundle().URLForResource(pages[selectedAboutWebView], withExtension: ".html")!))
+    if #available(iOS 8, *) {
+      aboutWebView.loadRequest(NSURLRequest(URL: NSBundle.mainBundle().URLForResource(pages[selectedAboutWebView], withExtension: ".html")!))
+    } else {
+      if selectedAboutWebView == 0 {
+        aboutWebView.loadRequest(NSURLRequest(URL: NSBundle.mainBundle().URLForResource("ReleaseNotes-iOS-7", withExtension: ".html")!))
+      } else {
+        aboutWebView.loadRequest(NSURLRequest(URL: NSBundle.mainBundle().URLForResource(pages[selectedAboutWebView], withExtension: ".html")!))
+      }
+    }
   }
   
   func showFirstLaunchButton() {
