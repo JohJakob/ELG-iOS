@@ -210,6 +210,12 @@ class AboutViewController: UITableViewController, MFMailComposeViewControllerDel
     }
   }
   
+  // Mail compose functions
+  
+  func mailComposeController(controller: MFMailComposeViewController, didFinishWithResult result: MFMailComposeResult, error: NSError?) {
+    dismissViewControllerAnimated(true, completion: nil)
+  }
+  
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
     
