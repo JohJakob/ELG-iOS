@@ -23,12 +23,8 @@ class FoerdervereinViewController: UITableViewController {
     super.viewDidLoad()
     
     // Initialize user defaults
-    
-    if #available(iOS 8, *) {
-      defaults = NSUserDefaults.standardUserDefaults()
-    } else {
-      defaults = NSUserDefaults.init(suiteName: "group.com.hardykrause.elg")
-    }
+		
+		defaults = NSUserDefaults.standardUserDefaults()
     
     // Set up refresh control
     
@@ -110,13 +106,9 @@ class FoerdervereinViewController: UITableViewController {
     defaults.setValue(items[indexPath.row]["link"], forKey: "selectedArticleLink")
     defaults.synchronize()
     
-    // Navigate to new view
-    
-    if #available(iOS 8, *) {
-      navigationController?.showViewController(articleViewController, sender: self)
-    } else {
-      navigationController?.pushViewController(articleViewController, animated: true)
-    }
+    // Show new view
+		
+		navigationController?.showViewController(articleViewController, sender: self)
   }
   
   // Custom functions

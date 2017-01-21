@@ -18,12 +18,8 @@ class EditScheduleViewController: UITableViewController {
     super.viewDidLoad()
     
     // Initialize user defaults
-    
-    if #available(iOS 8, *) {
-      defaults = NSUserDefaults.standardUserDefaults()
-    } else {
-      defaults = NSUserDefaults.init(suiteName: "group.com.hardykrause.elg")
-    }
+		
+		defaults = NSUserDefaults.standardUserDefaults()
   }
   
   // Table view functions
@@ -57,13 +53,9 @@ class EditScheduleViewController: UITableViewController {
     defaults.setInteger(indexPath.row, forKey: "selectedDay")
     defaults.synchronize()
     
-    // Navigate to new view
-    
-    if #available(iOS 8, *) {
-      navigationController?.showViewController(editLessonsViewController, sender: self)
-    } else {
-      navigationController?.pushViewController(editLessonsViewController, animated: true)
-    }
+    // Show new view
+		
+		navigationController?.showViewController(editLessonsViewController, sender: self)
   }
   
   override func didReceiveMemoryWarning() {

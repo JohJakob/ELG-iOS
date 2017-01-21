@@ -22,12 +22,8 @@ class ScheduleViewController: UITableViewController {
     super.viewDidLoad()
     
     // Initialize user defaults
-    
-    if #available(iOS 8, *) {
-      defaults = NSUserDefaults.standardUserDefaults()
-    } else {
-      defaults = NSUserDefaults.init(suiteName: "group.com.hardykrause.elg")
-    }
+		
+		defaults = NSUserDefaults.standardUserDefaults()
   }
   
   // Table view functions
@@ -89,30 +85,18 @@ class ScheduleViewController: UITableViewController {
     
     defaults.setInteger(indexPath.row, forKey: "selectedDay")
     defaults.synchronize()
-    
-    if #available(iOS 8, *) {
-      navigationController?.showViewController(lessonsViewController, sender: self)
-    } else {
-      navigationController?.pushViewController(lessonsViewController, animated: true)
-    }
+
+		navigationController?.showViewController(lessonsViewController, sender: self)
     
     // Use when online schedules are available again
     
     /* if indexPath.section == 0 {
       defaults.setInteger(indexPath.row, forKey: "selectedDay")
       defaults.synchronize()
-      
-      if #available(iOS 8, *) {
-        navigationController?.showViewController(lessonsViewController, sender: self)
-      } else {
-        navigationController?.pushViewController(lessonsViewController, animated: true)
-      }
+		
+			navigationController?.showViewController(lessonsViewController, sender: self)
     } else {
-      if #available(iOS 8, *) {
-        navigationController?.showViewController(webScheduleViewController, sender: self)
-      } else {
-        navigationController?.pushViewController(webScheduleViewController, animated: true)
-      }
+			navigationController?.showViewController(webScheduleViewController, sender: self)
     } */
   }
   

@@ -18,12 +18,8 @@ class SubjectsViewController: UITableViewController, UIAlertViewDelegate {
     super.viewDidLoad()
     
     // Initialize user defaults
-    
-    if #available(iOS 8, *) {
-      defaults = NSUserDefaults.standardUserDefaults()
-    } else {
-      defaults = NSUserDefaults.init(suiteName: "group.com.hardykrause.elg")
-    }
+		
+		defaults = NSUserDefaults.standardUserDefaults()
   }
   
   // Table view functions
@@ -69,7 +65,7 @@ class SubjectsViewController: UITableViewController, UIAlertViewDelegate {
       defaults.setValue("Kein Unterricht", forKey: "selectedSubject")
       defaults.synchronize()
       
-      // Pop view controller
+      // Pop view
       
       navigationController?.popViewControllerAnimated(true)
     } else {
@@ -89,9 +85,9 @@ class SubjectsViewController: UITableViewController, UIAlertViewDelegate {
             self.defaults.synchronize()
           }
           
-          // Pop view controller
+          // Pop view
           
-          self.navigationController?.popViewControllerAnimated(true)
+          navigationController?.popViewControllerAnimated(true)
         }))
         presentViewController(roomAlert, animated: true, completion: nil)
       } else {
@@ -115,7 +111,7 @@ class SubjectsViewController: UITableViewController, UIAlertViewDelegate {
       defaults.synchronize()
     }
     
-    // Pop view controller
+    // Pop view
     
     navigationController?.popViewControllerAnimated(true)
   }

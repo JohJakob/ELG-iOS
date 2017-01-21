@@ -24,11 +24,7 @@ class MasterViewController: UITableViewController {
     
     // Initialize user defaults
     
-    if #available(iOS 8, *) {
-      defaults = NSUserDefaults.standardUserDefaults()
-    } else {
-      defaults = NSUserDefaults.init(suiteName: "group.com.hardykrause.elg")
-    }
+    defaults = NSUserDefaults.standardUserDefaults()
     
     /* if let split = self.splitViewController {
      let controllers = split.viewControllers
@@ -43,9 +39,7 @@ class MasterViewController: UITableViewController {
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
     
-    if #available(iOS 8, *) {
-      self.clearsSelectionOnViewWillAppear = self.splitViewController!.collapsed
-    }
+    self.clearsSelectionOnViewWillAppear = self.splitViewController!.collapsed
   }
   
   override func viewDidAppear(animated: Bool) {
@@ -111,11 +105,7 @@ class MasterViewController: UITableViewController {
     
     // Show release notes
     
-    /* if #available(iOS 8, *) {
-      navigationController?.showViewController(aboutWebViewController, sender: self)
-    } else {
-      navigationController?.pushViewController(aboutWebViewController, animated: true)
-    } */
+    /* navigationController?.showViewController(aboutWebViewController, sender: self) */
     
     presentViewController(onboardingViewController, animated: true, completion: nil)
   }
@@ -146,9 +136,7 @@ class MasterViewController: UITableViewController {
           
           // Show start view
           
-          if #available(iOS 8, *) {
-            navigationController?.showDetailViewController(lessonsViewController, sender: self)
-          }
+					navigationController?.showDetailViewController(lessonsViewController, sender: self)
         } else {
           // Set user default
           
@@ -156,17 +144,13 @@ class MasterViewController: UITableViewController {
           defaults.synchronize()
           
           // Show start view
-          
-          if #available(iOS 8, *) {
-            navigationController?.showDetailViewController(lessonsViewController, sender: self)
-          }
+					
+					navigationController?.showDetailViewController(lessonsViewController, sender: self)
         }
       } else {
         // Show start view
-        
-        if #available(iOS 8, *) {
-          navigationController?.showDetailViewController(UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier(startViewControllers[startView - 1]), sender: self)
-        }
+				
+				navigationController?.showDetailViewController(UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier(startViewControllers[startView - 1]), sender: self)
       }
     }
   }

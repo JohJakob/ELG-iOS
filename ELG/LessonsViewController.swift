@@ -18,23 +18,15 @@ class LessonsViewController: UITableViewController {
   // Actions
   
   @IBAction func editButtonTap(sender: UIBarButtonItem) {
-    if #available(iOS 8, *) {
-      navigationController?.showViewController(editLessonsViewController, sender: self)
-    } else {
-      navigationController?.pushViewController(editLessonsViewController, animated: true)
-    }
+		navigationController?.showViewController(editLessonsViewController, sender: self)
   }
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
     // Initialize user defaults
-    
-    if #available(iOS 8, *) {
-      defaults = NSUserDefaults.standardUserDefaults()
-    } else {
-      defaults = NSUserDefaults.init(suiteName: "group.com.hardykrause.elg")
-    }
+		
+		defaults = NSUserDefaults.standardUserDefaults()
   }
   
   override func viewWillAppear(animated: Bool) {

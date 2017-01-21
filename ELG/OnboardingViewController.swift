@@ -19,12 +19,8 @@ class OnboardingViewController: UITableViewController {
   
   @IBAction func doneButtonTap(sender: UIBarButtonItem) {
     // Initialize user defaults
-    
-    if #available(iOS 8, *) {
-      defaults = NSUserDefaults.standardUserDefaults()
-    } else {
-      defaults = NSUserDefaults.init(suiteName: "group.com.hardykrause.elg")
-    }
+		
+		defaults = NSUserDefaults.standardUserDefaults()
     
     // Set user default
     
@@ -64,13 +60,9 @@ class OnboardingViewController: UITableViewController {
   }
   
   override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-    // Navigate to new view
-    
-    if #available(iOS 8, *) {
-      navigationController?.showViewController(settingsViewController, sender: self)
-    } else {
-      navigationController?.pushViewController(settingsViewController, animated: true)
-    }
+    // Show new view
+		
+		navigationController?.showViewController(settingsViewController, sender: self)
   }
   
   override func tableView(tableView: UITableView, titleForFooterInSection section: Int) -> String? {

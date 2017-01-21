@@ -12,7 +12,7 @@ import NotificationCenter
 class TodayViewController: UITableViewController, NCWidgetProviding {
   // Variables + constants
   
-  var defaults: NSUserDefaults!
+  var defaults: UserDefaults!
   var selectedGrade = NSInteger()
   var rows = NSMutableArray()
   var ownOmissions = NSMutableArray()
@@ -24,10 +24,10 @@ class TodayViewController: UITableViewController, NCWidgetProviding {
     super.viewDidLoad()
   }
   
-  override func viewWillAppear(animated: Bool) {
+  override func viewWillAppear(_ animated: Bool) {
     // Initialize user defaults
     
-    defaults = NSUserDefaults.standardUserDefaults()
+    defaults = UserDefaults.standard
     
     // Prepare omissions
     
@@ -36,34 +36,34 @@ class TodayViewController: UITableViewController, NCWidgetProviding {
     // Set preferred widget size
     
     if ownOmissions.count == 0 {
-      preferredContentSize = CGSizeMake(preferredContentSize.width, 44)
+      preferredContentSize = CGSize(width: preferredContentSize.width, height: 44)
     } else {
-      preferredContentSize = CGSizeMake(preferredContentSize.width, CGFloat(ownOmissions.count) * 44)
+      preferredContentSize = CGSize(width: preferredContentSize.width, height: CGFloat(ownOmissions.count) * 44)
     }
   }
   
   // Widget functions
   
-  func widgetPerformUpdateWithCompletionHandler(completionHandler: ((NCUpdateResult) -> Void)) {
+  func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {
     // Perform any setup necessary in order to update the view.
     
     // If an error is encountered, use NCUpdateResult.Failed
     // If there's no update required, use NCUpdateResult.NoData
     // If there's an update, use NCUpdateResult.NewData
     
-    completionHandler(NCUpdateResult.NewData)
+    completionHandler(NCUpdateResult.newData)
   }
   
-  func widgetMarginInsetsForProposedMarginInsets(defaultMarginInsets: UIEdgeInsets) -> UIEdgeInsets {
-    return UIEdgeInsetsZero
+  func widgetMarginInsets(forProposedMarginInsets defaultMarginInsets: UIEdgeInsets) -> UIEdgeInsets {
+    return UIEdgeInsets.zero
   }
   
   // Table view functions
   
-  override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+  override func numberOfSections(in tableView: UITableView) -> Int {
     var numberOfSections: Int
     
-    let reachabilityStatus: NetworkStatus = Reachability.reachabilityForInternetConnection().currentReachabilityStatus()
+    let reachabilityStatus: NetworkStatus = Reachability.forInternetConnection().currentReachabilityStatus()
     
     if reachabilityStatus != NotReachable {
       numberOfSections = 1
@@ -74,29 +74,29 @@ class TodayViewController: UITableViewController, NCWidgetProviding {
       
       let noConnectionLabel = UILabel.init()
       noConnectionLabel.text = "Keine Internetverbindung"
-      noConnectionLabel.textColor = UIColor.lightTextColor()
-      noConnectionLabel.font = UIFont.systemFontOfSize(16)
-      noConnectionLabel.textAlignment = .Center
+      noConnectionLabel.textColor = UIColor.lightText
+      noConnectionLabel.font = UIFont.systemFont(ofSize: 16)
+      noConnectionLabel.textAlignment = .center
       
-      tableView.separatorStyle = .None
+      tableView.separatorStyle = .none
       tableView.backgroundView = noConnectionLabel
     }
     
     return numberOfSections
   }
   
-  override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+  override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return ownOmissions.count
   }
   
-  override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCellWithIdentifier("OmissionsWidgetTableViewCell", forIndexPath: indexPath)
+  override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    let cell = tableView.dequeueReusableCell(withIdentifier: "OmissionsWidgetTableViewCell", for: indexPath)
     
     // Prepare omissions
     
     var omissionComponents: [String]
     
-    omissionComponents = ownOmissions[indexPath.row].componentsSeparatedByString("\",\"")
+    omissionComponents = (ownOmissions[indexPath.row] as AnyObject).components(separatedBy: "\",\"")
     
     // Create omission components
     
@@ -105,7 +105,7 @@ class TodayViewController: UITableViewController, NCWidgetProviding {
     let subject = omissionComponents[3]
     let room = omissionComponents[4]
     let text = omissionComponents[5]
-    let comment = omissionComponents[6].stringByReplacingOccurrencesOfString("\"", withString: "")
+    let comment = omissionComponents[6].replacingOccurrences(of: "\"", with: "")
     
     // Set cell's text
     
@@ -127,47 +127,47 @@ class TodayViewController: UITableViewController, NCWidgetProviding {
     
     // Remove unnecessary whitespaces
     
-    cell.textLabel!.text = cell.textLabel!.text?.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
+    cell.textLabel!.text = cell.textLabel!.text?.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
     
-    cell.detailTextLabel!.text = cell.detailTextLabel!.text?.stringByReplacingOccurrencesOfString("      ", withString: "   ")
+    cell.detailTextLabel!.text = cell.detailTextLabel!.text?.replacingOccurrences(of: "      ", with: "   ")
     
     // Set cell's highlighted text color
     
-    cell.textLabel?.highlightedTextColor = UIColor.blackColor()
-    cell.detailTextLabel?.highlightedTextColor = UIColor.blackColor()
+    cell.textLabel?.highlightedTextColor = UIColor.black
+    cell.detailTextLabel?.highlightedTextColor = UIColor.black
     
     // Disbale user interaction on iPad
     
-    if UI_USER_INTERFACE_IDIOM() == .Pad {
-      cell.userInteractionEnabled = false
+    if UI_USER_INTERFACE_IDIOM() == .pad {
+      cell.isUserInteractionEnabled = false
     }
     
     return cell
   }
   
-  override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+  override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     // Open omissions in app
     
-    extensionContext?.openURL(NSURL.init(string: "elg://?page=omissions")!, completionHandler: nil)
+    extensionContext?.open(URL.init(string: "elg://?page=omissions")!, completionHandler: nil)
   }
   
-  override func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+  override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
     let footerLabel = UILabel()
     
-    footerLabel.textColor = UIColor.lightGrayColor()
-    footerLabel.font = UIFont.systemFontOfSize(16)
-    footerLabel.textAlignment = .Center
+    footerLabel.textColor = UIColor.lightGray
+    footerLabel.font = UIFont.systemFont(ofSize: 16)
+    footerLabel.textAlignment = .center
     
     if ownOmissions.count == 0 {
       footerLabel.text = "Keine eigenen Vertretungen"
     } else {
-      footerLabel.backgroundColor = UIColor.whiteColor()
+      footerLabel.backgroundColor = UIColor.white
     }
     
     return footerLabel
   }
   
-  override func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+  override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
     var heightForFooter: CGFloat = 0
     
     if ownOmissions.count == 0 {
@@ -184,18 +184,18 @@ class TodayViewController: UITableViewController, NCWidgetProviding {
   func prepare() {
     // Retrieve variables from user defaults
     
-    selectedGrade = defaults.integerForKey("selectedGrade")
-    teacherMode = defaults.boolForKey("teacherMode")
+    selectedGrade = defaults.integer(forKey: "selectedGrade")
+    teacherMode = defaults.bool(forKey: "teacherMode")
     
     // Set teacher token when nil
     
-    if defaults.stringForKey("teacherToken") == nil {
-      defaults.setObject("", forKey: "teacherToken")
+    if defaults.string(forKey: "teacherToken") == nil {
+      defaults.set("", forKey: "teacherToken")
     }
     
     defaults.synchronize()
     
-    teacherToken = defaults.stringForKey("teacherToken")!
+    teacherToken = defaults.string(forKey: "teacherToken")!
     
     // Download omissions
     
@@ -205,7 +205,7 @@ class TodayViewController: UITableViewController, NCWidgetProviding {
   func downloadOmissions() {
     // Check internet reachability
     
-    let reachabilityStatus: NetworkStatus = Reachability.reachabilityForInternetConnection().currentReachabilityStatus()
+    let reachabilityStatus: NetworkStatus = Reachability.forInternetConnection().currentReachabilityStatus()
     
     if reachabilityStatus != NotReachable {
       // Download CSV file
@@ -213,16 +213,16 @@ class TodayViewController: UITableViewController, NCWidgetProviding {
       var rawOmissions = String()
       
       do {
-        try rawOmissions = String(contentsOfURL: NSURL.init(string: "http://elg-halle.de/Aktuell/Intern/Vertretungsplan/vp.csv")!, encoding: NSASCIIStringEncoding)
+        try rawOmissions = String(contentsOf: URL.init(string: "http://elg-halle.de/Aktuell/Intern/Vertretungsplan/vp.csv")!, encoding: String.Encoding.ascii)
       } catch {
         print(error)
       }
       
       // Convert raw data into array
       
-      let cleanedOmissions = rawOmissions.stringByReplacingOccurrencesOfString("\r", withString: "")
+      let cleanedOmissions = rawOmissions.replacingOccurrences(of: "\r", with: "")
       
-      rows = NSMutableArray.init(array: cleanedOmissions.componentsSeparatedByString("\n"))
+      rows = NSMutableArray.init(array: cleanedOmissions.components(separatedBy: "\n"))
       
       // Reset own omissions
       
@@ -233,14 +233,14 @@ class TodayViewController: UITableViewController, NCWidgetProviding {
       for i in 1 ..< rows.count - 1 {
         // Remove lunch break
         
-        if rows[i].rangeOfString("MIPa").location != NSNotFound {
-          rows.removeObjectAtIndex(i)
+        if (rows[i] as AnyObject).range(of: "MIPa").location != NSNotFound {
+          rows.removeObject(at: i)
         }
         
         // Prepare getting own omissions
         
-        let omissionComponents = rows[i].componentsSeparatedByString("\",\"")
-        let grade = omissionComponents[0].stringByReplacingOccurrencesOfString("\"", withString: "")
+        let omissionComponents = (rows[i] as AnyObject).components(separatedBy: "\",\"")
+        let grade = omissionComponents[0].replacingOccurrences(of: "\"", with: "")
         var teacher = String()
         
         // Get teacher of omission
@@ -253,12 +253,12 @@ class TodayViewController: UITableViewController, NCWidgetProviding {
         
         if teacherMode {
           if teacher == teacherToken && teacher != "" {
-            ownOmissions.addObject(rows[i])
+            ownOmissions.add(rows[i])
           }
         } else {
           if selectedGrade != 0 {
-            if grade.rangeOfString(grades[selectedGrade - 1]) != nil {
-              ownOmissions.addObject(rows[i])
+            if grade.range(of: grades[selectedGrade - 1]) != nil {
+              ownOmissions.add(rows[i])
             }
           }
         }

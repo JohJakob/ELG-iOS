@@ -17,12 +17,8 @@ class DetailViewController: UIViewController {
     super.viewDidLoad()
     
     // Set label's text based on iOS version
-    
-    if #available(iOS 8, *) {
-      detailLabel.text = "Tippe links auf einen Menüpunkt oder wähle in Einstellungen → Startseite auswählen eine Startseite aus, die nach dem Start der App hier angezeigt wird."
-    } else {
-      detailLabel.text = "Wische vom linken Bildschirmrand nach rechts, um das Menü anzuzeigen."
-    }
+		
+		detailLabel.text = "Tippe links auf einen Menüpunkt oder wähle in Einstellungen → Startseite auswählen eine Startseite aus, die nach dem Start der App hier angezeigt wird."
   }
   
   override func didReceiveMemoryWarning() {

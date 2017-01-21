@@ -27,12 +27,8 @@ class AboutWebViewController: UIViewController, UIWebViewDelegate {
     super.viewDidLoad()
     
     // Initialize user defaults
-    
-    if #available(iOS 8, *) {
-      defaults = NSUserDefaults.standardUserDefaults()
-    } else {
-      defaults = NSUserDefaults.init(suiteName: "group.com.hardykrause.elg")
-    }
+		
+		defaults = NSUserDefaults.standardUserDefaults()
   }
   
   override func viewWillAppear(animated: Bool) {
@@ -111,13 +107,9 @@ class AboutWebViewController: UIViewController, UIWebViewDelegate {
   }
   
   func nextButtonTapped() {
-    // Navigate to new view
-    
-    if #available(iOS 8, *) {
-      navigationController?.showViewController(onboardingViewController, sender: self)
-    } else {
-      navigationController?.pushViewController(onboardingViewController, animated: true)
-    }
+    // Show new view
+		
+		navigationController?.showViewController(onboardingViewController, sender: self)
   }
   
   override func didReceiveMemoryWarning() {

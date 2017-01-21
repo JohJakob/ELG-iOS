@@ -20,12 +20,8 @@ class AboutViewController: UITableViewController, MFMailComposeViewControllerDel
     super.viewDidLoad()
     
     // Initialize user defaults
-    
-    if #available(iOS 8, *) {
-      defaults = NSUserDefaults.standardUserDefaults()
-    } else {
-      defaults = NSUserDefaults.init(suiteName: "group.com.hardykrause.elg")
-    }
+		
+		defaults = NSUserDefaults.standardUserDefaults()
   }
   
   // Table view functions
@@ -124,7 +120,7 @@ class AboutViewController: UITableViewController, MFMailComposeViewControllerDel
         defaults.setInteger(0, forKey: "selectedAboutWebView")
         defaults.synchronize()
         
-        // Navigate to new view
+        // Show new view
         
         if #available(iOS 8, *) {
           navigationController?.showViewController(aboutWebViewController, sender: self)
@@ -171,13 +167,9 @@ class AboutViewController: UITableViewController, MFMailComposeViewControllerDel
       defaults.setInteger(1, forKey: "selectedAboutWebView")
       defaults.synchronize()
       
-      // Navigate to new view
-      
-      if #available(iOS 8, *) {
-        navigationController?.showViewController(aboutWebViewController, sender: self)
-      } else {
-        navigationController?.pushViewController(aboutWebViewController, animated: true)
-      }
+      // Show new view
+			
+			navigationController?.showViewController(aboutWebViewController, sender: self)
       
       break
     case 3:
@@ -186,13 +178,9 @@ class AboutViewController: UITableViewController, MFMailComposeViewControllerDel
       defaults.setInteger(2, forKey: "selectedAboutWebView")
       defaults.synchronize()
       
-      // Navigate to new view
-      
-      if #available(iOS 8, *) {
-        navigationController?.showViewController(aboutWebViewController, sender: self)
-      } else {
-        navigationController?.pushViewController(aboutWebViewController, animated: true)
-      }
+      // Show new view
+			
+			navigationController?.showViewController(aboutWebViewController, sender: self)
       
       break
     default:

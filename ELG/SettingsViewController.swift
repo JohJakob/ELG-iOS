@@ -27,12 +27,8 @@ class SettingsViewController: UITableViewController {
     super.viewDidLoad()
     
     // Initialize user defaults
-    
-    if #available(iOS 8, *) {
-      defaults = NSUserDefaults.standardUserDefaults()
-    } else {
-      defaults = NSUserDefaults.init(suiteName: "group.com.hardykrause.elg")
-    }
+		
+		defaults = NSUserDefaults.standardUserDefaults()
     
     // Initialize switches
     
@@ -136,35 +132,19 @@ class SettingsViewController: UITableViewController {
     case 0:
       switch indexPath.row {
       case 0:
-        if #available(iOS 8, *) {
-          navigationController?.showViewController(gradeViewController, sender: self)
-        } else {
-          navigationController?.pushViewController(gradeViewController, animated: true)
-        }
+				navigationController?.showViewController(gradeViewController, sender: self)
         break
       case 1:
-        if #available(iOS 8, *) {
-          navigationController?.showViewController(editScheduleViewController, sender: self)
-        } else {
-          navigationController?.pushViewController(editScheduleViewController, animated: true)
-        }
+				navigationController?.showViewController(editScheduleViewController, sender: self)
         
         // Use when online schedules are available again
         
-        /* if #available(iOS 8, *) {
-          navigationController?.showViewController(loginViewController, sender: self)
-        } else {
-          navigationController?.pushViewController(loginViewController, animated: true)
-        } */
+        /* navigationController?.showViewController(loginViewController, sender: self) */
         break
       // Use when online schedules are available again
         
       /* case 2:
-        if #available(iOS 8, *) {
-          navigationController?.showViewController(editScheduleViewController, sender: self)
-        } else {
-          navigationController?.pushViewController(editScheduleViewController, animated: true)
-        }
+				navigationController?.showViewController(editScheduleViewController, sender: self)
         break */
       default:
         break
@@ -172,19 +152,11 @@ class SettingsViewController: UITableViewController {
       break
     case 1:
       if indexPath.row == 1 {
-        if #available(iOS 8, *) {
-          navigationController?.showViewController(teacherModeViewController, sender: self)
-        } else {
-          navigationController?.pushViewController(teacherModeViewController, animated: true)
-        }
+				navigationController?.showViewController(teacherModeViewController, sender: self)
       }
       break
     case 2:
-      if #available(iOS 8, *) {
-        navigationController?.showViewController(startViewController, sender: self)
-      } else {
-        navigationController?.pushViewController(startViewController, animated: true)
-      }
+			navigationController?.showViewController(startViewController, sender: self)
       break
     default:
       break

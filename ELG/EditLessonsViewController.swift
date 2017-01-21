@@ -19,12 +19,8 @@ class EditLessonsViewController: UITableViewController {
     super.viewDidLoad()
     
     // Initialize user defaults
-    
-    if #available(iOS 8, *) {
-      defaults = NSUserDefaults.standardUserDefaults()
-    } else {
-      defaults = NSUserDefaults.init(suiteName: "group.com.hardykrause.elg")
-    }
+		
+		defaults = NSUserDefaults.standardUserDefaults()
   }
   
   override func viewWillAppear(animated: Bool) {
@@ -147,13 +143,9 @@ class EditLessonsViewController: UITableViewController {
     defaults.setInteger(indexPath.row, forKey: "selectedLesson")
     defaults.synchronize()
     
-    // Navigate to new view
-    
-    if #available(iOS 8, *) {
-      navigationController?.showViewController(subjectsViewController, sender: self)
-    } else {
-      navigationController?.pushViewController(subjectsViewController, animated: true)
-    }
+    // Show new view
+		
+		navigationController?.showViewController(subjectsViewController, sender: self)
   }
   
   override func didReceiveMemoryWarning() {
