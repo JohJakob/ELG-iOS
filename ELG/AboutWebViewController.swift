@@ -20,7 +20,7 @@ class AboutWebViewController: UIViewController, UIWebViewDelegate {
   var didLaunch = Bool()
   let titles = ["Was ist neu?", "Open Source", "Impressum der Website"]
   let pages = ["ReleaseNotes", "OpenSource", "Imprint"]
-  let introductionViewController = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("IntroductionTableViewController")
+  let onboardingViewController = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("OnboardingTableViewController")
   let version = NSBundle.mainBundle().infoDictionary?["CFBundleShortVersionString"] as? String
   
   override func viewDidLoad() {
@@ -114,9 +114,9 @@ class AboutWebViewController: UIViewController, UIWebViewDelegate {
     // Navigate to new view
     
     if #available(iOS 8, *) {
-      navigationController?.showViewController(introductionViewController, sender: self)
+      navigationController?.showViewController(onboardingViewController, sender: self)
     } else {
-      navigationController?.pushViewController(introductionViewController, animated: true)
+      navigationController?.pushViewController(onboardingViewController, animated: true)
     }
   }
   

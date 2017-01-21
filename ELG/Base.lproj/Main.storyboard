@@ -663,10 +663,10 @@
             </objects>
             <point key="canvasLocation" x="1459" y="3319"/>
         </scene>
-        <!--Introduction Navigation-->
+        <!--Onboarding Navigation-->
         <scene sceneID="9Bs-2S-77k">
             <objects>
-                <navigationController storyboardIdentifier="IntroductionNavigationController" title="Introduction Navigation" id="xIL-1I-upZ" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="OnboardingNavigationController" title="Onboarding Navigation" id="xIL-1I-upZ" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="moK-3a-nc3">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -679,16 +679,16 @@
             </objects>
             <point key="canvasLocation" x="1459" y="4151"/>
         </scene>
-        <!--Introduction-->
+        <!--Onboarding-->
         <scene sceneID="o8W-2G-j2H">
             <objects>
-                <tableViewController storyboardIdentifier="IntroductionTableViewController" title="Introduction" id="Imu-CG-orj" customClass="IntroductionViewController" customModule="ELG" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="OnboardingTableViewController" title="Onboarding" id="Imu-CG-orj" customClass="OnboardingViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="IJK-al-9Ru">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="IntroductionTableViewCell" textLabel="AK7-Mr-LGq" style="IBUITableViewCellStyleDefault" id="5Qo-6d-NSX">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="OnboardingTableViewCell" textLabel="AK7-Mr-LGq" style="IBUITableViewCellStyleDefault" id="5Qo-6d-NSX">
                                 <rect key="frame" x="0.0" y="114" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5Qo-6d-NSX" id="ev7-Te-G86">

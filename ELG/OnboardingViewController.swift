@@ -1,5 +1,5 @@
 //
-//  IntroductionViewController.swift
+//  OnboardingViewController.swift
 //  ELG
 //
 //  Created by Johannes Jakob on 01/01/2017
@@ -56,7 +56,7 @@ class IntroductionViewController: UITableViewController {
   }
   
   override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCellWithIdentifier("IntroductionTableViewCell", forIndexPath: indexPath)
+    let cell = tableView.dequeueReusableCellWithIdentifier("OnboardingTableViewCell", forIndexPath: indexPath)
     
     cell.textLabel!.text = "Einstellungen"
     
