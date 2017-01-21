@@ -8,7 +8,7 @@
 
 import UIKit
 
-class IntroductionViewController: UITableViewController {
+class OnboardingViewController: UITableViewController {
   // Variables + constants
   
   var defaults: NSUserDefaults!
