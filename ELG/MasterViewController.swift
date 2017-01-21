@@ -14,7 +14,7 @@ class MasterViewController: UITableViewController {
   // var startViewController: StartViewController? = nil
   var defaults: NSUserDefaults!
   var startView = Int()
-  let introductionViewController = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("IntroductionNavigationController")
+  let onboardingViewController = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("OnboardingNavigationController")
   let startViewControllers = ["NewsNavigationController", "ScheduleNavigationController", "OmissionsNavigationController", "FoerdervereinNavigationController"]
   let lessonsViewController = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("LessonsTableViewController")
   let version = NSBundle.mainBundle().infoDictionary?["CFBundleShortVersionString"] as? String
@@ -117,7 +117,7 @@ class MasterViewController: UITableViewController {
       navigationController?.pushViewController(aboutWebViewController, animated: true)
     } */
     
-    presentViewController(introductionViewController, animated: true, completion: nil)
+    presentViewController(onboardingViewController, animated: true, completion: nil)
   }
   
   func showStartView() {
