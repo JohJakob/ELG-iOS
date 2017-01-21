@@ -8,46 +8,49 @@
 
 import UIKit
 
-class MasterViewController: UITableViewController {
+class MasterViewController: UITableViewController, UISplitViewControllerDelegate {
   // Variables + constants
   
   // var startViewController: StartViewController? = nil
-  var defaults: NSUserDefaults!
+  var defaults: UserDefaults!
   var startView = Int()
-  let onboardingViewController = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("OnboardingNavigationController")
+  let onboardingViewController = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "OnboardingNavigationController")
   let startViewControllers = ["NewsNavigationController", "ScheduleNavigationController", "OmissionsNavigationController", "FoerdervereinNavigationController"]
-  let lessonsViewController = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("LessonsTableViewController")
-  let version = NSBundle.mainBundle().infoDictionary?["CFBundleShortVersionString"] as? String
+  let lessonsViewController = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "LessonsTableViewController")
+  let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
   
   override func viewDidLoad() {
     super.viewDidLoad()
+		
+		// Set split view's delegate
+		
+		splitViewController?.delegate = self
+		
+		// Set split view's preferred display mode
+		
+		splitViewController?.preferredDisplayMode = .allVisible
     
     // Initialize user defaults
     
-    defaults = NSUserDefaults.standardUserDefaults()
-    
-    /* if let split = self.splitViewController {
-     let controllers = split.viewControllers
-     self.startViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? StartViewController
-     } */
+    defaults = UserDefaults.standard
     
     // Show start view
     
     showStartView()
   }
   
-  override func viewWillAppear(animated: Bool) {
+  override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     
-    self.clearsSelectionOnViewWillAppear = self.splitViewController!.collapsed
+    self.clearsSelectionOnViewWillAppear = self.splitViewController!.isCollapsed
   }
   
-  override func viewDidAppear(animated: Bool) {
+  override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
     
     // Check first launch
     
-    if (defaults.boolForKey("launched\(version)") != true) {
+    if (defaults.bool(forKey: "launched\(version)") != true) {
       // Show introduction
       
       showIntroduction()
@@ -64,11 +67,17 @@ class MasterViewController: UITableViewController {
   
   // Table view functions
   
-  override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+  override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     // Deselect table view cell
     
-    tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    tableView.deselectRow(at: indexPath, animated: true)
   }
+	
+	// Split view functions
+	
+	func splitViewController(_ splitViewController: UISplitViewController, collapseSecondary secondaryViewController: UIViewController, onto primaryViewController: UIViewController) -> Bool {
+		return true
+	}
   
   // Custom functions
   
@@ -77,7 +86,7 @@ class MasterViewController: UITableViewController {
     
     navigationController?.navigationBar.backIndicatorImage = UIImage(named: "Back")
     navigationController?.navigationBar.backIndicatorTransitionMaskImage = UIImage(named: "Back")
-    navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
+    navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     
     // Set title view
     
@@ -85,8 +94,8 @@ class MasterViewController: UITableViewController {
     
     // Set empty teacher token in user defaults
     
-    if defaults.stringForKey("teacherToken") == nil {
-      defaults.setObject("", forKey: "teacherToken")
+    if defaults.string(forKey: "teacherToken") == nil {
+      defaults.set("", forKey: "teacherToken")
     }
     
     // Synchronize user defaults
@@ -97,7 +106,7 @@ class MasterViewController: UITableViewController {
   func showIntroduction() {
     // Remove all user defaults
     
-    defaults.removePersistentDomainForName(NSBundle.mainBundle().bundleIdentifier!)
+    defaults.removePersistentDomain(forName: Bundle.main.bundleIdentifier!)
     
     // Set up app
     
@@ -107,13 +116,13 @@ class MasterViewController: UITableViewController {
     
     /* navigationController?.showViewController(aboutWebViewController, sender: self) */
     
-    presentViewController(onboardingViewController, animated: true, completion: nil)
+    present(onboardingViewController, animated: true, completion: nil)
   }
   
   func showStartView() {
     // Get user default
     
-    startView = defaults.integerForKey("startView")
+    startView = defaults.integer(forKey: "startView")
     
     // Show start view based on user setting
     
@@ -121,17 +130,13 @@ class MasterViewController: UITableViewController {
       if startView == 2 {
         // Get current weekday
         
-        let gregorianCalendar = NSCalendar.init(calendarIdentifier: NSGregorianCalendar)
-        let dateComponents = gregorianCalendar!.components(.Weekday, fromDate: NSDate())
-        
-        // Check current weekday
-        
-        print(dateComponents.weekday)
+				let gregorianCalendar = NSCalendar(calendarIdentifier: .gregorian)
+        let dateComponents = (gregorianCalendar! as NSCalendar).components(.weekday, from: Date())
         
         if dateComponents.weekday != 1 && dateComponents.weekday != 7 {
           // Set user default
           
-          defaults.setInteger(dateComponents.weekday - 2, forKey: "selectedDay")
+          defaults.set(dateComponents.weekday! - 2, forKey: "selectedDay")
           defaults.synchronize()
           
           // Show start view
@@ -140,7 +145,7 @@ class MasterViewController: UITableViewController {
         } else {
           // Set user default
           
-          defaults.setInteger(0, forKey: "selectedDay")
+          defaults.set(0, forKey: "selectedDay")
           defaults.synchronize()
           
           // Show start view
@@ -150,7 +155,7 @@ class MasterViewController: UITableViewController {
       } else {
         // Show start view
 				
-				navigationController?.showDetailViewController(UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier(startViewControllers[startView - 1]), sender: self)
+				navigationController?.showDetailViewController(UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: startViewControllers[startView - 1]), sender: self)
       }
     }
   }
@@ -158,9 +163,9 @@ class MasterViewController: UITableViewController {
   func removeUserDefaults() {
     // Remove temporary user defaults
     
-    defaults.removeObjectForKey("selectedSubject")
-    defaults.removeObjectForKey("selectedRoom")
-    defaults.removeObjectForKey("selectedAboutWebView")
+    defaults.removeObject(forKey: "selectedSubject")
+    defaults.removeObject(forKey: "selectedRoom")
+    defaults.removeObject(forKey: "selectedAboutWebView")
     defaults.synchronize()
   }
   

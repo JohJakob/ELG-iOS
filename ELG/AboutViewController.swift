@@ -12,25 +12,25 @@ import MessageUI
 class AboutViewController: UITableViewController, MFMailComposeViewControllerDelegate {
   // Variables + constants
   
-  var defaults: NSUserDefaults!
-  let aboutWebViewController = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("AboutWebViewController")
-  let version = NSBundle.mainBundle().infoDictionary?["CFBundleShortVersionString"] as? String
+  var defaults: UserDefaults!
+  let aboutWebViewController = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "AboutWebViewController")
+  let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
     // Initialize user defaults
 		
-		defaults = NSUserDefaults.standardUserDefaults()
+		defaults = UserDefaults.standard
   }
   
   // Table view functions
   
-  override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+  override func numberOfSections(in tableView: UITableView) -> Int {
     return 4
   }
   
-  override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+  override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     var numberOfRows = Int()
     
     switch section {
@@ -48,12 +48,12 @@ class AboutViewController: UITableViewController, MFMailComposeViewControllerDel
     return numberOfRows
   }
   
-  override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+  override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     // Check index path and set table view cell's properties
     
     if indexPath.section == 0 {
       if indexPath.row != 2 {
-        let cell = tableView.dequeueReusableCellWithIdentifier("AboutDetailTableViewCell", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "AboutDetailTableViewCell", for: indexPath)
         
         if indexPath.row == 0 {
           cell.textLabel!.text = "Version"
@@ -61,20 +61,20 @@ class AboutViewController: UITableViewController, MFMailComposeViewControllerDel
         } else {
           cell.textLabel!.text = "Entwickler"
           cell.detailTextLabel!.text = "Johannes Jakob"
-          cell.selectionStyle = .Default
+          cell.selectionStyle = .default
         }
         
         return cell
       } else {
-        let cell = tableView.dequeueReusableCellWithIdentifier("AboutTableViewCell", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "AboutTableViewCell", for: indexPath)
         
         cell.textLabel!.text = "Was ist neu?"
-        cell.accessoryType = .DisclosureIndicator
+        cell.accessoryType = .disclosureIndicator
         
         return cell
       }
     } else {
-      let cell = tableView.dequeueReusableCellWithIdentifier("AboutTableViewCell", forIndexPath: indexPath)
+      let cell = tableView.dequeueReusableCell(withIdentifier: "AboutTableViewCell", for: indexPath)
       
       switch indexPath.section {
       case 1:
@@ -87,11 +87,11 @@ class AboutViewController: UITableViewController, MFMailComposeViewControllerDel
         break
       case 2:
         cell.textLabel!.text = "Open Source"
-        cell.accessoryType = .DisclosureIndicator
+        cell.accessoryType = .disclosureIndicator
         break
       case 3:
         cell.textLabel!.text = "Impressum der Website"
-        cell.accessoryType = .DisclosureIndicator
+        cell.accessoryType = .disclosureIndicator
         break
       default:
         break
@@ -101,10 +101,10 @@ class AboutViewController: UITableViewController, MFMailComposeViewControllerDel
     }
   }
   
-  override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+  override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     // Deselect table view cell
     
-    tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    tableView.deselectRow(at: indexPath, animated: true)
     
     // Check selected table view cell and act based on selection
     
@@ -113,17 +113,17 @@ class AboutViewController: UITableViewController, MFMailComposeViewControllerDel
       if indexPath.row == 1 {
         // Open URL
         
-        UIApplication.sharedApplication().openURL(NSURL.init(string: "http://www.johjakob.de")!)
+        UIApplication.shared.openURL(URL.init(string: "http://www.johjakob.de")!)
       } else if indexPath.row == 2 {
         // Set user default
         
-        defaults.setInteger(0, forKey: "selectedAboutWebView")
+        defaults.set(0, forKey: "selectedAboutWebView")
         defaults.synchronize()
         
         // Show new view
         
         if #available(iOS 8, *) {
-          navigationController?.showViewController(aboutWebViewController, sender: self)
+          navigationController?.show(aboutWebViewController, sender: self)
         } else {
           navigationController?.pushViewController(aboutWebViewController, animated: true)
         }
@@ -147,7 +147,7 @@ class AboutViewController: UITableViewController, MFMailComposeViewControllerDel
           
           // Present mail compose view
           
-          presentViewController(mailController, animated: true, completion: nil)
+          present(mailController, animated: true, completion: nil)
         } else {
           // Show alert
           
@@ -157,30 +157,30 @@ class AboutViewController: UITableViewController, MFMailComposeViewControllerDel
       } else {
         // Open URL
         
-        UIApplication.sharedApplication().openURL(NSURL.init(string: "itms-apps://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?id=968363965&onlyLatestVersion=true&pageNumber=0&sortOrdering=1&type=Purple+Software")!)
+        UIApplication.shared.openURL(URL.init(string: "itms-apps://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?id=968363965&onlyLatestVersion=true&pageNumber=0&sortOrdering=1&type=Purple+Software")!)
       }
       
       break
     case 2:
       // Set user default
       
-      defaults.setInteger(1, forKey: "selectedAboutWebView")
+      defaults.set(1, forKey: "selectedAboutWebView")
       defaults.synchronize()
       
       // Show new view
 			
-			navigationController?.showViewController(aboutWebViewController, sender: self)
+			navigationController?.show(aboutWebViewController, sender: self)
       
       break
     case 3:
       // Set user default
       
-      defaults.setInteger(2, forKey: "selectedAboutWebView")
+      defaults.set(2, forKey: "selectedAboutWebView")
       defaults.synchronize()
       
       // Show new view
 			
-			navigationController?.showViewController(aboutWebViewController, sender: self)
+			navigationController?.show(aboutWebViewController, sender: self)
       
       break
     default:
@@ -188,7 +188,7 @@ class AboutViewController: UITableViewController, MFMailComposeViewControllerDel
     }
   }
   
-  override func tableView(tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+  override func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
     // Check table view section and set title for table view section footer
     
     if section == 3 {
@@ -200,8 +200,8 @@ class AboutViewController: UITableViewController, MFMailComposeViewControllerDel
   
   // Mail compose functions
   
-  func mailComposeController(controller: MFMailComposeViewController, didFinishWithResult result: MFMailComposeResult, error: NSError?) {
-    dismissViewControllerAnimated(true, completion: nil)
+  func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+    dismiss(animated: true, completion: nil)
   }
   
   override func didReceiveMemoryWarning() {

@@ -11,14 +11,14 @@ import UIKit
 class LessonsViewController: UITableViewController {
   // Variables + constants
   
-  var defaults: NSUserDefaults!
+  var defaults: UserDefaults!
   var lessons: [String]!
-  let editLessonsViewController = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("EditLessonsTableViewController")
+  let editLessonsViewController = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "EditLessonsTableViewController")
   
   // Actions
   
-  @IBAction func editButtonTap(sender: UIBarButtonItem) {
-		navigationController?.showViewController(editLessonsViewController, sender: self)
+  @IBAction func editButtonTap(_ sender: UIBarButtonItem) {
+		navigationController?.show(editLessonsViewController, sender: self)
   }
   
   override func viewDidLoad() {
@@ -26,33 +26,33 @@ class LessonsViewController: UITableViewController {
     
     // Initialize user defaults
 		
-		defaults = NSUserDefaults.standardUserDefaults()
+		defaults = UserDefaults.standard
   }
   
-  override func viewWillAppear(animated: Bool) {
+  override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     
     // Check selected day to retrieve lessons and set navigation bar title
     
-    switch defaults.integerForKey("selectedDay") {
+    switch defaults.integer(forKey: "selectedDay") {
     case 0:
-      lessons = defaults.stringArrayForKey("monday")
+      lessons = defaults.stringArray(forKey: "monday")
       navigationItem.title = "Montag"
       break
     case 1:
-      lessons = defaults.stringArrayForKey("tuesday")
+      lessons = defaults.stringArray(forKey: "tuesday")
       navigationItem.title = "Dienstag"
       break
     case 2:
-      lessons = defaults.stringArrayForKey("wednesday")
+      lessons = defaults.stringArray(forKey: "wednesday")
       navigationItem.title = "Mittwoch"
       break
     case 3:
-      lessons = defaults.stringArrayForKey("thursday")
+      lessons = defaults.stringArray(forKey: "thursday")
       navigationItem.title = "Donnerstag"
       break
     case 4:
-      lessons = defaults.stringArrayForKey("friday")
+      lessons = defaults.stringArray(forKey: "friday")
       navigationItem.title = "Freitag"
       break
     default:
@@ -70,11 +70,11 @@ class LessonsViewController: UITableViewController {
   
   // Table view functions
   
-  override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+  override func numberOfSections(in tableView: UITableView) -> Int {
     return 1
   }
   
-  override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+  override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     // Check schedule for empty lessons at the end to shorten the table view
     
     var numberOfRows = Int()
@@ -109,9 +109,9 @@ class LessonsViewController: UITableViewController {
     if numberOfRows == 0 {
       let noScheduleLabel = UILabel.init()
       noScheduleLabel.text = "Keine Stunden eingetragen"
-      noScheduleLabel.textColor = UIColor.lightGrayColor()
-      noScheduleLabel.font = UIFont.systemFontOfSize(16)
-      noScheduleLabel.textAlignment = .Center
+      noScheduleLabel.textColor = UIColor.lightGray
+      noScheduleLabel.font = UIFont.systemFont(ofSize: 16)
+      noScheduleLabel.textAlignment = .center
       
       tableView.backgroundView = noScheduleLabel
     }
@@ -119,20 +119,20 @@ class LessonsViewController: UITableViewController {
     return numberOfRows
   }
   
-  override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+  override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     // Set table view cell's text
     
-    let cell = tableView.dequeueReusableCellWithIdentifier("LessonsTableViewCell", forIndexPath: indexPath)
+    let cell = tableView.dequeueReusableCell(withIdentifier: "LessonsTableViewCell", for: indexPath)
     
     cell.textLabel!.text = lessons[indexPath.row]
     
     return cell
   }
   
-  override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+  override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     // Deselect table view cell
     
-    tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    tableView.deselectRow(at: indexPath, animated: true)
   }
   
   override func didReceiveMemoryWarning() {

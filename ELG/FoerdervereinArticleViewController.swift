@@ -11,14 +11,14 @@ import UIKit
 class FoerdervereinArticleViewController: UIViewController, UIWebViewDelegate {
   // Outlets
   
-  @IBOutlet weak private var articleWebView: UIWebView!
-  @IBOutlet weak private var backButton: UIBarButtonItem!
-  @IBOutlet weak private var forwardButton: UIBarButtonItem!
-  @IBOutlet weak private var activityIndicator: UIActivityIndicatorView!
+  @IBOutlet weak fileprivate var articleWebView: UIWebView!
+  @IBOutlet weak fileprivate var backButton: UIBarButtonItem!
+  @IBOutlet weak fileprivate var forwardButton: UIBarButtonItem!
+  @IBOutlet weak fileprivate var activityIndicator: UIActivityIndicatorView!
   
   // Variables
   
-  var defaults: NSUserDefaults!
+  var defaults: UserDefaults!
   var articleTitle = String()
   var articleLink = String()
   
@@ -27,10 +27,10 @@ class FoerdervereinArticleViewController: UIViewController, UIWebViewDelegate {
     
     // Initialize user defaults
 		
-		defaults = NSUserDefaults.standardUserDefaults()
+		defaults = UserDefaults.standard
   }
   
-  override func viewWillAppear(animated: Bool) {
+  override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     
     // Load article
@@ -40,13 +40,13 @@ class FoerdervereinArticleViewController: UIViewController, UIWebViewDelegate {
   
   // Web View functions
   
-  func webViewDidStartLoad(webView: UIWebView) {
+  func webViewDidStartLoad(_ webView: UIWebView) {
     // Start Activity Indicator
     
     activityIndicator.startAnimating()
   }
   
-  func webViewDidFinishLoad(webView: UIWebView) {
+  func webViewDidFinishLoad(_ webView: UIWebView) {
     // Stop Activity Indicator
     
     activityIndicator.stopAnimating()
@@ -54,19 +54,19 @@ class FoerdervereinArticleViewController: UIViewController, UIWebViewDelegate {
     // Enable/Disable Back and Forward buttons
     
     if articleWebView.canGoBack {
-      backButton.enabled = true
+      backButton.isEnabled = true
     } else {
-      backButton.enabled = false
+      backButton.isEnabled = false
     }
     
     if articleWebView.canGoForward {
-      forwardButton.enabled = true
+      forwardButton.isEnabled = true
     } else {
-      forwardButton.enabled = false
+      forwardButton.isEnabled = false
     }
   }
   
-  func webView(webView: UIWebView, didFailLoadWithError error: NSError?) {
+  func webView(_ webView: UIWebView, didFailLoadWithError error: Error) {
     // Stop Activity Indicator
     
     activityIndicator.stopAnimating()
@@ -86,17 +86,17 @@ class FoerdervereinArticleViewController: UIViewController, UIWebViewDelegate {
     
     // Check internet reachability
     
-    let reachabilityStatus: NetworkStatus = Reachability.reachabilityForInternetConnection().currentReachabilityStatus()
+    let reachabilityStatus: NetworkStatus = Reachability.forInternetConnection().currentReachabilityStatus()
     
     if reachabilityStatus != NotReachable {
       // Get article's title and link
       
-      articleTitle = defaults.stringForKey("selectedArticleTitle")!
-      articleLink = defaults.stringForKey("selectedArticleLink")!
+      articleTitle = defaults.string(forKey: "selectedArticleTitle")!
+      articleLink = defaults.string(forKey: "selectedArticleLink")!
       
       // Load news website
       
-      articleWebView.loadRequest(NSURLRequest(URL: NSURL(string: articleLink)!))
+      articleWebView.loadRequest(URLRequest(url: URL(string: articleLink)!))
       
       // Set navigation item title
       
@@ -104,7 +104,7 @@ class FoerdervereinArticleViewController: UIViewController, UIWebViewDelegate {
     } else {
       // Load message website
       
-      articleWebView.loadRequest(NSURLRequest(URL: NSBundle.mainBundle().URLForResource("NoConnection", withExtension: ".html")!))
+      articleWebView.loadRequest(URLRequest(url: Bundle.main.url(forResource: "NoConnection", withExtension: ".html")!))
       
       // Show alert
       

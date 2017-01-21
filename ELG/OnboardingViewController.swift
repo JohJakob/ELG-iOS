@@ -11,26 +11,26 @@ import UIKit
 class OnboardingViewController: UITableViewController {
   // Variables + constants
   
-  var defaults: NSUserDefaults!
-  let settingsViewController = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("SettingsTableViewController")
-  let version = NSBundle.mainBundle().infoDictionary?["CFBundleShortVersionString"] as? String
+  var defaults: UserDefaults!
+  let settingsViewController = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "SettingsTableViewController")
+  let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
   
   // Actions
   
-  @IBAction func doneButtonTap(sender: UIBarButtonItem) {
+  @IBAction func doneButtonTap(_ sender: UIBarButtonItem) {
     // Initialize user defaults
 		
-		defaults = NSUserDefaults.standardUserDefaults()
+		defaults = UserDefaults.standard
     
     // Set user default
     
-    defaults.setBool(true, forKey: "launched\(version)")
+    defaults.set(true, forKey: "launched\(version)")
     
     defaults.synchronize()
     
     // Dismiss view
     
-    dismissViewControllerAnimated(true, completion: nil)
+    dismiss(animated: true, completion: nil)
   }
   
   override func viewDidLoad() {
@@ -43,29 +43,29 @@ class OnboardingViewController: UITableViewController {
   
   // Table view functions
   
-  override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+  override func numberOfSections(in tableView: UITableView) -> Int {
     return 1
   }
   
-  override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+  override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return 1
   }
   
-  override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCellWithIdentifier("OnboardingTableViewCell", forIndexPath: indexPath)
+  override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    let cell = tableView.dequeueReusableCell(withIdentifier: "OnboardingTableViewCell", for: indexPath)
     
     cell.textLabel!.text = "Einstellungen"
     
     return cell
   }
   
-  override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+  override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     // Show new view
 		
-		navigationController?.showViewController(settingsViewController, sender: self)
+		navigationController?.show(settingsViewController, sender: self)
   }
   
-  override func tableView(tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+  override func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
     return "Aufgrund der Neuentwicklung der App und der Veränderung einiger Vorgänge mussten sämtliche gesicherten Daten entfernt werden. In den Einstellungen kannst Du sie erneut eingeben. Ich hoffe auf Dein Verständnis."
   }
   

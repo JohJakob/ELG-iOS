@@ -11,11 +11,11 @@ import UIKit
 class OmissionsViewController: UITableViewController {
   // Outlets
   
-  @IBOutlet weak private var saveButton: UIBarButtonItem!
+  @IBOutlet weak fileprivate var saveButton: UIBarButtonItem!
   
   // Variables + constants
   
-  var defaults: NSUserDefaults!
+  var defaults: UserDefaults!
   var selectedGrade = NSInteger()
   var rows = NSMutableArray()
   var ownOmissions = NSMutableArray()
@@ -27,7 +27,7 @@ class OmissionsViewController: UITableViewController {
   
   // Actions
   
-  @IBAction func saveButtonTap(sender: UIBarButtonItem) {
+  @IBAction func saveButtonTap(_ sender: UIBarButtonItem) {
     saveOmissions()
   }
   
@@ -36,17 +36,17 @@ class OmissionsViewController: UITableViewController {
     
     // Initialize user defaults
 		
-		defaults = NSUserDefaults.standardUserDefaults()
+		defaults = UserDefaults.standard
     
     // Register custom table view cell
     
-    tableView.registerNib(UINib(nibName: "OmissionsTableViewCell", bundle: nil), forCellReuseIdentifier: "OmissionsTableViewCell")
+    tableView.register(UINib(nibName: "OmissionsTableViewCell", bundle: nil), forCellReuseIdentifier: "OmissionsTableViewCell")
     
     // Set up refresh control
     
     let omissionsRefreshControl = UIRefreshControl.init()
     
-    omissionsRefreshControl.addTarget(self, action: #selector(OmissionsViewController.refreshTableView), forControlEvents: .ValueChanged)
+    omissionsRefreshControl.addTarget(self, action: #selector(OmissionsViewController.refreshTableView), for: .valueChanged)
     
     refreshControl = omissionsRefreshControl
     
@@ -57,10 +57,10 @@ class OmissionsViewController: UITableViewController {
   
   // Table view functions
   
-  override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+  override func numberOfSections(in tableView: UITableView) -> Int {
     var numberOfSections: Int
     
-    let reachabilityStatus: NetworkStatus = Reachability.reachabilityForInternetConnection().currentReachabilityStatus()
+    let reachabilityStatus: NetworkStatus = Reachability.forInternetConnection().currentReachabilityStatus()
     
     if reachabilityStatus != NotReachable || (reachabilityStatus == NotReachable && offlineAvailable) {
       numberOfSections = 2
@@ -71,19 +71,19 @@ class OmissionsViewController: UITableViewController {
       
       let noConnectionLabel = UILabel.init()
       noConnectionLabel.text = "Keine Internetverbindung"
-      noConnectionLabel.textColor = UIColor.lightGrayColor()
-      noConnectionLabel.font = UIFont.systemFontOfSize(16)
-      noConnectionLabel.textAlignment = .Center
+      noConnectionLabel.textColor = UIColor.lightGray
+      noConnectionLabel.font = UIFont.systemFont(ofSize: 16)
+      noConnectionLabel.textAlignment = .center
       
-      tableView.backgroundColor = UIColor.groupTableViewBackgroundColor()
-      tableView.separatorStyle = .None
+      tableView.backgroundColor = UIColor.groupTableViewBackground
+      tableView.separatorStyle = .none
       tableView.backgroundView = noConnectionLabel
     }
     
     return numberOfSections
   }
   
-  override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+  override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     var numberOfRows: Int
     
     if section == 0 {
@@ -99,28 +99,28 @@ class OmissionsViewController: UITableViewController {
     return numberOfRows
   }
   
-  override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCellWithIdentifier("OmissionsTableViewCell", forIndexPath: indexPath) as! OmissionsTableViewCell
+  override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    let cell = tableView.dequeueReusableCell(withIdentifier: "OmissionsTableViewCell", for: indexPath) as! OmissionsTableViewCell
     
     // Prepare omissions
     
     var omissionComponents: [String]
     
     if indexPath.section == 0 {
-      omissionComponents = ownOmissions[indexPath.row].componentsSeparatedByString("\",\"")
+      omissionComponents = (ownOmissions[indexPath.row] as AnyObject).components(separatedBy: "\",\"")
     } else {
-      omissionComponents = rows[indexPath.row + 1].componentsSeparatedByString("\",\"")
+      omissionComponents = (rows[indexPath.row + 1] as AnyObject).components(separatedBy: "\",\"")
     }
     
     // Create omission components
     
-    let grade = omissionComponents[0].stringByReplacingOccurrencesOfString("\"", withString: "")
+    let grade = omissionComponents[0].replacingOccurrences(of: "\"", with: "")
     let lesson = omissionComponents[1]
     let teacher = omissionComponents[2]
     let subject = omissionComponents[3]
     let room = omissionComponents[4]
     let text = omissionComponents[5]
-    let comment = omissionComponents[6].stringByReplacingOccurrencesOfString("\"", withString: "")
+    let comment = omissionComponents[6].replacingOccurrences(of: "\"", with: "")
     
     // Set cell's text
     
@@ -128,9 +128,9 @@ class OmissionsViewController: UITableViewController {
       cell.gradeLabel.text = grade
     } else {
       if grade.characters.first == "1" {
-        cell.gradeLabel.text = grade.substringToIndex(grade.startIndex.advancedBy(2))
+        cell.gradeLabel.text = grade.substring(to: grade.characters.index(grade.startIndex, offsetBy: 2))
       } else {
-        cell.gradeLabel.text = grade.substringToIndex(grade.startIndex.advancedBy(1))
+        cell.gradeLabel.text = grade.substring(to: grade.characters.index(grade.startIndex, offsetBy: 1))
       }
     }
     
@@ -152,26 +152,26 @@ class OmissionsViewController: UITableViewController {
     
     // Remove unnecessary whitespaces
     
-    cell.detailsLabel.text = cell.detailsLabel.text?.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
+    cell.detailsLabel.text = cell.detailsLabel.text?.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
     
-    cell.detailsLabel.text = cell.detailsLabel.text?.stringByReplacingOccurrencesOfString("      ", withString: "   ")
+    cell.detailsLabel.text = cell.detailsLabel.text?.replacingOccurrences(of: "      ", with: "   ")
     
     // Change color of lesson label
     
     if comment == "Entfall" {
       cell.lessonLabel.textColor = UIColor(red: 0.498, green: 0.09, blue: 0.203, alpha: 1)
     } else {
-      cell.lessonLabel.textColor = UIColor.blackColor()
+      cell.lessonLabel.textColor = UIColor.black
     }
     
     return cell
   }
   
-  override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+  override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
     return 65
   }
   
-  override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+  override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
     var titleForHeader: String
     
     if section == 0 {
@@ -183,31 +183,31 @@ class OmissionsViewController: UITableViewController {
     return titleForHeader
   }
   
-  override func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+  override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
     let footerLabel = UILabel()
     
-    footerLabel.textColor = UIColor.lightGrayColor()
-    footerLabel.font = UIFont.systemFontOfSize(16)
-    footerLabel.textAlignment = .Center
+    footerLabel.textColor = UIColor.lightGray
+    footerLabel.font = UIFont.systemFont(ofSize: 16)
+    footerLabel.textAlignment = .center
     
     if section == 0 {
       if ownOmissions.count == 0 {
         footerLabel.text = "Keine eigenen Vertretungen"
       } else {
-        footerLabel.backgroundColor = UIColor.whiteColor()
+        footerLabel.backgroundColor = UIColor.white
       }
     } else {
       if rows.count < 3 {
         footerLabel.text = "Keine Vertretungen"
       } else {
-        footerLabel.backgroundColor = UIColor.whiteColor()
+        footerLabel.backgroundColor = UIColor.white
       }
     }
     
     return footerLabel
   }
   
-  override func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+  override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
     var heightForFooter: CGFloat = 0
     
     if section == 0 {
@@ -232,11 +232,11 @@ class OmissionsViewController: UITableViewController {
   func prepare() {
     // Retrieve variables from user defaults
     
-    selectedGrade = defaults.integerForKey("selectedGrade")
-    offlineAvailable = defaults.boolForKey("offlineAvailable")
-    autoSave = defaults.boolForKey("autoSave")
-    teacherMode = defaults.boolForKey("teacherMode")
-    teacherToken = defaults.stringForKey("teacherToken")!
+    selectedGrade = defaults.integer(forKey: "selectedGrade")
+    offlineAvailable = defaults.bool(forKey: "offlineAvailable")
+    autoSave = defaults.bool(forKey: "autoSave")
+    teacherMode = defaults.bool(forKey: "teacherMode")
+    teacherToken = defaults.string(forKey: "teacherToken")!
     
     // Retrieve offline omissions if available
     
@@ -258,8 +258,8 @@ class OmissionsViewController: UITableViewController {
   func getOfflineOmissions() {
     // Retrieve offline omissions
     
-    rows = defaults.mutableArrayValueForKey("offlineOmissions")
-    ownOmissions = defaults.mutableArrayValueForKey("ownOfflineOmissions")
+    rows = defaults.mutableArrayValue(forKey: "offlineOmissions")
+    ownOmissions = defaults.mutableArrayValue(forKey: "ownOfflineOmissions")
     
     // Set date
     
@@ -267,13 +267,13 @@ class OmissionsViewController: UITableViewController {
     
     // Disable save button
     
-    saveButton.enabled = false
+    saveButton.isEnabled = false
   }
   
   func downloadOmissions() {
     // Check internet reachability
     
-    let reachabilityStatus: NetworkStatus = Reachability.reachabilityForInternetConnection().currentReachabilityStatus()
+    let reachabilityStatus: NetworkStatus = Reachability.forInternetConnection().currentReachabilityStatus()
     
     if reachabilityStatus != NotReachable {
       // Download CSV file
@@ -281,16 +281,16 @@ class OmissionsViewController: UITableViewController {
       var rawOmissions = String()
       
       do {
-        try rawOmissions = String(contentsOfURL: NSURL.init(string: "http://elg-halle.de/Aktuell/Intern/Vertretungsplan/vp.csv")!, encoding: NSASCIIStringEncoding)
+        try rawOmissions = String(contentsOf: URL.init(string: "http://elg-halle.de/Aktuell/Intern/Vertretungsplan/vp.csv")!, encoding: String.Encoding.ascii)
       } catch {
         print(error)
       }
       
       // Convert raw data into array
       
-      let cleanedOmissions = rawOmissions.stringByReplacingOccurrencesOfString("\r", withString: "")
+      let cleanedOmissions = rawOmissions.replacingOccurrences(of: "\r", with: "")
       
-      rows = NSMutableArray.init(array: cleanedOmissions.componentsSeparatedByString("\n"))
+      rows = NSMutableArray.init(array: cleanedOmissions.components(separatedBy: "\n"))
       
       // Reset own omissions
       
@@ -301,14 +301,14 @@ class OmissionsViewController: UITableViewController {
       for i in 1 ..< rows.count - 1 {
         // Remove lunch break
         
-        if rows[i].rangeOfString("MIPa").location != NSNotFound {
-          rows.removeObjectAtIndex(i)
+        if (rows[i] as AnyObject).range(of: "MIPa").location != NSNotFound {
+          rows.removeObject(at: i)
         }
         
         // Prepare getting own omissions
         
-        let omissionComponents = rows[i].componentsSeparatedByString("\",\"")
-        let grade = omissionComponents[0].stringByReplacingOccurrencesOfString("\"", withString: "")
+        let omissionComponents = (rows[i] as AnyObject).components(separatedBy: "\",\"")
+        let grade = omissionComponents[0].replacingOccurrences(of: "\"", with: "")
         var teacher = String()
         
         // Get teacher of omission
@@ -321,12 +321,12 @@ class OmissionsViewController: UITableViewController {
         
         if teacherMode {
           if teacher == teacherToken && teacher != "" {
-            ownOmissions.addObject(rows[i])
+            ownOmissions.add(rows[i])
           }
         } else {
           if selectedGrade != 0 {
-            if grade.rangeOfString(grades[selectedGrade - 1]) != nil {
-              ownOmissions.addObject(rows[i])
+            if grade.range(of: grades[selectedGrade - 1]) != nil {
+              ownOmissions.add(rows[i])
             }
           }
         }
@@ -338,8 +338,8 @@ class OmissionsViewController: UITableViewController {
       
       // Reset table view appearance
       
-      tableView.backgroundColor = UIColor.whiteColor()
-      tableView.separatorStyle = .SingleLine
+      tableView.backgroundColor = UIColor.white
+      tableView.separatorStyle = .singleLine
       
       // Set offline availability status
       
@@ -347,15 +347,15 @@ class OmissionsViewController: UITableViewController {
       
       // Set user default
       
-      defaults.setBool(offlineAvailable, forKey: "offlineAvailable")
+      defaults.set(offlineAvailable, forKey: "offlineAvailable")
       defaults.synchronize()
       
       // Enable/Disable save button
       
       if rows.count < 3 {
-        saveButton.enabled = false
+        saveButton.isEnabled = false
       } else {
-        saveButton.enabled = true
+        saveButton.isEnabled = true
       }
       
       if autoSave {
@@ -364,7 +364,7 @@ class OmissionsViewController: UITableViewController {
     } else {
       // Disable save button
       
-      saveButton.enabled = false
+      saveButton.isEnabled = false
       
       // Show alert
       
@@ -373,33 +373,33 @@ class OmissionsViewController: UITableViewController {
       
       // Change table view appearance
       
-      tableView.backgroundColor = UIColor.groupTableViewBackgroundColor()
-      tableView.separatorStyle = .None
+      tableView.backgroundColor = UIColor.groupTableViewBackground
+      tableView.separatorStyle = .none
     }
   }
   
   func saveOmissions() {
     // Check internet reachability
     
-    let reachabilityStatus: NetworkStatus = Reachability.reachabilityForInternetConnection().currentReachabilityStatus()
+    let reachabilityStatus: NetworkStatus = Reachability.forInternetConnection().currentReachabilityStatus()
     
     if reachabilityStatus != NotReachable {
       // Save omissions
       
       offlineAvailable = true
       
-      defaults.setObject(rows, forKey: "offlineOmissions")
-      defaults.setObject(ownOmissions, forKey: "ownOfflineOmissions")
-      defaults.setBool(offlineAvailable, forKey: "offlineAvailable")
+      defaults.set(rows, forKey: "offlineOmissions")
+      defaults.set(ownOmissions, forKey: "ownOfflineOmissions")
+      defaults.set(offlineAvailable, forKey: "offlineAvailable")
       defaults.synchronize()
       
       // Disable save button
       
-      saveButton.enabled = false
+      saveButton.isEnabled = false
     } else {
       // Disable save button
       
-      saveButton.enabled = false
+      saveButton.isEnabled = false
       
       // Show alert
       

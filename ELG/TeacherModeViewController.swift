@@ -11,7 +11,7 @@ import UIKit
 class TeacherModeViewController: UITableViewController, UITextFieldDelegate {
   // Variables
   
-  var defaults: NSUserDefaults!
+  var defaults: UserDefaults!
   var teacherMode = Bool()
   var teacherToken = String()
   var teacherModeSwitch = UISwitch()
@@ -21,18 +21,18 @@ class TeacherModeViewController: UITableViewController, UITextFieldDelegate {
     
     // Initialize user defaults
 		
-		defaults = NSUserDefaults.standardUserDefaults()
+		defaults = UserDefaults.standard
     
     // Register custom table view cell
     
-    tableView.registerNib(UINib(nibName: "TextFieldTableViewCell", bundle: nil), forCellReuseIdentifier: "TextFieldTableViewCell")
+    tableView.register(UINib(nibName: "TextFieldTableViewCell", bundle: nil), forCellReuseIdentifier: "TextFieldTableViewCell")
     
     // Initialize switch
     
     initSwitch()
   }
   
-  override func viewWillAppear(animated: Bool) {
+  override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     
     // Retrieve user defaults
@@ -40,7 +40,7 @@ class TeacherModeViewController: UITableViewController, UITextFieldDelegate {
     retrieveUserDefault()
   }
   
-  override func viewWillDisappear(animated: Bool) {
+  override func viewWillDisappear(_ animated: Bool) {
     super.viewWillDisappear(animated)
     
     // Set user defaults
@@ -50,33 +50,33 @@ class TeacherModeViewController: UITableViewController, UITextFieldDelegate {
   
   // Table view functions
   
-  override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+  override func numberOfSections(in tableView: UITableView) -> Int {
     return 1
   }
   
-  override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+  override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return 2
   }
   
-  override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+  override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     // Check index path and set table view cell's properties
     
     if indexPath.row == 0 {
-      let cell = tableView.dequeueReusableCellWithIdentifier("TeacherModeTableViewCell", forIndexPath: indexPath)
+      let cell = tableView.dequeueReusableCell(withIdentifier: "TeacherModeTableViewCell", for: indexPath)
       
       cell.textLabel!.text = "Lehrermodus"
       cell.accessoryView = teacherModeSwitch
-      cell.selectionStyle = .None
+      cell.selectionStyle = .none
       
       return cell
     } else {
-      let cell = tableView.dequeueReusableCellWithIdentifier("TextFieldTableViewCell", forIndexPath: indexPath) as! TextFieldTableViewCell
+      let cell = tableView.dequeueReusableCell(withIdentifier: "TextFieldTableViewCell", for: indexPath) as! TextFieldTableViewCell
       
       cell.textField.placeholder = "Kürzel"
       cell.textField.text = teacherToken
-      cell.textField.autocapitalizationType = .AllCharacters
-      cell.textField.autocorrectionType = .No
-      cell.textField.returnKeyType = .Done
+      cell.textField.autocapitalizationType = .allCharacters
+      cell.textField.autocorrectionType = .no
+      cell.textField.returnKeyType = .done
       
       cell.textField.delegate = self
       
@@ -84,13 +84,13 @@ class TeacherModeViewController: UITableViewController, UITextFieldDelegate {
     }
   }
   
-  override func tableView(tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+  override func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
     return "Bei aktiviertem Lehrermodus werden in den eigenen Vertretungen nur Eintragungen mit dem Kürzel angezeigt."
   }
   
   // Text field functions
   
-  func textFieldDidEndEditing(textField: UITextField) {
+  func textFieldDidEndEditing(_ textField: UITextField) {
     // Set variable
     
     teacherToken = textField.text!
@@ -100,7 +100,7 @@ class TeacherModeViewController: UITableViewController, UITextFieldDelegate {
     textField.resignFirstResponder()
   }
   
-  func textFieldShouldReturn(textField: UITextField) -> Bool {
+  func textFieldShouldReturn(_ textField: UITextField) -> Bool {
     // Resign first responder
     
     textField.resignFirstResponder()
@@ -108,7 +108,7 @@ class TeacherModeViewController: UITableViewController, UITextFieldDelegate {
     return true
   }
   
-  func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+  func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
     // Allow 3 characters in text field
     
     let currentCharacterCount = textField.text?.characters.count ?? 0
@@ -127,11 +127,11 @@ class TeacherModeViewController: UITableViewController, UITextFieldDelegate {
   func initSwitch() {
     // Retrieve user default
     
-    teacherMode = defaults.boolForKey("teacherMode")
+    teacherMode = defaults.bool(forKey: "teacherMode")
     
     // Initialize switch
     
-    teacherModeSwitch = UISwitch.init(frame: CGRectZero)
+    teacherModeSwitch = UISwitch.init(frame: CGRect.zero)
     
     if teacherMode {
       teacherModeSwitch.setOn(true, animated: false)
@@ -139,7 +139,7 @@ class TeacherModeViewController: UITableViewController, UITextFieldDelegate {
       teacherModeSwitch.setOn(false, animated: false)
     }
     
-    teacherModeSwitch.addTarget(self, action: #selector(TeacherModeViewController.toggleTeacherMode), forControlEvents: .ValueChanged)
+    teacherModeSwitch.addTarget(self, action: #selector(TeacherModeViewController.toggleTeacherMode), for: .valueChanged)
     
     teacherModeSwitch.onTintColor = UIColor(red: 0.498, green: 0.09, blue: 0.203, alpha: 1)
   }
@@ -147,27 +147,27 @@ class TeacherModeViewController: UITableViewController, UITextFieldDelegate {
   func retrieveUserDefault() {
     // Retrieve user default
     
-    teacherToken = defaults.stringForKey("teacherToken")!
+    teacherToken = defaults.string(forKey: "teacherToken")!
   }
   
   func setUserDefault() {
     // Set user default
     
-    defaults.setBool(teacherMode, forKey: "teacherMode")
-    defaults.setObject(teacherToken, forKey: "teacherToken")
+    defaults.set(teacherMode, forKey: "teacherMode")
+    defaults.set(teacherToken, forKey: "teacherToken")
     defaults.synchronize()
   }
   
   func toggleTeacherMode() {
     // Set user default
     
-    if teacherModeSwitch.on {
+    if teacherModeSwitch.isOn {
       teacherMode = true
     } else {
       teacherMode = false
     }
     
-    defaults.setBool(teacherMode, forKey: "teacherMode")
+    defaults.set(teacherMode, forKey: "teacherMode")
     defaults.synchronize()
   }
   

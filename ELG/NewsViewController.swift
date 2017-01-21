@@ -11,10 +11,10 @@ import UIKit
 class NewsViewController: UIViewController, UIWebViewDelegate {
   // Outlets
   
-  @IBOutlet weak private var newsWebView: UIWebView!
-  @IBOutlet weak private var backButton: UIBarButtonItem!
-  @IBOutlet weak private var forwardButton: UIBarButtonItem!
-  @IBOutlet weak private var activityIndicator: UIActivityIndicatorView!
+  @IBOutlet weak fileprivate var newsWebView: UIWebView!
+  @IBOutlet weak fileprivate var backButton: UIBarButtonItem!
+  @IBOutlet weak fileprivate var forwardButton: UIBarButtonItem!
+  @IBOutlet weak fileprivate var activityIndicator: UIActivityIndicatorView!
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -26,13 +26,13 @@ class NewsViewController: UIViewController, UIWebViewDelegate {
   
   // Web View functions
   
-  func webViewDidStartLoad(webView: UIWebView) {
+  func webViewDidStartLoad(_ webView: UIWebView) {
     // Start Activity Indicator
     
     activityIndicator.startAnimating()
   }
   
-  func webViewDidFinishLoad(webView: UIWebView) {
+  func webViewDidFinishLoad(_ webView: UIWebView) {
     // Stop Activity Indicator
     
     activityIndicator.stopAnimating()
@@ -40,19 +40,19 @@ class NewsViewController: UIViewController, UIWebViewDelegate {
     // Enable/Disable Back and Forward buttons
     
     if newsWebView.canGoBack {
-      backButton.enabled = true
+      backButton.isEnabled = true
     } else {
-      backButton.enabled = false
+      backButton.isEnabled = false
     }
     
     if newsWebView.canGoForward {
-      forwardButton.enabled = true
+      forwardButton.isEnabled = true
     } else {
-      forwardButton.enabled = false
+      forwardButton.isEnabled = false
     }
   }
   
-  func webView(webView: UIWebView, didFailLoadWithError error: NSError?) {
+  func webView(_ webView: UIWebView, didFailLoadWithError error: Error) {
     // Stop Activity Indicator
     
     activityIndicator.stopAnimating()
@@ -72,16 +72,16 @@ class NewsViewController: UIViewController, UIWebViewDelegate {
     
     // Check internet reachability
     
-    let reachabilityStatus: NetworkStatus = Reachability.reachabilityForInternetConnection().currentReachabilityStatus()
+    let reachabilityStatus: NetworkStatus = Reachability.forInternetConnection().currentReachabilityStatus()
     
     if reachabilityStatus != NotReachable {
       // Load news website
       
-      newsWebView.loadRequest(NSURLRequest(URL: NSURL(string: "http://elg-halle.de/Aktuell/News/news.asp")!))
+      newsWebView.loadRequest(URLRequest(url: URL(string: "http://elg-halle.de/Aktuell/News/news.asp")!))
     } else {
       // Load message website
       
-      newsWebView.loadRequest(NSURLRequest(URL: NSBundle.mainBundle().URLForResource("NoConnection", withExtension: ".html")!))
+      newsWebView.loadRequest(URLRequest(url: Bundle.main.url(forResource: "NoConnection", withExtension: ".html")!))
       
       // Show alert
       

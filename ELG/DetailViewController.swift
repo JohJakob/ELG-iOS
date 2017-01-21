@@ -11,7 +11,7 @@ import UIKit
 class DetailViewController: UIViewController {
   // Outlets
   
-  @IBOutlet weak private var detailLabel: UILabel!
+  @IBOutlet weak fileprivate var detailLabel: UILabel!
   
   override func viewDidLoad() {
     super.viewDidLoad()

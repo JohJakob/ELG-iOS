@@ -11,12 +11,12 @@ import UIKit
 class WebScheduleViewController: UIViewController, UIWebViewDelegate {
   // Outlets
   
-  @IBOutlet weak private var scheduleWebView: UIWebView!
-  @IBOutlet weak private var activityIndicator: UIActivityIndicatorView!
+  @IBOutlet weak fileprivate var scheduleWebView: UIWebView!
+  @IBOutlet weak fileprivate var activityIndicator: UIActivityIndicatorView!
   
   // Variables + constants
   
-  var defaults: NSUserDefaults!
+  var defaults: UserDefaults!
   let grades = ["5a", "5b", "5c", "5d", "5e", "6a", "6b", "6c", "6d", "6e", "7a", "7b", "7c", "7d", "8a", "8b", "8c", "8d", "9a", "9b", "9c", "9d", "10a", "10b", "10c", "10d"]
   var url: String!
   
@@ -25,37 +25,37 @@ class WebScheduleViewController: UIViewController, UIWebViewDelegate {
     
     // Initialize user defaults
 		
-		defaults = NSUserDefaults.standardUserDefaults()
+		defaults = UserDefaults.standard
     
     loadSchedule()
   }
   
   // Web View functions
   
-  func webViewDidStartLoad(webView: UIWebView) {
+  func webViewDidStartLoad(_ webView: UIWebView) {
     // Start Activity Indicator
     
     activityIndicator.startAnimating()
   }
   
-  func webViewDidFinishLoad(webView: UIWebView) {
+  func webViewDidFinishLoad(_ webView: UIWebView) {
     // Stop Activity Indicator
     
     activityIndicator.stopAnimating()
     
     // Get user defaults
     
-    let username = defaults.stringForKey("username")
-    let password = defaults.stringForKey("password")
+    let username = defaults.string(forKey: "username")
+    let password = defaults.string(forKey: "password")
     
     // Check Internet reachability
     
-    let reachabilityStatus: NetworkStatus = Reachability.reachabilityForInternetConnection().currentReachabilityStatus()
+    let reachabilityStatus: NetworkStatus = Reachability.forInternetConnection().currentReachabilityStatus()
     
     if reachabilityStatus != NotReachable {
       // Get grade user default
       
-      let grade = defaults.integerForKey("grade")
+      let grade = defaults.integer(forKey: "grade")
       
       // Log in and load individual schedule website
       
@@ -69,15 +69,15 @@ class WebScheduleViewController: UIViewController, UIWebViewDelegate {
           
           // Execute JavaScript in Web View
           
-          scheduleWebView.stringByEvaluatingJavaScriptFromString(fillUsernameScript)
-          scheduleWebView.stringByEvaluatingJavaScriptFromString(fillPasswordScript)
-          scheduleWebView.stringByEvaluatingJavaScriptFromString(loginScript)
+          scheduleWebView.stringByEvaluatingJavaScript(from: fillUsernameScript)
+          scheduleWebView.stringByEvaluatingJavaScript(from: fillPasswordScript)
+          scheduleWebView.stringByEvaluatingJavaScript(from: loginScript)
         }
       }
     }
   }
   
-  func webView(webView: UIWebView, didFailLoadWithError error: NSError?) {
+  func webView(_ webView: UIWebView, didFailLoadWithError error: Error) {
     // Stop Activity Indicator
     
     activityIndicator.stopAnimating()
@@ -97,13 +97,13 @@ class WebScheduleViewController: UIViewController, UIWebViewDelegate {
     
     // Check Internet reachability
     
-    let reachabilityStatus: NetworkStatus = Reachability.reachabilityForInternetConnection().currentReachabilityStatus()
+    let reachabilityStatus: NetworkStatus = Reachability.forInternetConnection().currentReachabilityStatus()
     
     if reachabilityStatus != NotReachable {
       // Get user defaults
       
-      let grade = defaults.integerForKey("grade")
-      let token = defaults.stringForKey("token")
+      let grade = defaults.integer(forKey: "grade")
+      let token = defaults.string(forKey: "token")
       
       // Set schedule URL
       
@@ -160,11 +160,11 @@ class WebScheduleViewController: UIViewController, UIWebViewDelegate {
       
       // Load schedule URL
       
-      scheduleWebView.loadRequest(NSURLRequest(URL: NSURL(string: url)!))
+      scheduleWebView.loadRequest(URLRequest(url: URL(string: url)!))
     } else {
       // Load No Internet Connection website
       
-      scheduleWebView.loadRequest(NSURLRequest(URL: NSBundle.mainBundle().URLForResource("NoConnection", withExtension: ".html")!))
+      scheduleWebView.loadRequest(URLRequest(url: Bundle.main.url(forResource: "NoConnection", withExtension: ".html")!))
       
       // Show alert
       

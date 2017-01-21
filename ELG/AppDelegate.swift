@@ -9,19 +9,11 @@
 import UIKit
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate {
   var window: UIWindow?
 	
-  private func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+  fileprivate func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [AnyHashable: Any]?) -> Bool {
     // Override point for customization after application launch.
-		
-		let splitViewController = self.window!.rootViewController as! UISplitViewController
-		
-		splitViewController.delegate = self
-		
-		// Show master and detail side-by-side in portrait and landscape on iPad
-		
-		splitViewController.preferredDisplayMode = .allVisible
     
     return true
   }
@@ -46,19 +38,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
   
   func applicationWillTerminate(_ application: UIApplication) {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-  }
-  
-  // MARK: - Split view
-  
-  func splitViewController(splitViewController: UISplitViewController, collapseSecondaryViewController secondaryViewController:UIViewController, ontoPrimaryViewController primaryViewController:UIViewController) -> Bool {
-    /* guard let secondaryAsNavController = secondaryViewController as? UINavigationController else { return false }
-     guard let topAsDetailController = secondaryAsNavController.topViewController as? StartViewController else { return false }
-     
-     /* if topAsDetailController.detailItem == nil {
-     // Return true to indicate that we have handled the collapse by doing nothing; the secondary controller will be discarded.
-     return true
-     } */ */
-    
-    return true
   }
 }

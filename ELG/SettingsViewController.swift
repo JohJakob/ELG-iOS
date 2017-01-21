@@ -11,24 +11,24 @@ import UIKit
 class SettingsViewController: UITableViewController {
   // Variables + constants
   
-  var defaults: NSUserDefaults!
+  var defaults: UserDefaults!
   var autoSave = Bool()
   var autoSaveSwitch = UISwitch()
-  let gradeViewController = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("GradeTableViewController")
+  let gradeViewController = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "GradeTableViewController")
   
   // Use when online schedules are available again
   
   /* let loginViewController = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("LoginTableViewController") */
-  let editScheduleViewController = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("EditScheduleTableViewController")
-  let teacherModeViewController = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("TeacherModeTableViewController")
-  let startViewController = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("ChooseStartTableViewController")
+  let editScheduleViewController = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "EditScheduleTableViewController")
+  let teacherModeViewController = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "TeacherModeTableViewController")
+  let startViewController = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "ChooseStartTableViewController")
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
     // Initialize user defaults
 		
-		defaults = NSUserDefaults.standardUserDefaults()
+		defaults = UserDefaults.standard
     
     // Initialize switches
     
@@ -37,7 +37,7 @@ class SettingsViewController: UITableViewController {
   
   // Table view functions
   
-  override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+  override func numberOfSections(in tableView: UITableView) -> Int {
     var numberOfRows = Int()
     
     if #available(iOS 8, *) {
@@ -49,7 +49,7 @@ class SettingsViewController: UITableViewController {
     return numberOfRows
   }
   
-  override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+  override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     var numberOfRows = Int()
     
     switch section {
@@ -73,8 +73,8 @@ class SettingsViewController: UITableViewController {
     return numberOfRows
   }
   
-  override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCellWithIdentifier("SettingsTableViewCell", forIndexPath: indexPath)
+  override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    let cell = tableView.dequeueReusableCell(withIdentifier: "SettingsTableViewCell", for: indexPath)
     
     switch indexPath.section {
     case 0:
@@ -103,7 +103,7 @@ class SettingsViewController: UITableViewController {
       case 0:
         cell.textLabel!.text = "Automatisch sichern"
         cell.accessoryView = autoSaveSwitch
-        cell.selectionStyle = .None
+        cell.selectionStyle = .none
         break
       case 1:
         cell.textLabel!.text = "Lehrermodus"
@@ -121,10 +121,10 @@ class SettingsViewController: UITableViewController {
     return cell
   }
   
-  override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+  override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     // Deselect table view cell
     
-    tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    tableView.deselectRow(at: indexPath, animated: true)
     
     // Check selected cell and navigate to new view based on selection
     
@@ -132,10 +132,10 @@ class SettingsViewController: UITableViewController {
     case 0:
       switch indexPath.row {
       case 0:
-				navigationController?.showViewController(gradeViewController, sender: self)
+				navigationController?.show(gradeViewController, sender: self)
         break
       case 1:
-				navigationController?.showViewController(editScheduleViewController, sender: self)
+				navigationController?.show(editScheduleViewController, sender: self)
         
         // Use when online schedules are available again
         
@@ -152,11 +152,11 @@ class SettingsViewController: UITableViewController {
       break
     case 1:
       if indexPath.row == 1 {
-				navigationController?.showViewController(teacherModeViewController, sender: self)
+				navigationController?.show(teacherModeViewController, sender: self)
       }
       break
     case 2:
-			navigationController?.showViewController(startViewController, sender: self)
+			navigationController?.show(startViewController, sender: self)
       break
     default:
       break
@@ -168,11 +168,11 @@ class SettingsViewController: UITableViewController {
   func initSwitches() {
     // Retrieve user defaults
     
-    autoSave = defaults.boolForKey("autoSave")
+    autoSave = defaults.bool(forKey: "autoSave")
     
     // Initialize switches
     
-    autoSaveSwitch = UISwitch.init(frame: CGRectZero)
+    autoSaveSwitch = UISwitch.init(frame: CGRect.zero)
     
     if autoSave {
       autoSaveSwitch.setOn(true, animated: false)
@@ -180,7 +180,7 @@ class SettingsViewController: UITableViewController {
       autoSaveSwitch.setOn(false, animated: false)
     }
     
-    autoSaveSwitch.addTarget(self, action: #selector(SettingsViewController.toggleAutoSave), forControlEvents: .ValueChanged)
+    autoSaveSwitch.addTarget(self, action: #selector(SettingsViewController.toggleAutoSave), for: .valueChanged)
     
     autoSaveSwitch.onTintColor = UIColor(red: 0.498, green: 0.09, blue: 0.203, alpha: 1)
   }
@@ -188,13 +188,13 @@ class SettingsViewController: UITableViewController {
   func toggleAutoSave() {
     // Set user default
     
-    if autoSaveSwitch.on {
+    if autoSaveSwitch.isOn {
       autoSave = true
     } else {
       autoSave = false
     }
     
-    defaults.setBool(autoSave, forKey: "autoSave")
+    defaults.set(autoSave, forKey: "autoSave")
     defaults.synchronize()
   }
   

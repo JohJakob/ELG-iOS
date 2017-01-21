@@ -11,29 +11,29 @@ import UIKit
 class EditScheduleViewController: UITableViewController {
   // Variables + constants
   
-  var defaults: NSUserDefaults!
-  let editLessonsViewController = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("EditLessonsTableViewController")
+  var defaults: UserDefaults!
+  let editLessonsViewController = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "EditLessonsTableViewController")
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
     // Initialize user defaults
 		
-		defaults = NSUserDefaults.standardUserDefaults()
+		defaults = UserDefaults.standard
   }
   
   // Table view functions
   
-  override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+  override func numberOfSections(in tableView: UITableView) -> Int {
     return 1
   }
   
-  override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+  override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return 5
   }
   
-  override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCellWithIdentifier("EditScheduleTableViewCell", forIndexPath: indexPath)
+  override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    let cell = tableView.dequeueReusableCell(withIdentifier: "EditScheduleTableViewCell", for: indexPath)
     let days = ["Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag"]
     
     // Set table view cell's text
@@ -43,19 +43,19 @@ class EditScheduleViewController: UITableViewController {
     return cell
   }
   
-  override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+  override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     // Deselect table view cell
     
-    tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    tableView.deselectRow(at: indexPath, animated: true)
     
     // Set user default
     
-    defaults.setInteger(indexPath.row, forKey: "selectedDay")
+    defaults.set(indexPath.row, forKey: "selectedDay")
     defaults.synchronize()
     
     // Show new view
 		
-		navigationController?.showViewController(editLessonsViewController, sender: self)
+		navigationController?.show(editLessonsViewController, sender: self)
   }
   
   override func didReceiveMemoryWarning() {

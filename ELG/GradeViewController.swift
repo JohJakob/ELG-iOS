@@ -11,7 +11,7 @@ import UIKit
 class GradeViewController: UITableViewController {
   // Variables + constants
   
-  var defaults: NSUserDefaults!
+  var defaults: UserDefaults!
   var selectedGrade = NSInteger()
   let grades = ["5a", "5b", "5c", "5d", "5e", "6a", "6b", "6c", "6d", "6e", "7a", "7b", "7c", "7d", "8a", "8b", "8c", "8d", "9a", "9b", "9c", "9d", "10a", "10b", "10c", "10d", "11a", "11b", "11c", "11d", "11e", "12a", "12b", "12c", "12d", "12e"]
   
@@ -20,7 +20,7 @@ class GradeViewController: UITableViewController {
     
     // Initialize user defaults
 		
-		defaults = NSUserDefaults.standardUserDefaults()
+		defaults = UserDefaults.standard
     
     // Retrieve user defaults
     
@@ -29,11 +29,11 @@ class GradeViewController: UITableViewController {
   
   // Table view functions
   
-  override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+  override func numberOfSections(in tableView: UITableView) -> Int {
     return 2
   }
   
-  override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+  override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     var numberOfRows = Int()
     
     if section == 0 {
@@ -45,8 +45,8 @@ class GradeViewController: UITableViewController {
     return numberOfRows
   }
   
-  override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCellWithIdentifier("GradeTableViewCell", forIndexPath: indexPath)
+  override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    let cell = tableView.dequeueReusableCell(withIdentifier: "GradeTableViewCell", for: indexPath)
     
     // Set table view cell's text and accessory type
     
@@ -54,27 +54,27 @@ class GradeViewController: UITableViewController {
       cell.textLabel!.text = "Keine Klasse"
       
       if selectedGrade == indexPath.row {
-        cell.accessoryType = .Checkmark
+        cell.accessoryType = .checkmark
       } else {
-        cell.accessoryType = .None
+        cell.accessoryType = .none
       }
     } else {
       cell.textLabel!.text = grades[indexPath.row]
       
       if selectedGrade == indexPath.row + 1 {
-        cell.accessoryType = .Checkmark
+        cell.accessoryType = .checkmark
       } else {
-        cell.accessoryType = .None
+        cell.accessoryType = .none
       }
     }
     
     return cell
   }
   
-  override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+  override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     // Deselect table view cell
     
-    tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    tableView.deselectRow(at: indexPath, animated: true)
     
     // Set user default
     
@@ -84,7 +84,7 @@ class GradeViewController: UITableViewController {
       selectedGrade = indexPath.row + 1
     }
     
-    defaults.setInteger(selectedGrade, forKey: "selectedGrade")
+    defaults.set(selectedGrade, forKey: "selectedGrade")
     defaults.synchronize()
     
     // Reload table view
@@ -97,7 +97,7 @@ class GradeViewController: UITableViewController {
   func retrieveUserDefaults() {
     // Retrieve selected grade from user defaults
     
-    selectedGrade = defaults.integerForKey("selectedGrade")
+    selectedGrade = defaults.integer(forKey: "selectedGrade")
   }
   
   override func didReceiveMemoryWarning() {

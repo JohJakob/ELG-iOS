@@ -11,27 +11,27 @@ import UIKit
 class AboutWebViewController: UIViewController, UIWebViewDelegate {
   // Outlets
   
-  @IBOutlet weak private var aboutWebView: UIWebView!
+  @IBOutlet weak fileprivate var aboutWebView: UIWebView!
   
   // Variables + constants
   
-  var defaults: NSUserDefaults!
+  var defaults: UserDefaults!
   var selectedAboutWebView = Int()
   var didLaunch = Bool()
   let titles = ["Was ist neu?", "Open Source", "Impressum der Website"]
   let pages = ["ReleaseNotes", "OpenSource", "Imprint"]
-  let onboardingViewController = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("OnboardingTableViewController")
-  let version = NSBundle.mainBundle().infoDictionary?["CFBundleShortVersionString"] as? String
+  let onboardingViewController = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "OnboardingTableViewController")
+  let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
     // Initialize user defaults
 		
-		defaults = NSUserDefaults.standardUserDefaults()
+		defaults = UserDefaults.standard
   }
   
-  override func viewWillAppear(animated: Bool) {
+  override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     
     // Retrieve user defaults
@@ -49,13 +49,13 @@ class AboutWebViewController: UIViewController, UIWebViewDelegate {
   
   // Web view functions
   
-  func webView(webView: UIWebView, shouldStartLoadWithRequest request: NSURLRequest, navigationType: UIWebViewNavigationType) -> Bool {
+  func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebViewNavigationType) -> Bool {
     // Check web view navigation type
     
-    if navigationType == .LinkClicked {
+    if navigationType == .linkClicked {
       // Open URL in shared app
       
-      UIApplication.sharedApplication().openURL(request.URL!)
+      UIApplication.shared.openURL(request.url!)
       
       return false
     }
@@ -68,8 +68,8 @@ class AboutWebViewController: UIViewController, UIWebViewDelegate {
   func retrieveUserDefaults() {
     // Retrieve user defaults
     
-    didLaunch = defaults.boolForKey("launched\(version)")
-    selectedAboutWebView = defaults.integerForKey("selectedAboutWebView")
+    didLaunch = defaults.bool(forKey: "launched\(version)")
+    selectedAboutWebView = defaults.integer(forKey: "selectedAboutWebView")
     
     // Check whether the app has been launched for the first time
     
@@ -86,12 +86,12 @@ class AboutWebViewController: UIViewController, UIWebViewDelegate {
     // Load page
     
     if #available(iOS 8, *) {
-      aboutWebView.loadRequest(NSURLRequest(URL: NSBundle.mainBundle().URLForResource(pages[selectedAboutWebView], withExtension: ".html")!))
+      aboutWebView.loadRequest(URLRequest(url: Bundle.main.url(forResource: pages[selectedAboutWebView], withExtension: ".html")!))
     } else {
       if selectedAboutWebView == 0 {
-        aboutWebView.loadRequest(NSURLRequest(URL: NSBundle.mainBundle().URLForResource("ReleaseNotes-iOS-7", withExtension: ".html")!))
+        aboutWebView.loadRequest(URLRequest(url: Bundle.main.url(forResource: "ReleaseNotes-iOS-7", withExtension: ".html")!))
       } else {
-        aboutWebView.loadRequest(NSURLRequest(URL: NSBundle.mainBundle().URLForResource(pages[selectedAboutWebView], withExtension: ".html")!))
+        aboutWebView.loadRequest(URLRequest(url: Bundle.main.url(forResource: pages[selectedAboutWebView], withExtension: ".html")!))
       }
     }
   }
@@ -102,14 +102,14 @@ class AboutWebViewController: UIViewController, UIWebViewDelegate {
     if !didLaunch {
       // Add button to navigation bar
       
-      navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Weiter", style: .Plain, target: self, action: #selector(nextButtonTapped))
+      navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Weiter", style: .plain, target: self, action: #selector(nextButtonTapped))
     }
   }
   
   func nextButtonTapped() {
     // Show new view
 		
-		navigationController?.showViewController(onboardingViewController, sender: self)
+		navigationController?.show(onboardingViewController, sender: self)
   }
   
   override func didReceiveMemoryWarning() {

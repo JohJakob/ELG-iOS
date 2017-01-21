@@ -11,8 +11,8 @@ import UIKit
 class ScheduleViewController: UITableViewController {
   // Variables + constants
   
-  var defaults: NSUserDefaults!
-  let lessonsViewController = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("LessonsTableViewController")
+  var defaults: UserDefaults!
+  let lessonsViewController = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "LessonsTableViewController")
   
   // Use when online schedule are available again
   
@@ -23,12 +23,12 @@ class ScheduleViewController: UITableViewController {
     
     // Initialize user defaults
 		
-		defaults = NSUserDefaults.standardUserDefaults()
+		defaults = UserDefaults.standard
   }
   
   // Table view functions
   
-  override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+  override func numberOfSections(in tableView: UITableView) -> Int {
     return 1
     
     // Use when online schedule are available again
@@ -36,7 +36,7 @@ class ScheduleViewController: UITableViewController {
     /* return 2 */
   }
   
-  override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+  override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return 5
     
     // Use when online schedules are available again
@@ -52,8 +52,8 @@ class ScheduleViewController: UITableViewController {
     return numberOfRows */
   }
   
-  override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCellWithIdentifier("ScheduleTableViewCell", forIndexPath: indexPath)
+  override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    let cell = tableView.dequeueReusableCell(withIdentifier: "ScheduleTableViewCell", for: indexPath)
     let days = ["Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag"]
     
     // Set table view cell's text
@@ -76,17 +76,17 @@ class ScheduleViewController: UITableViewController {
     return cell
   }
   
-  override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+  override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     // Deselect table view cell
     
-    tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    tableView.deselectRow(at: indexPath, animated: true)
     
     // Check selected cell and navigate to new view based on selection
     
-    defaults.setInteger(indexPath.row, forKey: "selectedDay")
+    defaults.set(indexPath.row, forKey: "selectedDay")
     defaults.synchronize()
 
-		navigationController?.showViewController(lessonsViewController, sender: self)
+		navigationController?.show(lessonsViewController, sender: self)
     
     // Use when online schedules are available again
     

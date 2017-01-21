@@ -11,42 +11,42 @@ import UIKit
 class EditLessonsViewController: UITableViewController {
   // Variables + constants
   
-  var defaults: NSUserDefaults!
+  var defaults: UserDefaults!
   var lessons: [String]!
-  let subjectsViewController = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("SubjectsTableViewController")
+  let subjectsViewController = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "SubjectsTableViewController")
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
     // Initialize user defaults
 		
-		defaults = NSUserDefaults.standardUserDefaults()
+		defaults = UserDefaults.standard
   }
   
-  override func viewWillAppear(animated: Bool) {
+  override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     
     // Check selected day to retrieve lessons and set navigation bar title
     
-    switch defaults.integerForKey("selectedDay") {
+    switch defaults.integer(forKey: "selectedDay") {
     case 0:
-      lessons = defaults.stringArrayForKey("monday")
+      lessons = defaults.stringArray(forKey: "monday")
       navigationItem.title = "Montag"
       break
     case 1:
-      lessons = defaults.stringArrayForKey("tuesday")
+      lessons = defaults.stringArray(forKey: "tuesday")
       navigationItem.title = "Dienstag"
       break
     case 2:
-      lessons = defaults.stringArrayForKey("wednesday")
+      lessons = defaults.stringArray(forKey: "wednesday")
       navigationItem.title = "Mittwoch"
       break
     case 3:
-      lessons = defaults.stringArrayForKey("thursday")
+      lessons = defaults.stringArray(forKey: "thursday")
       navigationItem.title = "Donnerstag"
       break
     case 4:
-      lessons = defaults.stringArrayForKey("friday")
+      lessons = defaults.stringArray(forKey: "friday")
       navigationItem.title = "Freitag"
       break
     default:
@@ -54,7 +54,7 @@ class EditLessonsViewController: UITableViewController {
     }
     
     if lessons == nil {
-      switch defaults.integerForKey("selectedDay") {
+      switch defaults.integer(forKey: "selectedDay") {
       case 4:
         lessons = ["", "", "", "", "", ""]
         break;
@@ -69,7 +69,7 @@ class EditLessonsViewController: UITableViewController {
     tableView.reloadData()
   }
   
-  override func viewWillDisappear(animated: Bool) {
+  override func viewWillDisappear(_ animated: Bool) {
     super.viewWillDisappear(animated)
     
     // Remove temporary user defaults
@@ -79,14 +79,14 @@ class EditLessonsViewController: UITableViewController {
   
   // Table view functions
   
-  override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+  override func numberOfSections(in tableView: UITableView) -> Int {
     return 1
   }
   
-  override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+  override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     var numberOfRows: Int
     
-    switch defaults.integerForKey("selectedDay") {
+    switch defaults.integer(forKey: "selectedDay") {
     case 4:
       numberOfRows = 6
       break
@@ -97,23 +97,23 @@ class EditLessonsViewController: UITableViewController {
     return numberOfRows
   }
   
-  override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCellWithIdentifier("EditLessonsTableViewCell", forIndexPath: indexPath)
+  override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    let cell = tableView.dequeueReusableCell(withIdentifier: "EditLessonsTableViewCell", for: indexPath)
     
     // Check selected lesson, subject from subject list and set the table view cell's text
     
-    if defaults.integerForKey("selectedLesson") == indexPath.row && defaults.stringForKey("selectedSubject") != nil {
-      if defaults.stringForKey("selectedSubject") == "Kein Unterricht" {
+    if defaults.integer(forKey: "selectedLesson") == indexPath.row && defaults.string(forKey: "selectedSubject") != nil {
+      if defaults.string(forKey: "selectedSubject") == "Kein Unterricht" {
         cell.textLabel!.text = String(indexPath.row + 1) + ". Stunde"
         
         lessons[indexPath.row] = ""
       } else {
-        if defaults.stringForKey("selectedRoom") == "" {
-          cell.textLabel!.text = defaults.stringForKey("selectedSubject")
+        if defaults.string(forKey: "selectedRoom") == "" {
+          cell.textLabel!.text = defaults.string(forKey: "selectedSubject")
           
-          lessons[indexPath.row] = defaults.stringForKey("selectedSubject")!
+          lessons[indexPath.row] = defaults.string(forKey: "selectedSubject")!
         } else {
-          cell.textLabel!.text = defaults.stringForKey("selectedSubject")! + " (" + defaults.stringForKey("selectedRoom")! + ")"
+          cell.textLabel!.text = defaults.string(forKey: "selectedSubject")! + " (" + defaults.string(forKey: "selectedRoom")! + ")"
           
           lessons[indexPath.row] = cell.textLabel!.text!
         }
@@ -133,19 +133,19 @@ class EditLessonsViewController: UITableViewController {
     return cell
   }
   
-  override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+  override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     // Deselect table view cell
     
-    tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    tableView.deselectRow(at: indexPath, animated: true)
     
     // Set user default
     
-    defaults.setInteger(indexPath.row, forKey: "selectedLesson")
+    defaults.set(indexPath.row, forKey: "selectedLesson")
     defaults.synchronize()
     
     // Show new view
 		
-		navigationController?.showViewController(subjectsViewController, sender: self)
+		navigationController?.show(subjectsViewController, sender: self)
   }
   
   override func didReceiveMemoryWarning() {
@@ -159,29 +159,29 @@ class EditLessonsViewController: UITableViewController {
   func removeUserDefaults() {
     // Remove temporary user defaults
     
-    defaults.removeObjectForKey("selectedSubject")
-    defaults.removeObjectForKey("selectedRoom")
+    defaults.removeObject(forKey: "selectedSubject")
+    defaults.removeObject(forKey: "selectedRoom")
     defaults.synchronize()
   }
   
   func saveLessons() {
     // Save lessons in user defaults
     
-    switch defaults.integerForKey("selectedDay") {
+    switch defaults.integer(forKey: "selectedDay") {
     case 0:
-      defaults.setObject(lessons, forKey: "monday")
+      defaults.set(lessons, forKey: "monday")
       break
     case 1:
-      defaults.setObject(lessons, forKey: "tuesday")
+      defaults.set(lessons, forKey: "tuesday")
       break
     case 2:
-      defaults.setObject(lessons, forKey: "wednesday")
+      defaults.set(lessons, forKey: "wednesday")
       break
     case 3:
-      defaults.setObject(lessons, forKey: "thursday")
+      defaults.set(lessons, forKey: "thursday")
       break
     case 4:
-      defaults.setObject(lessons, forKey: "friday")
+      defaults.set(lessons, forKey: "friday")
       break
     default:
       break

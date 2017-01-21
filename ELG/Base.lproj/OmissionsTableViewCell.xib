@@ -1,9 +1,13 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -18,43 +22,43 @@
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12e" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vid-3p-za1">
                         <rect key="frame" x="8" y="8" width="66" height="48"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="66" id="gBT-b6-FAf"/>
+                            <constraint firstAttribute="width" constant="66" id="OXN-0W-VJi"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="37"/>
-                        <color key="textColor" red="0.4965850711" green="0.090104170139999995" blue="0.20509195329999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="textColor" red="0.41545182466506958" green="0.043958567082881927" blue="0.15521545708179474" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lesson" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CbW-YO-wCe">
                         <rect key="frame" x="82" y="8" width="230" height="21"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="21" id="Nd0-BV-x1x"/>
+                            <constraint firstAttribute="height" constant="21" id="kEo-Wa-PbJ"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Details" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="18K-q4-yu0">
                         <rect key="frame" x="82" y="35" width="230" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="textColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
-                <color key="tintColor" red="0.4965850711" green="0.090104170139999995" blue="0.20509195329999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                <color key="tintColor" red="0.41545182466506958" green="0.043958567082881927" blue="0.15521545708179474" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 <constraints>
-                    <constraint firstItem="CbW-YO-wCe" firstAttribute="leading" secondItem="18K-q4-yu0" secondAttribute="leading" id="AtQ-oA-R52"/>
-                    <constraint firstItem="18K-q4-yu0" firstAttribute="top" secondItem="CbW-YO-wCe" secondAttribute="bottom" constant="6" id="BED-xG-AmT"/>
-                    <constraint firstItem="vid-3p-za1" firstAttribute="leading" secondItem="jBU-PH-LKa" secondAttribute="leadingMargin" id="Ypz-cJ-o8b"/>
-                    <constraint firstItem="vid-3p-za1" firstAttribute="bottom" secondItem="18K-q4-yu0" secondAttribute="bottom" id="eX3-BB-Hhf"/>
-                    <constraint firstItem="vid-3p-za1" firstAttribute="bottom" secondItem="jBU-PH-LKa" secondAttribute="bottomMargin" id="f10-pN-JSV"/>
-                    <constraint firstItem="vid-3p-za1" firstAttribute="top" secondItem="CbW-YO-wCe" secondAttribute="top" id="kcL-I9-mCB"/>
-                    <constraint firstItem="vid-3p-za1" firstAttribute="top" secondItem="jBU-PH-LKa" secondAttribute="topMargin" id="kkv-wA-O4x"/>
-                    <constraint firstItem="CbW-YO-wCe" firstAttribute="trailing" secondItem="jBU-PH-LKa" secondAttribute="trailingMargin" id="klE-V1-rs7"/>
-                    <constraint firstItem="CbW-YO-wCe" firstAttribute="leading" secondItem="vid-3p-za1" secondAttribute="trailing" constant="8" symbolic="YES" id="q0M-Ya-5QF"/>
-                    <constraint firstItem="CbW-YO-wCe" firstAttribute="trailing" secondItem="18K-q4-yu0" secondAttribute="trailing" id="uH3-Ja-1NM"/>
+                    <constraint firstItem="CbW-YO-wCe" firstAttribute="leading" secondItem="18K-q4-yu0" secondAttribute="leading" id="04r-iV-EGm"/>
+                    <constraint firstItem="CbW-YO-wCe" firstAttribute="leading" secondItem="vid-3p-za1" secondAttribute="trailing" constant="8" symbolic="YES" id="Qz3-Qv-EOc"/>
+                    <constraint firstItem="18K-q4-yu0" firstAttribute="top" secondItem="CbW-YO-wCe" secondAttribute="bottom" constant="6" id="TeR-ZH-YM3"/>
+                    <constraint firstItem="vid-3p-za1" firstAttribute="top" secondItem="CbW-YO-wCe" secondAttribute="top" id="Ydn-ir-seZ"/>
+                    <constraint firstItem="vid-3p-za1" firstAttribute="leading" secondItem="jBU-PH-LKa" secondAttribute="leadingMargin" id="cVE-SD-27a"/>
+                    <constraint firstItem="vid-3p-za1" firstAttribute="top" secondItem="jBU-PH-LKa" secondAttribute="topMargin" id="lEL-XT-yhn"/>
+                    <constraint firstItem="vid-3p-za1" firstAttribute="bottom" secondItem="18K-q4-yu0" secondAttribute="bottom" id="mzi-za-Wlk"/>
+                    <constraint firstItem="CbW-YO-wCe" firstAttribute="trailing" secondItem="jBU-PH-LKa" secondAttribute="trailingMargin" id="rOf-ZM-WN0"/>
+                    <constraint firstItem="vid-3p-za1" firstAttribute="bottom" secondItem="jBU-PH-LKa" secondAttribute="bottomMargin" id="soh-cW-ZJa"/>
+                    <constraint firstItem="CbW-YO-wCe" firstAttribute="trailing" secondItem="18K-q4-yu0" secondAttribute="trailing" id="voy-ci-sg6"/>
                 </constraints>
             </tableViewCellContentView>
-            <color key="tintColor" red="0.4965850711" green="0.090104170139999995" blue="0.20509195329999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="tintColor" red="0.41545182466506958" green="0.043958567082881927" blue="0.15521545708179474" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <connections>
                 <outlet property="detailsLabel" destination="18K-q4-yu0" id="z1Q-HD-QjF"/>
                 <outlet property="gradeLabel" destination="vid-3p-za1" id="tt3-Ny-0jl"/>

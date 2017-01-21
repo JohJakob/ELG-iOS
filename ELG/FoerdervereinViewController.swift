@@ -11,32 +11,32 @@ import UIKit
 class FoerdervereinViewController: UITableViewController {
   // Variables + constants
   
-  var defaults: NSUserDefaults!
+  var defaults: UserDefaults!
   var items = [[String: String]]()
   var item = Dictionary<String, String>()
   var itemTitle = String()
   var itemDescription = String()
   var itemLink = String()
-  let articleViewController = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("FoerdervereinArticleViewController")
+  let articleViewController = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "FoerdervereinArticleViewController")
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
     // Initialize user defaults
 		
-		defaults = NSUserDefaults.standardUserDefaults()
+		defaults = UserDefaults.standard
     
     // Set up refresh control
     
     let articlesRefreshControl = UIRefreshControl.init()
     
-    articlesRefreshControl.addTarget(self, action: #selector(FoerdervereinViewController.refreshTableView), forControlEvents: .ValueChanged)
+    articlesRefreshControl.addTarget(self, action: #selector(FoerdervereinViewController.refreshTableView), for: .valueChanged)
     
     refreshControl = articlesRefreshControl
     
     // Check internet reachability
     
-    let reachabilityStatus: NetworkStatus = Reachability.reachabilityForInternetConnection().currentReachabilityStatus()
+    let reachabilityStatus: NetworkStatus = Reachability.forInternetConnection().currentReachabilityStatus()
     
     if reachabilityStatus != NotReachable {
       initParser()
@@ -50,26 +50,26 @@ class FoerdervereinViewController: UITableViewController {
       
       let noConnectionLabel = UILabel.init()
       noConnectionLabel.text = "Keine Internetverbindung"
-      noConnectionLabel.textColor = UIColor.lightGrayColor()
-      noConnectionLabel.font = UIFont.systemFontOfSize(16)
-      noConnectionLabel.textAlignment = .Center
+      noConnectionLabel.textColor = UIColor.lightGray
+      noConnectionLabel.font = UIFont.systemFont(ofSize: 16)
+      noConnectionLabel.textAlignment = .center
       
       // Change table view appearance
       
-      tableView.backgroundColor = UIColor.groupTableViewBackgroundColor()
-      tableView.separatorStyle = .None
+      tableView.backgroundColor = UIColor.groupTableViewBackground
+      tableView.separatorStyle = .none
       tableView.backgroundView = noConnectionLabel
     }
   }
   
   // Table view functions
   
-  override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+  override func numberOfSections(in tableView: UITableView) -> Int {
     var numberOfSections = Int()
     
     // Check internet reachability
     
-    let reachabilityStatus: NetworkStatus = Reachability.reachabilityForInternetConnection().currentReachabilityStatus()
+    let reachabilityStatus: NetworkStatus = Reachability.forInternetConnection().currentReachabilityStatus()
     
     if reachabilityStatus != NotReachable {
       numberOfSections = 1
@@ -80,12 +80,12 @@ class FoerdervereinViewController: UITableViewController {
     return numberOfSections
   }
   
-  override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+  override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return items.count
   }
   
-  override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCellWithIdentifier("FoerdervereinTableViewCell", forIndexPath: indexPath)
+  override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    let cell = tableView.dequeueReusableCell(withIdentifier: "FoerdervereinTableViewCell", for: indexPath)
     
     // Set table view cell's text
     
@@ -95,10 +95,10 @@ class FoerdervereinViewController: UITableViewController {
     return cell
   }
   
-  override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+  override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     // Deselect table view cell
     
-    tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    tableView.deselectRow(at: indexPath, animated: true)
     
     // Save user defaults
     
@@ -108,7 +108,7 @@ class FoerdervereinViewController: UITableViewController {
     
     // Show new view
 		
-		navigationController?.showViewController(articleViewController, sender: self)
+		navigationController?.show(articleViewController, sender: self)
   }
   
   // Custom functions
@@ -116,13 +116,13 @@ class FoerdervereinViewController: UITableViewController {
   func initParser() {
     // Create task
     
-    let session = NSURLSession.sharedSession()
-    let request = NSMutableURLRequest(URL: NSURL(string: "https://svelg.wordpress.com/feed")!)
+		let session = URLSession.shared
+    var request = URLRequest(url: URL(string: "https://svelg.wordpress.com/feed")!)
     var error: NSError?
     
-    request.HTTPMethod = "GET"
+    request.httpMethod = "GET"
     
-    let task = session.dataTaskWithRequest(request) {
+    let task = URLSession.shared.dataTask(with: request, completionHandler: {
       (data, response, error) in
       
       if data == nil {
@@ -154,20 +154,20 @@ class FoerdervereinViewController: UITableViewController {
         
         // Reset table view appearance
         
-        self.tableView.backgroundColor = UIColor.whiteColor()
-        self.tableView.separatorStyle = .SingleLine
+        self.tableView.backgroundColor = UIColor.white
+        self.tableView.separatorStyle = .singleLine
       }
       
       // Run task asynchronously
       
-      dispatch_async(dispatch_get_main_queue(), parse)
-    }
+      DispatchQueue.main.async(execute: parse)
+    }) 
     
     task.resume()
   }
   
   func refreshTableView() {
-    let reachabilityStatus: NetworkStatus = Reachability.reachabilityForInternetConnection().currentReachabilityStatus()
+    let reachabilityStatus: NetworkStatus = Reachability.forInternetConnection().currentReachabilityStatus()
     
     if reachabilityStatus != NotReachable {
       initParser()
@@ -185,11 +185,11 @@ class FoerdervereinViewController: UITableViewController {
       
       let noConnectionLabel = UILabel.init()
       noConnectionLabel.text = "Keine Internetverbindung"
-      noConnectionLabel.textColor = UIColor.lightGrayColor()
-      noConnectionLabel.font = UIFont.systemFontOfSize(16)
-      noConnectionLabel.textAlignment = .Center
+      noConnectionLabel.textColor = UIColor.lightGray
+      noConnectionLabel.font = UIFont.systemFont(ofSize: 16)
+      noConnectionLabel.textAlignment = .center
       
-      tableView.separatorStyle = .None
+      tableView.separatorStyle = .none
       tableView.backgroundView = noConnectionLabel
     }
     

@@ -15,17 +15,19 @@ class LoginViewController: UITableViewController, UITextFieldDelegate {
   
   // Variables
   
-  var defaults: NSUserDefaults!
+  var defaults: UserDefaults!
   var username = String()
   var password = String()
   var token = String()
   
   // Actions
   
-  @IBAction func loginButtonTap(sender: UIBarButtonItem) {
+  @IBAction func loginButtonTap(_ sender: UIBarButtonItem) {
     // Find credentials from 1Password
-    
-    OnePasswordExtension.sharedExtension().findLoginForURLString("http://www.elg-halle.de", forViewController: self, sender: loginButton, completion: {(loginDictionary: Dictionary<NSObject, AnyObject>?, error: NSError?) in
+		
+		// TODO: Replace with up-to-date version when onepassword-app-extension supports Swift 3
+		
+    /* OnePasswordExtension.shared().findLogin(forURLString: "http://www.elg-halle.de", for: self, sender: loginButton, completion: {(loginDictionary: Dictionary<NSObject, AnyObject>?, error: NSError?) in
       if loginDictionary!.count == 0 {
         if Int32(error!.code) != AppExtensionErrorCodeCancelledByUser {
           print("Error invoking 1Password App Extension for finding credentials:" + String(error!))
@@ -42,7 +44,7 @@ class LoginViewController: UITableViewController, UITextFieldDelegate {
       // Reload table view
       
       self.tableView.reloadData()
-    })
+    }) */
   }
   
   override func viewDidLoad() {
@@ -50,18 +52,18 @@ class LoginViewController: UITableViewController, UITextFieldDelegate {
     
     // Initialize user defaults
     
-		defaults = NSUserDefaults.standardUserDefaults()
+		defaults = UserDefaults.standard
     
     // Register custom table view cell
     
-    tableView.registerNib(UINib(nibName: "TextFieldTableViewCell", bundle: nil), forCellReuseIdentifier: "TextFieldTableViewCell")
+    tableView.register(UINib(nibName: "TextFieldTableViewCell", bundle: nil), forCellReuseIdentifier: "TextFieldTableViewCell")
     
     // Enable login button if password manager is installed
     
-    loginButton.enabled = OnePasswordExtension.sharedExtension().isAppExtensionAvailable()
+    loginButton.isEnabled = OnePasswordExtension.shared().isAppExtensionAvailable()
   }
   
-  override func viewWillAppear(animated: Bool) {
+  override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     
     // Retrieve user defaults
@@ -69,7 +71,7 @@ class LoginViewController: UITableViewController, UITextFieldDelegate {
     retrieveUserDefaults()
   }
   
-  override func viewWillDisappear(animated: Bool) {
+  override func viewWillDisappear(_ animated: Bool) {
     super.viewWillDisappear(animated)
     
     // Set user defaults
@@ -79,11 +81,11 @@ class LoginViewController: UITableViewController, UITextFieldDelegate {
   
   // Table view functions
   
-  override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+  override func numberOfSections(in tableView: UITableView) -> Int {
     return 2
   }
   
-  override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+  override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     var numberOfRows = Int()
     
     if section == 0 {
@@ -95,8 +97,8 @@ class LoginViewController: UITableViewController, UITextFieldDelegate {
     return numberOfRows
   }
   
-  override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCellWithIdentifier("TextFieldTableViewCell", forIndexPath: indexPath) as! TextFieldTableViewCell
+  override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    let cell = tableView.dequeueReusableCell(withIdentifier: "TextFieldTableViewCell", for: indexPath) as! TextFieldTableViewCell
     
     // Set text field's placeholder and text in table view cell
     
@@ -108,15 +110,15 @@ class LoginViewController: UITableViewController, UITextFieldDelegate {
       } else {
         cell.textField.placeholder = "Passwort"
         cell.textField.text = password
-        cell.textField.secureTextEntry = true
-        cell.textField.keyboardType = .NumbersAndPunctuation
-        cell.textField.keyboardAppearance = .Dark
+        cell.textField.isSecureTextEntry = true
+        cell.textField.keyboardType = .numbersAndPunctuation
+        cell.textField.keyboardAppearance = .dark
         cell.textField.tag = 2
       }
     } else {
       cell.textField.placeholder = "Kürzel"
       cell.textField.text = token
-      cell.textField.autocapitalizationType = .Words
+      cell.textField.autocapitalizationType = .words
       cell.textField.tag = 3
     }
     
@@ -129,7 +131,7 @@ class LoginViewController: UITableViewController, UITextFieldDelegate {
   
   // Text field functions
   
-  func textFieldDidEndEditing(textField: UITextField) {
+  func textFieldDidEndEditing(_ textField: UITextField) {
     // Check text field tag and set variables
     
     switch textField.tag {
@@ -151,7 +153,7 @@ class LoginViewController: UITableViewController, UITextFieldDelegate {
     textField.resignFirstResponder()
   }
   
-  func textFieldShouldReturn(textField: UITextField) -> Bool {
+  func textFieldShouldReturn(_ textField: UITextField) -> Bool {
     // Resign first responder
     
     textField.resignFirstResponder()
@@ -164,9 +166,9 @@ class LoginViewController: UITableViewController, UITextFieldDelegate {
   func retrieveUserDefaults() {
     // Retrieve user defaults
     
-    username = defaults.stringForKey("username")!
-    password = defaults.stringForKey("password")!
-    token = defaults.stringForKey("token")!
+    username = defaults.string(forKey: "username")!
+    password = defaults.string(forKey: "password")!
+    token = defaults.string(forKey: "token")!
   }
   
   func setUserDefaults() {

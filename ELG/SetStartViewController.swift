@@ -11,7 +11,7 @@ import UIKit
 class SetStartViewController: UITableViewController {
   // Variables + constants
   
-  var defaults: NSUserDefaults!
+  var defaults: UserDefaults!
   var startView = Int()
   let views = ["Hauptmenü", "News", "Stundenplan", "Vertretungsplan", "Förderverein"]
   
@@ -20,21 +20,21 @@ class SetStartViewController: UITableViewController {
     
     // Initialize user defaults
     
-		defaults = NSUserDefaults.standardUserDefaults()
+		defaults = UserDefaults.standard
   }
   
   // Table view functions
   
-  override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+  override func numberOfSections(in tableView: UITableView) -> Int {
     return 1
   }
   
-  override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+  override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return views.count
   }
   
-  override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCellWithIdentifier("SetStartTableViewCell", forIndexPath: indexPath)
+  override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    let cell = tableView.dequeueReusableCell(withIdentifier: "SetStartTableViewCell", for: indexPath)
     
     // Set table view cell's text
     
@@ -42,21 +42,21 @@ class SetStartViewController: UITableViewController {
     
     // Get current start view
     
-    startView = defaults.integerForKey("startView")
+    startView = defaults.integer(forKey: "startView")
     
     if indexPath.row == startView {
-      cell.accessoryType = .Checkmark
+      cell.accessoryType = .checkmark
     } else {
-      cell.accessoryType = .None
+      cell.accessoryType = .none
     }
     
     return cell
   }
   
-  override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+  override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     // Deselect table view cell
     
-    tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    tableView.deselectRow(at: indexPath, animated: true)
     
     // Set new start view
     
@@ -64,7 +64,7 @@ class SetStartViewController: UITableViewController {
     
     // Set user default
     
-    defaults.setInteger(startView, forKey: "startView")
+    defaults.set(startView, forKey: "startView")
     defaults.synchronize()
     
     // Reload table view
