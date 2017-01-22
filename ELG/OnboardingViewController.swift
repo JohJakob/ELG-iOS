@@ -39,8 +39,14 @@ class OnboardingViewController: UITableViewController {
     // Set navigation bar title
     
     navigationItem.title = "ELG " + version!
+		
+		// Set back indicator image
+		
+		navigationController?.navigationBar.backIndicatorImage = UIImage(named: "Back")
+		navigationController?.navigationBar.backIndicatorTransitionMaskImage = UIImage(named: "Back")
+		navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
   }
-  
+	
   // Table view functions
   
   override func numberOfSections(in tableView: UITableView) -> Int {
