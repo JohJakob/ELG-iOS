@@ -33,10 +33,6 @@ class MasterViewController: UITableViewController, UISplitViewControllerDelegate
     // Initialize user defaults
     
     defaults = UserDefaults.standard
-    
-    // Show start view
-    
-    showStartView()
   }
   
   override func viewWillAppear(_ animated: Bool) {
@@ -63,6 +59,10 @@ class MasterViewController: UITableViewController, UISplitViewControllerDelegate
     // Remove temporary user defaults
     
     removeUserDefaults()
+		
+		// Show start view
+		
+		showStartView()
   }
   
   // Table view functions
