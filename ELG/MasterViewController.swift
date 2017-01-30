@@ -59,6 +59,10 @@ class MasterViewController: UITableViewController, UISplitViewControllerDelegate
       
       showIntroduction()
     }
+		
+		// Open page via URL query
+		
+		openPage()
     
     // Remove temporary user defaults
     
@@ -141,7 +145,7 @@ class MasterViewController: UITableViewController, UISplitViewControllerDelegate
           
           // Show start view
           
-					navigationController?.showDetailViewController(lessonsViewController, sender: self)
+					showDetailViewController(lessonsViewController, sender: self)
         } else {
           // Set user default
           
@@ -150,15 +154,31 @@ class MasterViewController: UITableViewController, UISplitViewControllerDelegate
           
           // Show start view
 					
-					navigationController?.showDetailViewController(lessonsViewController, sender: self)
+					showDetailViewController(lessonsViewController, sender: self)
         }
       } else {
         // Show start view
 				
-				navigationController?.showDetailViewController(UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: startViewControllers[startView - 1]), sender: self)
+				showDetailViewController(UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: startViewControllers[startView - 1]), sender: self)
       }
     }
   }
+	
+	func openPage() {
+		// Check user default
+		
+		if defaults.string(forKey: "openPage") == "omissions" {
+			// Remove user default
+			
+			defaults.removeObject(forKey: "openPage")
+			
+			defaults.synchronize()
+			
+			// Show new view
+			
+			showDetailViewController(UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: startViewControllers[2]), sender: self)
+		}
+	}
   
   func removeUserDefaults() {
     // Remove temporary user defaults
