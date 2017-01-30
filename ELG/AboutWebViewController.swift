@@ -29,6 +29,10 @@ class AboutWebViewController: UIViewController, UIWebViewDelegate {
     // Initialize user defaults
 		
 		defaults = UserDefaults.standard
+		
+		// Set web view's delegate
+		
+		aboutWebView.delegate = self
   }
   
   override func viewWillAppear(_ animated: Bool) {
@@ -51,7 +55,7 @@ class AboutWebViewController: UIViewController, UIWebViewDelegate {
   
   func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebViewNavigationType) -> Bool {
     // Check web view navigation type
-    
+
     if navigationType == .linkClicked {
       // Open URL in shared app
       
@@ -59,7 +63,7 @@ class AboutWebViewController: UIViewController, UIWebViewDelegate {
       
       return false
     }
-    
+		
     return true
   }
   
