@@ -77,6 +77,10 @@ class TodayViewController: UITableViewController, NCWidgetProviding {
       noConnectionLabel.textColor = UIColor.lightText
       noConnectionLabel.font = UIFont.systemFont(ofSize: 16)
       noConnectionLabel.textAlignment = .center
+			
+			if #available(iOSApplicationExtension 10, *) {
+				noConnectionLabel.textColor = UIColor.gray
+			}
       
       tableView.separatorStyle = .none
       tableView.backgroundView = noConnectionLabel
@@ -132,9 +136,9 @@ class TodayViewController: UITableViewController, NCWidgetProviding {
     cell.detailTextLabel!.text = cell.detailTextLabel!.text?.replacingOccurrences(of: "      ", with: "   ")
     
     // Set cell's highlighted text color
-    
-    cell.textLabel?.highlightedTextColor = UIColor.black
-    cell.detailTextLabel?.highlightedTextColor = UIColor.black
+		
+		cell.textLabel?.highlightedTextColor = UIColor.black
+		cell.detailTextLabel?.highlightedTextColor = UIColor.black
     
     // Disbale user interaction on iPad
     
@@ -157,6 +161,10 @@ class TodayViewController: UITableViewController, NCWidgetProviding {
     footerLabel.textColor = UIColor.lightGray
     footerLabel.font = UIFont.systemFont(ofSize: 16)
     footerLabel.textAlignment = .center
+		
+		if #available(iOSApplicationExtension 10, *) {
+			footerLabel.textColor = UIColor.gray
+		}
     
     if ownOmissions.count == 0 {
       footerLabel.text = "Keine eigenen Vertretungen"
@@ -172,13 +180,17 @@ class TodayViewController: UITableViewController, NCWidgetProviding {
     
     if ownOmissions.count == 0 {
       heightForFooter = 44
+			
+			if #available(iOSApplicationExtension 10, *) {
+				heightForFooter = 110
+			}
     } else {
       heightForFooter = 0
     }
     
     return heightForFooter
   }
-  
+	
   // Custom functions
   
   func prepare() {
