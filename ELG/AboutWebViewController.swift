@@ -88,16 +88,8 @@ class AboutWebViewController: UIViewController, UIWebViewDelegate {
     navigationItem.title = titles[selectedAboutWebView]
     
     // Load page
-    
-    if #available(iOS 8, *) {
-      aboutWebView.loadRequest(URLRequest(url: Bundle.main.url(forResource: pages[selectedAboutWebView], withExtension: ".html")!))
-    } else {
-      if selectedAboutWebView == 0 {
-        aboutWebView.loadRequest(URLRequest(url: Bundle.main.url(forResource: "ReleaseNotes-iOS-7", withExtension: ".html")!))
-      } else {
-        aboutWebView.loadRequest(URLRequest(url: Bundle.main.url(forResource: pages[selectedAboutWebView], withExtension: ".html")!))
-      }
-    }
+		
+		aboutWebView.loadRequest(URLRequest(url: Bundle.main.url(forResource: pages[selectedAboutWebView], withExtension: ".html")!))
   }
   
   func showFirstLaunchButton() {
