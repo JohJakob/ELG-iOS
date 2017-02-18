@@ -43,7 +43,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	func application(_ application: UIApplication, handleOpen url: URL) -> Bool {
 		// Initialize user defaults
 		
-		let defaults = UserDefaults.standard
+		let defaults = UserDefaults.init(suiteName: "group.com.hardykrause.elg")
 		
 		// Check URL query
 		
