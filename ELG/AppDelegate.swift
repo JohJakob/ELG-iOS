@@ -50,12 +50,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		if url.query == "page=omissions" {
 			// Set user default
 			
-			defaults.set("omissions", forKey: "openPage")
+			defaults?.set("omissions", forKey: "openPage")
 		}
 		
 		// Synchronize user defaults
 		
-		defaults.synchronize()
+		defaults?.synchronize()
 		
 		return true
 	}
