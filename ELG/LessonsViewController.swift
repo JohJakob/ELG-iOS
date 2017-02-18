@@ -26,7 +26,7 @@ class LessonsViewController: UITableViewController {
     
     // Initialize user defaults
 		
-		defaults = UserDefaults.standard
+		defaults = UserDefaults.init(suiteName: "group.com.hardykrause.elg")
   }
   
   override func viewWillAppear(_ animated: Bool) {

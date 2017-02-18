@@ -24,7 +24,7 @@ class FoerdervereinViewController: UITableViewController {
     
     // Initialize user defaults
 		
-		defaults = UserDefaults.standard
+		defaults = UserDefaults.init(suiteName: "group.com.hardykrause.elg")
     
     // Set up refresh control
     

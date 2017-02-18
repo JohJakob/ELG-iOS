@@ -19,7 +19,7 @@ class SubjectsViewController: UITableViewController, UIAlertViewDelegate {
     
     // Initialize user defaults
 		
-		defaults = UserDefaults.standard
+		defaults = UserDefaults.init(suiteName: "group.com.hardykrause.elg")
   }
   
   // Table view functions

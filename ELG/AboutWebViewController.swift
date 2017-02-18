@@ -28,7 +28,7 @@ class AboutWebViewController: UIViewController, UIWebViewDelegate {
     
     // Initialize user defaults
 		
-		defaults = UserDefaults.standard
+		defaults = UserDefaults.init(suiteName: "group.com.hardykrause.elg")
 		
 		// Set web view's delegate
 		

@@ -20,7 +20,7 @@ class OnboardingViewController: UITableViewController {
   @IBAction func doneButtonTap(_ sender: UIBarButtonItem) {
     // Initialize user defaults
 		
-		defaults = UserDefaults.standard
+		defaults = UserDefaults.init(suiteName: "group.com.hardykrause.elg")
     
     // Set user default
     

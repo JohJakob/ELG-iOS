@@ -19,7 +19,7 @@ class EditScheduleViewController: UITableViewController {
     
     // Initialize user defaults
 		
-		defaults = UserDefaults.standard
+		defaults = UserDefaults.init(suiteName: "group.com.hardykrause.elg")
   }
   
   // Table view functions

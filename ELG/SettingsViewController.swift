@@ -28,7 +28,7 @@ class SettingsViewController: UITableViewController {
     
     // Initialize user defaults
 		
-		defaults = UserDefaults.standard
+		defaults = UserDefaults.init(suiteName: "group.com.hardykrause.elg")
     
     // Initialize switches
     
