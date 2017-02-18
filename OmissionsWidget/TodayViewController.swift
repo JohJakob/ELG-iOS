@@ -27,7 +27,7 @@ class TodayViewController: UITableViewController, NCWidgetProviding {
   override func viewWillAppear(_ animated: Bool) {
     // Initialize user defaults
     
-    defaults = UserDefaults.standard
+    defaults = UserDefaults.init(suiteName: "group.com.hardykrause.elg")
     
     // Prepare omissions
     
@@ -39,6 +39,12 @@ class TodayViewController: UITableViewController, NCWidgetProviding {
       preferredContentSize = CGSize(width: preferredContentSize.width, height: 44)
     } else {
       preferredContentSize = CGSize(width: preferredContentSize.width, height: CGFloat(ownOmissions.count) * 44)
+			
+			// Set widget's largest available display mode on iOS 10
+			
+			if #available(iOSApplicationExtension 10.0, *) {
+				extensionContext?.widgetLargestAvailableDisplayMode = .expanded
+			}
     }
   }
   
@@ -57,6 +63,14 @@ class TodayViewController: UITableViewController, NCWidgetProviding {
   func widgetMarginInsets(forProposedMarginInsets defaultMarginInsets: UIEdgeInsets) -> UIEdgeInsets {
     return UIEdgeInsets.zero
   }
+	
+	@available(iOSApplicationExtension 10.0, *)
+	
+	func widgetActiveDisplayModeDidChange(_ activeDisplayMode: NCWidgetDisplayMode, withMaximumSize maxSize: CGSize) {
+		// Set widget's size on iOS 10
+		
+		preferredContentSize = (activeDisplayMode == .expanded) ? CGSize(width: preferredContentSize.width, height: CGFloat(ownOmissions.count) * 44) : CGSize(width: preferredContentSize.width, height: 110)
+	}
   
   // Table view functions
   
@@ -134,11 +148,16 @@ class TodayViewController: UITableViewController, NCWidgetProviding {
     cell.textLabel!.text = cell.textLabel!.text?.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
     
     cell.detailTextLabel!.text = cell.detailTextLabel!.text?.replacingOccurrences(of: "      ", with: "   ")
-    
-    // Set cell's highlighted text color
 		
-		cell.textLabel?.highlightedTextColor = UIColor.black
-		cell.detailTextLabel?.highlightedTextColor = UIColor.black
+		// Set cell's text color on iOS 10
+		
+		if #available(iOSApplicationExtension 10.0, *) {
+			cell.textLabel?.textColor = UIColor.black
+			cell.detailTextLabel?.textColor = UIColor.gray
+		} else {
+			cell.textLabel?.highlightedTextColor = UIColor.black
+			cell.detailTextLabel?.highlightedTextColor = UIColor.black
+		}
     
     // Disbale user interaction on iPad
     
@@ -148,13 +167,13 @@ class TodayViewController: UITableViewController, NCWidgetProviding {
     
     return cell
   }
-  
-  override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    // Open omissions in app
-    
-    extensionContext?.open(URL.init(string: "elg://?page=omissions")!, completionHandler: nil)
-  }
-  
+	
+	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		// Open omissions in app
+		
+		extensionContext?.open(URL.init(string: "elg://?page=omissions")!, completionHandler: nil)
+	}
+	
   override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
     let footerLabel = UILabel()
     
@@ -198,6 +217,8 @@ class TodayViewController: UITableViewController, NCWidgetProviding {
     
     selectedGrade = defaults.integer(forKey: "selectedGrade")
     teacherMode = defaults.bool(forKey: "teacherMode")
+		
+		print(selectedGrade)
     
     // Set teacher token when nil
     
@@ -212,6 +233,10 @@ class TodayViewController: UITableViewController, NCWidgetProviding {
     // Download omissions
     
     downloadOmissions()
+		
+		// Reload table view
+		
+		tableView.reloadData()
   }
   
   func downloadOmissions() {
