@@ -86,6 +86,7 @@
 		B913C9311E0B22F10061B531 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		B91DB9FE1E07165000D1EC86 /* OpenSource.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = OpenSource.html; sourceTree = "<group>"; };
 		B91DBA001E071A1300D1EC86 /* Imprint.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = Imprint.html; sourceTree = "<group>"; };
+		B94447661E586E4200AD34F8 /* OmissionsWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OmissionsWidget.entitlements; sourceTree = "<group>"; };
 		B9562A6D1D4126B3001BD19E /* OmissionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OmissionsViewController.swift; sourceTree = "<group>"; };
 		B95732F21D5F04E800A758AC /* FoerdervereinViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoerdervereinViewController.swift; sourceTree = "<group>"; };
 		B960D7801D35464E00BCA477 /* EditScheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditScheduleViewController.swift; sourceTree = "<group>"; };
@@ -161,6 +162,7 @@
 		B913C91C1E0B1E190061B531 /* OmissionsWidget */ = {
 			isa = PBXGroup;
 			children = (
+				B94447661E586E4200AD34F8 /* OmissionsWidget.entitlements */,
 				B913C92D1E0B226F0061B531 /* Classes */,
 				B913C92C1E0B1EFF0061B531 /* Extension */,
 				B913C92B1E0B1EE20061B531 /* Views */,
@@ -364,6 +366,11 @@
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = ZKYCGLH74U;
 						LastSwiftMigration = 0820;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					B9B5C4D01D1D494700777BD9 = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -519,6 +526,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = OmissionsWidget/OmissionsWidget.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = ZKYCGLH74U;
 				INFOPLIST_FILE = OmissionsWidget/Info.plist;
@@ -537,6 +545,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = OmissionsWidget/OmissionsWidget.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = ZKYCGLH74U;
 				INFOPLIST_FILE = OmissionsWidget/Info.plist;
