@@ -137,12 +137,16 @@ class TodayViewController: UITableViewController, NCWidgetProviding {
       cell.textLabel!.text = lesson + ". Stunde" + ": " + subject + " (" + teacher + ")"
     }
     
-    if room == "" {
-      cell.detailTextLabel!.text = text + "   " + comment
-    } else {
-      cell.detailTextLabel!.text = "Raum " + room + "   " + text + "   " + comment
-    }
-    
+    if room == "" && text == "" {
+      cell.detailTextLabel!.text = comment
+    } else if room == "" {
+			cell.detailTextLabel!.text = text + "   " + comment
+		} else if text == "" {
+			cell.detailTextLabel!.text = "Raum " + room + "   " + comment
+		} else {
+			cell.detailTextLabel!.text = "Raum " + room + "   " + text + "   " + comment
+		}
+			
     // Remove unnecessary whitespaces
     
     cell.textLabel!.text = cell.textLabel!.text?.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
