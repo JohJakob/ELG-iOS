@@ -30,6 +30,12 @@ class AboutWebViewController: UIViewController, UIWebViewDelegate {
 		
 		defaults = UserDefaults.init(suiteName: "group.com.hardykrause.elg")
 		
+		// Set back indicator image
+		
+		navigationController?.navigationBar.backIndicatorImage = UIImage(named: "Back")
+		navigationController?.navigationBar.backIndicatorTransitionMaskImage = UIImage(named: "Back")
+		navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+		
 		// Set web view's delegate
 		
 		aboutWebView.delegate = self
