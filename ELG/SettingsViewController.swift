@@ -168,6 +168,25 @@ class SettingsViewController: UITableViewController {
       break
     }
   }
+	
+	override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+		var titleForHeader = String()
+		
+		switch section {
+		case 0:
+			titleForHeader = "Allgemein"
+			break
+		case 1:
+			titleForHeader = "Vertretungsplan"
+			break
+		case 2:
+			titleForHeader = "Startseite"
+		default:
+			break
+		}
+		
+		return titleForHeader
+	}
   
   // Custom functions
   
