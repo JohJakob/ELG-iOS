@@ -22,6 +22,7 @@ class SettingsViewController: UITableViewController {
   let editScheduleViewController = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "EditScheduleTableViewController")
   let teacherModeViewController = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "TeacherModeTableViewController")
   let startViewController = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "ChooseStartTableViewController")
+	let aboutViewController = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "AboutViewController")
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -44,15 +45,7 @@ class SettingsViewController: UITableViewController {
   // Table view functions
   
   override func numberOfSections(in tableView: UITableView) -> Int {
-    var numberOfRows = Int()
-    
-    if #available(iOS 8, *) {
-      numberOfRows = 3
-    } else {
-      numberOfRows = 2
-    }
-    
-    return numberOfRows
+    return 4
   }
   
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -72,6 +65,9 @@ class SettingsViewController: UITableViewController {
     case 2:
       numberOfRows = 1
       break
+		case 3:
+			numberOfRows = 1
+			break
     default:
       break
     }
@@ -120,6 +116,8 @@ class SettingsViewController: UITableViewController {
     case 2:
       cell.textLabel!.text = "Startseite auswählen"
       break
+		case 3:
+			cell.textLabel!.text = "Über ELG"
     default:
       break
     }
@@ -164,6 +162,9 @@ class SettingsViewController: UITableViewController {
     case 2:
 			navigationController?.show(startViewController, sender: self)
       break
+		case 3:
+			navigationController?.show(aboutViewController, sender: self)
+			break
     default:
       break
     }
@@ -179,9 +180,8 @@ class SettingsViewController: UITableViewController {
 		case 1:
 			titleForHeader = "Vertretungsplan"
 			break
-		case 2:
-			titleForHeader = "Startseite"
 		default:
+			titleForHeader = ""
 			break
 		}
 		
