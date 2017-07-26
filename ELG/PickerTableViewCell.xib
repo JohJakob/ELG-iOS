@@ -11,7 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="216" id="cTO-Yq-WWa">
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="216" id="cTO-Yq-WWa" customClass="PickerTableViewCell" customModule="ELG" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="375" height="216"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cTO-Yq-WWa" id="ERo-6Q-k8V">
@@ -29,6 +29,9 @@
                 </constraints>
             </tableViewCellContentView>
             <color key="tintColor" red="0.49803921568627452" green="0.090196078431372548" blue="0.20392156862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <connections>
+                <outlet property="pickerView" destination="Bre-bp-3um" id="xDk-Ls-SVZ"/>
+            </connections>
             <point key="canvasLocation" x="14.5" y="53"/>
         </tableViewCell>
     </objects>

@@ -50,6 +50,7 @@
 		B9F73BFC1DEE01F9004F3470 /* ReleaseNotes.html in Resources */ = {isa = PBXBuildFile; fileRef = B9F73BFB1DEE01F9004F3470 /* ReleaseNotes.html */; };
 		B9FB652D1DF5FEB3009B7D13 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9FB652C1DF5FEB3009B7D13 /* DetailViewController.swift */; };
 		CF40B5321F285D4700FB8ADC /* PickerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF40B5311F285D4700FB8ADC /* PickerTableViewCell.xib */; };
+		CF40B5341F28602900FB8ADC /* PickerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF40B5331F28602900FB8ADC /* PickerTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -130,6 +131,7 @@
 		B9F73BFB1DEE01F9004F3470 /* ReleaseNotes.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = ReleaseNotes.html; sourceTree = "<group>"; };
 		B9FB652C1DF5FEB3009B7D13 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		CF40B5311F285D4700FB8ADC /* PickerTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PickerTableViewCell.xib; sourceTree = "<group>"; };
+		CF40B5331F28602900FB8ADC /* PickerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -306,6 +308,7 @@
 			children = (
 				B982C8771D5DF35600B021C9 /* OmissionsTableViewCell.swift */,
 				B9CBF57A1D60CFBB00F67682 /* TextFieldTableViewCell.swift */,
+				CF40B5331F28602900FB8ADC /* PickerTableViewCell.swift */,
 				B9B5C4F31D1ECB7900777BD9 /* Reachability.h */,
 				B9B5C4F41D1ECB7900777BD9 /* Reachability.m */,
 				B982C8791D5E5EB500B021C9 /* SWXMLHash.swift */,
@@ -464,6 +467,7 @@
 				B9B5C4D71D1D494800777BD9 /* MasterViewController.swift in Sources */,
 				B9BDBA091DE1C00A0025E30A /* SetStartViewController.swift in Sources */,
 				B9CBF5711D5F332B00F67682 /* FoerdervereinArticleViewController.swift in Sources */,
+				CF40B5341F28602900FB8ADC /* PickerTableViewCell.swift in Sources */,
 				B9B5C4D51D1D494800777BD9 /* AppDelegate.swift in Sources */,
 				B9B5C4F01D1D80C200777BD9 /* NewsViewController.swift in Sources */,
 				B9B5C4F51D1ECB7900777BD9 /* Reachability.m in Sources */,
