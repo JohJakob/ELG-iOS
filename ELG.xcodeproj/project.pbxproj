@@ -51,6 +51,7 @@
 		B9FB652D1DF5FEB3009B7D13 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9FB652C1DF5FEB3009B7D13 /* DetailViewController.swift */; };
 		CF40B5321F285D4700FB8ADC /* PickerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF40B5311F285D4700FB8ADC /* PickerTableViewCell.xib */; };
 		CF40B5341F28602900FB8ADC /* PickerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF40B5331F28602900FB8ADC /* PickerTableViewCell.swift */; };
+		CF40B5361F286D5300FB8ADC /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF40B5351F286D5300FB8ADC /* TabBarController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -132,6 +133,7 @@
 		B9FB652C1DF5FEB3009B7D13 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		CF40B5311F285D4700FB8ADC /* PickerTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PickerTableViewCell.xib; sourceTree = "<group>"; };
 		CF40B5331F28602900FB8ADC /* PickerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerTableViewCell.swift; sourceTree = "<group>"; };
+		CF40B5351F286D5300FB8ADC /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -257,6 +259,7 @@
 		B9B5C4EA1D1D4C4300777BD9 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				CF40B5351F286D5300FB8ADC /* TabBarController.swift */,
 				B9B5C4D61D1D494800777BD9 /* MasterViewController.swift */,
 				B9FB652C1DF5FEB3009B7D13 /* DetailViewController.swift */,
 				B9B5C4EF1D1D80C200777BD9 /* NewsViewController.swift */,
@@ -479,6 +482,7 @@
 				B9B5C4F91D1FDA9F00777BD9 /* ScheduleViewController.swift in Sources */,
 				B960D7831D3547FA00BCA477 /* EditLessonsViewController.swift in Sources */,
 				B9562A6E1D4126B3001BD19E /* OmissionsViewController.swift in Sources */,
+				CF40B5361F286D5300FB8ADC /* TabBarController.swift in Sources */,
 				B9CBF57C1D60CFBB00F67682 /* TextFieldTableViewCell.swift in Sources */,
 				B972692E1DEB0292006819D3 /* AboutViewController.swift in Sources */,
 			);
