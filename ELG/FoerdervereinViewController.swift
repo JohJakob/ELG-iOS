@@ -21,7 +21,6 @@ class FoerdervereinViewController: UITableViewController {
   var itemTitle = String()
   var itemDescription = String()
   var itemLink = String()
-	let newsViewController = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "NewsViewController")
   let articleViewController = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "FoerdervereinArticleViewController")
   
   override func viewDidLoad() {
@@ -128,6 +127,7 @@ class FoerdervereinViewController: UITableViewController {
 	
 	func changeView() {
 		var navigationStack = navigationController?.viewControllers
+		let newsViewController = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "NewsViewController")
 		
 		navigationStack?.remove(at: (navigationStack!.count) - 1)
 		navigationStack?.insert(newsViewController, at: (navigationStack?.count)!)
