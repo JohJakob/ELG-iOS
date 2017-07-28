@@ -9,7 +9,7 @@
 import UIKit
 
 class NewsViewController: UIViewController, UIWebViewDelegate {
-  // Outlets
+  // MARK: Outlets
 	
 	@IBOutlet weak fileprivate var segmentedControl: UISegmentedControl!
   @IBOutlet weak fileprivate var newsWebView: UIWebView!
@@ -17,7 +17,7 @@ class NewsViewController: UIViewController, UIWebViewDelegate {
   @IBOutlet weak fileprivate var forwardButton: UIBarButtonItem!
   @IBOutlet weak fileprivate var activityIndicator: UIActivityIndicatorView!
 	
-	// Constants
+	// MARK: Constants
 	
 	let foerdervereinViewController = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "FoerdervereinTableViewController")
   
@@ -31,7 +31,7 @@ class NewsViewController: UIViewController, UIWebViewDelegate {
     loadNews()
   }
   
-  // Web View functions
+  // MARK: Web view functions
   
   func webViewDidStartLoad(_ webView: UIWebView) {
     // Start Activity Indicator
@@ -70,7 +70,7 @@ class NewsViewController: UIViewController, UIWebViewDelegate {
     webViewErrorAlert.show()
   }
   
-  // Custom functions
+  // MARK: Custom functions
   
   func loadNews() {
     // Set web view delegate
