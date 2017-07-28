@@ -13,7 +13,6 @@ class AboutViewController: UITableViewController, MFMailComposeViewControllerDel
   // Variables + constants
   
   var defaults: UserDefaults!
-  let aboutWebViewController = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "AboutWebViewController")
   let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
   
   override func viewDidLoad() {
@@ -127,6 +126,8 @@ class AboutViewController: UITableViewController, MFMailComposeViewControllerDel
         defaults.synchronize()
         
         // Show new view
+				
+				let aboutWebViewController = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "AboutWebViewController")
         
         if #available(iOS 8, *) {
           navigationController?.show(aboutWebViewController, sender: self)
@@ -175,6 +176,8 @@ class AboutViewController: UITableViewController, MFMailComposeViewControllerDel
       
       // Show new view
 			
+			let aboutWebViewController = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "AboutWebViewController")
+			
 			navigationController?.show(aboutWebViewController, sender: self)
       
       break
@@ -185,6 +188,8 @@ class AboutViewController: UITableViewController, MFMailComposeViewControllerDel
       defaults.synchronize()
       
       // Show new view
+			
+			let aboutWebViewController = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "AboutWebViewController")
 			
 			navigationController?.show(aboutWebViewController, sender: self)
       
