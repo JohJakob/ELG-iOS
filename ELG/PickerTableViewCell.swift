@@ -9,7 +9,7 @@
 import UIKit
 
 class PickerTableViewCell: UITableViewCell {
-	// Outlets
+	// MARK: Outlets
 	
 	@IBOutlet var pickerView: UIPickerView!
 	
