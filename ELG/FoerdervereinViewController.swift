@@ -9,7 +9,11 @@
 import UIKit
 
 class FoerdervereinViewController: UITableViewController {
-  // Variables + constants
+	// MARK: Outlets
+	
+	@IBOutlet var segmentedControl: UISegmentedControl!
+	
+  // MARK: Variables + constants
   
   var defaults: UserDefaults!
   var items = [[String: String]]()
@@ -17,10 +21,13 @@ class FoerdervereinViewController: UITableViewController {
   var itemTitle = String()
   var itemDescription = String()
   var itemLink = String()
+	let newsViewController = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "NewsViewController")
   let articleViewController = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "FoerdervereinArticleViewController")
   
   override func viewDidLoad() {
     super.viewDidLoad()
+		
+		segmentedControl.addTarget(self, action: #selector(FoerdervereinViewController.changeView), for: .valueChanged)
     
     // Initialize user defaults
 		
@@ -68,7 +75,7 @@ class FoerdervereinViewController: UITableViewController {
     }
   }
   
-  // Table view functions
+  // MARK: Table view functions
   
   override func numberOfSections(in tableView: UITableView) -> Int {
     var numberOfSections = Int()
@@ -117,7 +124,15 @@ class FoerdervereinViewController: UITableViewController {
 		navigationController?.show(articleViewController, sender: self)
   }
   
-  // Custom functions
+  // MARK: Custom functions
+	
+	func changeView() {
+		var navigationStack = navigationController?.viewControllers
+		
+		navigationStack?.remove(at: (navigationStack!.count) - 1)
+		navigationStack?.insert(newsViewController, at: (navigationStack?.count)!)
+		navigationController?.setViewControllers(navigationStack!, animated: false)
+	}
   
   func initParser() {
     // Create task
