@@ -12,7 +12,6 @@ class EditScheduleViewController: UITableViewController {
   // Variables + constants
   
   var defaults: UserDefaults!
-  let editLessonsViewController = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "EditLessonsTableViewController")
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -60,6 +59,8 @@ class EditScheduleViewController: UITableViewController {
     defaults.synchronize()
     
     // Show new view
+		
+		let editLessonsViewController = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "EditLessonsTableViewController") as! EditLessonsViewController
 		
 		navigationController?.show(editLessonsViewController, sender: self)
   }
