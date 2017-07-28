@@ -53,6 +53,7 @@
 		CF40B5341F28602900FB8ADC /* PickerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF40B5331F28602900FB8ADC /* PickerTableViewCell.swift */; };
 		CF40B5361F286D5300FB8ADC /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF40B5351F286D5300FB8ADC /* TabBarController.swift */; };
 		CF40B53A1F2B7CE100FB8ADC /* UIImage+Shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF40B5391F2B7CE100FB8ADC /* UIImage+Shadow.swift */; };
+		CF40B53C1F2BCD8A00FB8ADC /* FloatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF40B53B1F2BCD8A00FB8ADC /* FloatingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -136,6 +137,7 @@
 		CF40B5331F28602900FB8ADC /* PickerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerTableViewCell.swift; sourceTree = "<group>"; };
 		CF40B5351F286D5300FB8ADC /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		CF40B5391F2B7CE100FB8ADC /* UIImage+Shadow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Shadow.swift"; sourceTree = "<group>"; };
+		CF40B53B1F2BCD8A00FB8ADC /* FloatingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -314,6 +316,7 @@
 				B982C8771D5DF35600B021C9 /* OmissionsTableViewCell.swift */,
 				B9CBF57A1D60CFBB00F67682 /* TextFieldTableViewCell.swift */,
 				CF40B5331F28602900FB8ADC /* PickerTableViewCell.swift */,
+				CF40B53B1F2BCD8A00FB8ADC /* FloatingView.swift */,
 				CF40B5391F2B7CE100FB8ADC /* UIImage+Shadow.swift */,
 				B9B5C4F31D1ECB7900777BD9 /* Reachability.h */,
 				B9B5C4F41D1ECB7900777BD9 /* Reachability.m */,
@@ -464,6 +467,7 @@
 				B9CBF5801D61C0C300F67682 /* OnePasswordExtension.m in Sources */,
 				B98C637D1E193E7100B515E6 /* OnboardingViewController.swift in Sources */,
 				B9FB652D1DF5FEB3009B7D13 /* DetailViewController.swift in Sources */,
+				CF40B53C1F2BCD8A00FB8ADC /* FloatingView.swift in Sources */,
 				B95732F31D5F04E800A758AC /* FoerdervereinViewController.swift in Sources */,
 				B960D7851D37F68F00BCA477 /* SubjectsViewController.swift in Sources */,
 				B960D7811D35464E00BCA477 /* EditScheduleViewController.swift in Sources */,
