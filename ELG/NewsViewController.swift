@@ -10,14 +10,21 @@ import UIKit
 
 class NewsViewController: UIViewController, UIWebViewDelegate {
   // Outlets
-  
+	
+	@IBOutlet weak fileprivate var segmentedControl: UISegmentedControl!
   @IBOutlet weak fileprivate var newsWebView: UIWebView!
   @IBOutlet weak fileprivate var backButton: UIBarButtonItem!
   @IBOutlet weak fileprivate var forwardButton: UIBarButtonItem!
   @IBOutlet weak fileprivate var activityIndicator: UIActivityIndicatorView!
+	
+	// Constants
+	
+	let foerdervereinViewController = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "FoerdervereinTableViewController")
   
   override func viewDidLoad() {
     super.viewDidLoad()
+		
+		segmentedControl.addTarget(self, action: #selector(NewsViewController.changeView), for: .valueChanged)
 
     // Load news in web view
     
@@ -89,6 +96,14 @@ class NewsViewController: UIViewController, UIWebViewDelegate {
       noConnectionAlert.show()
     }
   }
+	
+	func changeView() {
+		var navigationStack = navigationController?.viewControllers
+		
+		navigationStack?.remove(at: (navigationStack!.count) - 1)
+		navigationStack?.insert(foerdervereinViewController, at: (navigationStack?.count)!)
+		navigationController?.setViewControllers(navigationStack!, animated: false)
+	}
   
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
