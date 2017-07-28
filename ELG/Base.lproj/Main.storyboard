@@ -88,6 +88,9 @@
                         </segmentedControl>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="segmentedControl" destination="T6r-hY-FZV" id="I66-Cj-Dxh"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lqr-9e-qlF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
