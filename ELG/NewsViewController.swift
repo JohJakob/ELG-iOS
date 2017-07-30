@@ -42,6 +42,10 @@ final class NewsViewController: UIViewController, UIWebViewDelegate {
 			NSLayoutConstraint(item: navigationButtonView, attribute: .leading, relatedBy: .equal, toItem: view, attribute: .leading, multiplier: 1, constant: 20),
 			NSLayoutConstraint(item: navigationButtonView, attribute: .bottom, relatedBy: .equal, toItem: bottomLayoutGuide, attribute: .top, multiplier: 1, constant: -20)
 		])
+		
+		// Hide navigation button view
+		
+		navigationButtonView.isHidden = true
 
     // Load news in web view
     
@@ -74,6 +78,16 @@ final class NewsViewController: UIViewController, UIWebViewDelegate {
     } else {
       forwardButton.isEnabled = false
     }
+		
+		// Display navigation button view if navigation is possible
+		
+		if (newsWebView.canGoBack || newsWebView.canGoForward) || (newsWebView.canGoBack && newsWebView.canGoForward) {
+			navigationButtonView.isHidden = false
+		} else {
+			if navigationButtonView.isHidden == false {
+				navigationButtonView.isHidden = true
+			}
+		}
   }
   
   func webView(_ webView: UIWebView, didFailLoadWithError error: Error) {
