@@ -9,11 +9,11 @@
 import UIKit
 
 class AboutWebViewController: UIViewController, UIWebViewDelegate {
-  // Outlets
+  // MARK: Outlets
   
   @IBOutlet weak fileprivate var aboutWebView: UIWebView!
   
-  // Variables + constants
+  // MARK: Variables + constants
   
   var defaults: UserDefaults!
   var selectedAboutWebView = Int()
@@ -57,7 +57,7 @@ class AboutWebViewController: UIViewController, UIWebViewDelegate {
     showFirstLaunchButton()
   }
   
-  // Web view functions
+  // MARK: Web view functions
   
   func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebViewNavigationType) -> Bool {
     // Check web view navigation type
@@ -73,12 +73,12 @@ class AboutWebViewController: UIViewController, UIWebViewDelegate {
     return true
   }
   
-  // Custom functions
+  // MARK: Custom functions
   
   func retrieveUserDefaults() {
     // Retrieve user defaults
     
-    didLaunch = defaults.bool(forKey: "launched\(version ?? "Fehler")")
+		didLaunch = defaults.bool(forKey: "launched\(String(describing: version))")
     selectedAboutWebView = defaults.integer(forKey: "selectedAboutWebView")
     
     // Check whether the app has been launched for the first time
@@ -104,14 +104,16 @@ class AboutWebViewController: UIViewController, UIWebViewDelegate {
     if !didLaunch {
       // Add button to navigation bar
       
-      navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Weiter", style: .plain, target: self, action: #selector(nextButtonTapped))
+      navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Fertig", style: .done, target: self, action: #selector(doneButtonTapped))
     }
   }
   
-  func nextButtonTapped() {
-    // Show new view
+  func doneButtonTapped() {
+    // Dismiss view
 		
-		navigationController?.show(onboardingViewController, sender: self)
+		dismiss(animated: true, completion: nil)
+		
+		// navigationController?.show(onboardingViewController, sender: self)
   }
   
   override func didReceiveMemoryWarning() {
