@@ -8,23 +8,40 @@
 
 import UIKit
 
-class NewsViewController: UIViewController, UIWebViewDelegate {
+final class NewsViewController: UIViewController, UIWebViewDelegate {
   // MARK: Outlets
 	
+	@IBOutlet weak fileprivate var newsWebView: UIWebView!
 	@IBOutlet weak fileprivate var segmentedControl: UISegmentedControl!
-  @IBOutlet weak fileprivate var newsWebView: UIWebView!
-  @IBOutlet weak fileprivate var backButton: UIBarButtonItem!
-  @IBOutlet weak fileprivate var forwardButton: UIBarButtonItem!
   @IBOutlet weak fileprivate var activityIndicator: UIActivityIndicatorView!
 	
-	// MARK: Constants
+	// MARK: Variables + constants
 	
+	fileprivate lazy var navigationButtonView: FloatingView = self.lazyFloatingView()
+	var backButton = UIButton()
+	var forwardButton = UIButton()
 	let foerdervereinViewController = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "FoerdervereinTableViewController")
   
   override func viewDidLoad() {
     super.viewDidLoad()
 		
+		// Add target to segmented control
+		
 		segmentedControl.addTarget(self, action: #selector(NewsViewController.changeView), for: .valueChanged)
+		
+		// Add navigation button view
+		
+		view.addSubview(navigationButtonView)
+		
+		// Activate layout constraints for navigation button view
+		
+		NSLayoutConstraint.activate([
+			NSLayoutConstraint(item: navigationButtonView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 92),
+			NSLayoutConstraint(item: navigationButtonView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 46),
+			
+			NSLayoutConstraint(item: navigationButtonView, attribute: .leading, relatedBy: .equal, toItem: view, attribute: .leading, multiplier: 1, constant: 20),
+			NSLayoutConstraint(item: navigationButtonView, attribute: .bottom, relatedBy: .equal, toItem: bottomLayoutGuide, attribute: .top, multiplier: 1, constant: -20)
+		])
 
     // Load news in web view
     
@@ -34,17 +51,17 @@ class NewsViewController: UIViewController, UIWebViewDelegate {
   // MARK: Web view functions
   
   func webViewDidStartLoad(_ webView: UIWebView) {
-    // Start Activity Indicator
+    // Start activity indicator
     
     activityIndicator.startAnimating()
   }
   
   func webViewDidFinishLoad(_ webView: UIWebView) {
-    // Stop Activity Indicator
+    // Stop activity indicator
     
     activityIndicator.stopAnimating()
     
-    // Enable/Disable Back and Forward buttons
+    // Enable/Disable back and forward buttons
     
     if newsWebView.canGoBack {
       backButton.isEnabled = true
@@ -60,7 +77,7 @@ class NewsViewController: UIViewController, UIWebViewDelegate {
   }
   
   func webView(_ webView: UIWebView, didFailLoadWithError error: Error) {
-    // Stop Activity Indicator
+    // Stop activity indicator
     
     activityIndicator.stopAnimating()
     
@@ -110,4 +127,78 @@ class NewsViewController: UIViewController, UIWebViewDelegate {
     
     print("Memory Warning")
   }
+}
+
+extension NewsViewController {
+	fileprivate func lazyFloatingView() -> FloatingView {
+		// Return floating view
+		
+		let view = FloatingView()
+		
+		view.translatesAutoresizingMaskIntoConstraints = false
+		
+		// Add content to floating view
+		
+		addContent(to: view.contentView)
+		
+		return view
+	}
+	
+	fileprivate func addContent(to contentView: UIView) {
+		// Set up back button
+		
+		backButton.addTarget(newsWebView, action: #selector(newsWebView.goBack), for: .touchUpInside)
+		backButton.setImage(#imageLiteral(resourceName: "Back"), for: .normal)
+		backButton.translatesAutoresizingMaskIntoConstraints = false
+		
+		// Set up forward button
+		
+		forwardButton.addTarget(newsWebView, action: #selector(newsWebView.goForward), for: .touchUpInside)
+		forwardButton.setImage(#imageLiteral(resourceName: "Forward"), for: .normal)
+		forwardButton.translatesAutoresizingMaskIntoConstraints = false
+		
+		// Set up separator view
+		
+		let separator = UIView.init()
+		
+		separator.backgroundColor = UIColor.init(red: 0, green: 0, blue: 0, alpha: 0.1)
+		separator.translatesAutoresizingMaskIntoConstraints = false
+		
+		// Add views to content view
+		
+		contentView.addSubview(backButton)
+		contentView.addSubview(forwardButton)
+		contentView.addSubview(separator)
+		
+		// Add layout constraints
+		
+		NSLayoutConstraint.activate([
+			// Back button constraints
+			
+			NSLayoutConstraint(item: backButton, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 45),
+			NSLayoutConstraint(item: backButton, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 46),
+			
+			NSLayoutConstraint(item: backButton, attribute: .leading, relatedBy: .equal, toItem: contentView, attribute: .leading, multiplier: 1, constant: 0),
+			NSLayoutConstraint(item: backButton, attribute: .top, relatedBy: .equal, toItem: contentView, attribute: .top, multiplier: 1, constant: 0),
+			NSLayoutConstraint(item: backButton, attribute: .bottom, relatedBy: .equal, toItem: contentView, attribute: .bottom, multiplier: 1, constant: 0),
+			
+			// Forward button constraints
+			
+			NSLayoutConstraint(item: forwardButton, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 45),
+			NSLayoutConstraint(item: forwardButton, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 46),
+			
+			NSLayoutConstraint(item: forwardButton, attribute: .trailing, relatedBy: .equal, toItem: contentView, attribute: .trailing, multiplier: 1, constant: 0),
+			NSLayoutConstraint(item: forwardButton, attribute: .top, relatedBy: .equal, toItem: contentView, attribute: .top, multiplier: 1, constant: 0),
+			NSLayoutConstraint(item: forwardButton, attribute: .bottom, relatedBy: .equal, toItem: contentView, attribute: .bottom, multiplier: 1, constant: 0),
+			
+			// Separator view constraints
+			
+			NSLayoutConstraint(item: separator, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 1),
+			NSLayoutConstraint(item: separator, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 46),
+			
+			NSLayoutConstraint(item: separator, attribute: .top, relatedBy: .equal, toItem: contentView, attribute: .top, multiplier: 1, constant: 0),
+			NSLayoutConstraint(item: separator, attribute: .bottom, relatedBy: .equal, toItem: contentView, attribute: .bottom, multiplier: 1, constant: 0),
+			NSLayoutConstraint(item: separator, attribute: .centerX, relatedBy: .equal, toItem: contentView, attribute: .centerX, multiplier: 1, constant: 0)
+		])
+	}
 }
