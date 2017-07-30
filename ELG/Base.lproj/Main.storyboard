@@ -256,10 +256,10 @@
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="AboutDetailTableViewCell" textLabel="c8G-JK-GbV" detailTextLabel="VOV-ko-hzm" style="IBUITableViewCellStyleValue1" id="uSM-2a-lVb">
-                                <rect key="frame" x="0.0" y="55" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="56" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uSM-2a-lVb" id="zNU-fn-gao">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="c8G-JK-GbV">
@@ -280,10 +280,10 @@
                                 </tableViewCellContentView>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AboutTableViewCell" textLabel="WBQ-P7-6RD" style="IBUITableViewCellStyleDefault" id="KGU-8X-7E4">
-                                <rect key="frame" x="0.0" y="99" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="100" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGU-8X-7E4" id="Pwj-0y-sta">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="WBQ-P7-6RD">
@@ -489,17 +489,12 @@
         <!--News Navigation-->
         <scene sceneID="4nI-Y8-CVT">
             <objects>
-                <navigationController storyboardIdentifier="NewsNavigationController" title="News Navigation" toolbarHidden="NO" id="nES-sr-tO5" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="NewsNavigationController" title="News Navigation" id="nES-sr-tO5" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="News" id="zIw-K3-f1P"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="D4g-Ti-s7k">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
-                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="dtm-NK-YMT">
-                        <rect key="frame" x="0.0" y="623" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" red="0.41545182466506958" green="0.043958567082881927" blue="0.15521545708179474" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </toolbar>
                     <connections>
                         <segue destination="2tO-oP-TeD" kind="relationship" relationship="rootViewController" id="D2b-Ts-sbb"/>
                     </connections>
@@ -531,27 +526,15 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="qU7-xy-L8r" secondAttribute="bottom" id="2cE-s2-RW9"/>
-                            <constraint firstItem="qU7-xy-L8r" firstAttribute="leading" secondItem="NDd-x8-SfF" secondAttribute="leading" id="SRG-6y-gOA"/>
-                            <constraint firstItem="qU7-xy-L8r" firstAttribute="top" secondItem="NDd-x8-SfF" secondAttribute="top" id="cYk-XD-mkv"/>
-                            <constraint firstItem="qU7-xy-L8r" firstAttribute="centerY" secondItem="V5H-jN-B5x" secondAttribute="centerY" id="ech-LI-NPL"/>
-                            <constraint firstItem="qU7-xy-L8r" firstAttribute="centerX" secondItem="V5H-jN-B5x" secondAttribute="centerX" id="f7c-lD-mwy"/>
-                            <constraint firstAttribute="trailing" secondItem="qU7-xy-L8r" secondAttribute="trailing" id="tpW-fw-KLn"/>
+                            <constraint firstItem="V5H-jN-B5x" firstAttribute="centerY" secondItem="NDd-x8-SfF" secondAttribute="centerY" id="8qI-kd-VuM"/>
+                            <constraint firstAttribute="bottom" secondItem="qU7-xy-L8r" secondAttribute="bottom" id="Bxs-T0-TVD"/>
+                            <constraint firstItem="qU7-xy-L8r" firstAttribute="leading" secondItem="NDd-x8-SfF" secondAttribute="leading" id="nbu-mE-t23"/>
+                            <constraint firstItem="V5H-jN-B5x" firstAttribute="centerX" secondItem="NDd-x8-SfF" secondAttribute="centerX" id="oUQ-h2-GE6"/>
+                            <constraint firstItem="qU7-xy-L8r" firstAttribute="top" secondItem="NDd-x8-SfF" secondAttribute="top" id="oki-6e-gDG"/>
+                            <constraint firstAttribute="trailing" secondItem="qU7-xy-L8r" secondAttribute="trailing" id="vek-UH-rhs"/>
                         </constraints>
                     </view>
-                    <toolbarItems>
-                        <barButtonItem enabled="NO" image="Back" id="yPr-dV-z2K">
-                            <connections>
-                                <action selector="goBack" destination="qU7-xy-L8r" id="ABQ-cf-ffH"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="VNB-no-GN1"/>
-                        <barButtonItem enabled="NO" image="Forward" id="l0S-Zy-fpb">
-                            <connections>
-                                <action selector="goForward" destination="qU7-xy-L8r" id="G1X-tW-hgw"/>
-                            </connections>
-                        </barButtonItem>
-                    </toolbarItems>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" id="KCG-74-bwt">
                         <nil key="title"/>
                         <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="ZEj-Fb-YOu">
@@ -565,15 +548,13 @@
                     </navigationItem>
                     <connections>
                         <outlet property="activityIndicator" destination="V5H-jN-B5x" id="6WS-JL-ksX"/>
-                        <outlet property="backButton" destination="yPr-dV-z2K" id="zXF-RB-Mbr"/>
-                        <outlet property="forwardButton" destination="l0S-Zy-fpb" id="NSN-IU-fyo"/>
                         <outlet property="newsWebView" destination="qU7-xy-L8r" id="zv9-bN-JLb"/>
                         <outlet property="segmentedControl" destination="ZEj-Fb-YOu" id="DDg-q9-WRo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bF3-fn-JNa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2278.5" y="-630.5"/>
+            <point key="canvasLocation" x="2277.5999999999999" y="-631.0344827586207"/>
         </scene>
         <!--Schedule-->
         <scene sceneID="GGK-Cd-Np8">
