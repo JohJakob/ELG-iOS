@@ -11,7 +11,7 @@ import UIKit
 final class FloatingView: UIView {
 	fileprivate enum Properties {
 		static let cornerRadius: CGFloat = 10
-		static let shadow: Shadow = Shadow(color: UIColor.init(red: 0, green: 0, blue: 0, alpha: 0.3), offset: CGSize(), blur: 6)
+		static let shadow: Shadow = Shadow(color: UIColor.init(red: 0, green: 0, blue: 0, alpha: 0.2), offset: CGSize(), blur: 6)
 	}
 	
 	var contentView: UIView {
