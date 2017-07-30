@@ -11,7 +11,7 @@ import UIKit
 final class FloatingView: UIView {
 	fileprivate enum Properties {
 		static let cornerRadius: CGFloat = 10
-		static let shadow: Shadow = Shadow(color: .lightGray, offset: CGSize(), blur: 6)
+		static let shadow: Shadow = Shadow(color: UIColor.init(red: 0, green: 0, blue: 0, alpha: 0.3), offset: CGSize(), blur: 6)
 	}
 	
 	var contentView: UIView {
@@ -61,19 +61,17 @@ final class FloatingView: UIView {
 		
 		let blurRadius = Properties.shadow.blur
 		
-		if #available(iOS 9, *) {
-			NSLayoutConstraint.activate([
-				visualEffectView.topAnchor.constraint(equalTo: topAnchor),
-				visualEffectView.trailingAnchor.constraint(equalTo: trailingAnchor),
-				visualEffectView.bottomAnchor.constraint(equalTo: bottomAnchor),
-				visualEffectView.leadingAnchor.constraint(equalTo: leadingAnchor),
-				
-				shadowView.topAnchor.constraint(equalTo: topAnchor, constant: -blurRadius),
-				shadowView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: blurRadius),
-				shadowView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: blurRadius),
-				shadowView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: -blurRadius),
-			])
-		}
+		NSLayoutConstraint.activate([
+			NSLayoutConstraint(item: visualEffectView, attribute: .top, relatedBy: .equal, toItem: self, attribute: .top, multiplier: 1, constant: 0),
+			NSLayoutConstraint(item: visualEffectView, attribute: .trailing, relatedBy: .equal, toItem: self, attribute: .trailing, multiplier: 1, constant: 0),
+			NSLayoutConstraint(item: visualEffectView, attribute: .bottom, relatedBy: .equal, toItem: self, attribute: .bottom, multiplier: 1, constant: 0),
+			NSLayoutConstraint(item: visualEffectView, attribute: .leading, relatedBy: .equal, toItem: self, attribute: .leading, multiplier: 1, constant: 0),
+			
+			NSLayoutConstraint(item: shadowView, attribute: .top, relatedBy: .equal, toItem: self, attribute: .top, multiplier: 1, constant: -blurRadius),
+			NSLayoutConstraint(item: shadowView, attribute: .trailing, relatedBy: .equal, toItem: self, attribute: .trailing, multiplier: 1, constant: blurRadius),
+			NSLayoutConstraint(item: shadowView, attribute: .bottom, relatedBy: .equal, toItem: self, attribute: .bottom, multiplier: 1, constant: blurRadius),
+			NSLayoutConstraint(item: shadowView, attribute: .leading, relatedBy: .equal, toItem: self, attribute: .leading, multiplier: 1, constant: -blurRadius)
+		])
 	}
 }
 
@@ -82,6 +80,8 @@ extension FloatingView {
 		let view = UIVisualEffectView(effect: UIBlurEffect(style: .extraLight))
 		
 		view.translatesAutoresizingMaskIntoConstraints = false
+		view.layer.borderColor = UIColor.init(red: 0, green: 0, blue: 0, alpha: 0.1).cgColor
+		view.layer.borderWidth = 0.5
 		view.layer.cornerRadius = Properties.cornerRadius
 		view.layer.masksToBounds = true
 		
