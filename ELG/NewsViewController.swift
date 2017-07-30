@@ -163,12 +163,14 @@ extension NewsViewController {
 		
 		backButton.addTarget(newsWebView, action: #selector(newsWebView.goBack), for: .touchUpInside)
 		backButton.setImage(#imageLiteral(resourceName: "Back"), for: .normal)
+		backButton.setImage(#imageLiteral(resourceName: "Back-Disabled"), for: .disabled)
 		backButton.translatesAutoresizingMaskIntoConstraints = false
 		
 		// Set up forward button
 		
 		forwardButton.addTarget(newsWebView, action: #selector(newsWebView.goForward), for: .touchUpInside)
 		forwardButton.setImage(#imageLiteral(resourceName: "Forward"), for: .normal)
+		forwardButton.setImage(#imageLiteral(resourceName: "Forward-Disabled"), for: .disabled)
 		forwardButton.translatesAutoresizingMaskIntoConstraints = false
 		
 		// Set up separator view
