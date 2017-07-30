@@ -6,13 +6,15 @@
 //  © 2017 Elisabeth-Gymnasium Halle, Johannes Jakob
 //
 
+// Not used in v3.0
+
 import UIKit
 
 class OnboardingViewController: UITableViewController {
-  // Variables + constants
+  // MARK: Variables + constants
   
   var defaults: UserDefaults!
-  let settingsViewController = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "SettingsTableViewController")
+  let settingsViewController = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "SettingsTableViewController") as! SettingsViewController
   let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
   
   // Actions
@@ -24,7 +26,7 @@ class OnboardingViewController: UITableViewController {
     
     // Set user default
     
-    defaults.set(true, forKey: "launched\(version)")
+		defaults.set(true, forKey: "launched\(String(describing: version))")
     
     defaults.synchronize()
     
@@ -47,7 +49,7 @@ class OnboardingViewController: UITableViewController {
 		navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
   }
 	
-  // Table view functions
+  // MARK: Table view functions
   
   override func numberOfSections(in tableView: UITableView) -> Int {
     return 1
