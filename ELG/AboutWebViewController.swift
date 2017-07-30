@@ -109,6 +109,12 @@ class AboutWebViewController: UIViewController, UIWebViewDelegate {
   }
   
   func doneButtonTapped() {
+		// Set user default
+		
+		defaults.set(true, forKey: "launched\(String(describing: version))")
+		
+		defaults.synchronize()
+		
     // Dismiss view
 		
 		dismiss(animated: true, completion: nil)
