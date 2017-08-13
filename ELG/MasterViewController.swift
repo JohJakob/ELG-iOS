@@ -128,44 +128,48 @@ class MasterViewController: UITableViewController, UISplitViewControllerDelegate
   }
   
   func showStartView() {
-    // Get user default
-    
-    startView = defaults.integer(forKey: "startView")
-    
-    // Show start view based on user setting
-    
-    if startView != 0 {
-      if startView == 2 {
-        // Get current weekday
-        
-				let gregorianCalendar = NSCalendar(calendarIdentifier: .gregorian)
-        let dateComponents = (gregorianCalendar! as NSCalendar).components(.weekday, from: Date())
-        
-        if dateComponents.weekday != 1 && dateComponents.weekday != 7 {
-          // Set user default
-          
-          defaults.set(dateComponents.weekday! - 2, forKey: "selectedDay")
-          defaults.synchronize()
-          
-          // Show start view
-          
-					showDetailViewController(lessonsViewController, sender: self)
-        } else {
-          // Set user default
-          
-          defaults.set(0, forKey: "selectedDay")
-          defaults.synchronize()
-          
-          // Show start view
+		// Check first launch
+		
+		if (defaults.bool(forKey: "launched\(String(describing: version))") == true) {
+			// Get user default
+			
+			startView = defaults.integer(forKey: "startView")
+			
+			// Show start view based on user setting
+			
+			if startView != 0 {
+				if startView == 2 {
+					// Get current weekday
 					
-					showDetailViewController(lessonsViewController, sender: self)
-        }
-      } else {
-        // Show start view
-				
-				showDetailViewController(UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: startViewControllers[startView - 1]), sender: self)
-      }
-    }
+					let gregorianCalendar = NSCalendar(calendarIdentifier: .gregorian)
+					let dateComponents = (gregorianCalendar! as NSCalendar).components(.weekday, from: Date())
+					
+					if dateComponents.weekday != 1 && dateComponents.weekday != 7 {
+						// Set user default
+						
+						defaults.set(dateComponents.weekday! - 2, forKey: "selectedDay")
+						defaults.synchronize()
+						
+						// Show start view
+						
+						showDetailViewController(lessonsViewController, sender: self)
+					} else {
+						// Set user default
+						
+						defaults.set(0, forKey: "selectedDay")
+						defaults.synchronize()
+						
+						// Show start view
+						
+						showDetailViewController(lessonsViewController, sender: self)
+					}
+				} else {
+					// Show start view
+					
+					showDetailViewController(UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: startViewControllers[startView - 1]), sender: self)
+				}
+			}
+		}
   }
 	
 	func openPage() {
