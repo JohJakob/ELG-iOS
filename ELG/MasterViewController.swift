@@ -108,9 +108,13 @@ class MasterViewController: UITableViewController, UISplitViewControllerDelegate
   }
   
   func showIntroduction() {
-    // Remove all user defaults
-    
-    defaults.removePersistentDomain(forName: Bundle.main.bundleIdentifier!)
+    // Change selected grade integer due to addition of grade 7e
+		
+		if defaults.integer(forKey: "selectedGrade") > 13 {
+			defaults.set(defaults.integer(forKey: "selectedGrade") + 1, forKey: "selectedGrade")
+			
+			defaults.synchronize()
+		}
     
     // Set up app
     
