@@ -32,6 +32,37 @@ class TabBarController: UITabBarController {
 		// Show start view
 	}
 	
+	override func viewDidAppear(_ animated: Bool) {
+		super.viewDidAppear(animated)
+		
+		// Delete user default from previous version
+		
+		defaults.removeObject(forKey: "launched2.0")
+		
+		// Check for first launch
+		
+		if defaults.bool(forKey: "launched\(String(describing: version))") != true {
+			// Reset user default for grade
+			
+			defaults.set(defaults.integer(forKey: "selectedGrade"), forKey: "grade")
+			defaults.removeObject(forKey: "selectedGrade")
+			
+			defaults.synchronize()
+			
+			// Show release notes
+			
+			showReleaseNotes()
+		}
+		
+		// Show view based on URL query
+		
+		
+		
+		// Remove temporary user defaults
+		
+		
+	}
+	
 	// MARK: Custom functions
 	
 	func setUp() {
@@ -40,6 +71,16 @@ class TabBarController: UITabBarController {
 		navigationController?.navigationBar.backIndicatorImage = UIImage(named: "Back")
 		navigationController?.navigationBar.backIndicatorTransitionMaskImage = UIImage(named: "Back")
 		navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+		
+		// Set empty teacher token in user defaults if it is nil
+		
+		if defaults.string(forKey: "teacherToken") == nil {
+			defaults.set("", forKey: "teacherToken")
+		}
+		
+		// Synchronize user defaults
+		
+		defaults.synchronize()
 	}
 	
 	func showStartView() {
@@ -65,6 +106,8 @@ class TabBarController: UITabBarController {
 					// Show start view
 					
 					showDetailViewController(lessonsViewController, sender: self)
+					
+					tabBarController?.selectedIndex = 1
 				} else {
 					// Set user default
 					
@@ -81,6 +124,12 @@ class TabBarController: UITabBarController {
 				showDetailViewController(UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: startViewControllers[startView - 1]), sender: self)
 			}
 		}
+	}
+	
+	func showReleaseNotes() {
+		// Show release notes
+		
+		present(onboardingViewController, animated: true, completion: nil)
 	}
 	
 	override func didReceiveMemoryWarning() {
