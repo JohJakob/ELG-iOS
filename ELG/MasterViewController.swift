@@ -54,7 +54,7 @@ class MasterViewController: UITableViewController, UISplitViewControllerDelegate
     
     // Check first launch
     
-    if (defaults.bool(forKey: "launched\(version)") != true) {
+		if (defaults.bool(forKey: "launched\(String(describing: version))") != true) {
       // Show introduction
       
       showIntroduction()
