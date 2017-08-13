@@ -78,7 +78,7 @@ class AboutWebViewController: UIViewController, UIWebViewDelegate {
   func retrieveUserDefaults() {
     // Retrieve user defaults
     
-    didLaunch = defaults.bool(forKey: "launched\(version)")
+		didLaunch = defaults.bool(forKey: "launched\(String(describing: version))")
     selectedAboutWebView = defaults.integer(forKey: "selectedAboutWebView")
     
     // Check whether the app has been launched for the first time
