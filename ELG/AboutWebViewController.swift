@@ -102,9 +102,11 @@ class AboutWebViewController: UIViewController, UIWebViewDelegate {
     // Check whether the app has been launched for the first time
     
     if !didLaunch {
-      // Add button to navigation bar
-      
-      navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Weiter", style: .plain, target: self, action: #selector(nextButtonTapped))
+      /* navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Weiter", style: .plain, target: self, action: #selector(nextButtonTapped)) */
+			
+			// Add button to navigation bar
+			
+			navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Fertig", style: .done, target: self, action: #selector(doneButtonTapped))
     }
   }
   
@@ -113,7 +115,19 @@ class AboutWebViewController: UIViewController, UIWebViewDelegate {
 		
 		navigationController?.show(onboardingViewController, sender: self)
   }
-  
+	
+	func doneButtonTapped() {
+		// Set user default
+		
+		defaults.set(true, forKey: "launched\(String(describing: version))")
+		
+		defaults.synchronize()
+		
+		// Dismiss view
+		
+		dismiss(animated: true, completion: nil)
+	}
+	
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
     
