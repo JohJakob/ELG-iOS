@@ -24,7 +24,7 @@ class OnboardingViewController: UITableViewController {
     
     // Set user default
     
-    defaults.set(true, forKey: "launched\(version)")
+		defaults.set(true, forKey: "launched\(String(describing: version))")
     
     defaults.synchronize()
     
