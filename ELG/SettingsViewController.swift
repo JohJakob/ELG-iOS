@@ -151,9 +151,9 @@ class SettingsViewController: UITableViewController, UIPickerViewDelegate, UIPic
 				
 				pickerViewController.pickerView.delegate = self
 				
-				present(pickerViewController, animated: true, completion: { _ in
-					pickerViewController.pickerView.selectRow(self.grade, inComponent: 0, animated: true)
-				})
+				pickerViewController.pickerView.selectRow(grade, inComponent: 0, animated: false)
+				
+				present(pickerViewController, animated: true, completion: nil)
 				
         break
       case 2:
@@ -184,9 +184,9 @@ class SettingsViewController: UITableViewController, UIPickerViewDelegate, UIPic
 			
 			pickerViewController.pickerView.delegate = self
 			
-			present(pickerViewController, animated: true, completion: { _ in
-				pickerViewController.pickerView.selectRow(self.startView, inComponent: 0, animated: true)
-			})
+			pickerViewController.pickerView.selectRow(startView, inComponent: 0, animated: false)
+			
+			present(pickerViewController, animated: true, completion: nil)
 			
 			pickerViewController.pickerView.selectRow(grade, inComponent: 0, animated: true)
 			
