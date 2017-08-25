@@ -9,18 +9,18 @@
 import UIKit
 
 class SettingsViewController: UITableViewController, UIPickerViewDelegate, UIPickerViewDataSource {
-  // MARK: Variables + constants
+  // MARK: - Properties
   
   var defaults: UserDefaults!
-	var pickerViewSource = 0
 	var grade = Int()
+	var gradePickerView = ActionSheetPresentationControllerPickerViewController()
 	var startView = Int()
-	var didTapGrade = false
-	var didTapStartView = false
+	var startViewPickerView = ActionSheetPresentationControllerPickerViewController()
   var autoSave = Bool()
   var autoSaveSwitch = UISwitch()
 	let grades = ["5a", "5b", "5c", "5d", "5e", "6a", "6b", "6c", "6d", "6e", "7a", "7b", "7c", "7d", "8a", "8b", "8c", "8d", "9a", "9b", "9c", "9d", "10a", "10b", "10c", "10d", "11a", "11b", "11c", "11d", "11e", "12a", "12b", "12c", "12d", "12e"]
 	let startViews = ["Hauptmenü", "News", "Stundenplan", "Vertretungsplan", "Förderverein"]
+	var selectedPickerViewDataSource = 0
   
   // Use when online schedules are available again
   
@@ -37,10 +37,6 @@ class SettingsViewController: UITableViewController, UIPickerViewDelegate, UIPic
 		
 		defaults = UserDefaults.init(suiteName: "group.com.hardykrause.elg")
 		
-		// Register custom table view cell
-		
-		tableView.register(UINib(nibName: "PickerTableViewCell", bundle: nil), forCellReuseIdentifier: "PickerTableViewCell")
-		
 		// Set back indicator image
 		
 		navigationController?.navigationBar.backIndicatorImage = UIImage(named: "Back")
@@ -56,7 +52,7 @@ class SettingsViewController: UITableViewController, UIPickerViewDelegate, UIPic
     initSwitches()
   }
   
-  // MARK: Table view functions
+  // MARK: - UITableView
   
   override func numberOfSections(in tableView: UITableView) -> Int {
     return 4
@@ -67,7 +63,7 @@ class SettingsViewController: UITableViewController, UIPickerViewDelegate, UIPic
     
     switch section {
     case 0:
-      numberOfRows = 3
+      numberOfRows = 2
       
       // Use when online schedules are available again
       
@@ -77,7 +73,7 @@ class SettingsViewController: UITableViewController, UIPickerViewDelegate, UIPic
       numberOfRows = 2
       break
     case 2:
-      numberOfRows = 2
+      numberOfRows = 1
       break
 		case 3:
 			numberOfRows = 1
@@ -96,15 +92,6 @@ class SettingsViewController: UITableViewController, UIPickerViewDelegate, UIPic
 				
 				cell.textLabel!.text = "Klasse"
 				cell.detailTextLabel!.text = grades[grade]
-				
-				return cell
-			} else if indexPath.row == 1 {
-				let cell = tableView.dequeueReusableCell(withIdentifier: "PickerTableViewCell", for: indexPath) as! PickerTableViewCell
-				
-				cell.pickerView.delegate = self
-				cell.pickerView.selectRow(grade, inComponent: 0, animated: false)
-				
-				pickerViewSource = 0
 				
 				return cell
 			} else {
@@ -132,23 +119,12 @@ class SettingsViewController: UITableViewController, UIPickerViewDelegate, UIPic
 			
 			return cell
 		} else if indexPath.section == 2 {
-			if indexPath.row == 0 {
-				let cell = tableView.dequeueReusableCell(withIdentifier: "SettingsDetailTableViewCell", for: indexPath)
-				
-				cell.textLabel!.text = "Startseite"
-				cell.detailTextLabel!.text = startViews[startView]
-				
-				return cell
-			} else {
-				let cell = tableView.dequeueReusableCell(withIdentifier: "PickerTableViewCell", for: indexPath) as! PickerTableViewCell
-				
-				cell.pickerView.delegate = self
-				cell.pickerView.selectRow(startView, inComponent: 0, animated: false)
-				
-				pickerViewSource = 1
-				
-				return cell
-			}
+			let cell = tableView.dequeueReusableCell(withIdentifier: "SettingsDetailTableViewCell", for: indexPath)
+			
+			cell.textLabel!.text = "Startseite"
+			cell.detailTextLabel!.text = startViews[startView]
+			
+			return cell
 		} else {
 			let cell = tableView.dequeueReusableCell(withIdentifier: "SettingsTableViewCell", for: indexPath)
 			
@@ -169,8 +145,16 @@ class SettingsViewController: UITableViewController, UIPickerViewDelegate, UIPic
     case 0:
       switch indexPath.row {
       case 0:
-				pickerViewSource = 0
-				didTapGrade = !didTapGrade
+				selectedPickerViewDataSource = 0
+				
+				let pickerViewController = ActionSheetPresentationControllerPickerViewController()
+				
+				pickerViewController.pickerView.delegate = self
+				
+				present(pickerViewController, animated: true, completion: { _ in
+					pickerViewController.pickerView.selectRow(self.grade, inComponent: 0, animated: true)
+				})
+				
         break
       case 2:
 				navigationController?.show(editScheduleViewController, sender: self)
@@ -194,10 +178,17 @@ class SettingsViewController: UITableViewController, UIPickerViewDelegate, UIPic
       }
       break
     case 2:
-			if indexPath.row == 0 {
-				pickerViewSource = 1
-				didTapStartView = !didTapStartView
-			}
+			selectedPickerViewDataSource = 1
+			
+			let pickerViewController = ActionSheetPresentationControllerPickerViewController()
+			
+			pickerViewController.pickerView.delegate = self
+			
+			present(pickerViewController, animated: true, completion: { _ in
+				pickerViewController.pickerView.selectRow(self.startView, inComponent: 0, animated: true)
+			})
+			
+			pickerViewController.pickerView.selectRow(grade, inComponent: 0, animated: true)
 			
       break
 		case 3:
@@ -206,9 +197,6 @@ class SettingsViewController: UITableViewController, UIPickerViewDelegate, UIPic
     default:
       break
     }
-		
-		tableView.beginUpdates()
-		tableView.endUpdates()
   }
 	
 	override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -229,47 +217,7 @@ class SettingsViewController: UITableViewController, UIPickerViewDelegate, UIPic
 		return titleForHeader
 	}
 	
-	override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-		var heightForRow = CGFloat()
-		
-		switch indexPath.section {
-		case 0:
-			switch indexPath.row {
-			case 1:
-				if didTapGrade {
-					heightForRow = 216
-				} else {
-					heightForRow = 0
-				}
-				break
-			default:
-				heightForRow = 44
-				break
-			}
-			break
-		case 2:
-			switch indexPath.row {
-			case 1:
-				if didTapStartView {
-					heightForRow = 216
-				} else {
-					heightForRow = 0
-				}
-				break
-			default:
-				heightForRow = 44
-				break
-			}
-			break
-		default:
-			heightForRow = 44
-			break
-		}
-		
-		return heightForRow
-	}
-	
-	// MARK: Picker view functions
+	// MARK: - UIPickerView
 	
 	func numberOfComponents(in pickerView: UIPickerView) -> Int {
 		return 1
@@ -278,7 +226,7 @@ class SettingsViewController: UITableViewController, UIPickerViewDelegate, UIPic
 	func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
 		var numberOfRows = Int()
 		
-		if pickerViewSource == 0 {
+		if selectedPickerViewDataSource == 0 {
 			numberOfRows = grades.count
 		} else {
 			numberOfRows = startViews.count
@@ -288,34 +236,34 @@ class SettingsViewController: UITableViewController, UIPickerViewDelegate, UIPic
 	}
 	
 	func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-		if pickerViewSource == 0 {
-			return grades[row]
+		var titleForRow = String()
+		
+		if selectedPickerViewDataSource == 0 {
+			titleForRow = grades[row]
 		} else {
-			return startViews[row]
+			titleForRow = startViews[row]
 		}
+		
+		return titleForRow
 	}
 	
 	func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-		// Set user defaults
-		
-		if pickerViewSource == 0 {
+		if selectedPickerViewDataSource == 0 {
 			grade = row
 			
-			defaults.set(grade, forKey: "grade")
+			defaults.set(row, forKey: "grade")
 		} else {
 			startView = row
 			
-			defaults.set(startView, forKey: "startView")
+			defaults.set(row, forKey: "startView")
 		}
 		
 		defaults.synchronize()
 		
-		// Reload table view
-		
 		tableView.reloadData()
 	}
   
-  // MARK: Custom functions
+  // MARK: - Custom functions
 	
 	func retrieveUserDefaults() {
 		// Retrieve user defaults
