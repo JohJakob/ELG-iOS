@@ -9,11 +9,9 @@
 import UIKit
 
 class OmissionsViewController: UITableViewController {
-  // Outlets
+  // MARK: - Properties
   
   @IBOutlet weak fileprivate var saveButton: UIBarButtonItem!
-  
-  // Variables + constants
   
   var defaults: UserDefaults!
   var selectedGrade = NSInteger()
@@ -25,11 +23,11 @@ class OmissionsViewController: UITableViewController {
   var teacherToken = String()
   let grades = ["5a", "5b", "5c", "5d", "5e", "6a", "6b", "6c", "6d", "6e", "7a", "7b", "7c", "7d", "7e", "8a", "8b", "8c", "8d", "9a", "9b", "9c", "9d", "10a", "10b", "10c", "10d", "11a", "11b", "11c", "11d", "11e", "12a", "12b", "12c", "12d", "12e"]
   
-  // Actions
-  
   @IBAction func saveButtonTap(_ sender: UIBarButtonItem) {
     saveOmissions()
   }
+	
+	// MARK: - UITableViewController
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -54,8 +52,14 @@ class OmissionsViewController: UITableViewController {
     
     prepare()
   }
-  
-  // Table view functions
+	
+	override func didReceiveMemoryWarning() {
+		super.didReceiveMemoryWarning()
+		
+		print("Memory Warning")
+	}
+	
+  // MARK: - UITableView
   
   override func numberOfSections(in tableView: UITableView) -> Int {
     var numberOfSections: Int
@@ -227,7 +231,7 @@ class OmissionsViewController: UITableViewController {
     return heightForFooter
   }
   
-  // Custom functions
+  // MARK: - Custom
   
   func prepare() {
     // Retrieve variables from user defaults
@@ -406,11 +410,5 @@ class OmissionsViewController: UITableViewController {
       let noConnectionAlert = UIAlertView(title: "Keine Internetverbindung", message: "Es besteht keine Verbindung zum Internet. Dadurch kann der Vertretungsplan nicht gesichert werden. Bitte überprüfe Deine Einstellungen.", delegate: self, cancelButtonTitle: "OK")
       noConnectionAlert.show()
     }
-  }
-  
-  override func didReceiveMemoryWarning() {
-    super.didReceiveMemoryWarning()
-    
-    print("Memory Warning")
   }
 }

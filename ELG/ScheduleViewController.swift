@@ -9,7 +9,7 @@
 import UIKit
 
 class ScheduleViewController: UITableViewController {
-  // Variables + constants
+  // MARK: - Properties
   
   var defaults: UserDefaults!
   let lessonsViewController = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "LessonsTableViewController")
@@ -17,7 +17,9 @@ class ScheduleViewController: UITableViewController {
   // Use when online schedule are available again
   
   /* let webScheduleViewController = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("WebScheduleViewController") */
-  
+	
+	// MARK: - UITableViewController
+	
   override func viewDidLoad() {
     super.viewDidLoad()
     
@@ -32,7 +34,13 @@ class ScheduleViewController: UITableViewController {
 		navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
   }
 	
-  // Table view functions
+	override func didReceiveMemoryWarning() {
+		super.didReceiveMemoryWarning()
+		
+		print("Memory Warning")
+	}
+	
+  // MARK: - UITableView
   
   override func numberOfSections(in tableView: UITableView) -> Int {
     return 1
@@ -104,11 +112,5 @@ class ScheduleViewController: UITableViewController {
     } else {
 			navigationController?.showViewController(webScheduleViewController, sender: self)
     } */
-  }
-  
-  override func didReceiveMemoryWarning() {
-    super.didReceiveMemoryWarning()
-    
-    print("Memory Warning")
   }
 }

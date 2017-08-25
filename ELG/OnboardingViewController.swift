@@ -11,13 +11,11 @@
 import UIKit
 
 class OnboardingViewController: UITableViewController {
-  // MARK: Variables + constants
+  // MARK: - Properties
   
   var defaults: UserDefaults!
   let settingsViewController = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "SettingsTableViewController") as! SettingsViewController
   let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
-  
-  // Actions
   
   @IBAction func doneButtonTap(_ sender: UIBarButtonItem) {
     // Initialize user defaults
@@ -34,7 +32,15 @@ class OnboardingViewController: UITableViewController {
     
     dismiss(animated: true, completion: nil)
   }
-  
+	
+	override func didReceiveMemoryWarning() {
+		super.didReceiveMemoryWarning()
+		
+		print("Memory Warning")
+	}
+	
+	// MARK: - UITableViewController
+	
   override func viewDidLoad() {
     super.viewDidLoad()
     
@@ -49,7 +55,7 @@ class OnboardingViewController: UITableViewController {
 		navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
   }
 	
-  // MARK: Table view functions
+  // MARK: - UITableView
   
   override func numberOfSections(in tableView: UITableView) -> Int {
     return 1
@@ -75,11 +81,5 @@ class OnboardingViewController: UITableViewController {
   
   override func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
     return "Aufgrund der Neuentwicklung der App und der Veränderung einiger Vorgänge mussten sämtliche gesicherten Daten entfernt werden. In den Einstellungen kannst Du sie erneut eingeben. Ich hoffe auf Dein Verständnis."
-  }
-  
-  override func didReceiveMemoryWarning() {
-    super.didReceiveMemoryWarning()
-    
-    print("Memory Warning")
   }
 }

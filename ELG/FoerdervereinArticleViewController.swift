@@ -9,19 +9,19 @@
 import UIKit
 
 class FoerdervereinArticleViewController: UIViewController, UIWebViewDelegate {
-  // Outlets
+  // MARK: - Properties
   
   @IBOutlet weak fileprivate var articleWebView: UIWebView!
   @IBOutlet weak fileprivate var backButton: UIBarButtonItem!
   @IBOutlet weak fileprivate var forwardButton: UIBarButtonItem!
   @IBOutlet weak fileprivate var activityIndicator: UIActivityIndicatorView!
   
-  // Variables
-  
   var defaults: UserDefaults!
   var articleTitle = String()
   var articleLink = String()
-  
+	
+	// MARK: - UIViewController
+	
   override func viewDidLoad() {
     super.viewDidLoad()
     
@@ -37,8 +37,14 @@ class FoerdervereinArticleViewController: UIViewController, UIWebViewDelegate {
     
     loadArticle()
   }
-  
-  // Web View functions
+	
+	override func didReceiveMemoryWarning() {
+		super.didReceiveMemoryWarning()
+		
+		print("Memory Warning")
+	}
+	
+  // MARK: - UIWebView
   
   func webViewDidStartLoad(_ webView: UIWebView) {
     // Start Activity Indicator
@@ -77,7 +83,7 @@ class FoerdervereinArticleViewController: UIViewController, UIWebViewDelegate {
     webViewErrorAlert.show()
   }
   
-  // Custom functions
+  // MARK: - Custom
   
   func loadArticle() {
     // Set web view delegate
@@ -111,11 +117,5 @@ class FoerdervereinArticleViewController: UIViewController, UIWebViewDelegate {
       let noConnectionAlert = UIAlertView(title: "Keine Internetverbindung", message: "Es besteht keine Verbindung zum Internet. Bitte überprüfe Deine Einstellungen.", delegate: self, cancelButtonTitle: "OK")
       noConnectionAlert.show()
     }
-  }
-  
-  override func didReceiveMemoryWarning() {
-    super.didReceiveMemoryWarning()
-    
-    print("Memory Warning")
   }
 }

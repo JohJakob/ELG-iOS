@@ -9,12 +9,14 @@
 import UIKit
 
 class EditLessonsViewController: UITableViewController {
-  // Variables + constants
+  // MARK: - Properties
   
   var defaults: UserDefaults!
   var lessons: [String]!
   let subjectsViewController = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "SubjectsTableViewController")
-  
+	
+	// MARK: - UITableViewController
+	
   override func viewDidLoad() {
     super.viewDidLoad()
     
@@ -82,8 +84,14 @@ class EditLessonsViewController: UITableViewController {
     
     removeUserDefaults()
   }
-  
-  // Table view functions
+	
+	override func didReceiveMemoryWarning() {
+		super.didReceiveMemoryWarning()
+		
+		print("Memory Warning")
+	}
+	
+  // MARK: - UITableView
   
   override func numberOfSections(in tableView: UITableView) -> Int {
     return 1
@@ -154,13 +162,7 @@ class EditLessonsViewController: UITableViewController {
 		navigationController?.show(subjectsViewController, sender: self)
   }
   
-  override func didReceiveMemoryWarning() {
-    super.didReceiveMemoryWarning()
-    
-    print("Memory Warning")
-  }
-  
-  // Custom functions
+  // MARK: - Custom
   
   func removeUserDefaults() {
     // Remove temporary user defaults

@@ -9,19 +9,19 @@
 import UIKit
 
 final class NewsViewController: UIViewController, UIWebViewDelegate {
-  // MARK: Outlets
+  // MARK: - Properties
 	
 	@IBOutlet weak fileprivate var newsWebView: UIWebView!
 	@IBOutlet weak fileprivate var segmentedControl: UISegmentedControl!
   @IBOutlet weak fileprivate var activityIndicator: UIActivityIndicatorView!
 	
-	// MARK: Variables + constants
-	
 	fileprivate lazy var navigationButtonView: FloatingView = self.lazyFloatingView()
 	var backButton = UIButton()
 	var forwardButton = UIButton()
 	let foerdervereinViewController = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "FoerdervereinTableViewController")
-  
+	
+	// MARK: - UIViewController
+	
   override func viewDidLoad() {
     super.viewDidLoad()
 		
@@ -51,8 +51,14 @@ final class NewsViewController: UIViewController, UIWebViewDelegate {
     
     loadNews()
   }
-  
-  // MARK: Web view functions
+	
+	override func didReceiveMemoryWarning() {
+		super.didReceiveMemoryWarning()
+		
+		print("Memory Warning")
+	}
+	
+  // MARK: - UIWebView
   
   func webViewDidStartLoad(_ webView: UIWebView) {
     // Start activity indicator
@@ -101,7 +107,7 @@ final class NewsViewController: UIViewController, UIWebViewDelegate {
     webViewErrorAlert.show()
   }
   
-  // MARK: Custom functions
+  // MARK: - Custom
   
   func loadNews() {
     // Set web view delegate
@@ -135,12 +141,6 @@ final class NewsViewController: UIViewController, UIWebViewDelegate {
 		navigationStack?.insert(foerdervereinViewController, at: (navigationStack?.count)!)
 		navigationController?.setViewControllers(navigationStack!, animated: false)
 	}
-  
-  override func didReceiveMemoryWarning() {
-    super.didReceiveMemoryWarning()
-    
-    print("Memory Warning")
-  }
 }
 
 extension NewsViewController {

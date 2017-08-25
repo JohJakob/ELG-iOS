@@ -10,11 +10,13 @@ import UIKit
 import MessageUI
 
 class AboutViewController: UITableViewController, MFMailComposeViewControllerDelegate {
-  // Variables + constants
+  // MARK: - Properties
   
   var defaults: UserDefaults!
   let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
-  
+	
+	// MARK: - UITableViewController
+	
   override func viewDidLoad() {
     super.viewDidLoad()
     
@@ -29,7 +31,13 @@ class AboutViewController: UITableViewController, MFMailComposeViewControllerDel
 		navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
   }
 	
-  // Table view functions
+	override func didReceiveMemoryWarning() {
+		super.didReceiveMemoryWarning()
+		
+		print("Memory Warning")
+	}
+	
+  // MARK: - UITableView
   
   override func numberOfSections(in tableView: UITableView) -> Int {
     return 4
@@ -209,15 +217,9 @@ class AboutViewController: UITableViewController, MFMailComposeViewControllerDel
     }
   }
   
-  // Mail compose functions
+  // MARK: - MFMailComposeViewController
   
   func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
     dismiss(animated: true, completion: nil)
-  }
-  
-  override func didReceiveMemoryWarning() {
-    super.didReceiveMemoryWarning()
-    
-    print("Memory Warning")
   }
 }

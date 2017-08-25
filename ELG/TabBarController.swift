@@ -9,7 +9,7 @@
 import UIKit
 
 class TabBarController: UITabBarController {
-	// MARK: Variables + constants
+	// MARK: - Properties
 	
 	var defaults: UserDefaults!
 	var startView = Int()
@@ -17,6 +17,8 @@ class TabBarController: UITabBarController {
 	let startViewControllers = ["NewsNavigationController", "ScheduleNavigationController", "OmissionsNavigationController", "FoerdervereinNavigationController"]
 	let lessonsViewController = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "LessonsTableViewController")
 	let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
+	
+	// MARK: - UITabBarController
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -63,7 +65,13 @@ class TabBarController: UITabBarController {
 		
 	}
 	
-	// MARK: Custom functions
+	override func didReceiveMemoryWarning() {
+		super.didReceiveMemoryWarning()
+		
+		print("Memory Warning")
+	}
+	
+	// MARK: - Custom
 	
 	func setUp() {
 		// Set back indicator image
@@ -130,11 +138,5 @@ class TabBarController: UITabBarController {
 		// Show release notes
 		
 		present(onboardingViewController, animated: true, completion: nil)
-	}
-	
-	override func didReceiveMemoryWarning() {
-		super.didReceiveMemoryWarning()
-		
-		print("Memory Warning")
 	}
 }

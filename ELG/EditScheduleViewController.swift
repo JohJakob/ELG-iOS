@@ -9,9 +9,11 @@
 import UIKit
 
 class EditScheduleViewController: UITableViewController {
-  // Variables + constants
+  // MARK: - Properties
   
   var defaults: UserDefaults!
+	
+	// MARK: - UITableViewController
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -27,7 +29,13 @@ class EditScheduleViewController: UITableViewController {
 		navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
   }
 	
-  // Table view functions
+	override func didReceiveMemoryWarning() {
+		super.didReceiveMemoryWarning()
+		
+		print("Memory Warning")
+	}
+	
+  // MARK: - UITableView
   
   override func numberOfSections(in tableView: UITableView) -> Int {
     return 1
@@ -64,11 +72,4 @@ class EditScheduleViewController: UITableViewController {
 		
 		navigationController?.show(editLessonsViewController, sender: self)
   }
-  
-  override func didReceiveMemoryWarning() {
-    super.didReceiveMemoryWarning()
-    
-    print("Memory Warning")
-  }
-  
 }

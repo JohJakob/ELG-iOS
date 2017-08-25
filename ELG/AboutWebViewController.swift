@@ -9,11 +9,9 @@
 import UIKit
 
 class AboutWebViewController: UIViewController, UIWebViewDelegate {
-  // MARK: Outlets
+  // MARK: - Properties
   
   @IBOutlet weak fileprivate var aboutWebView: UIWebView!
-  
-  // MARK: Variables + constants
   
   var defaults: UserDefaults!
   var selectedAboutWebView = Int()
@@ -22,7 +20,9 @@ class AboutWebViewController: UIViewController, UIWebViewDelegate {
   let pages = ["ReleaseNotes", "OpenSource", "Imprint"]
   let onboardingViewController = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "OnboardingTableViewController")
   let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
-  
+	
+	// MARK: - UIViewController
+	
   override func viewDidLoad() {
     super.viewDidLoad()
     
@@ -56,8 +56,14 @@ class AboutWebViewController: UIViewController, UIWebViewDelegate {
     
     showFirstLaunchButton()
   }
-  
-  // MARK: Web view functions
+	
+	override func didReceiveMemoryWarning() {
+		super.didReceiveMemoryWarning()
+		
+		print("Memory Warning")
+	}
+	
+  // MARK: - UIWebView
   
   func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebViewNavigationType) -> Bool {
     // Check web view navigation type
@@ -73,7 +79,7 @@ class AboutWebViewController: UIViewController, UIWebViewDelegate {
     return true
   }
   
-  // MARK: Custom functions
+  // MARK: - Custom
   
   func retrieveUserDefaults() {
     // Retrieve user defaults
@@ -120,11 +126,5 @@ class AboutWebViewController: UIViewController, UIWebViewDelegate {
 		dismiss(animated: true, completion: nil)
 		
 		// navigationController?.show(onboardingViewController, sender: self)
-  }
-  
-  override func didReceiveMemoryWarning() {
-    super.didReceiveMemoryWarning()
-    
-    print("Memory Warning")
   }
 }

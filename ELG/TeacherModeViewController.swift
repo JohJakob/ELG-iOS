@@ -9,13 +9,15 @@
 import UIKit
 
 class TeacherModeViewController: UITableViewController, UITextFieldDelegate {
-  // Variables
+  // MARK: - Properties
   
   var defaults: UserDefaults!
   var teacherMode = Bool()
   var teacherToken = String()
   var teacherModeSwitch = UISwitch()
-  
+	
+	// MARK: - UITableViewController
+	
   override func viewDidLoad() {
     super.viewDidLoad()
     
@@ -47,8 +49,14 @@ class TeacherModeViewController: UITableViewController, UITextFieldDelegate {
     
     setUserDefault()
   }
-  
-  // Table view functions
+	
+	override func didReceiveMemoryWarning() {
+		super.didReceiveMemoryWarning()
+		
+		print("Memory Warning")
+	}
+	
+  // MARK: - UITableView
   
   override func numberOfSections(in tableView: UITableView) -> Int {
     return 1
@@ -88,7 +96,7 @@ class TeacherModeViewController: UITableViewController, UITextFieldDelegate {
     return "Bei aktiviertem Lehrermodus werden in den eigenen Vertretungen nur Eintragungen mit dem Kürzel angezeigt."
   }
   
-  // Text field functions
+  // MARK: - UITextField
   
   func textFieldDidEndEditing(_ textField: UITextField) {
     // Set variable
@@ -122,7 +130,7 @@ class TeacherModeViewController: UITableViewController, UITextFieldDelegate {
     return newLength <= 3
   }
   
-  // Custom functions
+  // MARK: - Custom
   
   func initSwitch() {
     // Retrieve user default
@@ -169,11 +177,5 @@ class TeacherModeViewController: UITableViewController, UITextFieldDelegate {
     
     defaults.set(teacherMode, forKey: "teacherMode")
     defaults.synchronize()
-  }
-  
-  override func didReceiveMemoryWarning() {
-    super.didReceiveMemoryWarning()
-    
-    print("Memory Warning")
   }
 }

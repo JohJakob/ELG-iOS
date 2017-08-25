@@ -9,9 +9,11 @@
 import UIKit
 
 class PickerTableViewCell: UITableViewCell {
-	// MARK: Outlets
+	// MARK: - Properties
 	
 	@IBOutlet var pickerView: UIPickerView!
+	
+	// MARK: - UITableViewCell
 	
 	override func awakeFromNib() {
 		super.awakeFromNib()

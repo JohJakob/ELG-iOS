@@ -9,11 +9,9 @@
 import UIKit
 
 class FoerdervereinViewController: UITableViewController {
-	// MARK: Outlets
+	// MARK: - Properties
 	
 	@IBOutlet var segmentedControl: UISegmentedControl!
-	
-  // MARK: Variables + constants
   
   var defaults: UserDefaults!
   var items = [[String: String]]()
@@ -22,7 +20,9 @@ class FoerdervereinViewController: UITableViewController {
   var itemDescription = String()
   var itemLink = String()
   let articleViewController = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "FoerdervereinArticleViewController")
-  
+	
+	// MARK: - UITableViewController
+	
   override func viewDidLoad() {
     super.viewDidLoad()
 		
@@ -73,8 +73,14 @@ class FoerdervereinViewController: UITableViewController {
       tableView.backgroundView = noConnectionLabel
     }
   }
-  
-  // MARK: Table view functions
+	
+	override func didReceiveMemoryWarning() {
+		super.didReceiveMemoryWarning()
+		
+		print("Memory Warning")
+	}
+	
+  // MARK: - UITableView
   
   override func numberOfSections(in tableView: UITableView) -> Int {
     var numberOfSections = Int()
@@ -123,7 +129,7 @@ class FoerdervereinViewController: UITableViewController {
 		navigationController?.show(articleViewController, sender: self)
   }
   
-  // MARK: Custom functions
+  // MARK: - Custom
 	
 	func changeView() {
 		var navigationStack = navigationController?.viewControllers
@@ -215,11 +221,5 @@ class FoerdervereinViewController: UITableViewController {
     }
     
     refreshControl?.endRefreshing()
-  }
-  
-  override func didReceiveMemoryWarning() {
-    super.didReceiveMemoryWarning()
-    
-    print("Memory Warning")
   }
 }

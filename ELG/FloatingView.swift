@@ -9,6 +9,8 @@
 import UIKit
 
 final class FloatingView: UIView {
+	// MARK: - Properties
+	
 	fileprivate enum Properties {
 		static let cornerRadius: CGFloat = 10
 		static let shadow: Shadow = Shadow(color: UIColor.init(red: 0, green: 0, blue: 0, alpha: 0.2), offset: CGSize(), blur: 6)
@@ -37,6 +39,8 @@ final class FloatingView: UIView {
 	fileprivate lazy var shadowView: UIImageView = self.lazyShadowView()
 	fileprivate lazy var visualEffectView: UIVisualEffectView = self.lazyVisualEffectView()
 	
+	// MARK: - Initializers
+	
 	convenience init() {
 		self.init(frame: CGRect())
 	}
@@ -52,6 +56,8 @@ final class FloatingView: UIView {
 		
 		self.selfInit()
 	}
+	
+	// MARK: - Private
 	
 	private func selfInit() {
 		backgroundColor = .clear

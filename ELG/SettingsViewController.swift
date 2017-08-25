@@ -29,7 +29,9 @@ class SettingsViewController: UITableViewController, UIPickerViewDelegate, UIPic
 	let editScheduleViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "EditScheduleTableViewController") as! EditScheduleViewController
   let teacherModeViewController = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "TeacherModeTableViewController")
 	let aboutViewController = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "AboutTableViewController")
-  
+	
+	// MARK: - UITableViewController
+	
   override func viewDidLoad() {
     super.viewDidLoad()
     
@@ -51,7 +53,13 @@ class SettingsViewController: UITableViewController, UIPickerViewDelegate, UIPic
     
     initSwitches()
   }
-  
+	
+	override func didReceiveMemoryWarning() {
+		super.didReceiveMemoryWarning()
+		
+		print("Memory Warning")
+	}
+	
   // MARK: - UITableView
   
   override func numberOfSections(in tableView: UITableView) -> Int {
@@ -263,7 +271,7 @@ class SettingsViewController: UITableViewController, UIPickerViewDelegate, UIPic
 		tableView.reloadData()
 	}
   
-  // MARK: - Custom functions
+  // MARK: - Custom
 	
 	func retrieveUserDefaults() {
 		// Retrieve user defaults
@@ -300,11 +308,5 @@ class SettingsViewController: UITableViewController, UIPickerViewDelegate, UIPic
     
     defaults.set(autoSave, forKey: "autoSave")
     defaults.synchronize()
-  }
-  
-  override func didReceiveMemoryWarning() {
-    super.didReceiveMemoryWarning()
-    
-    print("Memory Warning")
   }
 }

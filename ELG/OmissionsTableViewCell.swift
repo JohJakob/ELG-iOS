@@ -9,12 +9,14 @@
 import UIKit
 
 class OmissionsTableViewCell: UITableViewCell {
-  // Outlets
+  // MARK: - Properties
   
   @IBOutlet weak var gradeLabel: UILabel!
   @IBOutlet weak var lessonLabel: UILabel!
   @IBOutlet weak var detailsLabel: UILabel!
-  
+	
+	// MARK: - UITableViewCell
+	
   override func awakeFromNib() {
     super.awakeFromNib()
   }

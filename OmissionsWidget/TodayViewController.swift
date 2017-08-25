@@ -10,7 +10,7 @@ import UIKit
 import NotificationCenter
 
 class TodayViewController: UITableViewController, NCWidgetProviding {
-  // Variables + constants
+  // MARK: - Properties
   
   var defaults: UserDefaults!
   var selectedGrade = NSInteger()
@@ -18,8 +18,10 @@ class TodayViewController: UITableViewController, NCWidgetProviding {
   var ownOmissions = NSMutableArray()
   var teacherMode = Bool()
   var teacherToken = String()
-  let grades = ["5a", "5b", "5c", "5d", "5e", "6a", "6b", "6c", "6d", "6e", "7a", "7b", "7c", "7d", "8a", "8b", "8c", "8d", "9a", "9b", "9c", "9d", "10a", "10b", "10c", "10d", "11a", "11b", "11c", "11d", "11e", "12a", "12b", "12c", "12d", "12e"]
-  
+  let grades = ["5a", "5b", "5c", "5d", "5e", "6a", "6b", "6c", "6d", "6e", "7a", "7b", "7c", "7d", "7e", "8a", "8b", "8c", "8d", "9a", "9b", "9c", "9d", "10a", "10b", "10c", "10d", "11a", "11b", "11c", "11d", "11e", "12a", "12b", "12c", "12d", "12e"]
+	
+	// MARK: - UITableViewController
+	
   override func viewDidLoad() {
     super.viewDidLoad()
   }
@@ -47,8 +49,14 @@ class TodayViewController: UITableViewController, NCWidgetProviding {
 			}
     }
   }
-  
-  // Widget functions
+	
+	override func didReceiveMemoryWarning() {
+		super.didReceiveMemoryWarning()
+		
+		print("Memory Warning")
+	}
+	
+  // MARK: - NCWidgetProviding
   
   func widgetPerformUpdate(_ completionHandler: (@escaping (NCUpdateResult) -> Void)) {
     // Perform any setup necessary in order to update the view.
@@ -56,7 +64,7 @@ class TodayViewController: UITableViewController, NCWidgetProviding {
     // If an error is encountered, use NCUpdateResult.Failed
     // If there's no update required, use NCUpdateResult.NoData
     // If there's an update, use NCUpdateResult.NewData
-    
+		
     completionHandler(NCUpdateResult.newData)
   }
   
@@ -72,7 +80,7 @@ class TodayViewController: UITableViewController, NCWidgetProviding {
 		preferredContentSize = (activeDisplayMode == .expanded) ? CGSize(width: preferredContentSize.width, height: CGFloat(ownOmissions.count) * 44) : CGSize(width: preferredContentSize.width, height: 110)
 	}
   
-  // Table view functions
+  // MARK: - UITableView
   
   override func numberOfSections(in tableView: UITableView) -> Int {
     var numberOfSections: Int
@@ -214,7 +222,7 @@ class TodayViewController: UITableViewController, NCWidgetProviding {
     return heightForFooter
   }
 	
-  // Custom functions
+  // MARK: - Custom
   
   func prepare() {
     // Retrieve variables from user defaults
@@ -305,11 +313,5 @@ class TodayViewController: UITableViewController, NCWidgetProviding {
         }
       }
     }
-  }
-  
-  override func didReceiveMemoryWarning() {
-    super.didReceiveMemoryWarning()
-    
-    print("Memory Warning")
   }
 }

@@ -9,10 +9,12 @@
 import UIKit
 
 class TextFieldTableViewCell: UITableViewCell {
-  // Outlets
+  // MARK: - Properties
   
   @IBOutlet weak var textField: UITextField!
-  
+	
+	// MARK: - UITableViewCell
+	
   override func awakeFromNib() {
     super.awakeFromNib()
     // Initialization code

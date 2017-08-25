@@ -9,17 +9,17 @@
 import UIKit
 
 class LessonsViewController: UITableViewController {
-  // Variables + constants
+  // MARK: - Properties
   
   var defaults: UserDefaults!
   var lessons: [String]!
   let editLessonsViewController = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "EditLessonsTableViewController")
   
-  // Actions
-  
   @IBAction func editButtonTap(_ sender: UIBarButtonItem) {
 		navigationController?.show(editLessonsViewController, sender: self)
   }
+	
+	// MARK: - UITableViewController
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -73,8 +73,14 @@ class LessonsViewController: UITableViewController {
     
     tableView.reloadData()
   }
-  
-  // Table view functions
+	
+	override func didReceiveMemoryWarning() {
+		super.didReceiveMemoryWarning()
+		
+		print("Memory Warning")
+	}
+	
+  // MARK: - UITableView
   
   override func numberOfSections(in tableView: UITableView) -> Int {
     return 1
@@ -139,11 +145,5 @@ class LessonsViewController: UITableViewController {
     // Deselect table view cell
     
     tableView.deselectRow(at: indexPath, animated: true)
-  }
-  
-  override func didReceiveMemoryWarning() {
-    super.didReceiveMemoryWarning()
-    
-    print("Memory Warning")
   }
 }
