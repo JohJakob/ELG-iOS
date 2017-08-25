@@ -348,13 +348,12 @@
 		B9B5C4F11D1EC97C00777BD9 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				CF785D621F50461B00FAA90F /* FloatingView */,
 				CFA7A14B1F47475300482180 /* Action Sheet Presentation Controller */,
 				CF785D461F4FFA1100FAA90F /* OAStackView */,
 				B982C8771D5DF35600B021C9 /* OmissionsTableViewCell.swift */,
 				B9CBF57A1D60CFBB00F67682 /* TextFieldTableViewCell.swift */,
 				CF40B5331F28602900FB8ADC /* PickerTableViewCell.swift */,
-				CF40B53B1F2BCD8A00FB8ADC /* FloatingView.swift */,
-				CF40B5391F2B7CE100FB8ADC /* UIImage+Shadow.swift */,
 				B9B5C4F31D1ECB7900777BD9 /* Reachability.h */,
 				B9B5C4F41D1ECB7900777BD9 /* Reachability.m */,
 				B982C8791D5E5EB500B021C9 /* SWXMLHash.swift */,
@@ -388,6 +387,15 @@
 				CF785D581F4FFA3B00FAA90F /* OATransformLayer.m */,
 			);
 			name = OAStackView;
+			sourceTree = "<group>";
+		};
+		CF785D621F50461B00FAA90F /* FloatingView */ = {
+			isa = PBXGroup;
+			children = (
+				CF40B53B1F2BCD8A00FB8ADC /* FloatingView.swift */,
+				CF40B5391F2B7CE100FB8ADC /* UIImage+Shadow.swift */,
+			);
+			name = FloatingView;
 			sourceTree = "<group>";
 		};
 		CFA7A14B1F47475300482180 /* Action Sheet Presentation Controller */ = {
