@@ -54,13 +54,13 @@ final class ActionSheetPresentationControllerDismissButton: UIControl {
 	override func tintColorDidChange() {
 		super.tintColorDidChange()
 		
-		textLabel.textColor = tintColor
+		textLabel.textColor = UIColor.init(red: 0.498, green: 0.09, blue: 0.204, alpha: 1)
 	}
 	
 	// MARK: - Private
 	
 	private func setUp() {
-		textLabel.textColor = tintColor
+		textLabel.textColor = UIColor.init(red: 0.498, green: 0.09, blue: 0.204, alpha: 1)
 		
 		addSubview(textLabel)
 	}
