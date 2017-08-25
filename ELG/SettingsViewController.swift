@@ -286,7 +286,7 @@ class SettingsViewController: UITableViewController, UIPickerViewDelegate, UIPic
     
     autoSaveSwitch.addTarget(self, action: #selector(SettingsViewController.toggleAutoSave), for: .valueChanged)
     
-    autoSaveSwitch.onTintColor = UIColor(red: 0.498, green: 0.09, blue: 0.203, alpha: 1)
+    autoSaveSwitch.onTintColor = UIColor(red: 0.498, green: 0.09, blue: 0.204, alpha: 1)
   }
   
   func toggleAutoSave() {
