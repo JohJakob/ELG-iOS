@@ -17,7 +17,7 @@ class WebScheduleViewController: UIViewController, UIWebViewDelegate {
   // Variables + constants
   
   var defaults: UserDefaults!
-  let grades = ["5a", "5b", "5c", "5d", "5e", "6a", "6b", "6c", "6d", "6e", "7a", "7b", "7c", "7d", "8a", "8b", "8c", "8d", "9a", "9b", "9c", "9d", "10a", "10b", "10c", "10d"]
+  let grades = ["5a", "5b", "5c", "5d", "5e", "6a", "6b", "6c", "6d", "6e", "7a", "7b", "7c", "7d", "7e", "8a", "8b", "8c", "8d", "9a", "9b", "9c", "9d", "10a", "10b", "10c", "10d"]
   var url: String!
   
   override func viewDidLoad() {

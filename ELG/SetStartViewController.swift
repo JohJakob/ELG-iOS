@@ -13,7 +13,7 @@ class SetStartViewController: UITableViewController {
   
   var defaults: UserDefaults!
   var startView = Int()
-  let views = ["Hauptmenü", "News", "Stundenplan", "Vertretungsplan", "Förderverein"]
+  let views = ["News", "Förderverein", "Stundenplan", "Vertretungsplan"]
   
   override func viewDidLoad() {
     super.viewDidLoad()
