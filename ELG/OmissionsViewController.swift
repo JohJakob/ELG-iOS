@@ -14,7 +14,7 @@ class OmissionsViewController: UITableViewController {
   @IBOutlet weak fileprivate var saveButton: UIBarButtonItem!
   
   var defaults: UserDefaults!
-  var selectedGrade = NSInteger()
+  var selectedGrade = Int()
   var rows = NSMutableArray()
   var ownOmissions = NSMutableArray()
   var offlineAvailable = Bool()

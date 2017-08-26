@@ -13,7 +13,7 @@ class TodayViewController: UITableViewController, NCWidgetProviding {
   // MARK: - Properties
   
   var defaults: UserDefaults!
-  var selectedGrade = NSInteger()
+  var selectedGrade = Int()
   var rows = NSMutableArray()
   var ownOmissions = NSMutableArray()
   var teacherMode = Bool()
