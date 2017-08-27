@@ -27,11 +27,7 @@ class TodayViewController: UITableViewController, NCWidgetProviding {
   }
   
   override func viewWillAppear(_ animated: Bool) {
-    // Initialize user defaults
-    
     defaults = UserDefaults.init(suiteName: "group.com.hardykrause.elg")
-    
-    // Prepare omissions
     
     prepare()
     
@@ -225,7 +221,7 @@ class TodayViewController: UITableViewController, NCWidgetProviding {
   // MARK: - Custom
   
   func prepare() {
-    // Retrieve variables from user defaults
+    // Retrieve variables from UserDefaults
     
     selectedGrade = defaults.integer(forKey: "grade")
     teacherMode = defaults.bool(forKey: "teacherMode")
