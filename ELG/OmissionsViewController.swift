@@ -236,7 +236,7 @@ class OmissionsViewController: UITableViewController {
   func prepare() {
     // Retrieve variables from user defaults
     
-    selectedGrade = defaults.integer(forKey: "selectedGrade")
+    selectedGrade = defaults.integer(forKey: "grade")
     offlineAvailable = defaults.bool(forKey: "offlineAvailable")
     autoSave = defaults.bool(forKey: "autoSave")
     teacherMode = defaults.bool(forKey: "teacherMode")
