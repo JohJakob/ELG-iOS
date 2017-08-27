@@ -31,26 +31,26 @@ class OmissionsViewController: UITableViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    
-    // Initialize user defaults
-		
+
 		defaults = UserDefaults.init(suiteName: "group.com.hardykrause.elg")
     
-    // Register custom table view cell
-    
     tableView.register(UINib(nibName: "OmissionsTableViewCell", bundle: nil), forCellReuseIdentifier: "OmissionsTableViewCell")
-    
-    // Set up refresh control
-    
+		
     let omissionsRefreshControl = UIRefreshControl.init()
     
     omissionsRefreshControl.addTarget(self, action: #selector(OmissionsViewController.refreshTableView), for: .valueChanged)
     
     refreshControl = omissionsRefreshControl
-    
-    // Prepare omissions
-    
-    prepare()
+
+    getUserDefaults()
+		
+		// Retrieve offline omissions if available
+		
+		if offlineAvailable {
+			getOfflineOmissions()
+		} else {
+			downloadOmissions()
+		}
   }
 	
 	override func didReceiveMemoryWarning() {
@@ -233,7 +233,7 @@ class OmissionsViewController: UITableViewController {
   
   // MARK: - Custom
   
-  func prepare() {
+  func getUserDefaults() {
     // Retrieve variables from user defaults
     
     selectedGrade = defaults.integer(forKey: "grade")
@@ -241,18 +241,14 @@ class OmissionsViewController: UITableViewController {
     autoSave = defaults.bool(forKey: "autoSave")
     teacherMode = defaults.bool(forKey: "teacherMode")
     teacherToken = defaults.string(forKey: "teacherToken")!
-    
-    // Retrieve offline omissions if available
-    
-    if offlineAvailable {
-      getOfflineOmissions()
-    } else {
-      downloadOmissions()
-    }
   }
   
   func refreshTableView() {
-    downloadOmissions()
+		// Update variables from UserDefaults
+		
+    getUserDefaults()
+		
+		downloadOmissions()
     
     tableView.reloadData()
     
