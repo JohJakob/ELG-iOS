@@ -13,7 +13,7 @@ class TodayViewController: UITableViewController, NCWidgetProviding {
   // MARK: - Properties
   
   var defaults: UserDefaults!
-  var grade = Int()
+  var selectedGrade = Int()
   var rows = NSMutableArray()
   var ownOmissions = NSMutableArray()
   var teacherMode = Bool()
@@ -227,10 +227,8 @@ class TodayViewController: UITableViewController, NCWidgetProviding {
   func prepare() {
     // Retrieve variables from user defaults
     
-    grade = defaults.integer(forKey: "grade")
+    selectedGrade = defaults.integer(forKey: "grade")
     teacherMode = defaults.bool(forKey: "teacherMode")
-		
-		print(grade)
     
     // Set teacher token when nil
     
@@ -305,8 +303,8 @@ class TodayViewController: UITableViewController, NCWidgetProviding {
             ownOmissions.add(rows[i])
           }
         } else {
-          if grade != 0 {
-            if grade.range(of: grades[grade - 1]) != nil {
+          if selectedGrade != 0 {
+            if grade.range(of: grades[selectedGrade - 1]) != nil {
               ownOmissions.add(rows[i])
             }
           }
