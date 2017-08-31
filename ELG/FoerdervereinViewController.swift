@@ -167,7 +167,7 @@ class FoerdervereinViewController: UITableViewController {
         
         // Parse feed
         
-        for feedElement in xml["rss"]["channel"]["item"] {
+        for feedElement in xml["rss"]["channel"]["item"].all {
           self.item["title"] = feedElement["title"].element?.text
           self.item["description"] = feedElement["description"].element?.text
           self.item["link"] = feedElement["link"].element?.text
