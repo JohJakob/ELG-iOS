@@ -39,7 +39,7 @@ class TabBarController: UITabBarController {
 		
 		// Delete user default from previous version
 		
-		defaults.removeObject(forKey: "launched2.0")
+		defaults.removeObject(forKey: "launched2.0.1")
 		
 		// Check for first launch
 		
