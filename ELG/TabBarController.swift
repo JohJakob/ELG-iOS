@@ -44,16 +44,9 @@ class TabBarController: UITabBarController {
 		// Check for first launch
 		
 		if defaults.bool(forKey: "launched\(String(describing: version))") != true {
-			// Reset user default for grade
+			// Update user settings after first launch
 			
-			defaults.set(defaults.integer(forKey: "selectedGrade"), forKey: "grade")
-			defaults.removeObject(forKey: "selectedGrade")
-			
-			defaults.synchronize()
-			
-			// Show release notes
-			
-			showReleaseNotes()
+			updateUserSettings()
 		}
 		
 		// Show view based on URL query
@@ -134,8 +127,16 @@ class TabBarController: UITabBarController {
 		}
 	}
 	
-	func showReleaseNotes() {
-		// Show release notes
+	func updateUserSettings() {
+		// Check existing UserDefaults for the selected start view and update the values
+		
+		if defaults.integer(forKey: "startView") == 1 {
+			defaults.set(0, forKey: "startView")
+		} else if defaults.integer(forKey: "startView") == 4 {
+			defaults.set(2, forKey: "startView")
+		}
+		
+		defaults.synchronize()
 		
 		present(onboardingViewController, animated: true, completion: nil)
 	}
