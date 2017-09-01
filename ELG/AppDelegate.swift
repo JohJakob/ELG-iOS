@@ -67,15 +67,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   }
 	
 	func application(_ application: UIApplication, handleOpen url: URL) -> Bool {
-		// Check URL query and show requested view
-
+		let defaults = UserDefaults.init(suiteName: "group.com.hardykrause.elg")
+		
 		if let tabBarController = window!.rootViewController as? UITabBarController {
 			if url.query == "page=lessons" {
 				tabBarController.selectedIndex = 1
 			} else if url.query == "page=omissions" {
 				tabBarController.selectedIndex = 2
+				
+				defaults?.removeObject(forKey: "selectedDay")
 			} else if url.query == "page=settings" {
 				tabBarController.selectedIndex = 3
+				
+				defaults?.removeObject(forKey: "selectedDay")
 			}
 		}
 		
