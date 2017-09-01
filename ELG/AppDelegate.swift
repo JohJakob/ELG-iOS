@@ -67,21 +67,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   }
 	
 	func application(_ application: UIApplication, handleOpen url: URL) -> Bool {
-		// Initialize user defaults
-		
-		let defaults = UserDefaults.init(suiteName: "group.com.hardykrause.elg")
-		
-		// Check URL query
-		
-		if url.query == "page=omissions" {
-			// Set user default
-			
-			defaults?.set("omissions", forKey: "openPage")
+		// Check URL query and show requested view
+
+		if let tabBarController = window!.rootViewController as? UITabBarController {
+			if url.query == "page=lessons" {
+				tabBarController.selectedIndex = 1
+			} else if url.query == "page=omissions" {
+				tabBarController.selectedIndex = 2
+			} else if url.query == "page=settings" {
+				tabBarController.selectedIndex = 3
+			}
 		}
-		
-		// Synchronize user defaults
-		
-		defaults?.synchronize()
 		
 		return true
 	}
