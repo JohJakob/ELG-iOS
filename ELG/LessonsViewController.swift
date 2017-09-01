@@ -45,6 +45,12 @@ class LessonsViewController: UITableViewController {
     tableView.reloadData()
   }
 	
+	override func viewWillDisappear(_ animated: Bool) {
+		super.viewWillDisappear(animated)
+		
+		defaults.removeObject(forKey: "selectedDay")
+	}
+	
 	override func didReceiveMemoryWarning() {
 		super.didReceiveMemoryWarning()
 		
