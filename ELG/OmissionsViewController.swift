@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import StoreKit
 
 class OmissionsViewController: UITableViewController {
   // MARK: - Properties
@@ -50,6 +51,14 @@ class OmissionsViewController: UITableViewController {
 			downloadOmissions()
 		}
   }
+	
+	override func viewDidAppear(_ animated: Bool) {
+		super.viewDidAppear(animated)
+		
+		if #available(iOS 10.3, *) {
+			SKStoreReviewController.requestReview()
+		}
+	}
 	
 	override func didReceiveMemoryWarning() {
 		super.didReceiveMemoryWarning()
