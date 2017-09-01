@@ -319,6 +319,12 @@
 				B972692D1DEB0292006819D3 /* AboutViewController.swift */,
 				B9DEB5681DEB102F00B700AE /* AboutWebViewController.swift */,
 				B98C637C1E193E7100B515E6 /* OnboardingViewController.swift */,
+				CF785D621F50461B00FAA90F /* FloatingView */,
+				CFA7A14B1F47475300482180 /* Action Sheet Presentation Controller */,
+				CF785D461F4FFA1100FAA90F /* OAStackView */,
+				B982C8771D5DF35600B021C9 /* OmissionsTableViewCell.swift */,
+				B9CBF57A1D60CFBB00F67682 /* TextFieldTableViewCell.swift */,
+				CF40B5331F28602900FB8ADC /* PickerTableViewCell.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -348,12 +354,6 @@
 		B9B5C4F11D1EC97C00777BD9 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				CF785D621F50461B00FAA90F /* FloatingView */,
-				CFA7A14B1F47475300482180 /* Action Sheet Presentation Controller */,
-				CF785D461F4FFA1100FAA90F /* OAStackView */,
-				B982C8771D5DF35600B021C9 /* OmissionsTableViewCell.swift */,
-				B9CBF57A1D60CFBB00F67682 /* TextFieldTableViewCell.swift */,
-				CF40B5331F28602900FB8ADC /* PickerTableViewCell.swift */,
 				B9B5C4F31D1ECB7900777BD9 /* Reachability.h */,
 				B9B5C4F41D1ECB7900777BD9 /* Reachability.m */,
 				B982C8791D5E5EB500B021C9 /* SWXMLHash.swift */,
