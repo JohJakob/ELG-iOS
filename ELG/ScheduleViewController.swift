@@ -22,12 +22,8 @@ class ScheduleViewController: UITableViewController {
 	
   override func viewDidLoad() {
     super.viewDidLoad()
-    
-    // Initialize user defaults
 		
 		defaults = UserDefaults.init(suiteName: "group.com.hardykrause.elg")
-		
-		// Set back indicator image
 		
 		navigationController?.navigationBar.backIndicatorImage = UIImage(named: "Back")
 		navigationController?.navigationBar.backIndicatorTransitionMaskImage = UIImage(named: "Back")
@@ -70,8 +66,6 @@ class ScheduleViewController: UITableViewController {
     let cell = tableView.dequeueReusableCell(withIdentifier: "ScheduleTableViewCell", for: indexPath)
     let days = ["Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag"]
     
-    // Set table view cell's text
-    
     cell.textLabel!.text = days[indexPath.row]
     
     // Use when online schedules are available again
@@ -91,12 +85,8 @@ class ScheduleViewController: UITableViewController {
   }
   
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    // Deselect table view cell
-    
     tableView.deselectRow(at: indexPath, animated: true)
-    
-    // Check selected cell and navigate to new view based on selection
-    
+		
     defaults.set(indexPath.row, forKey: "selectedDay")
     defaults.synchronize()
 
