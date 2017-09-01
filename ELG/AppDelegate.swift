@@ -12,9 +12,35 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
   var window: UIWindow?
 	
-  fileprivate func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [AnyHashable: Any]?) -> Bool {
-    // Override point for customization after application launch.
-    
+  func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
+    let defaults = UserDefaults.init(suiteName: "group.com.hardykrause.elg")
+		let startView = defaults?.integer(forKey: "startView")
+		
+		if let tabBarController = window!.rootViewController as? UITabBarController {
+			if startView == 2 {
+				// Get current weekday to show the schedule for the current day
+				
+				let gregorianCalendar = NSCalendar(calendarIdentifier: .gregorian)
+				let dateComponents = (gregorianCalendar! as NSCalendar).components(.weekday, from: Date())
+				
+				if dateComponents.weekday != 1 && dateComponents.weekday != 7 {
+					defaults?.set(dateComponents.weekday! - 2, forKey: "selectedDay")
+				} else {
+					defaults?.set(0, forKey: "selectedDay")
+				}
+				
+				defaults?.synchronize()
+				
+				// Select tab containing the start view
+				
+				tabBarController.selectedIndex = 1
+			} else if startView == 3 {
+				// Select tab containing the start view
+				
+				tabBarController.selectedIndex = 2
+			}
+		}
+		
     return true
   }
   
