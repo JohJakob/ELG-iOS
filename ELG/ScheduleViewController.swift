@@ -30,6 +30,14 @@ class ScheduleViewController: UITableViewController {
 		navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
   }
 	
+	override func viewDidAppear(_ animated: Bool) {
+		super.viewDidAppear(animated)
+		
+		if defaults.object(forKey: "selectedDay") != nil {
+			navigationController?.show(lessonsViewController, sender: self)
+		}
+	}
+	
 	override func didReceiveMemoryWarning() {
 		super.didReceiveMemoryWarning()
 		
