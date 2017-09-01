@@ -8,6 +8,7 @@
 
 import UIKit
 import MessageUI
+import StoreKit
 
 class AboutViewController: UITableViewController, MFMailComposeViewControllerDelegate {
   // MARK: - Properties
@@ -29,6 +30,10 @@ class AboutViewController: UITableViewController, MFMailComposeViewControllerDel
 		navigationController?.navigationBar.backIndicatorImage = UIImage(named: "Back")
 		navigationController?.navigationBar.backIndicatorTransitionMaskImage = UIImage(named: "Back")
 		navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+		
+		if #available(iOS 10.3, *) {
+			SKStoreReviewController.requestReview()
+		}
   }
 	
 	override func didReceiveMemoryWarning() {
