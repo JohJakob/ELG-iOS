@@ -28,23 +28,11 @@ class TabBarController: UITabBarController {
 	override func viewDidAppear(_ animated: Bool) {
 		super.viewDidAppear(animated)
 		
-		// Delete user default from previous version
-		
 		defaults.removeObject(forKey: "launched2.0.1")
 		
-		// Check for first launch
-		
 		if defaults.bool(forKey: "launched\(String(describing: version))") != true {
-			// Update user settings after first launch
-			
 			updateUserSettings()
 		}
-		
-		// Show view based on URL query
-		
-		
-		
-		// Remove temporary user defaults
 	}
 	
 	override func didReceiveMemoryWarning() {
@@ -60,8 +48,6 @@ class TabBarController: UITabBarController {
 		navigationController?.navigationBar.backIndicatorTransitionMaskImage = UIImage(named: "Back")
 		navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
 		
-		// Set empty teacher token in UserDefaults if it is nil
-		
 		if defaults.string(forKey: "teacherToken") == nil {
 			defaults.set("", forKey: "teacherToken")
 		}
@@ -70,8 +56,6 @@ class TabBarController: UITabBarController {
 	}
 	
 	func updateUserSettings() {
-		// Check existing UserDefaults for the selected start view and update the values
-		
 		if defaults.integer(forKey: "startView") == 1 {
 			defaults.set(0, forKey: "startView")
 		} else if defaults.integer(forKey: "startView") == 4 {
