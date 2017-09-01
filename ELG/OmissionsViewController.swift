@@ -234,7 +234,7 @@ class OmissionsViewController: UITableViewController {
   // MARK: - Custom
   
   func getUserDefaults() {
-    // Retrieve variables from user defaults
+    // Get variables from UserDefaults
     
     selectedGrade = defaults.integer(forKey: "grade")
     offlineAvailable = defaults.bool(forKey: "offlineAvailable")
