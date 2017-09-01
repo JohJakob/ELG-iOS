@@ -48,6 +48,8 @@ class TabBarController: UITabBarController {
 		navigationController?.navigationBar.backIndicatorTransitionMaskImage = UIImage(named: "Back")
 		navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
 		
+		tabBar.tintColor = UIColor(red: 0.498, green: 0.09, blue: 0.204, alpha: 1)
+		
 		if defaults.string(forKey: "teacherToken") == nil {
 			defaults.set("", forKey: "teacherToken")
 		}
