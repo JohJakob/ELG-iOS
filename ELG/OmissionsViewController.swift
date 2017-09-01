@@ -325,7 +325,7 @@ class OmissionsViewController: UITableViewController {
           }
         } else {
           if selectedGrade != 0 {
-            if grade.range(of: grades[selectedGrade - 1]) != nil {
+            if grade.range(of: grades[selectedGrade]) != nil {
               ownOmissions.add(rows[i])
             }
           }
