@@ -31,14 +31,10 @@ class TodayViewController: UITableViewController, NCWidgetProviding {
     
     prepare()
     
-    // Set preferred widget size
-    
     if ownOmissions.count == 0 {
       preferredContentSize = CGSize(width: preferredContentSize.width, height: 44)
     } else {
       preferredContentSize = CGSize(width: preferredContentSize.width, height: CGFloat(ownOmissions.count) * 44)
-			
-			// Set widget's largest available display mode on iOS 10
 			
 			if #available(iOSApplicationExtension 10.0, *) {
 				extensionContext?.widgetLargestAvailableDisplayMode = .expanded
@@ -71,8 +67,6 @@ class TodayViewController: UITableViewController, NCWidgetProviding {
 	@available(iOSApplicationExtension 10.0, *)
 	
 	func widgetActiveDisplayModeDidChange(_ activeDisplayMode: NCWidgetDisplayMode, withMaximumSize maxSize: CGSize) {
-		// Set widget's size on iOS 10
-		
 		preferredContentSize = (activeDisplayMode == .expanded) ? CGSize(width: preferredContentSize.width, height: CGFloat(ownOmissions.count) * 44) : CGSize(width: preferredContentSize.width, height: 110)
 	}
   
@@ -87,8 +81,6 @@ class TodayViewController: UITableViewController, NCWidgetProviding {
       numberOfSections = 1
     } else {
       numberOfSections = 0
-      
-      // Display label instead of table view
       
       let noConnectionLabel = UILabel.init()
       noConnectionLabel.text = "Keine Internetverbindung"
@@ -114,13 +106,9 @@ class TodayViewController: UITableViewController, NCWidgetProviding {
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "OmissionsWidgetTableViewCell", for: indexPath)
     
-    // Prepare omissions
-    
     var omissionComponents: [String]
     
     omissionComponents = (ownOmissions[indexPath.row] as AnyObject).components(separatedBy: "\",\"")
-    
-    // Create omission components
     
     let lesson = omissionComponents[1]
     let teacher = omissionComponents[2]
@@ -128,8 +116,6 @@ class TodayViewController: UITableViewController, NCWidgetProviding {
     let room = omissionComponents[4]
     let text = omissionComponents[5]
     let comment = omissionComponents[6].replacingOccurrences(of: "\"", with: "")
-    
-    // Set cell's text
     
     if subject == "" && teacher == "" {
       cell.textLabel!.text = lesson + ". Stunde"
@@ -150,14 +136,10 @@ class TodayViewController: UITableViewController, NCWidgetProviding {
 		} else {
 			cell.detailTextLabel!.text = "Raum " + room + "   " + text + "   " + comment
 		}
-			
-    // Remove unnecessary whitespaces
     
     cell.textLabel!.text = cell.textLabel!.text?.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
     
     cell.detailTextLabel!.text = cell.detailTextLabel!.text?.replacingOccurrences(of: "      ", with: "   ")
-		
-		// Set cell's text color on iOS 10
 		
 		if #available(iOSApplicationExtension 10.0, *) {
 			cell.textLabel?.textColor = UIColor.black
@@ -167,18 +149,10 @@ class TodayViewController: UITableViewController, NCWidgetProviding {
 			cell.detailTextLabel?.highlightedTextColor = UIColor.black
 		}
     
-    // Disbale user interaction on iPad
-    
-    if UI_USER_INTERFACE_IDIOM() == .pad {
-      cell.isUserInteractionEnabled = false
-    }
-    
     return cell
   }
 	
 	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-		// Open omissions in app
-		
 		extensionContext?.open(URL.init(string: "elg://?page=omissions")!, completionHandler: nil)
 	}
 	
@@ -221,13 +195,9 @@ class TodayViewController: UITableViewController, NCWidgetProviding {
   // MARK: - Custom
   
   func prepare() {
-    // Retrieve variables from UserDefaults
-    
     selectedGrade = defaults.integer(forKey: "grade")
     teacherMode = defaults.bool(forKey: "teacherMode")
-    
-    // Set teacher token when nil
-    
+		
     if defaults.string(forKey: "teacherToken") == nil {
       defaults.set("", forKey: "teacherToken")
     }
@@ -236,23 +206,15 @@ class TodayViewController: UITableViewController, NCWidgetProviding {
     
     teacherToken = defaults.string(forKey: "teacherToken")!
     
-    // Download omissions
-    
     downloadOmissions()
-		
-		// Reload table view
 		
 		tableView.reloadData()
   }
   
   func downloadOmissions() {
-    // Check internet reachability
-    
     let reachabilityStatus: NetworkStatus = Reachability.forInternetConnection().currentReachabilityStatus()
     
     if reachabilityStatus != NotReachable {
-      // Download CSV file
-      
       var rawOmissions = String()
       
       do {
@@ -261,38 +223,24 @@ class TodayViewController: UITableViewController, NCWidgetProviding {
         print(error)
       }
       
-      // Convert raw data into array
-      
       let cleanedOmissions = rawOmissions.replacingOccurrences(of: "\r", with: "")
       
       rows = NSMutableArray.init(array: cleanedOmissions.components(separatedBy: "\n"))
       
-      // Reset own omissions
-      
       ownOmissions = NSMutableArray()
       
-      // Process array
-      
       for i in 1 ..< rows.count - 1 {
-        // Remove lunch break
-        
         if (rows[i] as AnyObject).range(of: "MIPa").location != NSNotFound {
           rows.removeObject(at: i)
         }
-        
-        // Prepare getting own omissions
         
         let omissionComponents = (rows[i] as AnyObject).components(separatedBy: "\",\"")
         let grade = omissionComponents[0].replacingOccurrences(of: "\"", with: "")
         var teacher = String()
         
-        // Get teacher of omission
-        
         if omissionComponents.count >= 3 {
           teacher = omissionComponents[2]
         }
-        
-        // Check teacher mode or selected grade to get own omissions
         
         if teacherMode {
           if teacher == teacherToken && teacher != "" {
@@ -300,7 +248,7 @@ class TodayViewController: UITableViewController, NCWidgetProviding {
           }
         } else {
           if selectedGrade != 0 {
-            if grade.range(of: grades[selectedGrade - 1]) != nil {
+            if grade.range(of: grades[selectedGrade]) != nil {
               ownOmissions.add(rows[i])
             }
           }
