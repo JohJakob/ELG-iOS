@@ -18,8 +18,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		
 		if let tabBarController = window!.rootViewController as? UITabBarController {
 			if startView == 2 {
-				// Get current weekday to show the schedule for the current day
-				
 				let gregorianCalendar = NSCalendar(calendarIdentifier: .gregorian)
 				let dateComponents = (gregorianCalendar! as NSCalendar).components(.weekday, from: Date())
 				
@@ -31,12 +29,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 				
 				defaults?.synchronize()
 				
-				// Select tab containing the start view
-				
 				tabBarController.selectedIndex = 1
 			} else if startView == 3 {
-				// Select tab containing the start view
-				
 				tabBarController.selectedIndex = 2
 			}
 		}
