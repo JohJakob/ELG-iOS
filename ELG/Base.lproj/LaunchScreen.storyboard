@@ -13,6 +13,7 @@
         <scene sceneID="xEJ-0t-QBb">
             <objects>
                 <navigationController title="Launch Screen Navigation" id="7z9-Xj-9dn" sceneMemberID="viewController">
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="fFS-wX-j2n">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
