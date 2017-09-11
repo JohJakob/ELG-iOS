@@ -27,8 +27,8 @@ class AboutViewController: UITableViewController, MFMailComposeViewControllerDel
 		
 		// Set back indicator image
 		
-		navigationController?.navigationBar.backIndicatorImage = UIImage(named: "Back")
-		navigationController?.navigationBar.backIndicatorTransitionMaskImage = UIImage(named: "Back")
+		navigationController?.navigationBar.backIndicatorImage = UIImage(named: "BackIndicator")
+		navigationController?.navigationBar.backIndicatorTransitionMaskImage = UIImage(named: "BackIndicator")
 		navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
 		
 		if #available(iOS 10.3, *) {

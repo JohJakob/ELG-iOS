@@ -28,8 +28,8 @@ class LessonsViewController: UITableViewController {
 		
 		defaults = UserDefaults.init(suiteName: "group.com.hardykrause.elg")
 		
-		navigationController?.navigationBar.backIndicatorImage = UIImage(named: "Back")
-		navigationController?.navigationBar.backIndicatorTransitionMaskImage = UIImage(named: "Back")
+		navigationController?.navigationBar.backIndicatorImage = UIImage(named: "BackIndicator")
+		navigationController?.navigationBar.backIndicatorTransitionMaskImage = UIImage(named: "BackIndicator")
 		navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
   }
 	

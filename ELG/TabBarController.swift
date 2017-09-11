@@ -44,8 +44,8 @@ class TabBarController: UITabBarController {
 	// MARK: - Custom
 	
 	func setUp() {
-		navigationController?.navigationBar.backIndicatorImage = UIImage(named: "Back")
-		navigationController?.navigationBar.backIndicatorTransitionMaskImage = UIImage(named: "Back")
+		navigationController?.navigationBar.backIndicatorImage = UIImage(named: "BackIndicator")
+		navigationController?.navigationBar.backIndicatorTransitionMaskImage = UIImage(named: "BackIndicator")
 		navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
 		
 		tabBar.tintColor = UIColor(red: 0.498, green: 0.09, blue: 0.204, alpha: 1)

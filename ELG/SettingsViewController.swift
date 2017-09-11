@@ -41,8 +41,8 @@ class SettingsViewController: UITableViewController, UIPickerViewDelegate, UIPic
 		
 		// Set back indicator image
 		
-		navigationController?.navigationBar.backIndicatorImage = UIImage(named: "Back")
-		navigationController?.navigationBar.backIndicatorTransitionMaskImage = UIImage(named: "Back")
+		navigationController?.navigationBar.backIndicatorImage = UIImage(named: "BackIndicator")
+		navigationController?.navigationBar.backIndicatorTransitionMaskImage = UIImage(named: "BackIndicator")
 		navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
 		
 		// Retrieve user defaults
