@@ -44,10 +44,6 @@ class TabBarController: UITabBarController {
 	// MARK: - Custom
 	
 	func setUp() {
-		navigationController?.navigationBar.backIndicatorImage = UIImage(named: "BackIndicator")
-		navigationController?.navigationBar.backIndicatorTransitionMaskImage = UIImage(named: "BackIndicator")
-		navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-		
 		if defaults.string(forKey: "teacherToken") == nil {
 			defaults.set("", forKey: "teacherToken")
 		}

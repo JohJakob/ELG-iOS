@@ -47,12 +47,6 @@ class OnboardingViewController: UITableViewController {
     // Set navigation bar title
     
     navigationItem.title = "ELG " + version!
-		
-		// Set back indicator image
-		
-		navigationController?.navigationBar.backIndicatorImage = UIImage(named: "BackIndicator")
-		navigationController?.navigationBar.backIndicatorTransitionMaskImage = UIImage(named: "BackIndicator")
-		navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
   }
 	
   // MARK: - UITableView

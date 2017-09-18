@@ -39,12 +39,6 @@ class SettingsViewController: UITableViewController, UIPickerViewDelegate, UIPic
 		
 		defaults = UserDefaults.init(suiteName: "group.com.hardykrause.elg")
 		
-		// Set back indicator image
-		
-		navigationController?.navigationBar.backIndicatorImage = UIImage(named: "BackIndicator")
-		navigationController?.navigationBar.backIndicatorTransitionMaskImage = UIImage(named: "BackIndicator")
-		navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-		
 		// Retrieve user defaults
 		
 		retrieveUserDefaults()

@@ -21,12 +21,6 @@ class EditScheduleViewController: UITableViewController {
     // Initialize user defaults
 		
 		defaults = UserDefaults.init(suiteName: "group.com.hardykrause.elg")
-		
-		// Set back indicator image
-		
-		navigationController?.navigationBar.backIndicatorImage = UIImage(named: "Back")
-		navigationController?.navigationBar.backIndicatorTransitionMaskImage = UIImage(named: "Back")
-		navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
   }
 	
 	override func didReceiveMemoryWarning() {

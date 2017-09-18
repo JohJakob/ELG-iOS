@@ -25,12 +25,6 @@ class AboutViewController: UITableViewController, MFMailComposeViewControllerDel
 		
 		defaults = UserDefaults.init(suiteName: "group.com.hardykrause.elg")
 		
-		// Set back indicator image
-		
-		navigationController?.navigationBar.backIndicatorImage = UIImage(named: "BackIndicator")
-		navigationController?.navigationBar.backIndicatorTransitionMaskImage = UIImage(named: "BackIndicator")
-		navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-		
 		if #available(iOS 10.3, *) {
 			SKStoreReviewController.requestReview()
 		}

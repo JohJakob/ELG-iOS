@@ -232,7 +232,7 @@
         <!--Omissions Navigation-->
         <scene sceneID="1sh-LI-qC3">
             <objects>
-                <navigationController storyboardIdentifier="OmissionsNavigationController" title="Omissions Navigation" id="2Mo-yt-jcI" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="OmissionsNavigationController" title="Omissions Navigation" id="2Mo-yt-jcI" customClass="GenericNavigationController" customModule="ELG" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Vertretungsplan" image="Omissions" id="I3q-3b-l3h"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="JXS-Ql-7cS">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -348,7 +348,7 @@
         <!--Onboarding Navigation-->
         <scene sceneID="9Bs-2S-77k">
             <objects>
-                <navigationController storyboardIdentifier="OnboardingNavigationController" title="Onboarding Navigation" id="xIL-1I-upZ" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="OnboardingNavigationController" title="Onboarding Navigation" id="xIL-1I-upZ" customClass="GenericNavigationController" customModule="ELG" customModuleProvider="target" sceneMemberID="viewController">
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="moK-3a-nc3">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -473,7 +473,7 @@
         <!--Settings Navigation-->
         <scene sceneID="pOi-WW-uyG">
             <objects>
-                <navigationController title="Settings Navigation" id="k8e-XL-xcH" sceneMemberID="viewController">
+                <navigationController title="Settings Navigation" id="k8e-XL-xcH" customClass="GenericNavigationController" customModule="ELG" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Einstellungen" image="Settings" id="fOj-Aq-vMy"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="G8Z-OU-NjX">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -490,7 +490,7 @@
         <!--News Navigation-->
         <scene sceneID="4nI-Y8-CVT">
             <objects>
-                <navigationController storyboardIdentifier="NewsNavigationController" title="News Navigation" id="nES-sr-tO5" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="NewsNavigationController" title="News Navigation" id="nES-sr-tO5" customClass="GenericNavigationController" customModule="ELG" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="News" image="News" id="zIw-K3-f1P"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="D4g-Ti-s7k">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -805,9 +805,9 @@
         <!--Schedule Navigation-->
         <scene sceneID="F2E-dq-tmf">
             <objects>
-                <navigationController storyboardIdentifier="ScheduleNavigationController" title="Schedule Navigation" id="Xvc-7q-NVL" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="ScheduleNavigationController" title="Schedule Navigation" id="Xvc-7q-NVL" customClass="GenericNavigationController" customModule="ELG" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Stundenplan" image="Schedule" id="vRu-Jz-hEM"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="XCL-58-GUc">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="XCL-58-GUc">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -843,13 +843,13 @@
     </scenes>
     <resources>
         <image name="Back" width="22" height="22"/>
-        <image name="Download" width="21" height="21"/>
+        <image name="Download" width="25" height="25"/>
         <image name="Forward" width="22" height="22"/>
-        <image name="News" width="60" height="60"/>
-        <image name="Omissions" width="60" height="60"/>
+        <image name="News" width="30" height="30"/>
+        <image name="Omissions" width="30" height="30"/>
         <image name="OnePassword" width="23" height="23"/>
-        <image name="Schedule" width="60" height="60"/>
-        <image name="Settings" width="60" height="60"/>
+        <image name="Schedule" width="30" height="30"/>
+        <image name="Settings" width="30" height="30"/>
     </resources>
     <color key="tintColor" red="0.49803921568627452" green="0.090196078431372548" blue="0.20392156862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
