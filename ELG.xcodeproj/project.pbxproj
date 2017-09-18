@@ -49,6 +49,7 @@
 		B9F73BFA1DEDFE77004F3470 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9F73BF91DEDFE77004F3470 /* MessageUI.framework */; };
 		B9F73BFC1DEE01F9004F3470 /* ReleaseNotes.html in Resources */ = {isa = PBXBuildFile; fileRef = B9F73BFB1DEE01F9004F3470 /* ReleaseNotes.html */; };
 		B9FB652D1DF5FEB3009B7D13 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9FB652C1DF5FEB3009B7D13 /* DetailViewController.swift */; };
+		CF22A0901F6FD6E700B0ECC4 /* GenericNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF22A08F1F6FD6E700B0ECC4 /* GenericNavigationController.swift */; };
 		CF2A0EF91F4EA42000C5105A /* ActionSheetPresentationControllerSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF2A0EF81F4EA42000C5105A /* ActionSheetPresentationControllerSectionView.swift */; };
 		CF2A0EFB1F4EA52F00C5105A /* ActionSheetPresentationControllerPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF2A0EFA1F4EA52F00C5105A /* ActionSheetPresentationControllerPickerViewController.swift */; };
 		CF40B5321F285D4700FB8ADC /* PickerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF40B5311F285D4700FB8ADC /* PickerTableViewCell.xib */; };
@@ -147,6 +148,7 @@
 		B9F73BF91DEDFE77004F3470 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		B9F73BFB1DEE01F9004F3470 /* ReleaseNotes.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = ReleaseNotes.html; sourceTree = "<group>"; };
 		B9FB652C1DF5FEB3009B7D13 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		CF22A08F1F6FD6E700B0ECC4 /* GenericNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenericNavigationController.swift; sourceTree = "<group>"; };
 		CF2A0EF81F4EA42000C5105A /* ActionSheetPresentationControllerSectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionSheetPresentationControllerSectionView.swift; sourceTree = "<group>"; };
 		CF2A0EFA1F4EA52F00C5105A /* ActionSheetPresentationControllerPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionSheetPresentationControllerPickerViewController.swift; sourceTree = "<group>"; };
 		CF40B5311F285D4700FB8ADC /* PickerTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PickerTableViewCell.xib; sourceTree = "<group>"; };
@@ -321,6 +323,7 @@
 				B972692D1DEB0292006819D3 /* AboutViewController.swift */,
 				B9DEB5681DEB102F00B700AE /* AboutWebViewController.swift */,
 				B98C637C1E193E7100B515E6 /* OnboardingViewController.swift */,
+				CF22A08F1F6FD6E700B0ECC4 /* GenericNavigationController.swift */,
 				CF785D621F50461B00FAA90F /* FloatingView */,
 				CFA7A14B1F47475300482180 /* Action Sheet Presentation Controller */,
 				CF785D461F4FFA1100FAA90F /* OAStackView */,
@@ -559,6 +562,7 @@
 				B960D7851D37F68F00BCA477 /* SubjectsViewController.swift in Sources */,
 				CF785D591F4FFA3B00FAA90F /* _OALayoutGuide.m in Sources */,
 				B960D7811D35464E00BCA477 /* EditScheduleViewController.swift in Sources */,
+				CF22A0901F6FD6E700B0ECC4 /* GenericNavigationController.swift in Sources */,
 				CF785D5E1F4FFA3B00FAA90F /* OAStackViewAlignmentStrategy.m in Sources */,
 				B9CBF5771D609DD900F67682 /* LoginViewController.swift in Sources */,
 				CF785D601F4FFA3B00FAA90F /* OAStackViewDistributionStrategy.m in Sources */,
