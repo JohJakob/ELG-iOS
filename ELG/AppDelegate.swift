@@ -33,6 +33,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 			} else if startView == 3 {
 				tabBarController.selectedIndex = 2
 			}
+			
+			tabBarController.tabBar.tintColor = UIColor(red: 0.498, green: 0.09, blue: 0.204, alpha: 1)
 		}
 		
     return true
