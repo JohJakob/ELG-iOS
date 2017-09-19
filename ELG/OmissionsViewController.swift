@@ -311,9 +311,6 @@ class OmissionsViewController: UITableViewController {
       }
     } else {
       saveButton.isEnabled = false
-			
-      let noConnectionAlert = UIAlertView(title: "Keine Internetverbindung", message: "Es besteht keine Verbindung zum Internet. Bitte überprüfe Deine Einstellungen.", delegate: self, cancelButtonTitle: "OK")
-      noConnectionAlert.show()
       
       tableView.backgroundColor = UIColor.groupTableViewBackground
       tableView.separatorStyle = .none

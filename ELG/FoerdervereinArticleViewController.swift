@@ -111,11 +111,6 @@ class FoerdervereinArticleViewController: UIViewController, UIWebViewDelegate {
       // Load message website
       
       articleWebView.loadRequest(URLRequest(url: Bundle.main.url(forResource: "NoConnection", withExtension: ".html")!))
-      
-      // Show alert
-      
-      let noConnectionAlert = UIAlertView(title: "Keine Internetverbindung", message: "Es besteht keine Verbindung zum Internet. Bitte überprüfe Deine Einstellungen.", delegate: self, cancelButtonTitle: "OK")
-      noConnectionAlert.show()
     }
   }
 }
