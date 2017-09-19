@@ -83,9 +83,9 @@ class TodayViewController: UITableViewController, NCWidgetProviding {
       numberOfSections = 0
       
       let noConnectionLabel = UILabel.init()
-      noConnectionLabel.text = "Keine Internetverbindung"
+      noConnectionLabel.text = "Keine Verbindung"
       noConnectionLabel.textColor = UIColor.lightText
-      noConnectionLabel.font = UIFont.systemFont(ofSize: 16)
+      noConnectionLabel.font = UIFont.boldSystemFont(ofSize: 16)
       noConnectionLabel.textAlignment = .center
 			
 			if #available(iOSApplicationExtension 10, *) {
@@ -148,6 +148,8 @@ class TodayViewController: UITableViewController, NCWidgetProviding {
 			cell.textLabel?.highlightedTextColor = UIColor.black
 			cell.detailTextLabel?.highlightedTextColor = UIColor.black
 		}
+		
+		cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 18)
     
     return cell
   }
