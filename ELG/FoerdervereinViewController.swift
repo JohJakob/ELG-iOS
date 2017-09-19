@@ -190,11 +190,6 @@ class FoerdervereinViewController: UITableViewController {
       
       tableView.reloadData()
       
-      // Show alert
-      
-      let noConnectionAlert = UIAlertView(title: "Keine Internetverbindung", message: "Es besteht keine Verbindung zum Internet. Bitte überprüfe Deine Einstellungen.", delegate: self, cancelButtonTitle: "OK")
-      noConnectionAlert.show()
-      
       // Display label instead of table view
       
       let noConnectionLabel = UILabel.init()
