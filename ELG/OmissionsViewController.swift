@@ -70,9 +70,9 @@ class OmissionsViewController: UITableViewController {
       numberOfSections = 0
 			
       let noConnectionLabel = UILabel.init()
-      noConnectionLabel.text = "Keine Internetverbindung"
+      noConnectionLabel.text = "Keine Verbindung"
       noConnectionLabel.textColor = UIColor.lightGray
-      noConnectionLabel.font = UIFont.systemFont(ofSize: 16)
+      noConnectionLabel.font = UIFont.boldSystemFont(ofSize: 18)
       noConnectionLabel.textAlignment = .center
       
       tableView.backgroundColor = UIColor.groupTableViewBackground
@@ -177,7 +177,7 @@ class OmissionsViewController: UITableViewController {
     let footerLabel = UILabel()
     
     footerLabel.textColor = UIColor.lightGray
-    footerLabel.font = UIFont.systemFont(ofSize: 16)
+    footerLabel.font = UIFont.boldSystemFont(ofSize: 18)
     footerLabel.textAlignment = .center
     
     if section == 0 {
