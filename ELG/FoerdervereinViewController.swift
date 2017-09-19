@@ -47,12 +47,10 @@ class FoerdervereinViewController: UITableViewController {
     if reachabilityStatus != NotReachable {
       initParser()
     } else {
-      // Display label instead of table view
-      
       let noConnectionLabel = UILabel.init()
-      noConnectionLabel.text = "Keine Internetverbindung"
+      noConnectionLabel.text = "Keine Verbindung"
       noConnectionLabel.textColor = UIColor.lightGray
-      noConnectionLabel.font = UIFont.systemFont(ofSize: 16)
+      noConnectionLabel.font = UIFont.boldSystemFont(ofSize: 18)
       noConnectionLabel.textAlignment = .center
       
       // Change table view appearance
