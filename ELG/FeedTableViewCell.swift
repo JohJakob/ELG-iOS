@@ -20,26 +20,26 @@ class FeedTableViewCell: UITableViewCell {
 	}()
 	
 	public var articleHeadingLabel: UILabel = {
-		let view = UILabel()
+		let label = UILabel()
 		
-		view.font = UIFont.boldSystemFont(ofSize: 18)
-		view.numberOfLines = 0
+		label.font = UIFont.boldSystemFont(ofSize: 18)
+		label.numberOfLines = 0
 		
-		view.translatesAutoresizingMaskIntoConstraints = false
+		label.translatesAutoresizingMaskIntoConstraints = false
 		
-		return view
+		return label
 	}()
 	
 	public var articleDateLabel: UILabel = {
-		let view = UILabel()
+		let label = UILabel()
 		
-		view.textColor = UIColor.lightGray
-		view.font = UIFont.systemFont(ofSize: 14)
-		view.numberOfLines = 1
+		label.textColor = UIColor.lightGray
+		label.font = UIFont.systemFont(ofSize: 14)
+		label.numberOfLines = 1
 		
-		view.translatesAutoresizingMaskIntoConstraints = false
+		label.translatesAutoresizingMaskIntoConstraints = false
 		
-		return view
+		return label
 	}()
 	
 	private var visualEffectView: UIVisualEffectView = {
@@ -95,8 +95,6 @@ class FeedTableViewCell: UITableViewCell {
 	
 	override func setSelected(_ selected: Bool, animated: Bool) {
 		super.setSelected(selected, animated: animated)
-		
-		// Configure the view for the selected state
 	}
 	
 	// MARK: - Private
