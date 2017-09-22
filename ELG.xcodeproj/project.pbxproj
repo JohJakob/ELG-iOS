@@ -49,6 +49,7 @@
 		B9F73BFA1DEDFE77004F3470 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9F73BF91DEDFE77004F3470 /* MessageUI.framework */; };
 		B9F73BFC1DEE01F9004F3470 /* ReleaseNotes.html in Resources */ = {isa = PBXBuildFile; fileRef = B9F73BFB1DEE01F9004F3470 /* ReleaseNotes.html */; };
 		B9FB652D1DF5FEB3009B7D13 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9FB652C1DF5FEB3009B7D13 /* DetailViewController.swift */; };
+		CF1DD7DA1F753972006AA41B /* SimpleFeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1DD7D91F753972006AA41B /* SimpleFeedTableViewCell.swift */; };
 		CF22A0901F6FD6E700B0ECC4 /* GenericNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF22A08F1F6FD6E700B0ECC4 /* GenericNavigationController.swift */; };
 		CF2A0EF91F4EA42000C5105A /* ActionSheetPresentationControllerSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF2A0EF81F4EA42000C5105A /* ActionSheetPresentationControllerSectionView.swift */; };
 		CF2A0EFB1F4EA52F00C5105A /* ActionSheetPresentationControllerPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF2A0EFA1F4EA52F00C5105A /* ActionSheetPresentationControllerPickerViewController.swift */; };
@@ -148,6 +149,7 @@
 		B9F73BF91DEDFE77004F3470 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		B9F73BFB1DEE01F9004F3470 /* ReleaseNotes.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = ReleaseNotes.html; sourceTree = "<group>"; };
 		B9FB652C1DF5FEB3009B7D13 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		CF1DD7D91F753972006AA41B /* SimpleFeedTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleFeedTableViewCell.swift; sourceTree = "<group>"; };
 		CF22A08F1F6FD6E700B0ECC4 /* GenericNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenericNavigationController.swift; sourceTree = "<group>"; };
 		CF2A0EF81F4EA42000C5105A /* ActionSheetPresentationControllerSectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionSheetPresentationControllerSectionView.swift; sourceTree = "<group>"; };
 		CF2A0EFA1F4EA52F00C5105A /* ActionSheetPresentationControllerPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionSheetPresentationControllerPickerViewController.swift; sourceTree = "<group>"; };
@@ -330,6 +332,7 @@
 				B9CBF57A1D60CFBB00F67682 /* TextFieldTableViewCell.swift */,
 				CF40B5331F28602900FB8ADC /* PickerTableViewCell.swift */,
 				CF63C0021F6059F900A67315 /* FeedTableViewCell.swift */,
+				CF1DD7D91F753972006AA41B /* SimpleFeedTableViewCell.swift */,
 				CF46BECD1F70FA1D00ABEA66 /* NoConnectionView.swift */,
 			);
 			name = "View Controllers";
@@ -558,6 +561,7 @@
 				B95732F31D5F04E800A758AC /* FoerdervereinViewController.swift in Sources */,
 				CF2A0EFB1F4EA52F00C5105A /* ActionSheetPresentationControllerPickerViewController.swift in Sources */,
 				CF785D5C1F4FFA3B00FAA90F /* OAStackView+Hiding.m in Sources */,
+				CF1DD7DA1F753972006AA41B /* SimpleFeedTableViewCell.swift in Sources */,
 				B960D7851D37F68F00BCA477 /* SubjectsViewController.swift in Sources */,
 				CF785D591F4FFA3B00FAA90F /* _OALayoutGuide.m in Sources */,
 				B960D7811D35464E00BCA477 /* EditScheduleViewController.swift in Sources */,
