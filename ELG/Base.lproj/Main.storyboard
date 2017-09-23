@@ -87,37 +87,18 @@
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <dataDetectorType key="dataDetectorTypes" link="YES"/>
                             </webView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1v3-fV-ap7">
-                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
-                                <items>
-                                    <barButtonItem enabled="NO" image="Back" id="9xf-v2-GNk">
-                                        <connections>
-                                            <action selector="goBack" destination="4T6-hF-fUr" id="mQ4-pJ-c3j"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="UUF-62-ngY"/>
-                                    <barButtonItem enabled="NO" image="Forward" id="09S-bT-Mhs">
-                                        <connections>
-                                            <action selector="goForward" destination="4T6-hF-fUr" id="9nN-5P-KeW"/>
-                                        </connections>
-                                    </barButtonItem>
-                                </items>
-                            </toolbar>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="FO4-vu-31j">
                                 <rect key="frame" x="177" y="323" width="20" height="20"/>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="4T6-hF-fUr" firstAttribute="leading" secondItem="1v3-fV-ap7" secondAttribute="leading" id="3Ec-cb-52e"/>
-                            <constraint firstItem="4T6-hF-fUr" firstAttribute="centerY" secondItem="FO4-vu-31j" secondAttribute="centerY" id="95o-rb-BZP"/>
-                            <constraint firstItem="4T6-hF-fUr" firstAttribute="bottom" secondItem="gwD-1K-YOZ" secondAttribute="top" id="CTz-Xn-cYW"/>
-                            <constraint firstItem="4T6-hF-fUr" firstAttribute="leading" secondItem="NPY-Hw-xzZ" secondAttribute="leading" id="O2A-8u-FhT"/>
-                            <constraint firstItem="1v3-fV-ap7" firstAttribute="bottom" secondItem="gwD-1K-YOZ" secondAttribute="top" id="UtE-Jw-vao"/>
-                            <constraint firstItem="FO4-vu-31j" firstAttribute="centerX" secondItem="1v3-fV-ap7" secondAttribute="centerX" id="Wfh-rS-Tbq"/>
-                            <constraint firstAttribute="trailing" secondItem="4T6-hF-fUr" secondAttribute="trailing" id="YC4-sa-fVH"/>
-                            <constraint firstItem="4T6-hF-fUr" firstAttribute="top" secondItem="NPY-Hw-xzZ" secondAttribute="top" id="jte-ya-oh4"/>
-                            <constraint firstItem="4T6-hF-fUr" firstAttribute="trailing" secondItem="1v3-fV-ap7" secondAttribute="trailing" id="ugJ-BL-ub3"/>
+                            <constraint firstItem="4T6-hF-fUr" firstAttribute="centerY" secondItem="FO4-vu-31j" secondAttribute="centerY" id="5B6-45-CXb"/>
+                            <constraint firstItem="4T6-hF-fUr" firstAttribute="top" secondItem="NPY-Hw-xzZ" secondAttribute="top" id="ENj-5g-4Yx"/>
+                            <constraint firstAttribute="trailing" secondItem="4T6-hF-fUr" secondAttribute="trailing" id="cs4-rs-MCQ"/>
+                            <constraint firstItem="4T6-hF-fUr" firstAttribute="centerX" secondItem="FO4-vu-31j" secondAttribute="centerX" id="dyW-6R-RK5"/>
+                            <constraint firstItem="4T6-hF-fUr" firstAttribute="bottom" secondItem="gwD-1K-YOZ" secondAttribute="top" id="kfx-cP-OcD"/>
+                            <constraint firstItem="4T6-hF-fUr" firstAttribute="leading" secondItem="NPY-Hw-xzZ" secondAttribute="leading" id="q4e-lj-4V7"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
@@ -126,8 +107,6 @@
                     <connections>
                         <outlet property="activityIndicator" destination="FO4-vu-31j" id="j50-Dw-2OY"/>
                         <outlet property="articleWebView" destination="4T6-hF-fUr" id="DAi-8J-Lbb"/>
-                        <outlet property="backButton" destination="9xf-v2-GNk" id="yha-h3-RmV"/>
-                        <outlet property="forwardButton" destination="09S-bT-Mhs" id="xx8-NJ-fWa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hxl-dz-GIa" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -177,7 +156,7 @@
                                 <rect key="frame" x="0.0" y="55" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Fdn-AG-I2y" id="569-Dn-c5D">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="FSb-SD-5Vg">
@@ -395,7 +374,7 @@
                                 <rect key="frame" x="0.0" y="55" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="trB-aT-Cie" id="2BC-qm-KSJ">
-                                    <rect key="frame" x="0.0" y="0.0" width="342" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="342" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="La3-BY-3k5">
@@ -816,9 +795,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Back" width="22" height="22"/>
         <image name="Download" width="25" height="25"/>
-        <image name="Forward" width="22" height="22"/>
         <image name="News" width="30" height="30"/>
         <image name="Omissions" width="30" height="30"/>
         <image name="OnePassword" width="23" height="23"/>
