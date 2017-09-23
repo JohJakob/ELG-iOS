@@ -26,7 +26,7 @@ class SimpleFeedTableViewCell: UITableViewCell {
 		let label = UILabel()
 		
 		label.textColor = UIColor.lightGray
-		label.font = UIFont.systemFont(ofSize: 14)
+		label.font = UIFont.boldSystemFont(ofSize: 14)
 		label.numberOfLines = 1
 		
 		label.translatesAutoresizingMaskIntoConstraints = false
