@@ -31,7 +31,7 @@ class TabBarController: UITabBarController {
 		defaults.removeObject(forKey: "launched2.0.1")
 		
 		if defaults.bool(forKey: "launched\(String(describing: version))") != true {
-			updateUserSettings()
+			updateUserDefaults()
 		}
 	}
 	
@@ -41,9 +41,9 @@ class TabBarController: UITabBarController {
 		print("Memory Warning")
 	}
 	
-	// MARK: - Custom
+	// MARK: - Private
 	
-	func setUp() {
+	private func setUp() {
 		if defaults.string(forKey: "teacherToken") == nil {
 			defaults.set("", forKey: "teacherToken")
 		}
@@ -51,7 +51,7 @@ class TabBarController: UITabBarController {
 		defaults.synchronize()
 	}
 	
-	func updateUserSettings() {
+	private func updateUserDefaults() {
 		if defaults.integer(forKey: "startView") == 1 {
 			defaults.set(0, forKey: "startView")
 		} else if defaults.integer(forKey: "startView") == 4 {
