@@ -18,7 +18,7 @@ class FoerdervereinViewController: UITableViewController, UIGestureRecognizerDel
 	var currentArticle = [String: String]()
 	let weekdays = ["Mon": "Montag", "Tue": "Dienstag", "Wed": "Mittwoch", "Thu": "Donnerstag", "Fri": "Freitag", "Sat": "Samstag", "Sun": "Sonntag"]
 	let months = ["Jan": "Januar", "Feb": "Februar", "Mar": "März", "Apr": "April", "May": "Mai", "Jun": "Juni", "Jul": "Juli", "Aug": "August", "Sep": "September", "Oct": "Oktober", "Nov": "November", "Dec": "Dezember"]
-  let articleViewController = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "FoerdervereinArticleViewController")
+  let articleViewController = FoerdervereinArticleViewController()
 	
 	// MARK: - UITableViewController
 	
