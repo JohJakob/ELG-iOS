@@ -8,24 +8,36 @@
 
 import UIKit
 
-class FoerdervereinArticleViewController: UIViewController, UIWebViewDelegate {
+class FoerdervereinArticleViewController: UIViewController, WKNavigationDelegate {
   // MARK: - Properties
-  
-  @IBOutlet weak fileprivate var articleWebView: UIWebView!
-  @IBOutlet weak fileprivate var backButton: UIBarButtonItem!
-  @IBOutlet weak fileprivate var forwardButton: UIBarButtonItem!
-  @IBOutlet weak fileprivate var activityIndicator: UIActivityIndicatorView!
-  
+	
   var defaults: UserDefaults!
+	var backButton = UIButton()
+	var forwardButton = UIButton()
   var articleTitle = String()
   var articleLink = String()
+	fileprivate lazy var navigationButtonView: FloatingView = self.lazyFloatingView()
+	var webView = WKWebView()
+	let activityIndicator = UIActivityIndicatorView()
+	
+	// MARK: - Initializers
+	
+	override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+		super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+		
+		initialize()
+	}
+	
+	required init?(coder aDecoder: NSCoder) {
+		super.init(coder: aDecoder)
+		
+		initialize()
+	}
 	
 	// MARK: - UIViewController
 	
   override func viewDidLoad() {
     super.viewDidLoad()
-		
-		defaults = UserDefaults.init(suiteName: "group.com.hardykrause.elg")
   }
   
   override func viewWillAppear(_ animated: Bool) {
@@ -40,51 +52,142 @@ class FoerdervereinArticleViewController: UIViewController, UIWebViewDelegate {
 		print("Memory Warning")
 	}
 	
-  // MARK: - UIWebView
-  
-  func webViewDidStartLoad(_ webView: UIWebView) {
-    activityIndicator.startAnimating()
-  }
-  
-  func webViewDidFinishLoad(_ webView: UIWebView) {
-    activityIndicator.stopAnimating()
-    
-    if articleWebView.canGoBack {
-      backButton.isEnabled = true
-    } else {
-      backButton.isEnabled = false
-    }
-    
-    if articleWebView.canGoForward {
-      forwardButton.isEnabled = true
-    } else {
-      forwardButton.isEnabled = false
-    }
-  }
-  
-  func webView(_ webView: UIWebView, didFailLoadWithError error: Error) {
-    activityIndicator.stopAnimating()
+	// MARK: - WKWebView
+	
+	func webView(_ webView: WKWebView, didCommit navigation: WKNavigation!) {
+		activityIndicator.startAnimating()
+	}
+	
+	func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+		activityIndicator.stopAnimating()
 		
-    let webViewErrorAlert = UIAlertView(title: "Fehler", message: "Beim Laden ist ein Fehler aufgetreten.", delegate: self, cancelButtonTitle: "OK")
-    webViewErrorAlert.show()
-  }
+		if webView.canGoBack {
+			backButton.isEnabled = true
+		} else {
+			backButton.isEnabled = false
+		}
+		
+		if webView.canGoForward {
+			forwardButton.isEnabled = true
+		} else {
+			forwardButton.isEnabled = false
+		}
+		
+		if (webView.canGoBack || webView.canGoForward) || (webView.canGoBack && webView.canGoForward) {
+			navigationButtonView.isHidden = false
+		} else {
+			if navigationButtonView.isHidden == false {
+				navigationButtonView.isHidden = true
+			}
+		}
+	}
+	
+	func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
+		activityIndicator.stopAnimating()
+		
+		let webViewErrorAlertController = UIAlertController(title: "Fehler", message: "Beim Laden ist ein Fehler aufgetreten.", preferredStyle: .alert)
+		
+		webViewErrorAlertController.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { _ in
+			self.dismiss(animated: true, completion: nil)
+		}))
+		
+		present(webViewErrorAlertController, animated: true, completion: nil)
+	}
   
   // MARK: - Private
+	
+	private func initialize() {
+		defaults = UserDefaults.init(suiteName: "group.com.hardykrause.elg")
+		
+		webView = WKWebView(frame: view.frame)
+		webView.translatesAutoresizingMaskIntoConstraints = false
+		
+		view.addSubview(webView)
+		view.addSubview(activityIndicator)
+		view.addSubview(navigationButtonView)
+		
+		NSLayoutConstraint.activate([
+			NSLayoutConstraint(item: webView, attribute: .top, relatedBy: .equal, toItem: view, attribute: .top, multiplier: 1, constant: 0),
+			NSLayoutConstraint(item: webView, attribute: .trailing, relatedBy: .equal, toItem: view, attribute: .trailing, multiplier: 1, constant: 0),
+			NSLayoutConstraint(item: webView, attribute: .bottom, relatedBy: .equal, toItem: view, attribute: .bottom, multiplier: 1, constant: 0),
+			NSLayoutConstraint(item: webView, attribute: .leading, relatedBy: .equal, toItem: view, attribute: .leading, multiplier: 1, constant: 0),
+			
+			NSLayoutConstraint(item: activityIndicator, attribute: .centerX, relatedBy: .equal, toItem: view, attribute: .centerX, multiplier: 1, constant: 0),
+			NSLayoutConstraint(item: activityIndicator, attribute: .centerY, relatedBy: .equal, toItem: view, attribute: .centerY, multiplier: 1, constant: 0),
+			
+			NSLayoutConstraint(item: navigationButtonView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 92),
+			NSLayoutConstraint(item: navigationButtonView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 46),
+			
+			NSLayoutConstraint(item: navigationButtonView, attribute: .leading, relatedBy: .equal, toItem: view, attribute: .leading, multiplier: 1, constant: 20),
+			NSLayoutConstraint(item: navigationButtonView, attribute: .bottom, relatedBy: .equal, toItem: bottomLayoutGuide, attribute: .top, multiplier: 1, constant: -20)
+			])
+		
+		navigationButtonView.isHidden = true
+	}
   
   private func loadArticle() {
-    articleWebView.delegate = self
-		
     let reachabilityStatus: NetworkStatus = Reachability.forInternetConnection().currentReachabilityStatus()
     
     if reachabilityStatus != NotReachable {
-      articleTitle = defaults.string(forKey: "selectedArticleTitle")!
-      articleLink = defaults.string(forKey: "selectedArticleLink")!
-			
-      articleWebView.loadRequest(URLRequest(url: URL(string: articleLink)!))
-			
-      navigationItem.title = articleTitle
+      webView.load(URLRequest(url: URL(string: defaults.string(forKey: "selectedArticleLink")!)!))
     } else {
-      articleWebView.loadRequest(URLRequest(url: Bundle.main.url(forResource: "NoConnection", withExtension: ".html")!))
+      webView.load(URLRequest(url: Bundle.main.url(forResource: "NoConnection", withExtension: ".html")!))
     }
   }
+}
+
+extension FoerdervereinArticleViewController {
+	fileprivate func lazyFloatingView() -> FloatingView {
+		let view = FloatingView()
+		
+		view.translatesAutoresizingMaskIntoConstraints = false
+		
+		addContent(to: view.contentView)
+		
+		return view
+	}
+	
+	fileprivate func addContent(to contentView: UIView) {
+		backButton.addTarget(webView, action: #selector(webView.goBack), for: .touchUpInside)
+		backButton.setImage(#imageLiteral(resourceName: "Back"), for: .normal)
+		backButton.setImage(#imageLiteral(resourceName: "Back-Disabled"), for: .disabled)
+		backButton.translatesAutoresizingMaskIntoConstraints = false
+		
+		forwardButton.addTarget(webView, action: #selector(webView.goForward), for: .touchUpInside)
+		forwardButton.setImage(#imageLiteral(resourceName: "Forward"), for: .normal)
+		forwardButton.setImage(#imageLiteral(resourceName: "Forward-Disabled"), for: .disabled)
+		forwardButton.translatesAutoresizingMaskIntoConstraints = false
+		
+		let separator = UIView.init()
+		
+		separator.backgroundColor = UIColor.init(red: 0, green: 0, blue: 0, alpha: 0.1)
+		separator.translatesAutoresizingMaskIntoConstraints = false
+		
+		contentView.addSubview(backButton)
+		contentView.addSubview(forwardButton)
+		contentView.addSubview(separator)
+		
+		NSLayoutConstraint.activate([
+			NSLayoutConstraint(item: backButton, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 45),
+			NSLayoutConstraint(item: backButton, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 46),
+			
+			NSLayoutConstraint(item: backButton, attribute: .leading, relatedBy: .equal, toItem: contentView, attribute: .leading, multiplier: 1, constant: 0),
+			NSLayoutConstraint(item: backButton, attribute: .top, relatedBy: .equal, toItem: contentView, attribute: .top, multiplier: 1, constant: 0),
+			NSLayoutConstraint(item: backButton, attribute: .bottom, relatedBy: .equal, toItem: contentView, attribute: .bottom, multiplier: 1, constant: 0),
+			
+			NSLayoutConstraint(item: forwardButton, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 45),
+			NSLayoutConstraint(item: forwardButton, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 46),
+			
+			NSLayoutConstraint(item: forwardButton, attribute: .trailing, relatedBy: .equal, toItem: contentView, attribute: .trailing, multiplier: 1, constant: 0),
+			NSLayoutConstraint(item: forwardButton, attribute: .top, relatedBy: .equal, toItem: contentView, attribute: .top, multiplier: 1, constant: 0),
+			NSLayoutConstraint(item: forwardButton, attribute: .bottom, relatedBy: .equal, toItem: contentView, attribute: .bottom, multiplier: 1, constant: 0),
+			
+			NSLayoutConstraint(item: separator, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 1),
+			NSLayoutConstraint(item: separator, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 46),
+			
+			NSLayoutConstraint(item: separator, attribute: .top, relatedBy: .equal, toItem: contentView, attribute: .top, multiplier: 1, constant: 0),
+			NSLayoutConstraint(item: separator, attribute: .bottom, relatedBy: .equal, toItem: contentView, attribute: .bottom, multiplier: 1, constant: 0),
+			NSLayoutConstraint(item: separator, attribute: .centerX, relatedBy: .equal, toItem: contentView, attribute: .centerX, multiplier: 1, constant: 0)
+			])
+	}
 }
