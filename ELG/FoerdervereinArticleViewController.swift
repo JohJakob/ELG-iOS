@@ -105,6 +105,7 @@ class FoerdervereinArticleViewController: UIViewController, WKNavigationDelegate
 		webView.translatesAutoresizingMaskIntoConstraints = false
 		webView.navigationDelegate = self
 		
+		activityIndicator.activityIndicatorViewStyle = .gray
 		activityIndicator.translatesAutoresizingMaskIntoConstraints = false
 		
 		view.addSubview(webView)
