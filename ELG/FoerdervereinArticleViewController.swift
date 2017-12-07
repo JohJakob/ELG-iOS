@@ -99,8 +99,13 @@ class FoerdervereinArticleViewController: UIViewController, WKNavigationDelegate
 	private func initialize() {
 		defaults = UserDefaults.init(suiteName: "group.com.hardykrause.elg")
 		
+		navigationItem.title = defaults.string(forKey: "selectedArticleTitle")
+		
 		webView = WKWebView(frame: view.frame)
 		webView.translatesAutoresizingMaskIntoConstraints = false
+		webView.navigationDelegate = self
+		
+		activityIndicator.translatesAutoresizingMaskIntoConstraints = false
 		
 		view.addSubview(webView)
 		view.addSubview(activityIndicator)
@@ -127,7 +132,7 @@ class FoerdervereinArticleViewController: UIViewController, WKNavigationDelegate
   
   private func loadArticle() {
     let reachabilityStatus: NetworkStatus = Reachability.forInternetConnection().currentReachabilityStatus()
-    
+		
     if reachabilityStatus != NotReachable {
       webView.load(URLRequest(url: URL(string: defaults.string(forKey: "selectedArticleLink")!)!))
     } else {
