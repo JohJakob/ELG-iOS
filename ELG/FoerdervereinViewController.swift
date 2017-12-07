@@ -28,6 +28,12 @@ class FoerdervereinViewController: UITableViewController, UIGestureRecognizerDel
 		initialize()
   }
 	
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		
+		showArticles()
+	}
+	
 	override func didReceiveMemoryWarning() {
 		super.didReceiveMemoryWarning()
 		
