@@ -264,6 +264,10 @@ class SettingsViewController: UITableViewController, UIPickerViewDelegate, UIPic
 		
 		tableView.reloadData()
 	}
+	
+	func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
+		return 35
+	}
   
   // MARK: - Custom
 	
