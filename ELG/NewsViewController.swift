@@ -93,9 +93,9 @@ final class NewsViewController: UIViewController, UIWebViewDelegate {
     webViewErrorAlert.show()
   }
   
-  // MARK: - Custom
+  // MARK: - Private
   
-  func loadNews() {
+  private func loadNews() {
     newsWebView.delegate = self
 		
     let reachabilityStatus: NetworkStatus = Reachability.forInternetConnection().currentReachabilityStatus()
@@ -107,7 +107,7 @@ final class NewsViewController: UIViewController, UIWebViewDelegate {
     }
   }
 	
-	func changeView() {
+	private func changeView() {
 		var navigationStack = navigationController?.viewControllers
 		
 		navigationStack?.remove(at: (navigationStack!.count) - 1)
