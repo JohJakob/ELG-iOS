@@ -18,7 +18,9 @@ final class NewsViewController: UIViewController, UIWebViewDelegate {
 	fileprivate lazy var navigationButtonView: FloatingView = self.lazyFloatingView()
 	var backButton = UIButton()
 	var forwardButton = UIButton()
+	var refreshing = false
 	let foerdervereinViewController = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "FoerdervereinTableViewController")
+	let refreshControl = UIRefreshControl()
 	
 	// MARK: - UIViewController
 	
@@ -37,11 +39,14 @@ final class NewsViewController: UIViewController, UIWebViewDelegate {
   // MARK: - UIWebView
   
   func webViewDidStartLoad(_ webView: UIWebView) {
-    activityIndicator.startAnimating()
+		if refreshing == false {
+			activityIndicator.startAnimating()
+		}
   }
   
   func webViewDidFinishLoad(_ webView: UIWebView) {
     activityIndicator.stopAnimating()
+		refreshControl.endRefreshing()
     
     if newsWebView.canGoBack {
       backButton.isEnabled = true
@@ -62,13 +67,18 @@ final class NewsViewController: UIViewController, UIWebViewDelegate {
 				navigationButtonView.isHidden = true
 			}
 		}
+		
+		refreshing = false
   }
   
   func webView(_ webView: UIWebView, didFailLoadWithError error: Error) {
     activityIndicator.stopAnimating()
+		refreshControl.endRefreshing()
 		
     let webViewErrorAlert = UIAlertView(title: "Fehler", message: "Beim Laden ist ein Fehler aufgetreten.", delegate: self, cancelButtonTitle: "OK")
     webViewErrorAlert.show()
+		
+		refreshing = false
   }
   
   // MARK: - Private
@@ -76,7 +86,10 @@ final class NewsViewController: UIViewController, UIWebViewDelegate {
 	private func initialize() {
 		segmentedControl.addTarget(self, action: #selector(NewsViewController.changeView), for: .valueChanged)
 		
+		refreshControl.addTarget(self, action: #selector(NewsViewController.refresh), for: .valueChanged)
+		
 		view.addSubview(navigationButtonView)
+		newsWebView.scrollView.addSubview(refreshControl)
 		
 		NSLayoutConstraint.activate([
 			NSLayoutConstraint(item: navigationButtonView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 92),
@@ -117,6 +130,12 @@ final class NewsViewController: UIViewController, UIWebViewDelegate {
 		navigationStack?.remove(at: (navigationStack!.count) - 1)
 		navigationStack?.insert(foerdervereinViewController, at: (navigationStack?.count)!)
 		navigationController?.setViewControllers(navigationStack!, animated: false)
+	}
+	
+	@objc private func refresh() {
+		refreshing = true
+		
+		loadNews()
 	}
 }
 
