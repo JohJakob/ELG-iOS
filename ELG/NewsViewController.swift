@@ -25,29 +25,7 @@ final class NewsViewController: UIViewController, UIWebViewDelegate {
   override func viewDidLoad() {
     super.viewDidLoad()
 		
-		segmentedControl.addTarget(self, action: #selector(NewsViewController.changeView), for: .valueChanged)
-		
-		view.addSubview(navigationButtonView)
-		
-		NSLayoutConstraint.activate([
-			NSLayoutConstraint(item: navigationButtonView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 92),
-			NSLayoutConstraint(item: navigationButtonView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 46),
-			
-			NSLayoutConstraint(item: navigationButtonView, attribute: .leading, relatedBy: .equal, toItem: view, attribute: .leading, multiplier: 1, constant: 20),
-			NSLayoutConstraint(item: navigationButtonView, attribute: .bottom, relatedBy: .equal, toItem: bottomLayoutGuide, attribute: .top, multiplier: 1, constant: -20)
-		])
-		
-		navigationButtonView.isHidden = true
-    
-    loadNews()
-		
-		let defaults = UserDefaults.init(suiteName: "group.com.hardykrause.elg")
-		
-		if defaults?.integer(forKey: "startView") == 1 {
-			segmentedControl.selectedSegmentIndex = 1
-			
-			changeView()
-		}
+		initialize()
   }
 	
 	override func didReceiveMemoryWarning() {
@@ -94,6 +72,32 @@ final class NewsViewController: UIViewController, UIWebViewDelegate {
   }
   
   // MARK: - Private
+	
+	private func initialize() {
+		segmentedControl.addTarget(self, action: #selector(NewsViewController.changeView), for: .valueChanged)
+		
+		view.addSubview(navigationButtonView)
+		
+		NSLayoutConstraint.activate([
+			NSLayoutConstraint(item: navigationButtonView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 92),
+			NSLayoutConstraint(item: navigationButtonView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 46),
+			
+			NSLayoutConstraint(item: navigationButtonView, attribute: .leading, relatedBy: .equal, toItem: view, attribute: .leading, multiplier: 1, constant: 20),
+			NSLayoutConstraint(item: navigationButtonView, attribute: .bottom, relatedBy: .equal, toItem: bottomLayoutGuide, attribute: .top, multiplier: 1, constant: -20)
+			])
+		
+		navigationButtonView.isHidden = true
+		
+		loadNews()
+		
+		let defaults = UserDefaults.init(suiteName: "group.com.hardykrause.elg")
+		
+		if defaults?.integer(forKey: "startView") == 1 {
+			segmentedControl.selectedSegmentIndex = 1
+			
+			changeView()
+		}
+	}
   
   private func loadNews() {
     newsWebView.delegate = self
