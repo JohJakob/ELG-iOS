@@ -59,7 +59,7 @@ final class NoConnectionView: UIView {
 		detailsParagraphStyle.lineHeightMultiple = 1.2
 		
 		let heading = NSMutableAttributedString(string: "Keine Verbindung\n", attributes: [NSFontAttributeName: UIFont.boldSystemFont(ofSize: 20), NSParagraphStyleAttributeName: headingParagraphStyle])
-		let details = NSMutableAttributedString(string: "Bitte überprüfe die Einstellungen. Tippe hier, um die Seite neu zu laden.", attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 16), NSParagraphStyleAttributeName: detailsParagraphStyle])
+		let details = NSMutableAttributedString(string: "Bitte überprüfe die Einstellungen. Streiche von oben nach unten, um die Seite neu zu laden.", attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 16), NSParagraphStyleAttributeName: detailsParagraphStyle])
 		
 		let string = NSMutableAttributedString()
 		
