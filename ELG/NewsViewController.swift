@@ -107,7 +107,7 @@ final class NewsViewController: UIViewController, UIWebViewDelegate {
     }
   }
 	
-	private func changeView() {
+	@objc private func changeView() {
 		var navigationStack = navigationController?.viewControllers
 		
 		navigationStack?.remove(at: (navigationStack!.count) - 1)
