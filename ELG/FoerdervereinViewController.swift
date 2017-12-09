@@ -133,10 +133,8 @@ class FoerdervereinViewController: UITableViewController, UIGestureRecognizerDel
 			})
 		} else {
 			let noConnectionView = NoConnectionView()
-			let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapRecognized(tapRecognizer:)))
 			
 			noConnectionView.textLabel.attributedText = noConnectionView.defaultText()
-			noConnectionView.addGestureRecognizer(tapRecognizer)
 			
 			tableView.backgroundColor = UIColor.groupTableViewBackground
 			tableView.separatorStyle = .none
@@ -210,10 +208,6 @@ class FoerdervereinViewController: UITableViewController, UIGestureRecognizerDel
 		dateFormatter.locale = Locale.init(identifier: "de_DE")
 		
 		return dateFormatter.string(from: date!).uppercased()
-	}
-	
-	@objc private func tapRecognized(tapRecognizer: UITapGestureRecognizer) {
-		showArticles()
 	}
 	
 	private func highlightCell(indexPath: IndexPath) {
