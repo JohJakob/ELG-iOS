@@ -18,7 +18,9 @@ class FoerdervereinArticleViewController: UIViewController, WKNavigationDelegate
   var articleLink = String()
 	fileprivate lazy var navigationButtonView: FloatingView = self.lazyFloatingView()
 	var webView = WKWebView()
+	var refreshing = false
 	let activityIndicator = UIActivityIndicatorView()
+	let refreshControl = UIRefreshControl()
 	
 	// MARK: - Initializers
 	
@@ -55,11 +57,14 @@ class FoerdervereinArticleViewController: UIViewController, WKNavigationDelegate
 	// MARK: - WKWebView
 	
 	func webView(_ webView: WKWebView, didCommit navigation: WKNavigation!) {
-		activityIndicator.startAnimating()
+		if refreshing == false {
+			activityIndicator.startAnimating()
+		}
 	}
 	
 	func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
 		activityIndicator.stopAnimating()
+		refreshControl.endRefreshing()
 		
 		if webView.canGoBack {
 			backButton.isEnabled = true
@@ -80,10 +85,15 @@ class FoerdervereinArticleViewController: UIViewController, WKNavigationDelegate
 				navigationButtonView.isHidden = true
 			}
 		}
+		
+		refreshing = false
 	}
 	
 	func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
 		activityIndicator.stopAnimating()
+		refreshControl.endRefreshing()
+		
+		refreshing = false
 		
 		let webViewErrorAlertController = UIAlertController(title: "Fehler", message: "Beim Laden ist ein Fehler aufgetreten.", preferredStyle: .alert)
 		
@@ -107,6 +117,10 @@ class FoerdervereinArticleViewController: UIViewController, WKNavigationDelegate
 		
 		activityIndicator.activityIndicatorViewStyle = .gray
 		activityIndicator.translatesAutoresizingMaskIntoConstraints = false
+		
+		refreshControl.addTarget(self, action: #selector(FoerdervereinArticleViewController.refresh), for: .valueChanged)
+		
+		webView.scrollView.addSubview(refreshControl)
 		
 		view.addSubview(webView)
 		view.addSubview(activityIndicator)
@@ -140,6 +154,12 @@ class FoerdervereinArticleViewController: UIViewController, WKNavigationDelegate
       webView.load(URLRequest(url: Bundle.main.url(forResource: "NoConnection", withExtension: ".html")!))
     }
   }
+	
+	@objc private func refresh() {
+		refreshing = true
+		
+		loadArticle()
+	}
 }
 
 extension FoerdervereinArticleViewController {
