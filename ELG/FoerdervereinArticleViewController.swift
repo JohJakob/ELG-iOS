@@ -44,7 +44,9 @@ class FoerdervereinArticleViewController: UIViewController, WKNavigationDelegate
   
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
-    
+		
+		initialize()
+		
     loadArticle()
   }
 	
