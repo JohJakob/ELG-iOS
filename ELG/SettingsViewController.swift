@@ -25,8 +25,7 @@ class SettingsViewController: UITableViewController, UIPickerViewDelegate, UIPic
   // Use when online schedules are available again
   
   /* let loginViewController = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("LoginTableViewController") */
-  // let editScheduleViewController = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "EditScheduleTableViewController")
-	let editScheduleViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "EditScheduleTableViewController") as! EditScheduleViewController
+  let editScheduleViewController = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "EditScheduleTableViewController")
   let teacherModeViewController = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "TeacherModeTableViewController")
 	let aboutViewController = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "AboutTableViewController")
 	
@@ -158,7 +157,7 @@ class SettingsViewController: UITableViewController, UIPickerViewDelegate, UIPic
 				present(pickerViewController, animated: true, completion: nil)
 				
         break
-      case 2:
+      case 1:
 				navigationController?.show(editScheduleViewController, sender: self)
         
         // Use when online schedules are available again
