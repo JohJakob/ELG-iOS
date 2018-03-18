@@ -105,10 +105,14 @@ class FoerdervereinViewController: UITableViewController, UIGestureRecognizerDel
 	
 	@objc private func changeView() {
 		var navigationStack = navigationController?.viewControllers
+		var localNavigationStack = navigationStack
 		let newsViewController = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "NewsViewController")
 		
-		navigationStack?.remove(at: (navigationStack!.count) - 1)
-		navigationStack?.insert(newsViewController, at: (navigationStack?.count)!)
+		navigationStack?.remove(at: (localNavigationStack!.count) - 1)
+		
+		localNavigationStack = navigationStack
+		
+		navigationStack?.insert(newsViewController, at: (localNavigationStack?.count)!)
 		navigationController?.setViewControllers(navigationStack!, animated: false)
 	}
 	

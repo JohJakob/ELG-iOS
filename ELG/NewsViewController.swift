@@ -126,9 +126,13 @@ final class NewsViewController: UIViewController, UIWebViewDelegate {
 	
 	@objc private func changeView() {
 		var navigationStack = navigationController?.viewControllers
+		var localNavigationStack = navigationStack
 		
-		navigationStack?.remove(at: (navigationStack!.count) - 1)
-		navigationStack?.insert(foerdervereinViewController, at: (navigationStack?.count)!)
+		navigationStack!.remove(at: (localNavigationStack!.count) - 1)
+		
+		localNavigationStack = navigationStack
+		
+		navigationStack!.insert(foerdervereinViewController, at: (localNavigationStack?.count)!)
 		navigationController?.setViewControllers(navigationStack!, animated: false)
 	}
 	
