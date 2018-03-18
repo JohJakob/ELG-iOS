@@ -205,6 +205,7 @@ class FoerdervereinViewController: UITableViewController, UIGestureRecognizerDel
 		let dateFormatter = DateFormatter()
 		
 		dateFormatter.dateFormat = "EEE, dd MMM yyyy HH:mm:ss +zzzz"
+		dateFormatter.locale = Locale.init(identifier: "en_US")
 		
 		let date = dateFormatter.date(from: string)
 		
