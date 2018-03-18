@@ -166,7 +166,7 @@ class TeacherModeViewController: UITableViewController, UITextFieldDelegate {
     defaults.synchronize()
   }
   
-  func toggleTeacherMode() {
+  @objc func toggleTeacherMode() {
     // Set user default
     
     if teacherModeSwitch.isOn {

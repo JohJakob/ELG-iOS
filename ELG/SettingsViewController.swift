@@ -295,7 +295,7 @@ class SettingsViewController: UITableViewController, UIPickerViewDelegate, UIPic
     autoSaveSwitch.onTintColor = UIColor(red: 0.498, green: 0.09, blue: 0.204, alpha: 1)
   }
   
-  func toggleAutoSave() {
+  @objc func toggleAutoSave() {
     // Set user default
     
     if autoSaveSwitch.isOn {

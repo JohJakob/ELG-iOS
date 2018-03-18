@@ -108,7 +108,7 @@ class AboutWebViewController: UIViewController, UIWebViewDelegate {
     }
   }
   
-  func doneButtonTapped() {
+  @objc func doneButtonTapped() {
 		// Set user default
 		
 		defaults.set(true, forKey: "launched\(String(describing: version))")

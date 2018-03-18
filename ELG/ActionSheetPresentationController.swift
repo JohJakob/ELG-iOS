@@ -19,7 +19,7 @@ final class ActionSheetPresentationController: UIPresentationController {
 	}
 	
 	override var frameOfPresentedViewInContainerView: CGRect {
-		let size = customPresentedView.systemLayoutSizeFitting(containerView!.bounds.size, withHorizontalFittingPriority: UILayoutPriorityRequired, verticalFittingPriority: UILayoutPriorityFittingSizeLevel)
+		let size = customPresentedView.systemLayoutSizeFitting(containerView!.bounds.size, withHorizontalFittingPriority: UILayoutPriority.required, verticalFittingPriority: UILayoutPriority.fittingSizeLevel)
 		
 		let (slice, _) = containerView!.bounds.divided(atDistance: size.height, from: .maxYEdge)
 		
@@ -49,7 +49,7 @@ final class ActionSheetPresentationController: UIPresentationController {
 			let dismissButton = ActionSheetPresentationControllerDismissButton()
 			
 			dismissButton.addTarget(self, action: #selector(cancel), for: .touchUpInside)
-			dismissButton.setContentHuggingPriority(UILayoutPriorityDefaultHigh, for: .vertical)
+			dismissButton.setContentHuggingPriority(UILayoutPriority.defaultHigh, for: .vertical)
 			
 			let dismissButtonSectionView = ActionSheetPresentationControllerSectionView()
 			

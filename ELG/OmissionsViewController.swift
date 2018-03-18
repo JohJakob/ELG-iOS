@@ -227,7 +227,7 @@ class OmissionsViewController: UITableViewController {
     teacherToken = defaults.string(forKey: "teacherToken")!
   }
   
-  func refreshTableView() {
+  @objc func refreshTableView() {
     getUserDefaults()
 		
 		downloadOmissions()

@@ -15,7 +15,7 @@ final class ActionSheetPresentationControllerDismissButton: UIControl {
 		let view = UILabel()
 		
 		if #available(iOS 8.2, *) {
-			view.font = UIFont.systemFont(ofSize: 20, weight: UIFontWeightSemibold)
+			view.font = UIFont.systemFont(ofSize: 20, weight: UIFont.Weight.semibold)
 		} else {
 			view.font = UIFont.boldSystemFont(ofSize: 20)
 		}

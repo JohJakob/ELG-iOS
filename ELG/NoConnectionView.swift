@@ -58,15 +58,15 @@ final class NoConnectionView: UIView {
 		detailsParagraphStyle.alignment = .center
 		detailsParagraphStyle.lineHeightMultiple = 1.2
 		
-		let heading = NSMutableAttributedString(string: "Keine Verbindung\n", attributes: [NSFontAttributeName: UIFont.boldSystemFont(ofSize: 20), NSParagraphStyleAttributeName: headingParagraphStyle])
-		let details = NSMutableAttributedString(string: "Bitte überprüfe die Einstellungen. Streiche von oben nach unten, um die Seite neu zu laden.", attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 16), NSParagraphStyleAttributeName: detailsParagraphStyle])
+		let heading = NSMutableAttributedString(string: "Keine Verbindung\n", attributes: [NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: 20), NSAttributedStringKey.paragraphStyle: headingParagraphStyle])
+		let details = NSMutableAttributedString(string: "Bitte überprüfe die Einstellungen. Streiche von oben nach unten, um die Seite neu zu laden.", attributes: [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 16), NSAttributedStringKey.paragraphStyle: detailsParagraphStyle])
 		
 		let string = NSMutableAttributedString()
 		
 		string.append(heading)
 		string.append(details)
 		
-		string.addAttribute(NSForegroundColorAttributeName, value: UIColor.gray, range: NSRange(location: 0, length: string.length))
+		string.addAttribute(NSAttributedStringKey.foregroundColor, value: UIColor.gray, range: NSRange(location: 0, length: string.length))
 		
 		return string
 	}
