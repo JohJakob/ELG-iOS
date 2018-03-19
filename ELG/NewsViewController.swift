@@ -84,9 +84,9 @@ final class NewsViewController: UIViewController, UIWebViewDelegate {
   // MARK: - Private
 	
 	private func initialize() {
-		segmentedControl.addTarget(self, action: #selector(NewsViewController.changeView), for: .valueChanged)
+		segmentedControl.addTarget(self, action: #selector(changeView), for: .valueChanged)
 		
-		refreshControl.addTarget(self, action: #selector(NewsViewController.refresh), for: .valueChanged)
+		refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
 		
 		view.addSubview(navigationButtonView)
 		newsWebView.scrollView.addSubview(refreshControl)
