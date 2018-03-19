@@ -3,7 +3,7 @@
 //  ELG
 //
 //  Created by Johannes Jakob on 27/11/2016
-//  © 2016-2017 Elisabeth-Gymnasium Halle, Johannes Jakob
+//  © 2016-2018 Elisabeth-Gymnasium Halle, Johannes Jakob
 //
 
 import UIKit
@@ -102,7 +102,7 @@ class AboutViewController: UITableViewController, MFMailComposeViewControllerDel
         cell.accessoryType = .disclosureIndicator
         break
       case 3:
-        cell.textLabel!.text = "Impressum der Website"
+        cell.textLabel!.text = "Impressum"
         cell.accessoryType = .disclosureIndicator
         break
       default:

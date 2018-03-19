@@ -3,7 +3,7 @@
 //  ELG
 //
 //  Created by Johannes Jakob on 27/11/2016
-//  © 2016-2017 Elisabeth-Gymnasium Halle, Johannes Jakob
+//  © 2016-2018 Elisabeth-Gymnasium Halle, Johannes Jakob
 //
 
 import UIKit
@@ -16,7 +16,7 @@ class AboutWebViewController: UIViewController, UIWebViewDelegate {
   var defaults: UserDefaults!
   var selectedAboutWebView = Int()
   var didLaunch = Bool()
-  let titles = ["Was ist neu?", "Open Source", "Impressum der Website"]
+  let titles = ["Was ist neu?", "Open Source", "Impressum"]
   let pages = ["ReleaseNotes", "OpenSource", "Imprint"]
   let onboardingViewController = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "OnboardingTableViewController")
   let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
