@@ -118,13 +118,17 @@ class OmissionsViewController: UITableViewController {
     let text = omissionComponents[5]
     let comment = omissionComponents[6].replacingOccurrences(of: "\"", with: "")
     
-    if grade.characters.count < 4 {
+    if grade.count < 4 {
       cell.gradeLabel.text = grade
     } else {
-      if grade.characters.first == "1" {
-        cell.gradeLabel.text = grade.substring(to: grade.characters.index(grade.startIndex, offsetBy: 2))
+      if grade.first == "1" {
+				let index = grade.index(grade.startIndex, offsetBy: 2)
+				
+        cell.gradeLabel.text = String(grade[..<index])
       } else {
-        cell.gradeLabel.text = grade.substring(to: grade.characters.index(grade.startIndex, offsetBy: 1))
+				let index = grade.index(grade.startIndex, offsetBy: 1)
+				
+        cell.gradeLabel.text = String(grade[..<index])
       }
     }
     
