@@ -210,7 +210,7 @@ class AboutViewController: UITableViewController, MFMailComposeViewControllerDel
     // Check table view section and set title for table view section footer
     
     if section == 3 {
-      return "© 2012-2017 Elisabeth-Gymnasium Halle, Johannes Jakob"
+      return "© 2012-2018 Elisabeth-Gymnasium Halle, Johannes Jakob"
     } else {
       return nil
     }
