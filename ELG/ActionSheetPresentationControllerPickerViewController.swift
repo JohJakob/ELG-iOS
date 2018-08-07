@@ -3,7 +3,7 @@
 //  ELG
 //
 //  Created by Johannes Jakob on 24/08/2017
-//  © 2017 Caleb Davenport, Elisabeth-Gymnasium Halle, Johannes Jakob
+//  © 2017-2018 Caleb Davenport, Elisabeth-Gymnasium Halle, Johannes Jakob
 //
 
 import UIKit
