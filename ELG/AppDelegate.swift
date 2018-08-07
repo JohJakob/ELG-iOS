@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		let startView = defaults?.integer(forKey: "startView")
 		
 		if let tabBarController = window!.rootViewController as? UITabBarController {
-			if startView == 2 {
+			if startView == 1 {
 				let gregorianCalendar = NSCalendar(calendarIdentifier: .gregorian)
 				let dateComponents = (gregorianCalendar! as NSCalendar).components(.weekday, from: Date())
 				
@@ -30,7 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 				defaults?.synchronize()
 				
 				tabBarController.selectedIndex = 1
-			} else if startView == 3 {
+			} else if startView == 2 {
 				tabBarController.selectedIndex = 2
 			}
 			
