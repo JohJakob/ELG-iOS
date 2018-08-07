@@ -102,14 +102,6 @@ final class NewsViewController: UIViewController, UIWebViewDelegate {
 		navigationButtonView.isHidden = true
 		
 		loadNews()
-		
-		let defaults = UserDefaults.init(suiteName: "group.com.hardykrause.elg")
-		
-		if defaults?.integer(forKey: "startView") == 1 {
-			segmentedControl.selectedSegmentIndex = 1
-			
-			changeView()
-		}
 	}
   
   private func loadNews() {
