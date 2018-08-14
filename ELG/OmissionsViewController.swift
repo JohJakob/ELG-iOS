@@ -69,15 +69,13 @@ class OmissionsViewController: UITableViewController {
     } else {
       numberOfSections = 0
 			
-      let noConnectionLabel = UILabel.init()
-      noConnectionLabel.text = "Keine Verbindung"
-      noConnectionLabel.textColor = UIColor.lightGray
-      noConnectionLabel.font = UIFont.boldSystemFont(ofSize: 18)
-      noConnectionLabel.textAlignment = .center
-      
-      tableView.backgroundColor = UIColor.groupTableViewBackground
-      tableView.separatorStyle = .none
-      tableView.backgroundView = noConnectionLabel
+			let noConnectionView = NoConnectionView()
+			
+			noConnectionView.textLabel.attributedText = noConnectionView.defaultText()
+			
+			tableView.backgroundColor = UIColor.groupTableViewBackground
+			tableView.separatorStyle = .none
+			tableView.backgroundView = noConnectionView
     }
     
     return numberOfSections
