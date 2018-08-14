@@ -73,6 +73,7 @@ class SimpleFeedTableViewCell: UITableViewCell {
 	// MARK: - Private
 	
 	private func initialize() {
+		self.backgroundColor = UIColor.groupTableViewBackground
 		contentView.backgroundColor = UIColor.groupTableViewBackground
 		
 		containerView.addSubview(headingLabel)
