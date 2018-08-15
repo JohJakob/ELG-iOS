@@ -29,7 +29,10 @@ class ScheduleViewController: UITableViewController {
 	override func viewDidAppear(_ animated: Bool) {
 		super.viewDidAppear(animated)
 		
-		if defaults.object(forKey: "selectedDay") != nil {
+		if defaults.object(forKey: "selectedDay") != nil && defaults.integer(forKey: "startView") == 1 && defaults.bool(forKey: "didShowSchedule") == false {
+			defaults.set(true, forKey: "didShowSchedule")
+			defaults.synchronize()
+			
 			navigationController?.show(lessonsViewController, sender: self)
 		}
 	}

@@ -27,6 +27,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 					defaults?.set(0, forKey: "selectedDay")
 				}
 				
+				defaults?.set(false, forKey: "didShowSchedule")
+				
 				defaults?.synchronize()
 				
 				tabBarController.selectedIndex = 1
