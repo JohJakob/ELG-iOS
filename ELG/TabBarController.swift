@@ -52,10 +52,10 @@ class TabBarController: UITabBarController {
 	}
 	
 	private func updateUserDefaults() {
-		if defaults.integer(forKey: "startView") == 1 {
+		if defaults.integer(forKey: "startView") == 0 || defaults.integer(forKey: "startView") == 4 {
 			defaults.set(0, forKey: "startView")
-		} else if defaults.integer(forKey: "startView") == 4 {
-			defaults.set(2, forKey: "startView")
+		} else {
+			defaults.set(defaults.integer(forKey: "startView") - 1, forKey: "startView")
 		}
 		
 		defaults.synchronize()
