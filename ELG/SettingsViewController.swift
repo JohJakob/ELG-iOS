@@ -189,8 +189,6 @@ class SettingsViewController: UITableViewController, UIPickerViewDelegate, UIPic
 			
 			present(pickerViewController, animated: true, completion: nil)
 			
-			pickerViewController.pickerView.selectRow(grade, inComponent: 0, animated: true)
-			
       break
 		case 3:
 			navigationController?.show(aboutViewController, sender: self)
