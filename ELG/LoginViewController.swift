@@ -9,18 +9,14 @@
 import UIKit
 
 class LoginViewController: UITableViewController, UITextFieldDelegate {
-  // Outlets
+  // MARK: - Properties
   
   @IBOutlet weak var loginButton: UIBarButtonItem!
-  
-  // Variables
   
   var defaults: UserDefaults!
   var username = String()
   var password = String()
   var token = String()
-  
-  // Actions
   
   @IBAction func loginButtonTap(_ sender: UIBarButtonItem) {
     // Find credentials from 1Password
@@ -46,6 +42,8 @@ class LoginViewController: UITableViewController, UITextFieldDelegate {
       self.tableView.reloadData()
     }) */
   }
+	
+	// MARK: - UITableViewController
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -78,8 +76,14 @@ class LoginViewController: UITableViewController, UITextFieldDelegate {
     
     setUserDefaults()
   }
-  
-  // Table view functions
+	
+	override func didReceiveMemoryWarning() {
+		super.didReceiveMemoryWarning()
+		
+		print("Memory Warning")
+	}
+	
+  // MARK: - UITableView
   
   override func numberOfSections(in tableView: UITableView) -> Int {
     return 2
@@ -161,7 +165,7 @@ class LoginViewController: UITableViewController, UITextFieldDelegate {
     return true
   }
   
-  // Custom functions
+  // MARK: - Custom
   
   func retrieveUserDefaults() {
     // Retrieve user defaults
@@ -178,11 +182,5 @@ class LoginViewController: UITableViewController, UITextFieldDelegate {
     defaults.setValue(password, forKey: "password")
     defaults.setValue(token, forKey: "token")
     defaults.synchronize()
-  }
-  
-  override func didReceiveMemoryWarning() {
-    super.didReceiveMemoryWarning()
-    
-    print("Memory Warning")
   }
 }

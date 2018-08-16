@@ -9,17 +9,17 @@
 import UIKit
 
 class WebScheduleViewController: UIViewController, UIWebViewDelegate {
-  // Outlets
+  // MARK: - Properties
   
   @IBOutlet weak fileprivate var scheduleWebView: UIWebView!
   @IBOutlet weak fileprivate var activityIndicator: UIActivityIndicatorView!
   
-  // Variables + constants
-  
   var defaults: UserDefaults!
-  let grades = ["5a", "5b", "5c", "5d", "5e", "6a", "6b", "6c", "6d", "6e", "7a", "7b", "7c", "7d", "8a", "8b", "8c", "8d", "9a", "9b", "9c", "9d", "10a", "10b", "10c", "10d"]
+  let grades = ["5a", "5b", "5c", "5d", "5e", "6a", "6b", "6c", "6d", "6e", "7a", "7b", "7c", "7d", "7e", "8a", "8b", "8c", "8d", "9a", "9b", "9c", "9d", "10a", "10b", "10c", "10d"]
   var url: String!
-  
+	
+	// MARK: - UIViewController
+	
   override func viewDidLoad() {
     super.viewDidLoad()
     
@@ -29,8 +29,14 @@ class WebScheduleViewController: UIViewController, UIWebViewDelegate {
     
     loadSchedule()
   }
-  
-  // Web View functions
+	
+	override func didReceiveMemoryWarning() {
+		super.didReceiveMemoryWarning()
+		
+		print("Memory Warning")
+	}
+	
+  // MARK: - UIWebView
   
   func webViewDidStartLoad(_ webView: UIWebView) {
     // Start Activity Indicator
@@ -88,7 +94,7 @@ class WebScheduleViewController: UIViewController, UIWebViewDelegate {
     webViewErrorAlert.show()
   }
   
-  // Custom functions
+  // MARK: - Custom
   
   func loadSchedule() {
     // Set Web View delegate
@@ -165,18 +171,6 @@ class WebScheduleViewController: UIViewController, UIWebViewDelegate {
       // Load No Internet Connection website
       
       scheduleWebView.loadRequest(URLRequest(url: Bundle.main.url(forResource: "NoConnection", withExtension: ".html")!))
-      
-      // Show alert
-      
-      let noConnectionAlert = UIAlertView(title: "Keine Internetverbindung", message: "Es besteht keine Verbindung zum Internet. Bitte überprüfe Deine Einstellungen.", delegate: self, cancelButtonTitle: "OK")
-      noConnectionAlert.show()
     }
-  }
-  
-  
-  override func didReceiveMemoryWarning() {
-    super.didReceiveMemoryWarning()
-    
-    print("Memory Warning")
   }
 }

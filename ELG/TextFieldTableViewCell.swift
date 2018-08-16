@@ -3,16 +3,18 @@
 //  ELG
 //
 //  Created by Johannes Jakob on 14/08/2016
-//  © 2016-2017 Elisabeth-Gymnasium Halle, Johannes Jakob
+//  © 2016-2018 Elisabeth-Gymnasium Halle, Johannes Jakob
 //
 
 import UIKit
 
 class TextFieldTableViewCell: UITableViewCell {
-  // Outlets
+  // MARK: - Properties
   
   @IBOutlet weak var textField: UITextField!
-  
+	
+	// MARK: - UITableViewCell
+	
   override func awakeFromNib() {
     super.awakeFromNib()
     // Initialization code

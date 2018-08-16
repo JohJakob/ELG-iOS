@@ -3,19 +3,21 @@
 //  ELG
 //
 //  Created by Johannes Jakob on 27/11/2016
-//  © 2016-2017 Elisabeth-Gymnasium Halle, Johannes Jakob
+//  © 2016-2018 Elisabeth-Gymnasium Halle, Johannes Jakob
 //
 
 import UIKit
 import MessageUI
+import StoreKit
 
 class AboutViewController: UITableViewController, MFMailComposeViewControllerDelegate {
-  // Variables + constants
+  // MARK: - Properties
   
   var defaults: UserDefaults!
-  let aboutWebViewController = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "AboutWebViewController")
   let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
-  
+	
+	// MARK: - UITableViewController
+	
   override func viewDidLoad() {
     super.viewDidLoad()
     
@@ -23,14 +25,18 @@ class AboutViewController: UITableViewController, MFMailComposeViewControllerDel
 		
 		defaults = UserDefaults.init(suiteName: "group.com.hardykrause.elg")
 		
-		// Set back indicator image
-		
-		navigationController?.navigationBar.backIndicatorImage = UIImage(named: "Back")
-		navigationController?.navigationBar.backIndicatorTransitionMaskImage = UIImage(named: "Back")
-		navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+		if #available(iOS 10.3, *) {
+			SKStoreReviewController.requestReview()
+		}
   }
 	
-  // Table view functions
+	override func didReceiveMemoryWarning() {
+		super.didReceiveMemoryWarning()
+		
+		print("Memory Warning")
+	}
+	
+  // MARK: - UITableView
   
   override func numberOfSections(in tableView: UITableView) -> Int {
     return 4
@@ -96,7 +102,7 @@ class AboutViewController: UITableViewController, MFMailComposeViewControllerDel
         cell.accessoryType = .disclosureIndicator
         break
       case 3:
-        cell.textLabel!.text = "Impressum der Website"
+        cell.textLabel!.text = "Impressum"
         cell.accessoryType = .disclosureIndicator
         break
       default:
@@ -127,6 +133,8 @@ class AboutViewController: UITableViewController, MFMailComposeViewControllerDel
         defaults.synchronize()
         
         // Show new view
+				
+				let aboutWebViewController = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "AboutWebViewController")
         
         if #available(iOS 8, *) {
           navigationController?.show(aboutWebViewController, sender: self)
@@ -175,6 +183,8 @@ class AboutViewController: UITableViewController, MFMailComposeViewControllerDel
       
       // Show new view
 			
+			let aboutWebViewController = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "AboutWebViewController")
+			
 			navigationController?.show(aboutWebViewController, sender: self)
       
       break
@@ -185,6 +195,8 @@ class AboutViewController: UITableViewController, MFMailComposeViewControllerDel
       defaults.synchronize()
       
       // Show new view
+			
+			let aboutWebViewController = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "AboutWebViewController")
 			
 			navigationController?.show(aboutWebViewController, sender: self)
       
@@ -198,21 +210,15 @@ class AboutViewController: UITableViewController, MFMailComposeViewControllerDel
     // Check table view section and set title for table view section footer
     
     if section == 3 {
-      return "© 2012-2017 Elisabeth-Gymnasium Halle, Johannes Jakob"
+      return "© 2012-2018 Elisabeth-Gymnasium Halle, Johannes Jakob"
     } else {
       return nil
     }
   }
   
-  // Mail compose functions
+  // MARK: - MFMailComposeViewController
   
   func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
     dismiss(animated: true, completion: nil)
-  }
-  
-  override func didReceiveMemoryWarning() {
-    super.didReceiveMemoryWarning()
-    
-    print("Memory Warning")
   }
 }

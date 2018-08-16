@@ -3,30 +3,26 @@
 //  ELG
 //
 //  Created by Johannes Jakob on 12/07/2016
-//  © 2016-2017 Elisabeth-Gymnasium Halle, Johannes Jakob
+//  © 2016-2018 Elisabeth-Gymnasium Halle, Johannes Jakob
 //
 
 import UIKit
 
 class EditLessonsViewController: UITableViewController {
-  // Variables + constants
+  // MARK: - Properties
   
   var defaults: UserDefaults!
   var lessons: [String]!
   let subjectsViewController = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "SubjectsTableViewController")
-  
+	
+	// MARK: - UITableViewController
+	
   override func viewDidLoad() {
     super.viewDidLoad()
     
     // Initialize user defaults
 		
 		defaults = UserDefaults.init(suiteName: "group.com.hardykrause.elg")
-		
-		// Set back indicator image
-		
-		navigationController?.navigationBar.backIndicatorImage = UIImage(named: "Back")
-		navigationController?.navigationBar.backIndicatorTransitionMaskImage = UIImage(named: "Back")
-		navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
   }
 	
   override func viewWillAppear(_ animated: Bool) {
@@ -82,8 +78,14 @@ class EditLessonsViewController: UITableViewController {
     
     removeUserDefaults()
   }
-  
-  // Table view functions
+	
+	override func didReceiveMemoryWarning() {
+		super.didReceiveMemoryWarning()
+		
+		print("Memory Warning")
+	}
+	
+  // MARK: - UITableView
   
   override func numberOfSections(in tableView: UITableView) -> Int {
     return 1
@@ -154,13 +156,7 @@ class EditLessonsViewController: UITableViewController {
 		navigationController?.show(subjectsViewController, sender: self)
   }
   
-  override func didReceiveMemoryWarning() {
-    super.didReceiveMemoryWarning()
-    
-    print("Memory Warning")
-  }
-  
-  // Custom functions
+  // MARK: - Custom
   
   func removeUserDefaults() {
     // Remove temporary user defaults

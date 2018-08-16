@@ -2,33 +2,45 @@
 <html lang="de">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="initial-scale=1.0, width=device=width">
-    <title>Keine Internetverbindung</title>
+    <meta name="viewport" content="initial-scale=1.0, width=device-width">
+    <title>Keine Verbindung</title>
   </head>
   <body>
     <style>
+			* {
+				margin: 0
+			}
+			
       body {
-        margin: 0;
         padding: 0;
-        color: #b8b8b8;
-        font-family: -apple-system, 'Helvetica Neue', Helvetica, Arial;
-        font-size: 16pt;
+        color: #8e8e93;
+        font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial;
+        font-size: 16px;
         text-align: center;
+				line-height: 1.4;
         background: #fff;
         user-select: none;
-        -webkit-user-select: none;
+        -webkit-user-select: none
       }
     
       div {
+				padding: 0 32px;
         position: fixed;
         top: 50%;
         left: 50%;
-        transform: translate(-50%, -50%);
+				width: 100%;
+				box-sizing: border-box;
+        transform: translate(-50%, -50%)
       }
+		
+			h1 {
+				font-size: 20px;
+				font-weight: 600
+			}
     </style>
-    
     <div>
-      Keine Internetverbindung
+			<h1>Keine Verbindung</h1>
+			<p>Bitte überprüfe die Einstellungen. Streiche von oben nach unten, um die Seite neu zu laden.</p>
     </div>
   </body>
 </html>

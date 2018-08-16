@@ -3,13 +3,13 @@
 //  ELG
 //
 //  Created by Johannes Jakob on 26/06/2016
-//  © 2016-2017 Elisabeth-Gymnasium Halle, Johannes Jakob
+//  © 2016-2018 Elisabeth-Gymnasium Halle, Johannes Jakob
 //
 
 import UIKit
 
 class ScheduleViewController: UITableViewController {
-  // Variables + constants
+  // MARK: - Properties
   
   var defaults: UserDefaults!
   let lessonsViewController = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "LessonsTableViewController")
@@ -17,22 +17,33 @@ class ScheduleViewController: UITableViewController {
   // Use when online schedule are available again
   
   /* let webScheduleViewController = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("WebScheduleViewController") */
-  
+	
+	// MARK: - UITableViewController
+	
   override func viewDidLoad() {
     super.viewDidLoad()
-    
-    // Initialize user defaults
 		
 		defaults = UserDefaults.init(suiteName: "group.com.hardykrause.elg")
-		
-		// Set back indicator image
-		
-		navigationController?.navigationBar.backIndicatorImage = UIImage(named: "Back")
-		navigationController?.navigationBar.backIndicatorTransitionMaskImage = UIImage(named: "Back")
-		navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
   }
 	
-  // Table view functions
+	override func viewDidAppear(_ animated: Bool) {
+		super.viewDidAppear(animated)
+		
+		if defaults.object(forKey: "selectedDay") != nil && defaults.integer(forKey: "startView") == 1 && defaults.bool(forKey: "didShowSchedule") == false {
+			defaults.set(true, forKey: "didShowSchedule")
+			defaults.synchronize()
+			
+			navigationController?.show(lessonsViewController, sender: self)
+		}
+	}
+	
+	override func didReceiveMemoryWarning() {
+		super.didReceiveMemoryWarning()
+		
+		print("Memory Warning")
+	}
+	
+  // MARK: - UITableView
   
   override func numberOfSections(in tableView: UITableView) -> Int {
     return 1
@@ -62,8 +73,6 @@ class ScheduleViewController: UITableViewController {
     let cell = tableView.dequeueReusableCell(withIdentifier: "ScheduleTableViewCell", for: indexPath)
     let days = ["Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag"]
     
-    // Set table view cell's text
-    
     cell.textLabel!.text = days[indexPath.row]
     
     // Use when online schedules are available again
@@ -83,12 +92,8 @@ class ScheduleViewController: UITableViewController {
   }
   
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    // Deselect table view cell
-    
     tableView.deselectRow(at: indexPath, animated: true)
-    
-    // Check selected cell and navigate to new view based on selection
-    
+		
     defaults.set(indexPath.row, forKey: "selectedDay")
     defaults.synchronize()
 
@@ -104,11 +109,5 @@ class ScheduleViewController: UITableViewController {
     } else {
 			navigationController?.showViewController(webScheduleViewController, sender: self)
     } */
-  }
-  
-  override func didReceiveMemoryWarning() {
-    super.didReceiveMemoryWarning()
-    
-    print("Memory Warning")
   }
 }

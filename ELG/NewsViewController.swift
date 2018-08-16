@@ -3,41 +3,50 @@
 //  ELG
 //
 //  Created by Johannes Jakob on 24/06/2016
-//  © 2016-2017 Elisabeth-Gymnasium Halle, Johannes Jakob
+//  © 2016-2018 Elisabeth-Gymnasium Halle, Johannes Jakob
 //
 
 import UIKit
 
-class NewsViewController: UIViewController, UIWebViewDelegate {
-  // Outlets
-  
-  @IBOutlet weak fileprivate var newsWebView: UIWebView!
-  @IBOutlet weak fileprivate var backButton: UIBarButtonItem!
-  @IBOutlet weak fileprivate var forwardButton: UIBarButtonItem!
+final class NewsViewController: UIViewController, UIWebViewDelegate {
+  // MARK: - Properties
+	
+	@IBOutlet weak fileprivate var newsWebView: UIWebView!
+	@IBOutlet weak fileprivate var segmentedControl: UISegmentedControl!
   @IBOutlet weak fileprivate var activityIndicator: UIActivityIndicatorView!
-  
+	
+	fileprivate lazy var navigationButtonView: FloatingView = self.lazyFloatingView()
+	var backButton = UIButton()
+	var forwardButton = UIButton()
+	var refreshing = false
+	let foerdervereinViewController = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "FoerdervereinTableViewController")
+	let refreshControl = UIRefreshControl()
+	
+	// MARK: - UIViewController
+	
   override func viewDidLoad() {
     super.viewDidLoad()
-
-    // Load news in web view
-    
-    loadNews()
+		
+		initialize()
   }
-  
-  // Web View functions
+	
+	override func didReceiveMemoryWarning() {
+		super.didReceiveMemoryWarning()
+		
+		print("Memory Warning")
+	}
+	
+  // MARK: - UIWebView
   
   func webViewDidStartLoad(_ webView: UIWebView) {
-    // Start Activity Indicator
-    
-    activityIndicator.startAnimating()
+		if refreshing == false {
+			activityIndicator.startAnimating()
+		}
   }
   
   func webViewDidFinishLoad(_ webView: UIWebView) {
-    // Stop Activity Indicator
-    
     activityIndicator.stopAnimating()
-    
-    // Enable/Disable Back and Forward buttons
+		refreshControl.endRefreshing()
     
     if newsWebView.canGoBack {
       backButton.isEnabled = true
@@ -50,49 +59,134 @@ class NewsViewController: UIViewController, UIWebViewDelegate {
     } else {
       forwardButton.isEnabled = false
     }
+		
+		if (newsWebView.canGoBack || newsWebView.canGoForward) || (newsWebView.canGoBack && newsWebView.canGoForward) {
+			navigationButtonView.isHidden = false
+		} else {
+			if navigationButtonView.isHidden == false {
+				navigationButtonView.isHidden = true
+			}
+		}
+		
+		refreshing = false
   }
   
   func webView(_ webView: UIWebView, didFailLoadWithError error: Error) {
-    // Stop Activity Indicator
-    
     activityIndicator.stopAnimating()
-    
-    // Create and show alert
-    
+		refreshControl.endRefreshing()
+		
     let webViewErrorAlert = UIAlertView(title: "Fehler", message: "Beim Laden ist ein Fehler aufgetreten.", delegate: self, cancelButtonTitle: "OK")
     webViewErrorAlert.show()
+		
+		refreshing = false
   }
   
-  // Custom functions
+  // MARK: - Private
+	
+	private func initialize() {
+		segmentedControl.addTarget(self, action: #selector(changeView), for: .valueChanged)
+		
+		refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
+		
+		view.addSubview(navigationButtonView)
+		newsWebView.scrollView.addSubview(refreshControl)
+		
+		NSLayoutConstraint.activate([
+			NSLayoutConstraint(item: navigationButtonView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 92),
+			NSLayoutConstraint(item: navigationButtonView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 46),
+			
+			NSLayoutConstraint(item: navigationButtonView, attribute: .leading, relatedBy: .equal, toItem: view, attribute: .leading, multiplier: 1, constant: 20),
+			NSLayoutConstraint(item: navigationButtonView, attribute: .bottom, relatedBy: .equal, toItem: bottomLayoutGuide, attribute: .top, multiplier: 1, constant: -20)
+			])
+		
+		navigationButtonView.isHidden = true
+		
+		loadNews()
+	}
   
-  func loadNews() {
-    // Set web view delegate
-    
+  private func loadNews() {
     newsWebView.delegate = self
-    
-    // Check internet reachability
-    
+		
     let reachabilityStatus: NetworkStatus = Reachability.forInternetConnection().currentReachabilityStatus()
     
     if reachabilityStatus != NotReachable {
-      // Load news website
-      
-      newsWebView.loadRequest(URLRequest(url: URL(string: "http://elg-halle.de/Aktuell/News/news.asp")!))
+      newsWebView.loadRequest(URLRequest(url: URL(string: "https://elg-halle.de/Aktuell/News/news.asp")!))
     } else {
-      // Load message website
-      
       newsWebView.loadRequest(URLRequest(url: Bundle.main.url(forResource: "NoConnection", withExtension: ".html")!))
-      
-      // Show alert
-      
-      let noConnectionAlert = UIAlertView(title: "Keine Internetverbindung", message: "Es besteht keine Verbindung zum Internet. Bitte überprüfe Deine Einstellungen.", delegate: self, cancelButtonTitle: "OK")
-      noConnectionAlert.show()
     }
   }
-  
-  override func didReceiveMemoryWarning() {
-    super.didReceiveMemoryWarning()
-    
-    print("Memory Warning")
-  }
+	
+	@objc private func changeView() {
+		var navigationStack = navigationController?.viewControllers
+		var localNavigationStack = navigationStack
+		
+		navigationStack!.remove(at: (localNavigationStack!.count) - 1)
+		
+		localNavigationStack = navigationStack
+		
+		navigationStack!.insert(foerdervereinViewController, at: (localNavigationStack?.count)!)
+		navigationController?.setViewControllers(navigationStack!, animated: false)
+	}
+	
+	@objc private func refresh() {
+		refreshing = true
+		
+		loadNews()
+	}
+}
+
+extension NewsViewController {
+	fileprivate func lazyFloatingView() -> FloatingView {
+		let view = FloatingView()
+		
+		view.translatesAutoresizingMaskIntoConstraints = false
+		
+		addContent(to: view.contentView)
+		
+		return view
+	}
+	
+	fileprivate func addContent(to contentView: UIView) {
+		backButton.addTarget(newsWebView, action: #selector(newsWebView.goBack), for: .touchUpInside)
+		backButton.setImage(#imageLiteral(resourceName: "Back"), for: .normal)
+		backButton.setImage(#imageLiteral(resourceName: "Back-Disabled"), for: .disabled)
+		backButton.translatesAutoresizingMaskIntoConstraints = false
+		
+		forwardButton.addTarget(newsWebView, action: #selector(newsWebView.goForward), for: .touchUpInside)
+		forwardButton.setImage(#imageLiteral(resourceName: "Forward"), for: .normal)
+		forwardButton.setImage(#imageLiteral(resourceName: "Forward-Disabled"), for: .disabled)
+		forwardButton.translatesAutoresizingMaskIntoConstraints = false
+		
+		let separator = UIView.init()
+		
+		separator.backgroundColor = UIColor.init(red: 0, green: 0, blue: 0, alpha: 0.1)
+		separator.translatesAutoresizingMaskIntoConstraints = false
+		
+		contentView.addSubview(backButton)
+		contentView.addSubview(forwardButton)
+		contentView.addSubview(separator)
+		
+		NSLayoutConstraint.activate([
+			NSLayoutConstraint(item: backButton, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 45),
+			NSLayoutConstraint(item: backButton, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 46),
+			
+			NSLayoutConstraint(item: backButton, attribute: .leading, relatedBy: .equal, toItem: contentView, attribute: .leading, multiplier: 1, constant: 0),
+			NSLayoutConstraint(item: backButton, attribute: .top, relatedBy: .equal, toItem: contentView, attribute: .top, multiplier: 1, constant: 0),
+			NSLayoutConstraint(item: backButton, attribute: .bottom, relatedBy: .equal, toItem: contentView, attribute: .bottom, multiplier: 1, constant: 0),
+			
+			NSLayoutConstraint(item: forwardButton, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 45),
+			NSLayoutConstraint(item: forwardButton, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 46),
+			
+			NSLayoutConstraint(item: forwardButton, attribute: .trailing, relatedBy: .equal, toItem: contentView, attribute: .trailing, multiplier: 1, constant: 0),
+			NSLayoutConstraint(item: forwardButton, attribute: .top, relatedBy: .equal, toItem: contentView, attribute: .top, multiplier: 1, constant: 0),
+			NSLayoutConstraint(item: forwardButton, attribute: .bottom, relatedBy: .equal, toItem: contentView, attribute: .bottom, multiplier: 1, constant: 0),
+			
+			NSLayoutConstraint(item: separator, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 1),
+			NSLayoutConstraint(item: separator, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 46),
+			
+			NSLayoutConstraint(item: separator, attribute: .top, relatedBy: .equal, toItem: contentView, attribute: .top, multiplier: 1, constant: 0),
+			NSLayoutConstraint(item: separator, attribute: .bottom, relatedBy: .equal, toItem: contentView, attribute: .bottom, multiplier: 1, constant: 0),
+			NSLayoutConstraint(item: separator, attribute: .centerX, relatedBy: .equal, toItem: contentView, attribute: .centerX, multiplier: 1, constant: 0)
+		])
+	}
 }

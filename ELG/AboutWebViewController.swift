@@ -3,38 +3,32 @@
 //  ELG
 //
 //  Created by Johannes Jakob on 27/11/2016
-//  © 2016-2017 Elisabeth-Gymnasium Halle, Johannes Jakob
+//  © 2016-2018 Elisabeth-Gymnasium Halle, Johannes Jakob
 //
 
 import UIKit
 
 class AboutWebViewController: UIViewController, UIWebViewDelegate {
-  // Outlets
+  // MARK: - Properties
   
   @IBOutlet weak fileprivate var aboutWebView: UIWebView!
-  
-  // Variables + constants
   
   var defaults: UserDefaults!
   var selectedAboutWebView = Int()
   var didLaunch = Bool()
-  let titles = ["Was ist neu?", "Open Source", "Impressum der Website"]
+  let titles = ["Was ist neu?", "Open Source", "Impressum"]
   let pages = ["ReleaseNotes", "OpenSource", "Imprint"]
   let onboardingViewController = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "OnboardingTableViewController")
   let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
-  
+	
+	// MARK: - UIViewController
+	
   override func viewDidLoad() {
     super.viewDidLoad()
     
     // Initialize user defaults
 		
 		defaults = UserDefaults.init(suiteName: "group.com.hardykrause.elg")
-		
-		// Set back indicator image
-		
-		navigationController?.navigationBar.backIndicatorImage = UIImage(named: "Back")
-		navigationController?.navigationBar.backIndicatorTransitionMaskImage = UIImage(named: "Back")
-		navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
 		
 		// Set web view's delegate
 		
@@ -56,8 +50,14 @@ class AboutWebViewController: UIViewController, UIWebViewDelegate {
     
     showFirstLaunchButton()
   }
-  
-  // Web view functions
+	
+	override func didReceiveMemoryWarning() {
+		super.didReceiveMemoryWarning()
+		
+		print("Memory Warning")
+	}
+	
+  // MARK: - UIWebView
   
   func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebViewNavigationType) -> Bool {
     // Check web view navigation type
@@ -73,7 +73,7 @@ class AboutWebViewController: UIViewController, UIWebViewDelegate {
     return true
   }
   
-  // Custom functions
+  // MARK: - Custom
   
   func retrieveUserDefaults() {
     // Retrieve user defaults
@@ -110,27 +110,15 @@ class AboutWebViewController: UIViewController, UIWebViewDelegate {
     }
   }
   
-  func nextButtonTapped() {
-    // Show new view
-		
-		navigationController?.show(onboardingViewController, sender: self)
-  }
-	
-	func doneButtonTapped() {
+  @objc func doneButtonTapped() {
 		// Set user default
-		
+    
 		defaults.set(true, forKey: "launched\(String(describing: version))")
 		
 		defaults.synchronize()
-		
-		// Dismiss view
+    
+    // Dismiss view
 		
 		dismiss(animated: true, completion: nil)
-	}
-	
-  override func didReceiveMemoryWarning() {
-    super.didReceiveMemoryWarning()
-    
-    print("Memory Warning")
   }
 }

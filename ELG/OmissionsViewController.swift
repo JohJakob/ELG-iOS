@@ -3,59 +3,61 @@
 //  ELG
 //
 //  Created by Johannes Jakob on 21/07/2016
-//  © 2016-2017 Elisabeth-Gymnasium Halle, Johannes Jakob
+//  © 2016-2018 Elisabeth-Gymnasium Halle, Johannes Jakob
 //
 
 import UIKit
 
 class OmissionsViewController: UITableViewController {
-  // Outlets
+  // MARK: - Properties
   
   @IBOutlet weak fileprivate var saveButton: UIBarButtonItem!
   
-  // Variables + constants
-  
   var defaults: UserDefaults!
-  var selectedGrade = NSInteger()
+  var selectedGrade = Int()
   var rows = NSMutableArray()
   var ownOmissions = NSMutableArray()
   var offlineAvailable = Bool()
   var autoSave = Bool()
   var teacherMode = Bool()
   var teacherToken = String()
-  let grades = ["5a", "5b", "5c", "5d", "5e", "6a", "6b", "6c", "6d", "6e", "7a", "7b", "7c", "7d", "7e", "8a", "8b", "8c", "8d", "9a", "9b", "9c", "9d", "10a", "10b", "10c", "10d", "11a", "11b", "11c", "11d", "11e", "12a", "12b", "12c", "12d", "12e"]
-  
-  // Actions
+  let grades = ["Keine Klasse", "5a", "5b", "5c", "5d", "5e", "6a", "6b", "6c", "6d", "6e", "7a", "7b", "7c", "7d", "7e", "8a", "8b", "8c", "8d", "8e", "9a", "9b", "9c", "9d", "9e", "10a", "10b", "10c", "10d", "10e", "11a", "11b", "11c", "11d", "11e", "12a", "12b", "12c", "12d", "12e"]
   
   @IBAction func saveButtonTap(_ sender: UIBarButtonItem) {
     saveOmissions()
   }
+	
+	// MARK: - UITableViewController
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    
-    // Initialize user defaults
-		
+
 		defaults = UserDefaults.init(suiteName: "group.com.hardykrause.elg")
     
-    // Register custom table view cell
-    
     tableView.register(UINib(nibName: "OmissionsTableViewCell", bundle: nil), forCellReuseIdentifier: "OmissionsTableViewCell")
-    
-    // Set up refresh control
-    
+		
     let omissionsRefreshControl = UIRefreshControl.init()
     
     omissionsRefreshControl.addTarget(self, action: #selector(OmissionsViewController.refreshTableView), for: .valueChanged)
     
     refreshControl = omissionsRefreshControl
-    
-    // Prepare omissions
-    
-    prepare()
+
+    getUserDefaults()
+		
+		if offlineAvailable {
+			getOfflineOmissions()
+		} else {
+			downloadOmissions()
+		}
   }
-  
-  // Table view functions
+	
+	override func didReceiveMemoryWarning() {
+		super.didReceiveMemoryWarning()
+		
+		print("Memory Warning")
+	}
+	
+  // MARK: - UITableView
   
   override func numberOfSections(in tableView: UITableView) -> Int {
     var numberOfSections: Int
@@ -66,18 +68,14 @@ class OmissionsViewController: UITableViewController {
       numberOfSections = 2
     } else {
       numberOfSections = 0
-      
-      // Display label instead of table view
-      
-      let noConnectionLabel = UILabel.init()
-      noConnectionLabel.text = "Keine Internetverbindung"
-      noConnectionLabel.textColor = UIColor.lightGray
-      noConnectionLabel.font = UIFont.systemFont(ofSize: 16)
-      noConnectionLabel.textAlignment = .center
-      
-      tableView.backgroundColor = UIColor.groupTableViewBackground
-      tableView.separatorStyle = .none
-      tableView.backgroundView = noConnectionLabel
+			
+			let noConnectionView = NoConnectionView()
+			
+			noConnectionView.textLabel.attributedText = noConnectionView.defaultText()
+			
+			tableView.backgroundColor = UIColor.groupTableViewBackground
+			tableView.separatorStyle = .none
+			tableView.backgroundView = noConnectionView
     }
     
     return numberOfSections
@@ -102,8 +100,6 @@ class OmissionsViewController: UITableViewController {
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "OmissionsTableViewCell", for: indexPath) as! OmissionsTableViewCell
     
-    // Prepare omissions
-    
     var omissionComponents: [String]
     
     if indexPath.section == 0 {
@@ -111,8 +107,6 @@ class OmissionsViewController: UITableViewController {
     } else {
       omissionComponents = (rows[indexPath.row + 1] as AnyObject).components(separatedBy: "\",\"")
     }
-    
-    // Create omission components
     
     let grade = omissionComponents[0].replacingOccurrences(of: "\"", with: "")
     let lesson = omissionComponents[1]
@@ -122,15 +116,17 @@ class OmissionsViewController: UITableViewController {
     let text = omissionComponents[5]
     let comment = omissionComponents[6].replacingOccurrences(of: "\"", with: "")
     
-    // Set cell's text
-    
-    if grade.characters.count < 4 {
+    if grade.count < 4 {
       cell.gradeLabel.text = grade
     } else {
-      if grade.characters.first == "1" {
-        cell.gradeLabel.text = grade.substring(to: grade.characters.index(grade.startIndex, offsetBy: 2))
+      if grade.first == "1" {
+				let index = grade.index(grade.startIndex, offsetBy: 2)
+				
+        cell.gradeLabel.text = String(grade[..<index])
       } else {
-        cell.gradeLabel.text = grade.substring(to: grade.characters.index(grade.startIndex, offsetBy: 1))
+				let index = grade.index(grade.startIndex, offsetBy: 1)
+				
+        cell.gradeLabel.text = String(grade[..<index])
       }
     }
     
@@ -150,13 +146,9 @@ class OmissionsViewController: UITableViewController {
       cell.detailsLabel.text = "Raum " + room + "   " + text + "   " + comment
     }
     
-    // Remove unnecessary whitespaces
-    
     cell.detailsLabel.text = cell.detailsLabel.text?.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
     
     cell.detailsLabel.text = cell.detailsLabel.text?.replacingOccurrences(of: "      ", with: "   ")
-    
-    // Change color of lesson label
     
     if comment == "Entfall" {
       cell.lessonLabel.textColor = UIColor(red: 0.498, green: 0.09, blue: 0.203, alpha: 1)
@@ -187,7 +179,7 @@ class OmissionsViewController: UITableViewController {
     let footerLabel = UILabel()
     
     footerLabel.textColor = UIColor.lightGray
-    footerLabel.font = UIFont.systemFont(ofSize: 16)
+    footerLabel.font = UIFont.boldSystemFont(ofSize: 18)
     footerLabel.textAlignment = .center
     
     if section == 0 {
@@ -227,28 +219,20 @@ class OmissionsViewController: UITableViewController {
     return heightForFooter
   }
   
-  // Custom functions
+  // MARK: - Custom
   
-  func prepare() {
-    // Retrieve variables from user defaults
-    
-    selectedGrade = defaults.integer(forKey: "selectedGrade")
+  func getUserDefaults() {
+    selectedGrade = defaults.integer(forKey: "grade")
     offlineAvailable = defaults.bool(forKey: "offlineAvailable")
     autoSave = defaults.bool(forKey: "autoSave")
     teacherMode = defaults.bool(forKey: "teacherMode")
     teacherToken = defaults.string(forKey: "teacherToken")!
-    
-    // Retrieve offline omissions if available
-    
-    if offlineAvailable {
-      getOfflineOmissions()
-    } else {
-      downloadOmissions()
-    }
   }
   
-  func refreshTableView() {
-    downloadOmissions()
+  @objc func refreshTableView() {
+    getUserDefaults()
+		
+		downloadOmissions()
     
     tableView.reloadData()
     
@@ -256,68 +240,44 @@ class OmissionsViewController: UITableViewController {
   }
   
   func getOfflineOmissions() {
-    // Retrieve offline omissions
-    
     rows = defaults.mutableArrayValue(forKey: "offlineOmissions")
     ownOmissions = defaults.mutableArrayValue(forKey: "ownOfflineOmissions")
     
-    // Set date
-    
     navigationItem.title = rows[0] as? String
-    
-    // Disable save button
     
     saveButton.isEnabled = false
   }
   
   func downloadOmissions() {
-    // Check internet reachability
-    
     let reachabilityStatus: NetworkStatus = Reachability.forInternetConnection().currentReachabilityStatus()
     
     if reachabilityStatus != NotReachable {
-      // Download CSV file
-      
       var rawOmissions = String()
       
       do {
-        try rawOmissions = String(contentsOf: URL.init(string: "http://elg-halle.de/Aktuell/Intern/Vertretungsplan/vp.csv")!, encoding: String.Encoding.ascii)
+        try rawOmissions = String(contentsOf: URL.init(string: "https://elg-halle.de/Aktuell/Intern/Vertretungsplan/vp.csv")!, encoding: String.Encoding.ascii)
       } catch {
         print(error)
       }
-      
-      // Convert raw data into array
       
       let cleanedOmissions = rawOmissions.replacingOccurrences(of: "\r", with: "")
       
       rows = NSMutableArray.init(array: cleanedOmissions.components(separatedBy: "\n"))
       
-      // Reset own omissions
-      
       ownOmissions = NSMutableArray()
       
-      // Process array
-      
       for i in 1 ..< rows.count - 1 {
-        // Remove lunch break
-        
         if (rows[i] as AnyObject).range(of: "MIPa").location != NSNotFound {
           rows.removeObject(at: i)
         }
-        
-        // Prepare getting own omissions
         
         let omissionComponents = (rows[i] as AnyObject).components(separatedBy: "\",\"")
         let grade = omissionComponents[0].replacingOccurrences(of: "\"", with: "")
         var teacher = String()
         
-        // Get teacher of omission
-        
         if omissionComponents.count >= 3 {
           teacher = omissionComponents[2]
         }
-        
-        // Check teacher mode or selected grade to get own omissions
         
         if teacherMode {
           if teacher == teacherToken && teacher != "" {
@@ -325,32 +285,22 @@ class OmissionsViewController: UITableViewController {
           }
         } else {
           if selectedGrade != 0 {
-            if grade.range(of: grades[selectedGrade - 1]) != nil {
+            if grade.range(of: grades[selectedGrade]) != nil {
               ownOmissions.add(rows[i])
             }
           }
         }
       }
       
-      // Set date
-      
       navigationItem.title = rows[0] as? String
-      
-      // Reset table view appearance
       
       tableView.backgroundColor = UIColor.white
       tableView.separatorStyle = .singleLine
       
-      // Set offline availability status
-      
       offlineAvailable = false
-      
-      // Set user default
       
       defaults.set(offlineAvailable, forKey: "offlineAvailable")
       defaults.synchronize()
-      
-      // Enable/Disable save button
       
       if rows.count < 3 {
         saveButton.isEnabled = false
@@ -362,16 +312,7 @@ class OmissionsViewController: UITableViewController {
         saveOmissions()
       }
     } else {
-      // Disable save button
-      
       saveButton.isEnabled = false
-      
-      // Show alert
-      
-      let noConnectionAlert = UIAlertView(title: "Keine Internetverbindung", message: "Es besteht keine Verbindung zum Internet. Bitte überprüfe Deine Einstellungen.", delegate: self, cancelButtonTitle: "OK")
-      noConnectionAlert.show()
-      
-      // Change table view appearance
       
       tableView.backgroundColor = UIColor.groupTableViewBackground
       tableView.separatorStyle = .none
@@ -379,38 +320,22 @@ class OmissionsViewController: UITableViewController {
   }
   
   func saveOmissions() {
-    // Check internet reachability
-    
     let reachabilityStatus: NetworkStatus = Reachability.forInternetConnection().currentReachabilityStatus()
     
     if reachabilityStatus != NotReachable {
-      // Save omissions
-      
       offlineAvailable = true
       
       defaults.set(rows, forKey: "offlineOmissions")
       defaults.set(ownOmissions, forKey: "ownOfflineOmissions")
       defaults.set(offlineAvailable, forKey: "offlineAvailable")
       defaults.synchronize()
-      
-      // Disable save button
-      
+			
       saveButton.isEnabled = false
     } else {
-      // Disable save button
-      
       saveButton.isEnabled = false
-      
-      // Show alert
       
       let noConnectionAlert = UIAlertView(title: "Keine Internetverbindung", message: "Es besteht keine Verbindung zum Internet. Dadurch kann der Vertretungsplan nicht gesichert werden. Bitte überprüfe Deine Einstellungen.", delegate: self, cancelButtonTitle: "OK")
       noConnectionAlert.show()
     }
-  }
-  
-  override func didReceiveMemoryWarning() {
-    super.didReceiveMemoryWarning()
-    
-    print("Memory Warning")
   }
 }

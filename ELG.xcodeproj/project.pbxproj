@@ -49,6 +49,27 @@
 		B9F73BFA1DEDFE77004F3470 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9F73BF91DEDFE77004F3470 /* MessageUI.framework */; };
 		B9F73BFC1DEE01F9004F3470 /* ReleaseNotes.html in Resources */ = {isa = PBXBuildFile; fileRef = B9F73BFB1DEE01F9004F3470 /* ReleaseNotes.html */; };
 		B9FB652D1DF5FEB3009B7D13 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9FB652C1DF5FEB3009B7D13 /* DetailViewController.swift */; };
+		CF1DD7DA1F753972006AA41B /* SimpleFeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1DD7D91F753972006AA41B /* SimpleFeedTableViewCell.swift */; };
+		CF22A0901F6FD6E700B0ECC4 /* GenericNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF22A08F1F6FD6E700B0ECC4 /* GenericNavigationController.swift */; };
+		CF2A0EF91F4EA42000C5105A /* ActionSheetPresentationControllerSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF2A0EF81F4EA42000C5105A /* ActionSheetPresentationControllerSectionView.swift */; };
+		CF2A0EFB1F4EA52F00C5105A /* ActionSheetPresentationControllerPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF2A0EFA1F4EA52F00C5105A /* ActionSheetPresentationControllerPickerViewController.swift */; };
+		CF40B5341F28602900FB8ADC /* PickerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF40B5331F28602900FB8ADC /* PickerTableViewCell.swift */; };
+		CF40B5361F286D5300FB8ADC /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF40B5351F286D5300FB8ADC /* TabBarController.swift */; };
+		CF40B53A1F2B7CE100FB8ADC /* UIImage+Shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF40B5391F2B7CE100FB8ADC /* UIImage+Shadow.swift */; };
+		CF40B53C1F2BCD8A00FB8ADC /* FloatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF40B53B1F2BCD8A00FB8ADC /* FloatingView.swift */; };
+		CF46BECE1F70FA1D00ABEA66 /* NoConnectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF46BECD1F70FA1D00ABEA66 /* NoConnectionView.swift */; };
+		CF63C0031F6059F900A67315 /* FeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF63C0021F6059F900A67315 /* FeedTableViewCell.swift */; };
+		CF785D591F4FFA3B00FAA90F /* _OALayoutGuide.m in Sources */ = {isa = PBXBuildFile; fileRef = CF785D481F4FFA3B00FAA90F /* _OALayoutGuide.m */; };
+		CF785D5A1F4FFA3B00FAA90F /* OAStackView.m in Sources */ = {isa = PBXBuildFile; fileRef = CF785D4A1F4FFA3B00FAA90F /* OAStackView.m */; };
+		CF785D5B1F4FFA3B00FAA90F /* OAStackView+Constraint.m in Sources */ = {isa = PBXBuildFile; fileRef = CF785D4C1F4FFA3B00FAA90F /* OAStackView+Constraint.m */; };
+		CF785D5C1F4FFA3B00FAA90F /* OAStackView+Hiding.m in Sources */ = {isa = PBXBuildFile; fileRef = CF785D4E1F4FFA3B00FAA90F /* OAStackView+Hiding.m */; };
+		CF785D5D1F4FFA3B00FAA90F /* OAStackView+Traversal.m in Sources */ = {isa = PBXBuildFile; fileRef = CF785D501F4FFA3B00FAA90F /* OAStackView+Traversal.m */; };
+		CF785D5E1F4FFA3B00FAA90F /* OAStackViewAlignmentStrategy.m in Sources */ = {isa = PBXBuildFile; fileRef = CF785D521F4FFA3B00FAA90F /* OAStackViewAlignmentStrategy.m */; };
+		CF785D5F1F4FFA3B00FAA90F /* OAStackViewAlignmentStrategyBaseline.m in Sources */ = {isa = PBXBuildFile; fileRef = CF785D541F4FFA3B00FAA90F /* OAStackViewAlignmentStrategyBaseline.m */; };
+		CF785D601F4FFA3B00FAA90F /* OAStackViewDistributionStrategy.m in Sources */ = {isa = PBXBuildFile; fileRef = CF785D561F4FFA3B00FAA90F /* OAStackViewDistributionStrategy.m */; };
+		CF785D611F4FFA3B00FAA90F /* OATransformLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = CF785D581F4FFA3B00FAA90F /* OATransformLayer.m */; };
+		CFA7A14D1F47478800482180 /* ActionSheetPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA7A14C1F47478800482180 /* ActionSheetPresentationController.swift */; };
+		CFA7A14F1F4749FB00482180 /* ActionSheetPresentationControllerDismissButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA7A14E1F4749FB00482180 /* ActionSheetPresentationControllerDismissButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -128,6 +149,36 @@
 		B9F73BF91DEDFE77004F3470 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		B9F73BFB1DEE01F9004F3470 /* ReleaseNotes.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = ReleaseNotes.html; sourceTree = "<group>"; };
 		B9FB652C1DF5FEB3009B7D13 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		CF1DD7D91F753972006AA41B /* SimpleFeedTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleFeedTableViewCell.swift; sourceTree = "<group>"; };
+		CF22A08F1F6FD6E700B0ECC4 /* GenericNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenericNavigationController.swift; sourceTree = "<group>"; };
+		CF2A0EF81F4EA42000C5105A /* ActionSheetPresentationControllerSectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionSheetPresentationControllerSectionView.swift; sourceTree = "<group>"; };
+		CF2A0EFA1F4EA52F00C5105A /* ActionSheetPresentationControllerPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionSheetPresentationControllerPickerViewController.swift; sourceTree = "<group>"; };
+		CF40B5331F28602900FB8ADC /* PickerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerTableViewCell.swift; sourceTree = "<group>"; };
+		CF40B5351F286D5300FB8ADC /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		CF40B5391F2B7CE100FB8ADC /* UIImage+Shadow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Shadow.swift"; sourceTree = "<group>"; };
+		CF40B53B1F2BCD8A00FB8ADC /* FloatingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatingView.swift; sourceTree = "<group>"; };
+		CF46BECD1F70FA1D00ABEA66 /* NoConnectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoConnectionView.swift; sourceTree = "<group>"; };
+		CF63C0021F6059F900A67315 /* FeedTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedTableViewCell.swift; sourceTree = "<group>"; };
+		CF785D471F4FFA3B00FAA90F /* _OALayoutGuide.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _OALayoutGuide.h; sourceTree = "<group>"; };
+		CF785D481F4FFA3B00FAA90F /* _OALayoutGuide.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _OALayoutGuide.m; sourceTree = "<group>"; };
+		CF785D491F4FFA3B00FAA90F /* OAStackView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAStackView.h; sourceTree = "<group>"; };
+		CF785D4A1F4FFA3B00FAA90F /* OAStackView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OAStackView.m; sourceTree = "<group>"; };
+		CF785D4B1F4FFA3B00FAA90F /* OAStackView+Constraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "OAStackView+Constraint.h"; sourceTree = "<group>"; };
+		CF785D4C1F4FFA3B00FAA90F /* OAStackView+Constraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "OAStackView+Constraint.m"; sourceTree = "<group>"; };
+		CF785D4D1F4FFA3B00FAA90F /* OAStackView+Hiding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "OAStackView+Hiding.h"; sourceTree = "<group>"; };
+		CF785D4E1F4FFA3B00FAA90F /* OAStackView+Hiding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "OAStackView+Hiding.m"; sourceTree = "<group>"; };
+		CF785D4F1F4FFA3B00FAA90F /* OAStackView+Traversal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "OAStackView+Traversal.h"; sourceTree = "<group>"; };
+		CF785D501F4FFA3B00FAA90F /* OAStackView+Traversal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "OAStackView+Traversal.m"; sourceTree = "<group>"; };
+		CF785D511F4FFA3B00FAA90F /* OAStackViewAlignmentStrategy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAStackViewAlignmentStrategy.h; sourceTree = "<group>"; };
+		CF785D521F4FFA3B00FAA90F /* OAStackViewAlignmentStrategy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OAStackViewAlignmentStrategy.m; sourceTree = "<group>"; };
+		CF785D531F4FFA3B00FAA90F /* OAStackViewAlignmentStrategyBaseline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAStackViewAlignmentStrategyBaseline.h; sourceTree = "<group>"; };
+		CF785D541F4FFA3B00FAA90F /* OAStackViewAlignmentStrategyBaseline.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OAStackViewAlignmentStrategyBaseline.m; sourceTree = "<group>"; };
+		CF785D551F4FFA3B00FAA90F /* OAStackViewDistributionStrategy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAStackViewDistributionStrategy.h; sourceTree = "<group>"; };
+		CF785D561F4FFA3B00FAA90F /* OAStackViewDistributionStrategy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OAStackViewDistributionStrategy.m; sourceTree = "<group>"; };
+		CF785D571F4FFA3B00FAA90F /* OATransformLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OATransformLayer.h; sourceTree = "<group>"; };
+		CF785D581F4FFA3B00FAA90F /* OATransformLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OATransformLayer.m; sourceTree = "<group>"; };
+		CFA7A14C1F47478800482180 /* ActionSheetPresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionSheetPresentationController.swift; sourceTree = "<group>"; };
+		CFA7A14E1F4749FB00482180 /* ActionSheetPresentationControllerDismissButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionSheetPresentationControllerDismissButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -241,7 +292,6 @@
 		B9B5C4E91D1D4C2B00777BD9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				B9B5C4DA1D1D494800777BD9 /* Main.storyboard */,
 				B9B5C4DF1D1D494800777BD9 /* LaunchScreen.storyboard */,
 				B9F590C11D3BE9BF00562E17 /* OmissionsTableViewCell.xib */,
 				B9CBF57B1D60CFBB00F67682 /* TextFieldTableViewCell.xib */,
@@ -252,6 +302,7 @@
 		B9B5C4EA1D1D4C4300777BD9 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				CF40B5351F286D5300FB8ADC /* TabBarController.swift */,
 				B9B5C4D61D1D494800777BD9 /* MasterViewController.swift */,
 				B9FB652C1DF5FEB3009B7D13 /* DetailViewController.swift */,
 				B9B5C4EF1D1D80C200777BD9 /* NewsViewController.swift */,
@@ -272,6 +323,16 @@
 				B972692D1DEB0292006819D3 /* AboutViewController.swift */,
 				B9DEB5681DEB102F00B700AE /* AboutWebViewController.swift */,
 				B98C637C1E193E7100B515E6 /* OnboardingViewController.swift */,
+				CF22A08F1F6FD6E700B0ECC4 /* GenericNavigationController.swift */,
+				CF785D621F50461B00FAA90F /* FloatingView */,
+				CFA7A14B1F47475300482180 /* Action Sheet Presentation Controller */,
+				CF785D461F4FFA1100FAA90F /* OAStackView */,
+				B982C8771D5DF35600B021C9 /* OmissionsTableViewCell.swift */,
+				B9CBF57A1D60CFBB00F67682 /* TextFieldTableViewCell.swift */,
+				CF40B5331F28602900FB8ADC /* PickerTableViewCell.swift */,
+				CF63C0021F6059F900A67315 /* FeedTableViewCell.swift */,
+				CF1DD7D91F753972006AA41B /* SimpleFeedTableViewCell.swift */,
+				CF46BECD1F70FA1D00ABEA66 /* NoConnectionView.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -282,6 +343,7 @@
 				B9B5C4DD1D1D494800777BD9 /* Assets.xcassets */,
 				B9B5C4F61D1FA6D000777BD9 /* NoConnection.html */,
 				B9F73BFB1DEE01F9004F3470 /* ReleaseNotes.html */,
+				B9B5C4DA1D1D494800777BD9 /* Main.storyboard */,
 				B91DB9FE1E07165000D1EC86 /* OpenSource.html */,
 				B91DBA001E071A1300D1EC86 /* Imprint.html */,
 			);
@@ -301,8 +363,6 @@
 		B9B5C4F11D1EC97C00777BD9 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				B982C8771D5DF35600B021C9 /* OmissionsTableViewCell.swift */,
-				B9CBF57A1D60CFBB00F67682 /* TextFieldTableViewCell.swift */,
 				B9B5C4F31D1ECB7900777BD9 /* Reachability.h */,
 				B9B5C4F41D1ECB7900777BD9 /* Reachability.m */,
 				B982C8791D5E5EB500B021C9 /* SWXMLHash.swift */,
@@ -311,6 +371,51 @@
 				B9B5C4F21D1ECB7800777BD9 /* ELG-Bridging-Header.h */,
 			);
 			name = Classes;
+			sourceTree = "<group>";
+		};
+		CF785D461F4FFA1100FAA90F /* OAStackView */ = {
+			isa = PBXGroup;
+			children = (
+				CF785D471F4FFA3B00FAA90F /* _OALayoutGuide.h */,
+				CF785D481F4FFA3B00FAA90F /* _OALayoutGuide.m */,
+				CF785D491F4FFA3B00FAA90F /* OAStackView.h */,
+				CF785D4A1F4FFA3B00FAA90F /* OAStackView.m */,
+				CF785D4B1F4FFA3B00FAA90F /* OAStackView+Constraint.h */,
+				CF785D4C1F4FFA3B00FAA90F /* OAStackView+Constraint.m */,
+				CF785D4D1F4FFA3B00FAA90F /* OAStackView+Hiding.h */,
+				CF785D4E1F4FFA3B00FAA90F /* OAStackView+Hiding.m */,
+				CF785D4F1F4FFA3B00FAA90F /* OAStackView+Traversal.h */,
+				CF785D501F4FFA3B00FAA90F /* OAStackView+Traversal.m */,
+				CF785D511F4FFA3B00FAA90F /* OAStackViewAlignmentStrategy.h */,
+				CF785D521F4FFA3B00FAA90F /* OAStackViewAlignmentStrategy.m */,
+				CF785D531F4FFA3B00FAA90F /* OAStackViewAlignmentStrategyBaseline.h */,
+				CF785D541F4FFA3B00FAA90F /* OAStackViewAlignmentStrategyBaseline.m */,
+				CF785D551F4FFA3B00FAA90F /* OAStackViewDistributionStrategy.h */,
+				CF785D561F4FFA3B00FAA90F /* OAStackViewDistributionStrategy.m */,
+				CF785D571F4FFA3B00FAA90F /* OATransformLayer.h */,
+				CF785D581F4FFA3B00FAA90F /* OATransformLayer.m */,
+			);
+			name = OAStackView;
+			sourceTree = "<group>";
+		};
+		CF785D621F50461B00FAA90F /* FloatingView */ = {
+			isa = PBXGroup;
+			children = (
+				CF40B53B1F2BCD8A00FB8ADC /* FloatingView.swift */,
+				CF40B5391F2B7CE100FB8ADC /* UIImage+Shadow.swift */,
+			);
+			name = FloatingView;
+			sourceTree = "<group>";
+		};
+		CFA7A14B1F47475300482180 /* Action Sheet Presentation Controller */ = {
+			isa = PBXGroup;
+			children = (
+				CFA7A14C1F47478800482180 /* ActionSheetPresentationController.swift */,
+				CFA7A14E1F4749FB00482180 /* ActionSheetPresentationControllerDismissButton.swift */,
+				CF2A0EF81F4EA42000C5105A /* ActionSheetPresentationControllerSectionView.swift */,
+				CF2A0EFA1F4EA52F00C5105A /* ActionSheetPresentationControllerPickerViewController.swift */,
+			);
+			name = "Action Sheet Presentation Controller";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -359,13 +464,13 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0820;
+				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = "Elisabeth-Gymnasium Halle";
 				TargetAttributes = {
 					B913C9171E0B1E190061B531 = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = ZKYCGLH74U;
-						LastSwiftMigration = 0820;
+						LastSwiftMigration = 0920;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 1;
@@ -375,7 +480,7 @@
 					B9B5C4D01D1D494700777BD9 = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = ZKYCGLH74U;
-						LastSwiftMigration = 0820;
+						LastSwiftMigration = 0920;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 1;
@@ -451,19 +556,36 @@
 				B9CBF5801D61C0C300F67682 /* OnePasswordExtension.m in Sources */,
 				B98C637D1E193E7100B515E6 /* OnboardingViewController.swift in Sources */,
 				B9FB652D1DF5FEB3009B7D13 /* DetailViewController.swift in Sources */,
+				CF785D5B1F4FFA3B00FAA90F /* OAStackView+Constraint.m in Sources */,
+				CF40B53C1F2BCD8A00FB8ADC /* FloatingView.swift in Sources */,
 				B95732F31D5F04E800A758AC /* FoerdervereinViewController.swift in Sources */,
+				CF2A0EFB1F4EA52F00C5105A /* ActionSheetPresentationControllerPickerViewController.swift in Sources */,
+				CF785D5C1F4FFA3B00FAA90F /* OAStackView+Hiding.m in Sources */,
+				CF1DD7DA1F753972006AA41B /* SimpleFeedTableViewCell.swift in Sources */,
 				B960D7851D37F68F00BCA477 /* SubjectsViewController.swift in Sources */,
+				CF785D591F4FFA3B00FAA90F /* _OALayoutGuide.m in Sources */,
 				B960D7811D35464E00BCA477 /* EditScheduleViewController.swift in Sources */,
+				CF22A0901F6FD6E700B0ECC4 /* GenericNavigationController.swift in Sources */,
+				CF785D5E1F4FFA3B00FAA90F /* OAStackViewAlignmentStrategy.m in Sources */,
 				B9CBF5771D609DD900F67682 /* LoginViewController.swift in Sources */,
+				CF46BECE1F70FA1D00ABEA66 /* NoConnectionView.swift in Sources */,
+				CF785D601F4FFA3B00FAA90F /* OAStackViewDistributionStrategy.m in Sources */,
 				B982C8781D5DF35600B021C9 /* OmissionsTableViewCell.swift in Sources */,
 				B9DEB5691DEB102F00B700AE /* AboutWebViewController.swift in Sources */,
+				CF785D5A1F4FFA3B00FAA90F /* OAStackView.m in Sources */,
+				CFA7A14D1F47478800482180 /* ActionSheetPresentationController.swift in Sources */,
 				B9B5C4D71D1D494800777BD9 /* MasterViewController.swift in Sources */,
+				CF2A0EF91F4EA42000C5105A /* ActionSheetPresentationControllerSectionView.swift in Sources */,
+				CF63C0031F6059F900A67315 /* FeedTableViewCell.swift in Sources */,
 				B9BDBA091DE1C00A0025E30A /* SetStartViewController.swift in Sources */,
+				CF785D5F1F4FFA3B00FAA90F /* OAStackViewAlignmentStrategyBaseline.m in Sources */,
 				B9CBF5711D5F332B00F67682 /* FoerdervereinArticleViewController.swift in Sources */,
+				CF40B5341F28602900FB8ADC /* PickerTableViewCell.swift in Sources */,
 				B9B5C4D51D1D494800777BD9 /* AppDelegate.swift in Sources */,
 				B9B5C4F01D1D80C200777BD9 /* NewsViewController.swift in Sources */,
 				B9B5C4F51D1ECB7900777BD9 /* Reachability.m in Sources */,
 				B9CBF5751D60493D00F67682 /* GradeViewController.swift in Sources */,
+				CF785D611F4FFA3B00FAA90F /* OATransformLayer.m in Sources */,
 				B9B5C4FB1D1FFF6100777BD9 /* LessonsViewController.swift in Sources */,
 				B982C87A1D5E5EB500B021C9 /* SWXMLHash.swift in Sources */,
 				B9CBF5731D5F68BE00F67682 /* SettingsViewController.swift in Sources */,
@@ -471,8 +593,12 @@
 				B9B5C4F91D1FDA9F00777BD9 /* ScheduleViewController.swift in Sources */,
 				B960D7831D3547FA00BCA477 /* EditLessonsViewController.swift in Sources */,
 				B9562A6E1D4126B3001BD19E /* OmissionsViewController.swift in Sources */,
+				CF40B5361F286D5300FB8ADC /* TabBarController.swift in Sources */,
+				CF785D5D1F4FFA3B00FAA90F /* OAStackView+Traversal.m in Sources */,
 				B9CBF57C1D60CFBB00F67682 /* TextFieldTableViewCell.swift in Sources */,
 				B972692E1DEB0292006819D3 /* AboutViewController.swift in Sources */,
+				CFA7A14F1F4749FB00482180 /* ActionSheetPresentationControllerDismissButton.swift in Sources */,
+				CF40B53A1F2B7CE100FB8ADC /* UIImage+Shadow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -537,7 +663,8 @@
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "OmissionsWidget/OmissionsWidget-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -555,7 +682,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "OmissionsWidget/OmissionsWidget-Bridging-Header.h";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
@@ -568,14 +696,22 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -603,6 +739,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -616,14 +753,22 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -644,6 +789,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -666,7 +812,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "ELG/ELG-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -686,7 +833,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.hardykrause.ELG;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "ELG/ELG-Bridging-Header.h";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};

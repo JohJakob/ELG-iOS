@@ -3,18 +3,20 @@
 //  ELG
 //
 //  Created by Johannes Jakob on 12/08/2016
-//  © 2016-2017 Elisabeth-Gymnasium Halle, Johannes Jakob
+//  © 2016-2018 Elisabeth-Gymnasium Halle, Johannes Jakob
 //
 
 import UIKit
 
 class OmissionsTableViewCell: UITableViewCell {
-  // Outlets
+  // MARK: - Properties
   
   @IBOutlet weak var gradeLabel: UILabel!
   @IBOutlet weak var lessonLabel: UILabel!
   @IBOutlet weak var detailsLabel: UILabel!
-  
+	
+	// MARK: - UITableViewCell
+	
   override func awakeFromNib() {
     super.awakeFromNib()
   }

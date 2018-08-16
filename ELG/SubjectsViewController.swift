@@ -3,32 +3,34 @@
 //  ELG
 //
 //  Created by Johannes Jakob on 14/07/2016
-//  © 2016-2017 Elisabeth-Gymnasium Halle, Johannes Jakob
+//  © 2016-2018 Elisabeth-Gymnasium Halle, Johannes Jakob
 //
 
 import UIKit
 
 class SubjectsViewController: UITableViewController, UIAlertViewDelegate {
-  // Variables + constants
+  // MARK: - Properties
   
   var defaults: UserDefaults!
   let subjects = ["Astronomie", "Biologie", "Chemie", "Deutsch", "Englisch", "Ethik", "Französisch", "Freie Stillarbeit", "Geografie", "Geschichte", "Informatik", "Junior-Ingenieur-Akademie", "Kunst", "Latein", "Mathematik", "Medienkunde", "Methodentraining", "Musik", "Physik", "Rechtskunde", "Religion", "Russisch", "Sozialkunde", "Spanisch", "Sport", "Verfügung", "VNU", "Wirtschaftskunde"]
-  
+	
+	// MARK: - UITableViewController
+	
   override func viewDidLoad() {
     super.viewDidLoad()
     
     // Initialize user defaults
 		
 		defaults = UserDefaults.init(suiteName: "group.com.hardykrause.elg")
-		
-		// Set back indicator image
-		
-		navigationController?.navigationBar.backIndicatorImage = UIImage(named: "Back")
-		navigationController?.navigationBar.backIndicatorTransitionMaskImage = UIImage(named: "Back")
-		navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
   }
 	
-  // Table view functions
+	override func didReceiveMemoryWarning() {
+		super.didReceiveMemoryWarning()
+		
+		print("Memory Warning")
+	}
+	
+  // MARK: - UITableView
   
   override func numberOfSections(in tableView: UITableView) -> Int {
     return 2
@@ -107,7 +109,7 @@ class SubjectsViewController: UITableViewController, UIAlertViewDelegate {
     }
   }
   
-  // Alert view function
+  // MARK: - UIAlertView
   
   func alertView(_ alertView: UIAlertView, clickedButtonAt buttonIndex: Int) {
     // Check text field text and set user default
@@ -119,12 +121,6 @@ class SubjectsViewController: UITableViewController, UIAlertViewDelegate {
     
     // Pop view
     
-    _ = self.navigationController?.popViewController(animated: true)
-  }
-  
-  override func didReceiveMemoryWarning() {
-    super.didReceiveMemoryWarning()
-    
-    print("Memory Warning")
+    navigationController?.popViewController(animated: true)
   }
 }

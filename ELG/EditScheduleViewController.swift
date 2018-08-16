@@ -3,16 +3,17 @@
 //  ELG
 //
 //  Created by Johannes Jakob on 12/07/2016
-//  © 2016-2017 Elisabeth-Gymnasium Halle, Johannes Jakob
+//  © 2016-2018 Elisabeth-Gymnasium Halle, Johannes Jakob
 //
 
 import UIKit
 
 class EditScheduleViewController: UITableViewController {
-  // Variables + constants
+  // MARK: - Properties
   
   var defaults: UserDefaults!
-  let editLessonsViewController = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "EditLessonsTableViewController")
+	
+	// MARK: - UITableViewController
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -20,15 +21,15 @@ class EditScheduleViewController: UITableViewController {
     // Initialize user defaults
 		
 		defaults = UserDefaults.init(suiteName: "group.com.hardykrause.elg")
-		
-		// Set back indicator image
-		
-		navigationController?.navigationBar.backIndicatorImage = UIImage(named: "Back")
-		navigationController?.navigationBar.backIndicatorTransitionMaskImage = UIImage(named: "Back")
-		navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
   }
 	
-  // Table view functions
+	override func didReceiveMemoryWarning() {
+		super.didReceiveMemoryWarning()
+		
+		print("Memory Warning")
+	}
+	
+  // MARK: - UITableView
   
   override func numberOfSections(in tableView: UITableView) -> Int {
     return 1
@@ -61,13 +62,8 @@ class EditScheduleViewController: UITableViewController {
     
     // Show new view
 		
+		let editLessonsViewController = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "EditLessonsTableViewController") as! EditLessonsViewController
+		
 		navigationController?.show(editLessonsViewController, sender: self)
   }
-  
-  override func didReceiveMemoryWarning() {
-    super.didReceiveMemoryWarning()
-    
-    print("Memory Warning")
-  }
-  
 }

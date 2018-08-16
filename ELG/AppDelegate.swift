@@ -3,7 +3,7 @@
 //  ELG
 //
 //  Created by Johannes Jakob on 24/06/2016
-//  © 2016-2017 Elisabeth-Gymnasium Halle, Johannes Jakob
+//  © 2016-2018 Elisabeth-Gymnasium Halle, Johannes Jakob
 //
 
 import UIKit
@@ -12,9 +12,33 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
   var window: UIWindow?
 	
-  fileprivate func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [AnyHashable: Any]?) -> Bool {
-    // Override point for customization after application launch.
-    
+  func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
+    let defaults = UserDefaults.init(suiteName: "group.com.hardykrause.elg")
+		let startView = defaults?.integer(forKey: "startView")
+		
+		if let tabBarController = window!.rootViewController as? UITabBarController {
+			if startView == 1 {
+				let gregorianCalendar = NSCalendar(calendarIdentifier: .gregorian)
+				let dateComponents = (gregorianCalendar! as NSCalendar).components(.weekday, from: Date())
+				
+				if dateComponents.weekday != 1 && dateComponents.weekday != 7 {
+					defaults?.set(dateComponents.weekday! - 2, forKey: "selectedDay")
+				} else {
+					defaults?.set(0, forKey: "selectedDay")
+				}
+				
+				defaults?.set(false, forKey: "didShowSchedule")
+				
+				defaults?.synchronize()
+				
+				tabBarController.selectedIndex = 1
+			} else if startView == 2 {
+				tabBarController.selectedIndex = 2
+			}
+			
+			tabBarController.tabBar.tintColor = UIColor(red: 0.498, green: 0.09, blue: 0.204, alpha: 1)
+		}
+		
     return true
   }
   
@@ -41,21 +65,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   }
 	
 	func application(_ application: UIApplication, handleOpen url: URL) -> Bool {
-		// Initialize user defaults
-		
 		let defaults = UserDefaults.init(suiteName: "group.com.hardykrause.elg")
 		
-		// Check URL query
-		
-		if url.query == "page=omissions" {
-			// Set user default
-			
-			defaults?.set("omissions", forKey: "openPage")
+		if let tabBarController = window!.rootViewController as? UITabBarController {
+			if url.query == "page=lessons" {
+				tabBarController.selectedIndex = 1
+			} else if url.query == "page=omissions" {
+				tabBarController.selectedIndex = 2
+				
+				defaults?.removeObject(forKey: "selectedDay")
+			} else if url.query == "page=settings" {
+				tabBarController.selectedIndex = 3
+				
+				defaults?.removeObject(forKey: "selectedDay")
+			}
 		}
-		
-		// Synchronize user defaults
-		
-		defaults?.synchronize()
 		
 		return true
 	}

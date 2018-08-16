@@ -9,12 +9,14 @@
 import UIKit
 
 class GradeViewController: UITableViewController {
-  // Variables + constants
+  // MARK: - Properties
   
   var defaults: UserDefaults!
   var selectedGrade = NSInteger()
   let grades = ["5a", "5b", "5c", "5d", "5e", "6a", "6b", "6c", "6d", "6e", "7a", "7b", "7c", "7d", "7e", "8a", "8b", "8c", "8d", "9a", "9b", "9c", "9d", "10a", "10b", "10c", "10d", "11a", "11b", "11c", "11d", "11e", "12a", "12b", "12c", "12d", "12e"]
-  
+
+	// MARK: - UITableViewController
+
   override func viewDidLoad() {
     super.viewDidLoad()
     
@@ -26,8 +28,14 @@ class GradeViewController: UITableViewController {
     
     retrieveUserDefaults()
   }
-  
-  // Table view functions
+	
+	override func didReceiveMemoryWarning() {
+		super.didReceiveMemoryWarning()
+		
+		print("Memory Warning")
+	}
+	
+  // MARK: - UITableView
   
   override func numberOfSections(in tableView: UITableView) -> Int {
     return 2
@@ -92,17 +100,11 @@ class GradeViewController: UITableViewController {
     tableView.reloadData()
   }
   
-  // Custom functions
+  // MARK: - Custom
   
   func retrieveUserDefaults() {
     // Retrieve selected grade from user defaults
     
     selectedGrade = defaults.integer(forKey: "selectedGrade")
-  }
-  
-  override func didReceiveMemoryWarning() {
-    super.didReceiveMemoryWarning()
-    
-    print("Memory Warning")
   }
 }
