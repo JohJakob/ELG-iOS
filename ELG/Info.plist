@@ -32,7 +32,7 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>1</string>
+	<string>2</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>org-appextension-feature-password-management</string>
@@ -45,14 +45,14 @@
 		<true/>
 		<key>NSExceptionDomains</key>
 		<dict>
-			<key>wordpress.com</key>
+			<key>elg-halle.de</key>
 			<dict>
 				<key>NSExceptionAllowsInsecureHTTPLoads</key>
 				<true/>
 				<key>NSIncludesSubdomains</key>
 				<true/>
 			</dict>
-			<key>elg-halle.de</key>
+			<key>wordpress.com</key>
 			<dict>
 				<key>NSExceptionAllowsInsecureHTTPLoads</key>
 				<true/>
