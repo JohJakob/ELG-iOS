@@ -255,7 +255,7 @@ class OmissionsViewController: UITableViewController {
       var rawOmissions = String()
       
       do {
-        try rawOmissions = String(contentsOf: URL.init(string: "http://elg-halle.de/Aktuell/Intern/Vertretungsplan/vp.csv")!, encoding: String.Encoding.ascii)
+        try rawOmissions = String(contentsOf: URL.init(string: "https://elg-halle.de/Aktuell/Intern/Vertretungsplan/vp.csv")!, encoding: String.Encoding.ascii)
       } catch {
         print(error)
       }

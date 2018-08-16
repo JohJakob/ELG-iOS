@@ -110,7 +110,7 @@ final class NewsViewController: UIViewController, UIWebViewDelegate {
     let reachabilityStatus: NetworkStatus = Reachability.forInternetConnection().currentReachabilityStatus()
     
     if reachabilityStatus != NotReachable {
-      newsWebView.loadRequest(URLRequest(url: URL(string: "http://elg-halle.de/Aktuell/News/news.asp")!))
+      newsWebView.loadRequest(URLRequest(url: URL(string: "https://elg-halle.de/Aktuell/News/news.asp")!))
     } else {
       newsWebView.loadRequest(URLRequest(url: Bundle.main.url(forResource: "NoConnection", withExtension: ".html")!))
     }
