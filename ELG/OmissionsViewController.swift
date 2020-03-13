@@ -177,18 +177,18 @@ class OmissionsViewController: UITableViewController {
     let footerLabel = UILabel()
 		
 		if #available(iOS 13, *) {
-			footerLabel.textColor = UIColor.secondaryLabel
+			footerLabel.textColor = .secondaryLabel
 		} else {
-			footerLabel.textColor = UIColor.lightGray
+			footerLabel.textColor = .lightGray
 		}
     
-    footerLabel.font = UIFont.boldSystemFont(ofSize: 18)
+    footerLabel.font = .boldSystemFont(ofSize: 18)
     footerLabel.textAlignment = .center
 		
 		if #available(iOS 13, *) {
-			footerLabel.backgroundColor = UIColor.systemGroupedBackground
+			footerLabel.backgroundColor = .systemGroupedBackground
 		} else {
-			footerLabel.backgroundColor = UIColor.white
+			footerLabel.backgroundColor = .white
 		}
     
     if section == 0 {
