@@ -32,9 +32,9 @@ class TabBarController: UITabBarController {
 		
 		defaults.removeObject(forKey: "launched3.0")
 		
-		if defaults.bool(forKey: "launched\(String(describing: version))") != true {
+		/* if defaults.bool(forKey: "launched\(String(describing: version))") != true {
 			updateUserDefaults()
-		}
+		} */
 	}
 	
 	override func didReceiveMemoryWarning() {
