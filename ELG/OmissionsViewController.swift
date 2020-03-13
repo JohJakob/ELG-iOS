@@ -152,8 +152,6 @@ class OmissionsViewController: UITableViewController {
     
     if comment == "Entfall" {
       cell.lessonLabel.textColor = UIColor(red: 0.498, green: 0.09, blue: 0.203, alpha: 1)
-    } else {
-      cell.lessonLabel.textColor = UIColor.black
     }
     
     return cell
@@ -177,22 +175,29 @@ class OmissionsViewController: UITableViewController {
   
   override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
     let footerLabel = UILabel()
+		
+		if #available(iOS 13, *) {
+			footerLabel.textColor = UIColor.secondaryLabel
+		} else {
+			footerLabel.textColor = UIColor.lightGray
+		}
     
-    footerLabel.textColor = UIColor.lightGray
     footerLabel.font = UIFont.boldSystemFont(ofSize: 18)
     footerLabel.textAlignment = .center
+		
+		if #available(iOS 13, *) {
+			footerLabel.backgroundColor = UIColor.systemGroupedBackground
+		} else {
+			footerLabel.backgroundColor = UIColor.white
+		}
     
     if section == 0 {
       if ownOmissions.count == 0 {
         footerLabel.text = "Keine eigenen Vertretungen"
-      } else {
-        footerLabel.backgroundColor = UIColor.white
       }
     } else {
       if rows.count < 3 {
         footerLabel.text = "Keine Vertretungen"
-      } else {
-        footerLabel.backgroundColor = UIColor.white
       }
     }
     
@@ -294,7 +299,6 @@ class OmissionsViewController: UITableViewController {
       
       navigationItem.title = rows[0] as? String
       
-      tableView.backgroundColor = UIColor.white
       tableView.separatorStyle = .singleLine
       
       offlineAvailable = false
@@ -314,7 +318,6 @@ class OmissionsViewController: UITableViewController {
     } else {
       saveButton.isEnabled = false
       
-      tableView.backgroundColor = UIColor.groupTableViewBackground
       tableView.separatorStyle = .none
     }
   }

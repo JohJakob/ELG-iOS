@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import SafariServices
 
-class TabBarController: UITabBarController {
+class TabBarController: UITabBarController, SFSafariViewControllerDelegate {
 	// MARK: - Properties
 	
 	var defaults: UserDefaults!
@@ -31,6 +32,10 @@ class TabBarController: UITabBarController {
 		super.viewDidAppear(animated)
 		
 		defaults.removeObject(forKey: "launched3.0")
+		
+		if defaults.bool(forKey: "completedFeaturePoll") != true {
+			presentFeaturePoll()
+		}
 		
 		/* if defaults.bool(forKey: "launched\(String(describing: version))") != true {
 			updateUserDefaults()
@@ -83,5 +88,31 @@ class TabBarController: UITabBarController {
 		defaults.synchronize()
 		
 		present(onboardingViewController, animated: true, completion: nil)
+	}
+	
+	private func presentFeaturePoll() {
+		// Ask if user wants to complete a poll regarding the features of future versions of the app
+		
+		let pollAlert = UIAlertController(title: "Feature-Umfrage", message: "Danke, dass Du ELG verwendest! Um die App noch besser zu machen, benötige ich Dein Feedback. Möchtest Du eine kleine Umfrage (2-3 Minuten) beantworten?", preferredStyle: .alert)
+		
+		pollAlert.addAction(UIAlertAction(title: "Nein", style: .cancel, handler: nil))
+		
+		pollAlert.addAction(UIAlertAction(title: "Umfrage beantworten", style: .default, handler: { _ in
+			let pollURLString = "https://johannesjakob.typeform.com/to/CNzyBw"
+			
+			if #available(iOS 9, *) {
+				let pollSafariView = SFSafariViewController(url: URL(string: pollURLString)!)
+				
+				pollSafariView.delegate = self
+				
+				self.present(pollSafariView, animated: true, completion: nil)
+			} else {
+				UIApplication.shared.openURL(URL.init(string: pollURLString)!)
+			}
+		}))
+		
+		self.present(pollAlert, animated: true) {
+			self.defaults.set(true, forKey: "completedFeaturePoll")
+		}
 	}
 }

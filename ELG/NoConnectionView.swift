@@ -66,7 +66,11 @@ final class NoConnectionView: UIView {
 		string.append(heading)
 		string.append(details)
 		
-		string.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.gray, range: NSRange(location: 0, length: string.length))
+		if #available(iOS 13, *) {
+			string.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.secondaryLabel, range: NSRange(location: 0, length: string.length))
+		} else {
+			string.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.gray, range: NSRange(location: 0, length: string.length))
+		}
 		
 		return string
 	}

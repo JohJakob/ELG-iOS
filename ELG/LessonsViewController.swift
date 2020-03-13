@@ -84,7 +84,13 @@ class LessonsViewController: UITableViewController {
     if numberOfRows == 0 {
       let noScheduleLabel = UILabel.init()
       noScheduleLabel.text = "Keine Stunden eingetragen"
-      noScheduleLabel.textColor = UIColor.lightGray
+			
+			if #available(iOS 13, *) {
+				noScheduleLabel.textColor = UIColor.secondaryLabel
+			} else {
+				noScheduleLabel.textColor = UIColor.gray
+			}
+			
       noScheduleLabel.font = UIFont.boldSystemFont(ofSize: 18)
       noScheduleLabel.textAlignment = .center
       
