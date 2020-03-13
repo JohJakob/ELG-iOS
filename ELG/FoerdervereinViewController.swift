@@ -120,7 +120,7 @@ class FoerdervereinViewController: UITableViewController, UIGestureRecognizerDel
 		tableView.register(SimpleFeedTableViewCell.self, forCellReuseIdentifier: "SimpleFeedTableViewCell")
 		
 		tableView.estimatedRowHeight = 97
-		tableView.rowHeight = UITableViewAutomaticDimension
+		tableView.rowHeight = UITableView.automaticDimension
 		
 		tableView.backgroundColor = UIColor.groupTableViewBackground
 		tableView.separatorColor = UIColor.clear

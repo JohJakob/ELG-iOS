@@ -464,13 +464,13 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0940;
+				LastUpgradeCheck = 1130;
 				ORGANIZATIONNAME = "Elisabeth-Gymnasium Halle";
 				TargetAttributes = {
 					B913C9171E0B1E190061B531 = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = ZKYCGLH74U;
-						LastSwiftMigration = 0920;
+						LastSwiftMigration = 1130;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 1;
@@ -480,7 +480,7 @@
 					B9B5C4D01D1D494700777BD9 = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = ZKYCGLH74U;
-						LastSwiftMigration = 0920;
+						LastSwiftMigration = 1130;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 1;
@@ -664,7 +664,7 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "OmissionsWidget/OmissionsWidget-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -683,7 +683,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "OmissionsWidget/OmissionsWidget-Bridging-Header.h";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
@@ -813,7 +813,7 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "ELG/ELG-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -834,7 +834,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "ELG/ELG-Bridging-Header.h";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};

@@ -26,7 +26,7 @@ final class ActionSheetPresentationControllerDismissButton: UIControl {
 	}()
 	
 	override var intrinsicContentSize: CGSize {
-		return CGSize(width: UIViewNoIntrinsicMetric, height: 57)
+		return CGSize(width: UIView.noIntrinsicMetric, height: 57)
 	}
 	
 	// MARK: - Initializers

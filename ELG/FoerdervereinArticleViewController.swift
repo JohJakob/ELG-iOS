@@ -117,7 +117,7 @@ class FoerdervereinArticleViewController: UIViewController, WKNavigationDelegate
 		webView.translatesAutoresizingMaskIntoConstraints = false
 		webView.navigationDelegate = self
 		
-		activityIndicator.activityIndicatorViewStyle = .gray
+		activityIndicator.style = .gray
 		activityIndicator.translatesAutoresizingMaskIntoConstraints = false
 		
 		refreshControl.addTarget(self, action: #selector(FoerdervereinArticleViewController.refresh), for: .valueChanged)

@@ -15,7 +15,7 @@ final class NoConnectionView: UIView {
 		let view = UILabel()
 		
 		view.numberOfLines = 0
-		view.layoutMargins = UIEdgeInsetsMake(0, 16, 0, 16)
+		view.layoutMargins = UIEdgeInsets.init(top: 0, left: 16, bottom: 0, right: 16)
 		
 		view.translatesAutoresizingMaskIntoConstraints = false
 		
@@ -58,15 +58,15 @@ final class NoConnectionView: UIView {
 		detailsParagraphStyle.alignment = .center
 		detailsParagraphStyle.lineHeightMultiple = 1.2
 		
-		let heading = NSMutableAttributedString(string: "Keine Verbindung\n", attributes: [NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: 20), NSAttributedStringKey.paragraphStyle: headingParagraphStyle])
-		let details = NSMutableAttributedString(string: "Bitte überprüfe die Einstellungen. Wische von oben nach unten, um die Seite neu zu laden.", attributes: [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 16), NSAttributedStringKey.paragraphStyle: detailsParagraphStyle])
+		let heading = NSMutableAttributedString(string: "Keine Verbindung\n", attributes: [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 20), NSAttributedString.Key.paragraphStyle: headingParagraphStyle])
+		let details = NSMutableAttributedString(string: "Bitte überprüfe die Einstellungen. Wische von oben nach unten, um die Seite neu zu laden.", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16), NSAttributedString.Key.paragraphStyle: detailsParagraphStyle])
 		
 		let string = NSMutableAttributedString()
 		
 		string.append(heading)
 		string.append(details)
 		
-		string.addAttribute(NSAttributedStringKey.foregroundColor, value: UIColor.gray, range: NSRange(location: 0, length: string.length))
+		string.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.gray, range: NSRange(location: 0, length: string.length))
 		
 		return string
 	}

@@ -59,7 +59,7 @@ class AboutWebViewController: UIViewController, UIWebViewDelegate {
 	
   // MARK: - UIWebView
   
-  func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebViewNavigationType) -> Bool {
+  func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebView.NavigationType) -> Bool {
     // Check web view navigation type
 
     if navigationType == .linkClicked {

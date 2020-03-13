@@ -67,7 +67,7 @@ class TabBarController: UITabBarController {
 		if previousGrades[defaults.integer(forKey: "selectedGrade")] != grades[defaults.integer(forKey: "selectedGrade")] {
 			// Get index of previously selected grade in new grade list
 			
-			if let index = grades.index(of: previousGrades[defaults.integer(forKey: "selectedGrade")]) {
+			if let index = grades.firstIndex(of: previousGrades[defaults.integer(forKey: "selectedGrade")]) {
 				let distance = grades.distance(from: grades.startIndex, to: index)
 				
 				// Update grade settings to match new grade list
