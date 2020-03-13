@@ -25,7 +25,7 @@ class WebScheduleViewController: UIViewController, UIWebViewDelegate {
     
     // Initialize user defaults
 		
-		defaults = UserDefaults.init(suiteName: "group.com.hardykrause.elg")
+		defaults = UserDefaults.init(suiteName: "group.com.johjakob.elg")
     
     loadSchedule()
   }

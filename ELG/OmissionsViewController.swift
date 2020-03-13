@@ -32,7 +32,7 @@ class OmissionsViewController: UITableViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
 
-		defaults = UserDefaults.init(suiteName: "group.com.hardykrause.elg")
+		defaults = UserDefaults.init(suiteName: "group.com.johjakob.elg")
     
     tableView.register(UINib(nibName: "OmissionsTableViewCell", bundle: nil), forCellReuseIdentifier: "OmissionsTableViewCell")
 		

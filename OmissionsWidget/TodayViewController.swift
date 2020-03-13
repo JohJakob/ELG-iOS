@@ -27,7 +27,7 @@ class TodayViewController: UITableViewController, NCWidgetProviding {
   }
   
   override func viewWillAppear(_ animated: Bool) {
-    defaults = UserDefaults.init(suiteName: "group.com.hardykrause.elg")
+    defaults = UserDefaults.init(suiteName: "group.com.johjakob.elg")
     
     prepare()
     

@@ -36,7 +36,7 @@ class SettingsViewController: UITableViewController, UIPickerViewDelegate, UIPic
     
     // Initialize user defaults
 		
-		defaults = UserDefaults.init(suiteName: "group.com.hardykrause.elg")
+		defaults = UserDefaults.init(suiteName: "group.com.johjakob.elg")
 		
 		// Retrieve user defaults
 		

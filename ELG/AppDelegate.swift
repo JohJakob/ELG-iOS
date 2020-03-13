@@ -13,7 +13,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   var window: UIWindow?
 	
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
-    let defaults = UserDefaults.init(suiteName: "group.com.hardykrause.elg")
+    let defaults = UserDefaults.init(suiteName: "group.com.johjakob.elg")
 		let startView = defaults?.integer(forKey: "startView")
 		
 		if let tabBarController = window!.rootViewController as? UITabBarController {

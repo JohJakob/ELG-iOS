@@ -23,7 +23,7 @@ class AboutViewController: UITableViewController, MFMailComposeViewControllerDel
     
     // Initialize user defaults
 		
-		defaults = UserDefaults.init(suiteName: "group.com.hardykrause.elg")
+		defaults = UserDefaults.init(suiteName: "group.com.johjakob.elg")
 		
 		if #available(iOS 10.3, *) {
 			SKStoreReviewController.requestReview()

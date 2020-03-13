@@ -21,7 +21,7 @@ class SubjectsViewController: UITableViewController, UIAlertViewDelegate {
     
     // Initialize user defaults
 		
-		defaults = UserDefaults.init(suiteName: "group.com.hardykrause.elg")
+		defaults = UserDefaults.init(suiteName: "group.com.johjakob.elg")
   }
 	
 	override func didReceiveMemoryWarning() {

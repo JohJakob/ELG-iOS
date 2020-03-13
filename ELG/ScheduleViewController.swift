@@ -23,7 +23,7 @@ class ScheduleViewController: UITableViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
 		
-		defaults = UserDefaults.init(suiteName: "group.com.hardykrause.elg")
+		defaults = UserDefaults.init(suiteName: "group.com.johjakob.elg")
   }
 	
 	override func viewDidAppear(_ animated: Bool) {

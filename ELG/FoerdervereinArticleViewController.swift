@@ -109,7 +109,7 @@ class FoerdervereinArticleViewController: UIViewController, WKNavigationDelegate
   // MARK: - Private
 	
 	private func initialize() {
-		defaults = UserDefaults.init(suiteName: "group.com.hardykrause.elg")
+		defaults = UserDefaults.init(suiteName: "group.com.johjakob.elg")
 		
 		navigationItem.title = defaults.string(forKey: "selectedArticleTitle")
 		

@@ -479,7 +479,7 @@
 					};
 					B9B5C4D01D1D494700777BD9 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = ZKYCGLH74U;
+						DevelopmentTeam = TRLMQKJQ97;
 						LastSwiftMigration = 1130;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
@@ -809,12 +809,12 @@
 				CODE_SIGN_ENTITLEMENTS = ELG/ELG.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = ZKYCGLH74U;
+				DEVELOPMENT_TEAM = TRLMQKJQ97;
 				INFOPLIST_FILE = ELG/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MARKETING_VERSION = 3.0.1;
-				PRODUCT_BUNDLE_IDENTIFIER = com.hardykrause.ELG;
+				PRODUCT_BUNDLE_IDENTIFIER = com.johjakob.ELG;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "ELG/ELG-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -833,12 +833,12 @@
 				CODE_SIGN_ENTITLEMENTS = ELG/ELG.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = ZKYCGLH74U;
+				DEVELOPMENT_TEAM = TRLMQKJQ97;
 				INFOPLIST_FILE = ELG/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MARKETING_VERSION = 3.0.1;
-				PRODUCT_BUNDLE_IDENTIFIER = com.hardykrause.ELG;
+				PRODUCT_BUNDLE_IDENTIFIER = com.johjakob.ELG;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "ELG/ELG-Bridging-Header.h";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;

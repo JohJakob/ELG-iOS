@@ -50,7 +50,7 @@ class LoginViewController: UITableViewController, UITextFieldDelegate {
     
     // Initialize user defaults
     
-		defaults = UserDefaults.init(suiteName: "group.com.hardykrause.elg")
+		defaults = UserDefaults.init(suiteName: "group.com.johjakob.elg")
     
     // Register custom table view cell
     

@@ -90,7 +90,7 @@ class FoerdervereinViewController: UITableViewController, UIGestureRecognizerDel
 	// MARK: - Private
 	
 	private func initialize() {
-		defaults = UserDefaults.init(suiteName: "group.com.hardykrause.elg")
+		defaults = UserDefaults.init(suiteName: "group.com.johjakob.elg")
 		
 		segmentedControl.addTarget(self, action: #selector(changeView), for: .valueChanged)
 		
