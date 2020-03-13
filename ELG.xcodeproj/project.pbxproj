@@ -494,7 +494,7 @@
 			};
 			buildConfigurationList = B9B5C4CC1D1D494700777BD9 /* Build configuration list for PBXProject "ELG" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
