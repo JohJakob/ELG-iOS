@@ -125,7 +125,7 @@ class AboutViewController: UITableViewController, MFMailComposeViewControllerDel
       if indexPath.row == 1 {
         // Open URL
         
-        UIApplication.shared.openURL(URL.init(string: "http://www.johjakob.de")!)
+        UIApplication.shared.openURL(URL.init(string: "https://johjakob.com")!)
       } else if indexPath.row == 2 {
         // Set user default
         
@@ -210,7 +210,7 @@ class AboutViewController: UITableViewController, MFMailComposeViewControllerDel
     // Check table view section and set title for table view section footer
     
     if section == 3 {
-      return "© 2012-2018 Elisabeth-Gymnasium Halle, Johannes Jakob"
+      return "© Elisabeth-Gymnasium Halle, Johannes Jakob"
     } else {
       return nil
     }
