@@ -30,7 +30,7 @@ class TabBarController: UITabBarController {
 	override func viewDidAppear(_ animated: Bool) {
 		super.viewDidAppear(animated)
 		
-		defaults.removeObject(forKey: "launched2.0.1")
+		defaults.removeObject(forKey: "launched3.0")
 		
 		if defaults.bool(forKey: "launched\(String(describing: version))") != true {
 			updateUserDefaults()
