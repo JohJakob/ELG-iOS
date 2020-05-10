@@ -21,7 +21,6 @@
 		B960D7851D37F68F00BCA477 /* SubjectsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B960D7841D37F68F00BCA477 /* SubjectsViewController.swift */; };
 		B972692E1DEB0292006819D3 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B972692D1DEB0292006819D3 /* AboutViewController.swift */; };
 		B982C8781D5DF35600B021C9 /* OmissionsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B982C8771D5DF35600B021C9 /* OmissionsTableViewCell.swift */; };
-		B982C87A1D5E5EB500B021C9 /* SWXMLHash.swift in Sources */ = {isa = PBXBuildFile; fileRef = B982C8791D5E5EB500B021C9 /* SWXMLHash.swift */; };
 		B98C637D1E193E7100B515E6 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98C637C1E193E7100B515E6 /* OnboardingViewController.swift */; };
 		B9B5C4D51D1D494800777BD9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B5C4D41D1D494800777BD9 /* AppDelegate.swift */; };
 		B9B5C4D71D1D494800777BD9 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B5C4D61D1D494800777BD9 /* MasterViewController.swift */; };
@@ -59,6 +58,9 @@
 		CF40B53C1F2BCD8A00FB8ADC /* FloatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF40B53B1F2BCD8A00FB8ADC /* FloatingView.swift */; };
 		CF46BECE1F70FA1D00ABEA66 /* NoConnectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF46BECD1F70FA1D00ABEA66 /* NoConnectionView.swift */; };
 		CF5EB0D92468460400E5D144 /* ColorCompatibility in Frameworks */ = {isa = PBXBuildFile; productRef = CF5EB0D82468460400E5D144 /* ColorCompatibility */; };
+		CF5EB0DC2468490900E5D144 /* SWXMLHash in Frameworks */ = {isa = PBXBuildFile; productRef = CF5EB0DB2468490900E5D144 /* SWXMLHash */; };
+		CF5EB0DE2468492100E5D144 /* ColorCompatibility in Frameworks */ = {isa = PBXBuildFile; productRef = CF5EB0DD2468492100E5D144 /* ColorCompatibility */; };
+		CF5EB0E02468492500E5D144 /* SWXMLHash in Frameworks */ = {isa = PBXBuildFile; productRef = CF5EB0DF2468492500E5D144 /* SWXMLHash */; };
 		CF63C0031F6059F900A67315 /* FeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF63C0021F6059F900A67315 /* FeedTableViewCell.swift */; };
 		CF785D591F4FFA3B00FAA90F /* _OALayoutGuide.m in Sources */ = {isa = PBXBuildFile; fileRef = CF785D481F4FFA3B00FAA90F /* _OALayoutGuide.m */; };
 		CF785D5A1F4FFA3B00FAA90F /* OAStackView.m in Sources */ = {isa = PBXBuildFile; fileRef = CF785D4A1F4FFA3B00FAA90F /* OAStackView.m */; };
@@ -116,7 +118,6 @@
 		B960D7841D37F68F00BCA477 /* SubjectsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubjectsViewController.swift; sourceTree = "<group>"; };
 		B972692D1DEB0292006819D3 /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		B982C8771D5DF35600B021C9 /* OmissionsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OmissionsTableViewCell.swift; sourceTree = "<group>"; };
-		B982C8791D5E5EB500B021C9 /* SWXMLHash.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SWXMLHash.swift; sourceTree = "<group>"; };
 		B98C637C1E193E7100B515E6 /* OnboardingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		B9B5C4D11D1D494800777BD9 /* ELG.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ELG.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9B5C4D41D1D494800777BD9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -187,7 +188,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF5EB0E02468492500E5D144 /* SWXMLHash in Frameworks */,
 				B913C91B1E0B1E190061B531 /* NotificationCenter.framework in Frameworks */,
+				CF5EB0DE2468492100E5D144 /* ColorCompatibility in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -195,6 +198,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF5EB0DC2468490900E5D144 /* SWXMLHash in Frameworks */,
 				B9F73BFA1DEDFE77004F3470 /* MessageUI.framework in Frameworks */,
 				B9CBF5841D61D90C00F67682 /* WebKit.framework in Frameworks */,
 				CF5EB0D92468460400E5D144 /* ColorCompatibility in Frameworks */,
@@ -367,7 +371,6 @@
 			children = (
 				B9B5C4F31D1ECB7900777BD9 /* Reachability.h */,
 				B9B5C4F41D1ECB7900777BD9 /* Reachability.m */,
-				B982C8791D5E5EB500B021C9 /* SWXMLHash.swift */,
 				B9CBF57E1D61C0C300F67682 /* OnePasswordExtension.h */,
 				B9CBF57F1D61C0C300F67682 /* OnePasswordExtension.m */,
 				B9B5C4F21D1ECB7800777BD9 /* ELG-Bridging-Header.h */,
@@ -436,6 +439,10 @@
 			dependencies = (
 			);
 			name = OmissionsWidget;
+			packageProductDependencies = (
+				CF5EB0DD2468492100E5D144 /* ColorCompatibility */,
+				CF5EB0DF2468492500E5D144 /* SWXMLHash */,
+			);
 			productName = OmissionsWidget;
 			productReference = B913C9181E0B1E190061B531 /* OmissionsWidget.appex */;
 			productType = "com.apple.product-type.app-extension";
@@ -457,6 +464,7 @@
 			name = ELG;
 			packageProductDependencies = (
 				CF5EB0D82468460400E5D144 /* ColorCompatibility */,
+				CF5EB0DB2468490900E5D144 /* SWXMLHash */,
 			);
 			productName = ELG;
 			productReference = B9B5C4D11D1D494800777BD9 /* ELG.app */;
@@ -508,6 +516,7 @@
 			mainGroup = B9B5C4C81D1D494700777BD9;
 			packageReferences = (
 				CF5EB0D72468460400E5D144 /* XCRemoteSwiftPackageReference "ColorCompatibility" */,
+				CF5EB0DA2468490900E5D144 /* XCRemoteSwiftPackageReference "SWXMLHash" */,
 			);
 			productRefGroup = B9B5C4D21D1D494800777BD9 /* Products */;
 			projectDirPath = "";
@@ -595,7 +604,6 @@
 				B9CBF5751D60493D00F67682 /* GradeViewController.swift in Sources */,
 				CF785D611F4FFA3B00FAA90F /* OATransformLayer.m in Sources */,
 				B9B5C4FB1D1FFF6100777BD9 /* LessonsViewController.swift in Sources */,
-				B982C87A1D5E5EB500B021C9 /* SWXMLHash.swift in Sources */,
 				B9CBF5731D5F68BE00F67682 /* SettingsViewController.swift in Sources */,
 				B9CCE7D61D20FE3B00F44447 /* WebScheduleViewController.swift in Sources */,
 				B9B5C4F91D1FDA9F00777BD9 /* ScheduleViewController.swift in Sources */,
@@ -910,6 +918,14 @@
 				minimumVersion = 1.0.1;
 			};
 		};
+		CF5EB0DA2468490900E5D144 /* XCRemoteSwiftPackageReference "SWXMLHash" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/drmohundro/SWXMLHash.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -917,6 +933,21 @@
 			isa = XCSwiftPackageProductDependency;
 			package = CF5EB0D72468460400E5D144 /* XCRemoteSwiftPackageReference "ColorCompatibility" */;
 			productName = ColorCompatibility;
+		};
+		CF5EB0DB2468490900E5D144 /* SWXMLHash */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CF5EB0DA2468490900E5D144 /* XCRemoteSwiftPackageReference "SWXMLHash" */;
+			productName = SWXMLHash;
+		};
+		CF5EB0DD2468492100E5D144 /* ColorCompatibility */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CF5EB0D72468460400E5D144 /* XCRemoteSwiftPackageReference "ColorCompatibility" */;
+			productName = ColorCompatibility;
+		};
+		CF5EB0DF2468492500E5D144 /* SWXMLHash */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CF5EB0DA2468490900E5D144 /* XCRemoteSwiftPackageReference "SWXMLHash" */;
+			productName = SWXMLHash;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
