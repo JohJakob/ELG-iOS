@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -58,6 +58,7 @@
 		CF40B53A1F2B7CE100FB8ADC /* UIImage+Shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF40B5391F2B7CE100FB8ADC /* UIImage+Shadow.swift */; };
 		CF40B53C1F2BCD8A00FB8ADC /* FloatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF40B53B1F2BCD8A00FB8ADC /* FloatingView.swift */; };
 		CF46BECE1F70FA1D00ABEA66 /* NoConnectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF46BECD1F70FA1D00ABEA66 /* NoConnectionView.swift */; };
+		CF5EB0D92468460400E5D144 /* ColorCompatibility in Frameworks */ = {isa = PBXBuildFile; productRef = CF5EB0D82468460400E5D144 /* ColorCompatibility */; };
 		CF63C0031F6059F900A67315 /* FeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF63C0021F6059F900A67315 /* FeedTableViewCell.swift */; };
 		CF785D591F4FFA3B00FAA90F /* _OALayoutGuide.m in Sources */ = {isa = PBXBuildFile; fileRef = CF785D481F4FFA3B00FAA90F /* _OALayoutGuide.m */; };
 		CF785D5A1F4FFA3B00FAA90F /* OAStackView.m in Sources */ = {isa = PBXBuildFile; fileRef = CF785D4A1F4FFA3B00FAA90F /* OAStackView.m */; };
@@ -196,6 +197,7 @@
 			files = (
 				B9F73BFA1DEDFE77004F3470 /* MessageUI.framework in Frameworks */,
 				B9CBF5841D61D90C00F67682 /* WebKit.framework in Frameworks */,
+				CF5EB0D92468460400E5D144 /* ColorCompatibility in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -453,6 +455,9 @@
 				B913C9241E0B1E190061B531 /* PBXTargetDependency */,
 			);
 			name = ELG;
+			packageProductDependencies = (
+				CF5EB0D82468460400E5D144 /* ColorCompatibility */,
+			);
 			productName = ELG;
 			productReference = B9B5C4D11D1D494800777BD9 /* ELG.app */;
 			productType = "com.apple.product-type.application";
@@ -501,6 +506,9 @@
 				Base,
 			);
 			mainGroup = B9B5C4C81D1D494700777BD9;
+			packageReferences = (
+				CF5EB0D72468460400E5D144 /* XCRemoteSwiftPackageReference "ColorCompatibility" */,
+			);
 			productRefGroup = B9B5C4D21D1D494800777BD9 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -658,7 +666,11 @@
 				DEVELOPMENT_TEAM = TRLMQKJQ97;
 				INFOPLIST_FILE = OmissionsWidget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
 				MARKETING_VERSION = 3.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.johjakob.ELG.OmissionsWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -680,7 +692,11 @@
 				DEVELOPMENT_TEAM = TRLMQKJQ97;
 				INFOPLIST_FILE = OmissionsWidget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
 				MARKETING_VERSION = 3.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.johjakob.ELG.OmissionsWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -792,7 +808,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -812,7 +829,10 @@
 				DEVELOPMENT_TEAM = TRLMQKJQ97;
 				INFOPLIST_FILE = ELG/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				MARKETING_VERSION = 3.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.johjakob.ELG;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -836,7 +856,10 @@
 				DEVELOPMENT_TEAM = TRLMQKJQ97;
 				INFOPLIST_FILE = ELG/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				MARKETING_VERSION = 3.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.johjakob.ELG;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -877,6 +900,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		CF5EB0D72468460400E5D144 /* XCRemoteSwiftPackageReference "ColorCompatibility" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/noahsark769/ColorCompatibility.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		CF5EB0D82468460400E5D144 /* ColorCompatibility */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CF5EB0D72468460400E5D144 /* XCRemoteSwiftPackageReference "ColorCompatibility" */;
+			productName = ColorCompatibility;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B9B5C4C91D1D494700777BD9 /* Project object */;
 }
