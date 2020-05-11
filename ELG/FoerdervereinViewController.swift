@@ -190,7 +190,7 @@ class FoerdervereinViewController: UITableViewController, UIGestureRecognizerDel
 						var currentItem = [String: String]()
 						
 						currentItem["heading"] = element["title"].element?.text
-						currentItem["date"] = self.transformDate(string: (element["pubDate"].element?.text)!)
+						currentItem["date"] = self.transformDate(dateString: (element["pubDate"].element?.text)!)
 						currentItem["link"] = element["link"].element?.text
 						
 						items.append(currentItem)
@@ -202,11 +202,16 @@ class FoerdervereinViewController: UITableViewController, UIGestureRecognizerDel
 		}
 	}
 	
-	private func transformDate(string: String) -> String {
+	private func transformDate(dateString: String) -> String {
+		var string = dateString
+		
+		string.removeSubrange(string.startIndex...string.index(string.startIndex, offsetBy: 5))
+		string.removeSubrange(string.index(string.endIndex, offsetBy: -6)..<string.endIndex)
+		
 		let dateFormatter = DateFormatter()
 		
-		dateFormatter.dateFormat = "EEE, dd MMM yyyy HH:mm:ss +zzzz"
-		dateFormatter.locale = Locale.init(identifier: "en_US")
+		dateFormatter.locale = Locale.init(identifier: "en_US_POSIX")
+		dateFormatter.dateFormat = "dd MMM yyyy HH:mm:ss"
 		
 		let date = dateFormatter.date(from: string)
 		
