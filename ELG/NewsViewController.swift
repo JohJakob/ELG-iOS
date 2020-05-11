@@ -112,8 +112,14 @@ final class NewsViewController: UIViewController, UIWebViewDelegate {
     
     if reachabilityStatus != NotReachable {
       newsWebView.loadRequest(URLRequest(url: URL(string: "https://elg-halle.de/Aktuell/News/news.asp")!))
+			newsWebView.backgroundColor = UIColor.white
+			
+			refreshControl.tintColor = UIColor.lightGray
     } else {
       newsWebView.loadRequest(URLRequest(url: Bundle.main.url(forResource: "NoConnection", withExtension: ".html")!))
+			newsWebView.backgroundColor = ColorCompatibility.systemBackground
+			
+			refreshControl.tintColor = nil
     }
   }
 	
