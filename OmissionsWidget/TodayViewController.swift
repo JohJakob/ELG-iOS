@@ -8,6 +8,7 @@
 
 import UIKit
 import NotificationCenter
+import ColorCompatibility
 
 class TodayViewController: UITableViewController, NCWidgetProviding {
   // MARK: - Properties
@@ -36,7 +37,7 @@ class TodayViewController: UITableViewController, NCWidgetProviding {
     } else {
       preferredContentSize = CGSize(width: preferredContentSize.width, height: CGFloat(ownOmissions.count) * 44)
 			
-			if #available(iOSApplicationExtension 10.0, *) {
+			if #available(iOSApplicationExtension 10, *) {
 				extensionContext?.widgetLargestAvailableDisplayMode = .expanded
 			}
     }
@@ -64,7 +65,7 @@ class TodayViewController: UITableViewController, NCWidgetProviding {
     return UIEdgeInsets.zero
   }
 	
-	@available(iOSApplicationExtension 10.0, *)
+	@available(iOSApplicationExtension 10, *)
 	
 	func widgetActiveDisplayModeDidChange(_ activeDisplayMode: NCWidgetDisplayMode, withMaximumSize maxSize: CGSize) {
 		preferredContentSize = (activeDisplayMode == .expanded) ? CGSize(width: preferredContentSize.width, height: CGFloat(ownOmissions.count) * 44) : CGSize(width: preferredContentSize.width, height: 110)
@@ -84,13 +85,9 @@ class TodayViewController: UITableViewController, NCWidgetProviding {
       
       let noConnectionLabel = UILabel.init()
       noConnectionLabel.text = "Keine Verbindung"
-      noConnectionLabel.textColor = UIColor.lightText
+			noConnectionLabel.textColor = ColorCompatibility.secondaryLabel
 			noConnectionLabel.font = UIFont.systemFont(ofSize: 16)
       noConnectionLabel.textAlignment = .center
-			
-			if #available(iOSApplicationExtension 10, *) {
-				noConnectionLabel.textColor = UIColor.gray
-			}
       
       tableView.separatorStyle = .none
       tableView.backgroundView = noConnectionLabel
@@ -141,9 +138,9 @@ class TodayViewController: UITableViewController, NCWidgetProviding {
     
     cell.detailTextLabel!.text = cell.detailTextLabel!.text?.replacingOccurrences(of: "      ", with: "   ")
 		
-		if #available(iOSApplicationExtension 10.0, *) {
-			cell.textLabel?.textColor = UIColor.black
-			cell.detailTextLabel?.textColor = UIColor.gray
+		if #available(iOSApplicationExtension 10, *) {
+			cell.textLabel?.textColor = ColorCompatibility.label
+			cell.detailTextLabel?.textColor = ColorCompatibility.secondaryLabel
 		} else {
 			cell.textLabel?.highlightedTextColor = UIColor.black
 			cell.detailTextLabel?.highlightedTextColor = UIColor.black
@@ -165,7 +162,7 @@ class TodayViewController: UITableViewController, NCWidgetProviding {
   override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
     let footerLabel = UILabel()
     
-    footerLabel.textColor = UIColor.lightGray
+		footerLabel.textColor = ColorCompatibility.secondaryLabel
     footerLabel.font = UIFont.systemFont(ofSize: 16)
     footerLabel.textAlignment = .center
 		
@@ -176,7 +173,7 @@ class TodayViewController: UITableViewController, NCWidgetProviding {
     if ownOmissions.count == 0 {
       footerLabel.text = "Keine eigenen Vertretungen"
     } else {
-      footerLabel.backgroundColor = UIColor.white
+      footerLabel.backgroundColor = UIColor.clear
     }
     
     return footerLabel
