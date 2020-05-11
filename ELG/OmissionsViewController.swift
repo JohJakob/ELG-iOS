@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ColorCompatibility
 
 class OmissionsViewController: UITableViewController {
   // MARK: - Properties
@@ -186,20 +187,12 @@ class OmissionsViewController: UITableViewController {
   override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
     let footerLabel = UILabel()
 		
-		if #available(iOS 13, *) {
-			footerLabel.textColor = .secondaryLabel
-		} else {
-			footerLabel.textColor = .lightGray
-		}
+		footerLabel.textColor = ColorCompatibility.secondaryLabel
     
     footerLabel.font = .boldSystemFont(ofSize: 18)
     footerLabel.textAlignment = .center
 		
-		if #available(iOS 13, *) {
-			footerLabel.backgroundColor = .systemGroupedBackground
-		} else {
-			footerLabel.backgroundColor = .white
-		}
+		footerLabel.backgroundColor = ColorCompatibility.systemBackground
     
     if section == 0 {
       if ownOmissions.count == 0 {
