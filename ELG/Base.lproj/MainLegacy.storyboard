@@ -2,7 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Wom-XG-ZHV">
     <device id="retina4_7" orientation="portrait" appearance="dark"/>
     <dependencies>
-        <deployment version="4352" identifier="iOS"/>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -83,6 +83,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Zugangsdaten" id="4e4-TQ-8Tn">
                         <barButtonItem key="rightBarButtonItem" enabled="NO" image="OnePassword" id="1cb-2Y-SNI">
+                            <color key="tintColor" red="0.41545182466506958" green="0.043958567082881927" blue="0.15521545708179474" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="loginButtonTap:" destination="PMn-dt-P0r" id="zDx-tg-SNa"/>
                             </connections>
@@ -306,6 +307,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Title" id="36S-mf-b8T">
                         <barButtonItem key="rightBarButtonItem" title="Fertig" style="done" id="gmi-L7-RmA">
+                            <color key="tintColor" red="0.41545182466506958" green="0.043958567082881927" blue="0.15521545708179474" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="doneButtonTap:" destination="Imu-CG-orj" id="LjS-fv-3FQ"/>
                             </connections>
@@ -544,6 +546,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Stunden" id="8uL-pM-9Pf">
                         <barButtonItem key="rightBarButtonItem" title="Bearbeiten" id="JWr-4D-jvL">
+                            <color key="tintColor" red="0.41545182466506958" green="0.043958567082881927" blue="0.15521545708179474" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="editButtonTap:" destination="2Vb-iL-eTL" id="WJu-i3-zI5"/>
                             </connections>
@@ -756,7 +759,7 @@
             <point key="canvasLocation" x="649" y="1693"/>
         </scene>
     </scenes>
-    <color key="tintColor" name="AccentColor"/>
+    <color key="tintColor" red="0.49803921568627452" green="0.090196078431372548" blue="0.20392156862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
     <resources>
         <image name="Download" width="25" height="25"/>
         <image name="News" width="30" height="30"/>
@@ -764,8 +767,5 @@
         <image name="OnePassword" width="23" height="23"/>
         <image name="Schedule" width="30" height="30"/>
         <image name="Settings" width="30" height="30"/>
-        <namedColor name="AccentColor">
-            <color red="0.49803921568627452" green="0.090196078431372548" blue="0.20392156862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
     </resources>
 </document>

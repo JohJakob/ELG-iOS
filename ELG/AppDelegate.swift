@@ -13,6 +13,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   var window: UIWindow?
 	
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+		// Load storyboard according to the device’s iOS version
+		
+		var storyboard = UIStoryboard()
+		
+		if #available(iOS 11, *) {
+			storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+		} else {
+			storyboard = UIStoryboard.init(name: "MainLegacy", bundle: nil)
+		}
+		
+		self.window?.rootViewController = storyboard.instantiateInitialViewController()
+		
     let defaults = UserDefaults.init(suiteName: "group.com.johjakob.elg")
 		let startView = defaults?.integer(forKey: "startView")
 		
