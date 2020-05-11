@@ -48,7 +48,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 				tabBarController.selectedIndex = 2
 			}
 			
-			tabBarController.tabBar.tintColor = UIColor(red: 0.498, green: 0.09, blue: 0.204, alpha: 1)
+			if #available(iOS 11, *) {
+				tabBarController.tabBar.tintColor = UIColor(named: "AccentColor")
+			} else {
+				tabBarController.tabBar.tintColor = UIColor(red: 0.498, green: 0.09, blue: 0.204, alpha: 1)
+			}
 		}
 		
     return true

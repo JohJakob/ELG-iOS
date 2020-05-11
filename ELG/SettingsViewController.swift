@@ -289,7 +289,11 @@ class SettingsViewController: UITableViewController, UIPickerViewDelegate, UIPic
     
     autoSaveSwitch.addTarget(self, action: #selector(SettingsViewController.toggleAutoSave), for: .valueChanged)
     
-    autoSaveSwitch.onTintColor = UIColor(red: 0.498, green: 0.09, blue: 0.204, alpha: 1)
+		if #available(iOS 11, *) {
+			autoSaveSwitch.onTintColor = UIColor(named: "AccentColor")
+		} else {
+			autoSaveSwitch.onTintColor = UIColor(red: 0.498, green: 0.09, blue: 0.204, alpha: 1)
+		}
   }
   
   @objc func toggleAutoSave() {

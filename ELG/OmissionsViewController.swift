@@ -100,6 +100,12 @@ class OmissionsViewController: UITableViewController {
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "OmissionsTableViewCell", for: indexPath) as! OmissionsTableViewCell
     
+		// Use AccentColor on iOS 11+
+		
+		if #available(iOS 11, *) {
+			cell.gradeLabel.textColor = UIColor(named: "AccentColor")
+		}
+		
     var omissionComponents: [String]
     
     if indexPath.section == 0 {
@@ -149,9 +155,13 @@ class OmissionsViewController: UITableViewController {
     cell.detailsLabel.text = cell.detailsLabel.text?.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
     
     cell.detailsLabel.text = cell.detailsLabel.text?.replacingOccurrences(of: "      ", with: "   ")
-    
+		
     if comment == "Entfall" {
-      cell.lessonLabel.textColor = UIColor(red: 0.498, green: 0.09, blue: 0.203, alpha: 1)
+			if #available(iOS 11, *) {
+				cell.lessonLabel.textColor = UIColor(named: "AccentColor")
+			} else {
+				cell.lessonLabel.textColor = UIColor(red: 0.498, green: 0.09, blue: 0.203, alpha: 1)
+			}
     }
     
     return cell
