@@ -149,7 +149,11 @@ class TeacherModeViewController: UITableViewController, UITextFieldDelegate {
     
     teacherModeSwitch.addTarget(self, action: #selector(TeacherModeViewController.toggleTeacherMode), for: .valueChanged)
     
-    teacherModeSwitch.onTintColor = UIColor(red: 0.498, green: 0.09, blue: 0.203, alpha: 1)
+		if #available(iOS 11, *) {
+			teacherModeSwitch.onTintColor = UIColor(named: "AccentColor")
+		} else {
+			teacherModeSwitch.onTintColor = UIColor(red: 0.498, green: 0.09, blue: 0.203, alpha: 1)
+		}
   }
   
   func retrieveUserDefault() {
