@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ColorCompatibility
 
 final class FloatingView: UIView {
 	// MARK: - Properties
@@ -90,6 +91,10 @@ extension FloatingView {
 		view.layer.borderWidth = 0.5
 		view.layer.cornerRadius = Properties.cornerRadius
 		view.layer.masksToBounds = true
+		
+		if #available(iOS 13, *) {
+			view.effect = UIBlurEffect(style: .systemMaterial)
+		}
 		
 		return view
 	}

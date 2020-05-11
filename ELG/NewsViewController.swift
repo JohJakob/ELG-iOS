@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ColorCompatibility
 
 final class NewsViewController: UIViewController, UIWebViewDelegate {
   // MARK: - Properties
@@ -159,7 +160,7 @@ extension NewsViewController {
 		
 		let separator = UIView.init()
 		
-		separator.backgroundColor = UIColor.init(red: 0, green: 0, blue: 0, alpha: 0.1)
+		separator.backgroundColor = ColorCompatibility.tertiarySystemFill
 		separator.translatesAutoresizingMaskIntoConstraints = false
 		
 		contentView.addSubview(backButton)
