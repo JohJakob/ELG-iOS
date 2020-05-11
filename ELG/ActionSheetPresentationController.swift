@@ -67,10 +67,10 @@ final class ActionSheetPresentationController: UIPresentationController {
 				NSLayoutConstraint(item: dismissButton, attribute: .bottom, relatedBy: .equal, toItem: dismissButtonSectionView, attribute: .bottom, multiplier: 1, constant: 0),
 				NSLayoutConstraint(item: dismissButton, attribute: .leading, relatedBy: .equal, toItem: dismissButtonSectionView, attribute: .leading, multiplier: 1, constant: 0),
 				
-				NSLayoutConstraint(item: presentedViewController.view, attribute: .top, relatedBy: .equal, toItem: presentedViewControllerSectionView, attribute: .top, multiplier: 1, constant: 0),
-				NSLayoutConstraint(item: presentedViewController.view, attribute: .trailing, relatedBy: .equal, toItem: presentedViewControllerSectionView, attribute: .trailing, multiplier: 1, constant: 0),
-				NSLayoutConstraint(item: presentedViewController.view, attribute: .bottom, relatedBy: .equal, toItem: presentedViewControllerSectionView, attribute: .bottom, multiplier: 1, constant: 0),
-				NSLayoutConstraint(item: presentedViewController.view, attribute: .leading, relatedBy: .equal, toItem: presentedViewControllerSectionView, attribute: .leading, multiplier: 1, constant: 0)
+				NSLayoutConstraint(item: presentedViewController.view!, attribute: .top, relatedBy: .equal, toItem: presentedViewControllerSectionView, attribute: .top, multiplier: 1, constant: 0),
+				NSLayoutConstraint(item: presentedViewController.view!, attribute: .trailing, relatedBy: .equal, toItem: presentedViewControllerSectionView, attribute: .trailing, multiplier: 1, constant: 0),
+				NSLayoutConstraint(item: presentedViewController.view!, attribute: .bottom, relatedBy: .equal, toItem: presentedViewControllerSectionView, attribute: .bottom, multiplier: 1, constant: 0),
+				NSLayoutConstraint(item: presentedViewController.view!, attribute: .leading, relatedBy: .equal, toItem: presentedViewControllerSectionView, attribute: .leading, multiplier: 1, constant: 0)
 			])
 			
 			if #available(iOS 9, *) {
