@@ -41,6 +41,10 @@ final class ActionSheetPresentationControllerSectionView: UIView {
 		layer.masksToBounds = true
 		layer.cornerRadius = 14
 		
+		if #available(iOS 13, *) {
+			visualEffectView.effect = UIBlurEffect(style: .systemMaterial)
+		}
+		
 		visualEffectView.isUserInteractionEnabled = false
 		
 		addSubview(visualEffectView)
