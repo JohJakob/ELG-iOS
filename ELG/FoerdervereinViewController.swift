@@ -8,8 +8,9 @@
 
 import UIKit
 import SWXMLHash
+import SafariServices
 
-class FoerdervereinViewController: UITableViewController, UIGestureRecognizerDelegate, XMLParserDelegate {
+class FoerdervereinViewController: UITableViewController, UIGestureRecognizerDelegate, SFSafariViewControllerDelegate {
 	// MARK: - Properties
 	
 	@IBOutlet var segmentedControl: UISegmentedControl!
@@ -81,11 +82,23 @@ class FoerdervereinViewController: UITableViewController, UIGestureRecognizerDel
 	}
 	
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    defaults.setValue(articles[indexPath.row]["heading"], forKey: "selectedArticleTitle")
-    defaults.setValue(articles[indexPath.row]["link"], forKey: "selectedArticleLink")
-    defaults.synchronize()
-		
-		navigationController?.show(articleViewController, sender: self)
+		if #available(iOS 9, *) {
+			// Initialize SFSafariViewController and later to open selected article (iOS 9+)
+			
+			let safariView = SFSafariViewController(url: URL(string: articles[indexPath.row]["link"] ?? "https://svelg.wordpress.com")!)
+			
+			safariView.delegate = self
+			
+			self.present(safariView, animated: true, completion: nil)
+		} else {
+			// Save selected article metadata to UserDefaults and navigate to FoerdervereinArticleViewController (iOS 8)
+			
+			defaults.setValue(articles[indexPath.row]["heading"], forKey: "selectedArticleTitle")
+			defaults.setValue(articles[indexPath.row]["link"], forKey: "selectedArticleLink")
+			defaults.synchronize()
+			
+			navigationController?.show(articleViewController, sender: self)
+		}
   }
 	
 	// MARK: - Private
