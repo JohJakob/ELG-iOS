@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ColorCompatibility
 
 class SimpleFeedTableViewCell: UITableViewCell {
 	// MARK: - Properties
@@ -14,6 +15,7 @@ class SimpleFeedTableViewCell: UITableViewCell {
 	public var headingLabel: UILabel = {
 		let label = UILabel()
 		
+		label.textColor = ColorCompatibility.label
 		label.font = UIFont.boldSystemFont(ofSize: 20)
 		label.numberOfLines = 0
 		
@@ -25,7 +27,7 @@ class SimpleFeedTableViewCell: UITableViewCell {
 	public var detailsLabel: UILabel = {
 		let label = UILabel()
 		
-		label.textColor = UIColor.lightGray
+		label.textColor = ColorCompatibility.secondaryLabel
 		label.font = UIFont.boldSystemFont(ofSize: 14)
 		label.numberOfLines = 1
 		
@@ -37,7 +39,7 @@ class SimpleFeedTableViewCell: UITableViewCell {
 	public var containerView: UIView = {
 		let view = UIView()
 		
-		view.backgroundColor = UIColor.white
+		view.backgroundColor = ColorCompatibility.secondarySystemGroupedBackground
 		
 		view.layer.cornerRadius = 10
 		view.layer.shadowColor = UIColor.black.cgColor
