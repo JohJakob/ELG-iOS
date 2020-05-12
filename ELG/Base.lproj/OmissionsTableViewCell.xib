@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait" appearance="light"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="ipad12_9rounded" orientation="portrait" layout="fullscreen" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -17,7 +17,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12e" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vid-3p-za1">
-                        <rect key="frame" x="15" y="11" width="66" height="43"/>
+                        <rect key="frame" x="15" y="7" width="66" height="51"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="66" id="OXN-0W-VJi"/>
                         </constraints>
@@ -26,7 +26,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lesson" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CbW-YO-wCe">
-                        <rect key="frame" x="89" y="11" width="216" height="21"/>
+                        <rect key="frame" x="89" y="7" width="216" height="21"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="kEo-Wa-PbJ"/>
                         </constraints>
@@ -34,8 +34,8 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Details" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="18K-q4-yu0">
-                        <rect key="frame" x="89" y="38" width="216" height="16"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Details" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="18K-q4-yu0">
+                        <rect key="frame" x="89" y="30" width="216" height="28"/>
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <color key="textColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
@@ -44,14 +44,14 @@
                 <color key="tintColor" red="0.41545182466506958" green="0.043958567082881927" blue="0.15521545708179474" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 <constraints>
                     <constraint firstItem="CbW-YO-wCe" firstAttribute="leading" secondItem="18K-q4-yu0" secondAttribute="leading" id="04r-iV-EGm"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="18K-q4-yu0" secondAttribute="bottom" constant="-4" id="0RT-j3-Cur"/>
                     <constraint firstItem="CbW-YO-wCe" firstAttribute="leading" secondItem="vid-3p-za1" secondAttribute="trailing" constant="8" symbolic="YES" id="Qz3-Qv-EOc"/>
-                    <constraint firstItem="18K-q4-yu0" firstAttribute="top" secondItem="CbW-YO-wCe" secondAttribute="bottom" constant="6" id="TeR-ZH-YM3"/>
-                    <constraint firstItem="vid-3p-za1" firstAttribute="top" secondItem="CbW-YO-wCe" secondAttribute="top" id="Ydn-ir-seZ"/>
+                    <constraint firstItem="18K-q4-yu0" firstAttribute="top" secondItem="CbW-YO-wCe" secondAttribute="bottom" constant="2" id="TeR-ZH-YM3"/>
                     <constraint firstItem="vid-3p-za1" firstAttribute="leading" secondItem="jBU-PH-LKa" secondAttribute="leadingMargin" id="cVE-SD-27a"/>
-                    <constraint firstItem="vid-3p-za1" firstAttribute="top" secondItem="jBU-PH-LKa" secondAttribute="topMargin" id="lEL-XT-yhn"/>
-                    <constraint firstItem="vid-3p-za1" firstAttribute="bottom" secondItem="18K-q4-yu0" secondAttribute="bottom" id="mzi-za-Wlk"/>
+                    <constraint firstItem="vid-3p-za1" firstAttribute="top" secondItem="jBU-PH-LKa" secondAttribute="topMargin" constant="-4" id="lEL-XT-yhn"/>
                     <constraint firstItem="CbW-YO-wCe" firstAttribute="trailing" secondItem="jBU-PH-LKa" secondAttribute="trailingMargin" id="rOf-ZM-WN0"/>
-                    <constraint firstItem="vid-3p-za1" firstAttribute="bottom" secondItem="jBU-PH-LKa" secondAttribute="bottomMargin" id="soh-cW-ZJa"/>
+                    <constraint firstItem="vid-3p-za1" firstAttribute="bottom" secondItem="jBU-PH-LKa" secondAttribute="bottomMargin" constant="4" id="soh-cW-ZJa"/>
+                    <constraint firstItem="CbW-YO-wCe" firstAttribute="top" secondItem="jBU-PH-LKa" secondAttribute="topMargin" constant="-4" id="vD2-dw-yJA"/>
                     <constraint firstItem="CbW-YO-wCe" firstAttribute="trailing" secondItem="18K-q4-yu0" secondAttribute="trailing" id="voy-ci-sg6"/>
                 </constraints>
             </tableViewCellContentView>
@@ -61,7 +61,7 @@
                 <outlet property="gradeLabel" destination="vid-3p-za1" id="tt3-Ny-0jl"/>
                 <outlet property="lessonLabel" destination="CbW-YO-wCe" id="vCa-Rp-YS8"/>
             </connections>
-            <point key="canvasLocation" x="408" y="400.5"/>
+            <point key="canvasLocation" x="407.8125" y="399.4875549048316"/>
         </tableViewCell>
     </objects>
 </document>
