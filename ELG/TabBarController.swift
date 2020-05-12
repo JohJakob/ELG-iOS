@@ -91,29 +91,43 @@ class TabBarController: UITabBarController, SFSafariViewControllerDelegate {
 	}
 	
 	private func presentFeaturePoll() {
-		// Ask if user wants to complete a poll regarding the features of future versions of the app
+		self.defaults.set(true, forKey: "launched\(String(describing: self.version))")
 		
-		let pollAlert = UIAlertController(title: "Feature-Umfrage", message: "Danke, dass Du ELG verwendest! Um die App noch besser zu machen, benötige ich Dein Feedback. Möchtest Du eine kleine Umfrage (2-3 Minuten) beantworten?", preferredStyle: .alert)
+		// Present poll alert only if current date is before 2020-07-01
 		
-		pollAlert.addAction(UIAlertAction(title: "Nein", style: .cancel, handler: nil))
+		let date = Date()
+		let pollEndDateString = "2020-07-01"
+		let dateFormatter = DateFormatter()
 		
-		pollAlert.addAction(UIAlertAction(title: "Umfrage beantworten", style: .default, handler: { _ in
-			let pollURLString = "https://johannesjakob.typeform.com/to/CNzyBw"
+		dateFormatter.dateFormat = "yyyy-MM-dd"
+		
+		let pollEndDate = dateFormatter.date(from: pollEndDateString)
+		let order = Calendar.current.compare(date, to: pollEndDate!, toGranularity: .day)
+		
+		if order == .orderedAscending {
+			// Ask if user wants to complete a poll regarding the features of future versions of the app
 			
-			if #available(iOS 9, *) {
-				let pollSafariView = SFSafariViewController(url: URL(string: pollURLString)!)
+			let pollAlert = UIAlertController(title: "Feature-Umfrage", message: "Danke, dass Du ELG verwendest! Um die App noch besser zu machen, benötige ich Dein Feedback. Möchtest Du eine kleine Umfrage (2-3 Minuten) beantworten?", preferredStyle: .alert)
+			
+			pollAlert.addAction(UIAlertAction(title: "Nein", style: .cancel, handler: nil))
+			
+			pollAlert.addAction(UIAlertAction(title: "Umfrage beantworten", style: .default, handler: { _ in
+				let pollURLString = "https://johannesjakob.typeform.com/to/CNzyBw"
 				
-				pollSafariView.delegate = self
-				
-				self.present(pollSafariView, animated: true, completion: nil)
-			} else {
-				UIApplication.shared.openURL(URL.init(string: pollURLString)!)
+				if #available(iOS 9, *) {
+					let pollSafariView = SFSafariViewController(url: URL(string: pollURLString)!)
+					
+					pollSafariView.delegate = self
+					
+					self.present(pollSafariView, animated: true, completion: nil)
+				} else {
+					UIApplication.shared.openURL(URL.init(string: pollURLString)!)
+				}
+			}))
+			
+			self.present(pollAlert, animated: true) {
+				self.defaults.set(true, forKey: "completedFeaturePoll")
 			}
-		}))
-		
-		self.present(pollAlert, animated: true) {
-			self.defaults.set(true, forKey: "completedFeaturePoll")
-			self.defaults.set(true, forKey: "launched\(String(describing: self.version))")
 		}
 	}
 }
