@@ -3,7 +3,7 @@
 //  ELG
 //
 //  Created by Johannes Jakob on 28/07/2017
-//  © 2017-2018 Brian Coyner, Elisabeth-Gymnasium Halle, Johannes Jakob
+//  © Brian Coyner, Elisabeth-Gymnasium Halle, Johannes Jakob
 //
 
 import UIKit
