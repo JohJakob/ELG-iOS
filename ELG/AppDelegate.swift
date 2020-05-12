@@ -23,12 +23,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 			storyboard = UIStoryboard.init(name: "MainLegacy", bundle: nil)
 		}
 		
-		self.window?.rootViewController = storyboard.instantiateInitialViewController()
+		window = UIWindow(frame: UIScreen.main.bounds)
+		window?.rootViewController = storyboard.instantiateInitialViewController()
+		window?.makeKeyAndVisible()
 		
     let defaults = UserDefaults.init(suiteName: "group.com.johjakob.elg")
 		let startView = defaults?.integer(forKey: "startView")
 		
-		if let tabBarController = window!.rootViewController as? UITabBarController {
+		if let tabBarController = self.window?.rootViewController as? UITabBarController {
 			if startView == 1 {
 				let gregorianCalendar = NSCalendar(calendarIdentifier: .gregorian)
 				let dateComponents = (gregorianCalendar! as NSCalendar).components(.weekday, from: Date())
@@ -81,7 +83,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   }
 	
 	func application(_ application: UIApplication, handleOpen url: URL) -> Bool {
-		let defaults = UserDefaults.init(suiteName: "group.com.hardykrause.elg")
+		let defaults = UserDefaults.init(suiteName: "group.com.johjakob.elg")
 		
 		if let tabBarController = window!.rootViewController as? UITabBarController {
 			if url.query == "page=lessons" {

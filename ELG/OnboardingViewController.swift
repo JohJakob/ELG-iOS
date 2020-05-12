@@ -14,7 +14,7 @@ class OnboardingViewController: UITableViewController {
   // MARK: - Properties
   
   var defaults: UserDefaults!
-  let settingsViewController = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "SettingsTableViewController") as! SettingsViewController
+  var settingsViewController = UIViewController()
   let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
   
   @IBAction func doneButtonTap(_ sender: UIBarButtonItem) {
@@ -43,6 +43,12 @@ class OnboardingViewController: UITableViewController {
 	
   override func viewDidLoad() {
     super.viewDidLoad()
+		
+		if #available(iOS 11, *) {
+			settingsViewController = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "SettingsTableViewController") as! SettingsViewController
+		} else {
+			settingsViewController = UIStoryboard(name: "MainLegacy", bundle: Bundle.main).instantiateViewController(withIdentifier: "SettingsTableViewController") as! SettingsViewController
+		}
     
     // Set navigation bar title
     

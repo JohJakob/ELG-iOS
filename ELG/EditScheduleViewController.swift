@@ -62,7 +62,13 @@ class EditScheduleViewController: UITableViewController {
     
     // Show new view
 		
-		let editLessonsViewController = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "EditLessonsTableViewController") as! EditLessonsViewController
+		var editLessonsViewController = UIViewController()
+		
+		if #available(iOS 11, *) {
+			editLessonsViewController = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "EditLessonsTableViewController") as! EditLessonsViewController
+		} else {
+			editLessonsViewController = UIStoryboard(name: "MainLegacy", bundle: Bundle.main).instantiateViewController(withIdentifier: "EditLessonsTableViewController") as! EditLessonsViewController
+		}
 		
 		navigationController?.show(editLessonsViewController, sender: self)
   }

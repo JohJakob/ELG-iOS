@@ -13,12 +13,18 @@ class EditLessonsViewController: UITableViewController {
   
   var defaults: UserDefaults!
   var lessons: [String]!
-  let subjectsViewController = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "SubjectsTableViewController")
+  var subjectsViewController = UIViewController()
 	
 	// MARK: - UITableViewController
 	
   override func viewDidLoad() {
     super.viewDidLoad()
+		
+		if #available(iOS 11, *) {
+			subjectsViewController = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "SubjectsTableViewController")
+		} else {
+			subjectsViewController = UIStoryboard(name: "MainLegacy", bundle: Bundle.main).instantiateViewController(withIdentifier: "SubjectsTableViewController")
+		}
     
     // Initialize user defaults
 		

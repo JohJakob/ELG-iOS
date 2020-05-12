@@ -15,7 +15,7 @@ class LessonsViewController: UITableViewController {
   var lessons: [String]!
 	let scheduleKeys = ["monday", "tuesday", "wednesday", "thursday", "friday"]
 	let navigationItemTitle = ["Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag"]
-  let editLessonsViewController = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "EditLessonsTableViewController")
+  var editLessonsViewController = UIViewController()
   
   @IBAction func editButtonTap(_ sender: UIBarButtonItem) {
 		navigationController?.show(editLessonsViewController, sender: self)
@@ -25,6 +25,12 @@ class LessonsViewController: UITableViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+		
+		if #available(iOS 11, *) {
+			editLessonsViewController = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "EditLessonsTableViewController")
+		} else {
+			editLessonsViewController = UIStoryboard(name: "MainLegacy", bundle: Bundle.main).instantiateViewController(withIdentifier: "EditLessonsTableViewController")
+		}
 		
 		defaults = UserDefaults.init(suiteName: "group.com.johjakob.elg")
   }

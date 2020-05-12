@@ -18,13 +18,19 @@ class AboutWebViewController: UIViewController, UIWebViewDelegate {
   var didLaunch = Bool()
   let titles = ["Was ist neu?", "Open Source", "Impressum"]
   let pages = ["ReleaseNotes", "OpenSource", "Imprint"]
-  let onboardingViewController = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "OnboardingTableViewController")
+  var onboardingViewController = UIViewController()
   let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
 	
 	// MARK: - UIViewController
 	
   override func viewDidLoad() {
     super.viewDidLoad()
+		
+		if #available(iOS 11, *) {
+			onboardingViewController = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "OnboardingTableViewController")
+		} else {
+			onboardingViewController = UIStoryboard(name: "MainLegacy", bundle: Bundle.main).instantiateViewController(withIdentifier: "OnboardingTableViewController")
+		}
     
     // Initialize user defaults
 		

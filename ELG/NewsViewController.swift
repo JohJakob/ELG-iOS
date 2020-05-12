@@ -20,13 +20,19 @@ final class NewsViewController: UIViewController, UIWebViewDelegate {
 	var backButton = UIButton()
 	var forwardButton = UIButton()
 	var refreshing = false
-	let foerdervereinViewController = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "FoerdervereinTableViewController")
+	var foerdervereinViewController = UIViewController()
 	let refreshControl = UIRefreshControl()
 	
 	// MARK: - UIViewController
 	
   override func viewDidLoad() {
     super.viewDidLoad()
+		
+		if #available(iOS 11, *) {
+			foerdervereinViewController = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "FoerdervereinTableViewController")
+		} else {
+			foerdervereinViewController = UIStoryboard(name: "MainLegacy", bundle: Bundle.main).instantiateViewController(withIdentifier: "FoerdervereinTableViewController")
+		}
 		
 		initialize()
   }

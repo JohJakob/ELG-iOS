@@ -153,7 +153,13 @@ class AboutViewController: UITableViewController, MFMailComposeViewControllerDel
         
         // Show new view
 				
-				let aboutWebViewController = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "AboutWebViewController")
+				var aboutWebViewController = UIViewController()
+				
+				if #available(iOS 11, *) {
+					aboutWebViewController = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "AboutWebViewController")
+				} else {
+					aboutWebViewController = UIStoryboard(name: "MainLegacy", bundle: Bundle.main).instantiateViewController(withIdentifier: "AboutWebViewController")
+				}
         
         if #available(iOS 8, *) {
           navigationController?.show(aboutWebViewController, sender: self)
@@ -214,7 +220,13 @@ class AboutViewController: UITableViewController, MFMailComposeViewControllerDel
       
       // Show new view
 			
-			let aboutWebViewController = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "AboutWebViewController")
+			var aboutWebViewController = UIViewController()
+			
+			if #available(iOS 11, *) {
+				aboutWebViewController = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "AboutWebViewController")
+			} else {
+				aboutWebViewController = UIStoryboard(name: "MainLegacy", bundle: Bundle.main).instantiateViewController(withIdentifier: "AboutWebViewController")
+			}
 			
 			navigationController?.show(aboutWebViewController, sender: self)
       
@@ -227,7 +239,13 @@ class AboutViewController: UITableViewController, MFMailComposeViewControllerDel
       
       // Show new view
 			
-			let aboutWebViewController = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "AboutWebViewController")
+			var aboutWebViewController = UIViewController()
+			
+			if #available(iOS 11, *) {
+				aboutWebViewController = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "AboutWebViewController")
+			} else {
+				aboutWebViewController = UIStoryboard(name: "MainLegacy", bundle: Bundle.main).instantiateViewController(withIdentifier: "AboutWebViewController")
+			}
 			
 			navigationController?.show(aboutWebViewController, sender: self)
       

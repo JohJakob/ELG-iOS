@@ -12,7 +12,7 @@ class ScheduleViewController: UITableViewController {
   // MARK: - Properties
   
   var defaults: UserDefaults!
-  let lessonsViewController = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "LessonsTableViewController")
+  var lessonsViewController = UIViewController()
   
   // Use when online schedule are available again
   
@@ -22,6 +22,12 @@ class ScheduleViewController: UITableViewController {
 	
   override func viewDidLoad() {
     super.viewDidLoad()
+		
+		if #available(iOS 11, *) {
+			lessonsViewController = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "LessonsTableViewController")
+		} else {
+			lessonsViewController = UIStoryboard(name: "MainLegacy", bundle: Bundle.main).instantiateViewController(withIdentifier: "LessonsTableViewController")
+		}
 		
 		defaults = UserDefaults.init(suiteName: "group.com.johjakob.elg")
   }
