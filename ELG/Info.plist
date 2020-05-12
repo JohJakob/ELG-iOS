@@ -24,7 +24,7 @@
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>CFBundleURLName</key>
-			<string>com.hardykrause.ELG</string>
+			<string>com.johjakob.elg</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>elg</string>
