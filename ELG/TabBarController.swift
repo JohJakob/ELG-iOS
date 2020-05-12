@@ -113,6 +113,7 @@ class TabBarController: UITabBarController, SFSafariViewControllerDelegate {
 		
 		self.present(pollAlert, animated: true) {
 			self.defaults.set(true, forKey: "completedFeaturePoll")
+			self.defaults.set(true, forKey: "launched\(String(describing: self.version))")
 		}
 	}
 }
