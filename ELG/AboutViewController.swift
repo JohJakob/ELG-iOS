@@ -45,23 +45,10 @@ class AboutViewController: UITableViewController, MFMailComposeViewControllerDel
   
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     var numberOfRows = Int()
-		
-		let date = Date()
-		let pollEndDateString = "2020-07-01"
-		let dateFormatter = DateFormatter()
-		
-		dateFormatter.dateFormat = "yyyy-MM-dd"
-		
-		let pollEndDate = dateFormatter.date(from: pollEndDateString)
-		let order = Calendar.current.compare(date, to: pollEndDate!, toGranularity: .day)
-    
+		    
     switch section {
     case 0:
-			if order == .orderedAscending {
-				numberOfRows = 4
-			} else {
-				numberOfRows = 3
-			}
+			numberOfRows = 3
       break
     case 1:
       numberOfRows = 2
@@ -94,11 +81,7 @@ class AboutViewController: UITableViewController, MFMailComposeViewControllerDel
       } else {
         let cell = tableView.dequeueReusableCell(withIdentifier: "AboutTableViewCell", for: indexPath)
         
-				if indexPath.row == 2 {
-					cell.textLabel!.text = "Was ist neu?"
-				} else {
-					cell.textLabel!.text = "Feature-Umfrage beantworten"
-				}
+				cell.textLabel!.text = "Was ist neu?"
 				
         cell.accessoryType = .disclosureIndicator
         
@@ -144,7 +127,17 @@ class AboutViewController: UITableViewController, MFMailComposeViewControllerDel
       if indexPath.row == 1 {
         // Open URL
         
-        UIApplication.shared.openURL(URL.init(string: "https://johjakob.com")!)
+        let urlString = "https://johjakob.com"
+				
+				if #available(iOS 9, *) {
+					let safariViewController = SFSafariViewController(url: URL(string: urlString)!)
+					
+					safariViewController.delegate = self
+					
+					self.present(safariViewController, animated: true, completion: nil)
+				} else {
+					UIApplication.shared.openURL(URL.init(string: urlString)!)
+				}
       } else if indexPath.row == 2 {
         // Set user default
         
@@ -166,18 +159,6 @@ class AboutViewController: UITableViewController, MFMailComposeViewControllerDel
         } else {
           navigationController?.pushViewController(aboutWebViewController, animated: true)
         }
-			} else if indexPath.row == 3 {
-				let pollURLString = "https://johannesjakob.typeform.com/to/CNzyBw"
-				
-				if #available(iOS 9, *) {
-					let pollSafariView = SFSafariViewController(url: URL(string: pollURLString)!)
-					
-					pollSafariView.delegate = self
-					
-					self.present(pollSafariView, animated: true, completion: nil)
-				} else {
-					UIApplication.shared.openURL(URL.init(string: pollURLString)!)
-				}
 			}
       
       break
