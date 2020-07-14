@@ -110,7 +110,7 @@ class AboutViewController: UITableViewController, MFMailComposeViewControllerDel
       switch indexPath.section {
       case 1:
         if indexPath.row == 0 {
-          cell.textLabel!.text = "E-Mail senden"
+          cell.textLabel!.text = "Feedback senden"
         } else {
           cell.textLabel!.text = "Bewerten"
         }
