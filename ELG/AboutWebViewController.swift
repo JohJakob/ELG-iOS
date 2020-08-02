@@ -16,8 +16,8 @@ class AboutWebViewController: UIViewController, UIWebViewDelegate {
   var defaults: UserDefaults!
   var selectedAboutWebView = Int()
   var didLaunch = Bool()
-  let titles = ["Was ist neu?", "Open Source", "Impressum"]
-  let pages = ["ReleaseNotes", "OpenSource", "Imprint"]
+  let titles = ["Was ist neu?", "Open Source", "Impressum", "Datenschutzerklärung"]
+  let pages = ["ReleaseNotes", "OpenSource", "Imprint", "Privacy"]
   var onboardingViewController = UIViewController()
   let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
 	
