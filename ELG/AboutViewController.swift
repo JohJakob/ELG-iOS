@@ -54,7 +54,7 @@ class AboutViewController: UITableViewController, MFMailComposeViewControllerDel
       numberOfRows = 2
       break
     default:
-      numberOfRows = 1
+      numberOfRows = 2
       break
     }
     
@@ -104,7 +104,12 @@ class AboutViewController: UITableViewController, MFMailComposeViewControllerDel
         cell.accessoryType = .disclosureIndicator
         break
       case 3:
-        cell.textLabel!.text = "Impressum"
+				if indexPath.row == 0 {
+					cell.textLabel!.text = "Impressum"
+				} else {
+					cell.textLabel!.text = "Datenschutzerklärung"
+				}
+				
         cell.accessoryType = .disclosureIndicator
         break
       default:
@@ -123,28 +128,83 @@ class AboutViewController: UITableViewController, MFMailComposeViewControllerDel
     // Check selected table view cell and act based on selection
     
     switch indexPath.section {
-    case 0:
-      if indexPath.row == 1 {
-        // Open URL
-        
-        let urlString = "https://johjakob.com"
-				
-				if #available(iOS 9, *) {
-					let safariViewController = SFSafariViewController(url: URL(string: urlString)!)
+			case 0:
+				if indexPath.row == 1 {
+					// Open URL
 					
-					safariViewController.delegate = self
+					let urlString = "https://johjakob.com"
 					
-					self.present(safariViewController, animated: true, completion: nil)
-				} else {
-					UIApplication.shared.openURL(URL.init(string: urlString)!)
+					if #available(iOS 9, *) {
+						let safariViewController = SFSafariViewController(url: URL(string: urlString)!)
+						
+						safariViewController.delegate = self
+						
+						self.present(safariViewController, animated: true, completion: nil)
+					} else {
+						UIApplication.shared.openURL(URL.init(string: urlString)!)
+					}
+				} else if indexPath.row == 2 {
+					// Set user default
+					
+					defaults.set(0, forKey: "selectedAboutWebView")
+					defaults.synchronize()
+					
+					// Show new view
+					
+					var aboutWebViewController = UIViewController()
+					
+					if #available(iOS 11, *) {
+						aboutWebViewController = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "AboutWebViewController")
+					} else {
+						aboutWebViewController = UIStoryboard(name: "MainLegacy", bundle: Bundle.main).instantiateViewController(withIdentifier: "AboutWebViewController")
+					}
+					
+					if #available(iOS 8, *) {
+						navigationController?.show(aboutWebViewController, sender: self)
+					} else {
+						navigationController?.pushViewController(aboutWebViewController, animated: true)
+					}
 				}
-      } else if indexPath.row == 2 {
-        // Set user default
-        
-        defaults.set(0, forKey: "selectedAboutWebView")
-        defaults.synchronize()
-        
-        // Show new view
+				
+				break
+			case 1:
+				if indexPath.row == 0 {
+					// Check whether device can send mail
+					
+					if MFMailComposeViewController.canSendMail() {
+						// Compose mail
+						
+						let mailController = MFMailComposeViewController.init()
+						
+						mailController.setToRecipients(["johannes.jakob@elg-halle.de"])
+						mailController.setSubject("ELG v" + version! + " (iOS)")
+						mailController.setMessageBody("", isHTML: true)
+						
+						mailController.mailComposeDelegate = self
+						
+						// Present mail compose view
+						
+						present(mailController, animated: true, completion: nil)
+					} else {
+						// Show alert
+						
+						let mailErrorAlert = UIAlertView(title: "Senden nicht möglich", message: "Dein Gerät kann keine E-Mails senden. Bitte überprüfe Deine Einstellungen.", delegate: self, cancelButtonTitle: "OK")
+						mailErrorAlert.show()
+					}
+				} else {
+					// Open URL
+					
+					UIApplication.shared.openURL(URL.init(string: "itms-apps://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?id=968363965&onlyLatestVersion=true&pageNumber=0&sortOrdering=1&type=Purple+Software")!)
+				}
+				
+				break
+			case 2:
+				// Set user default
+				
+				defaults.set(1, forKey: "selectedAboutWebView")
+				defaults.synchronize()
+				
+				// Show new view
 				
 				var aboutWebViewController = UIViewController()
 				
@@ -153,86 +213,37 @@ class AboutViewController: UITableViewController, MFMailComposeViewControllerDel
 				} else {
 					aboutWebViewController = UIStoryboard(name: "MainLegacy", bundle: Bundle.main).instantiateViewController(withIdentifier: "AboutWebViewController")
 				}
-        
-        if #available(iOS 8, *) {
-          navigationController?.show(aboutWebViewController, sender: self)
-        } else {
-          navigationController?.pushViewController(aboutWebViewController, animated: true)
-        }
-			}
-      
-      break
-    case 1:
-      if indexPath.row == 0 {
-        // Check whether device can send mail
-        
-        if MFMailComposeViewController.canSendMail() {
-          // Compose mail
-          
-          let mailController = MFMailComposeViewController.init()
-          
-          mailController.setToRecipients(["johannes.jakob@elg-halle.de"])
-          mailController.setSubject("ELG v" + version! + " (iOS)")
-          mailController.setMessageBody("", isHTML: true)
-          
-          mailController.mailComposeDelegate = self
-          
-          // Present mail compose view
-          
-          present(mailController, animated: true, completion: nil)
-        } else {
-          // Show alert
-          
-          let mailErrorAlert = UIAlertView(title: "Senden nicht möglich", message: "Dein Gerät kann keine E-Mails senden. Bitte überprüfe Deine Einstellungen.", delegate: self, cancelButtonTitle: "OK")
-          mailErrorAlert.show()
-        }
-      } else {
-        // Open URL
-        
-        UIApplication.shared.openURL(URL.init(string: "itms-apps://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?id=968363965&onlyLatestVersion=true&pageNumber=0&sortOrdering=1&type=Purple+Software")!)
-      }
-      
-      break
-    case 2:
-      // Set user default
-      
-      defaults.set(1, forKey: "selectedAboutWebView")
-      defaults.synchronize()
-      
-      // Show new view
-			
-			var aboutWebViewController = UIViewController()
-			
-			if #available(iOS 11, *) {
-				aboutWebViewController = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "AboutWebViewController")
-			} else {
-				aboutWebViewController = UIStoryboard(name: "MainLegacy", bundle: Bundle.main).instantiateViewController(withIdentifier: "AboutWebViewController")
-			}
-			
-			navigationController?.show(aboutWebViewController, sender: self)
-      
-      break
-    case 3:
-      // Set user default
-      
-      defaults.set(2, forKey: "selectedAboutWebView")
-      defaults.synchronize()
-      
-      // Show new view
-			
-			var aboutWebViewController = UIViewController()
-			
-			if #available(iOS 11, *) {
-				aboutWebViewController = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "AboutWebViewController")
-			} else {
-				aboutWebViewController = UIStoryboard(name: "MainLegacy", bundle: Bundle.main).instantiateViewController(withIdentifier: "AboutWebViewController")
-			}
-			
-			navigationController?.show(aboutWebViewController, sender: self)
-      
-      break
-    default:
-      break
+				
+				navigationController?.show(aboutWebViewController, sender: self)
+				
+				break
+			case 3:
+				// Set user default for selected view
+				// Default to 2 -> "Imprint"
+				var selectedView = 2
+				
+				// Change default selected view if "Privacy Policy" was selected
+				if indexPath.row == 1 {
+					selectedView = 3
+				}
+				
+				defaults.set(selectedView, forKey: "selectedAboutWebView")
+				defaults.synchronize()
+				
+				// Show web view controller
+				var aboutWebViewController = UIViewController()
+				
+				if #available(iOS 11, *) {
+					aboutWebViewController = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "AboutWebViewController")
+				} else {
+					aboutWebViewController = UIStoryboard(name: "MainLegacy", bundle: Bundle.main).instantiateViewController(withIdentifier: "AboutWebViewController")
+				}
+				
+				navigationController?.show(aboutWebViewController, sender: self)
+				
+				break
+			default:
+				break
     }
   }
   
