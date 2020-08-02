@@ -53,8 +53,11 @@ class AboutViewController: UITableViewController, MFMailComposeViewControllerDel
     case 1:
       numberOfRows = 2
       break
+		case 3:
+			numberOfRows = 2
+			break
     default:
-      numberOfRows = 2
+      numberOfRows = 1
       break
     }
     
