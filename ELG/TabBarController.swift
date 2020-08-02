@@ -38,10 +38,6 @@ class TabBarController: UITabBarController, SFSafariViewControllerDelegate {
 		super.viewDidAppear(animated)
 		
 		defaults.removeObject(forKey: "launched3.0")
-		
-		/* if defaults.bool(forKey: "launched\(String(describing: version))") != true {
-			updateUserDefaults()
-		} */
 	}
 	
 	override func didReceiveMemoryWarning() {
@@ -58,37 +54,5 @@ class TabBarController: UITabBarController, SFSafariViewControllerDelegate {
 		}
 		
 		defaults.synchronize()
-	}
-	
-	private func updateUserDefaults() {
-		// Check and update start view settings from previous version
-		
-		if defaults.integer(forKey: "startView") == 0 || defaults.integer(forKey: "startView") == 4 {
-			defaults.set(0, forKey: "startView")
-		} else {
-			defaults.set(defaults.integer(forKey: "startView") - 1, forKey: "startView")
-		}
-		
-		// Compare indices of grade settings in previous and current grade lists
-		
-		if previousGrades[defaults.integer(forKey: "selectedGrade")] != grades[defaults.integer(forKey: "selectedGrade")] {
-			// Get index of previously selected grade in new grade list
-			
-			if let index = grades.firstIndex(of: previousGrades[defaults.integer(forKey: "selectedGrade")]) {
-				let distance = grades.distance(from: grades.startIndex, to: index)
-				
-				// Update grade settings to match new grade list
-				
-				defaults.set(distance, forKey: "grade")
-				
-				// Remove old UserDefaults key
-				
-				defaults.removeObject(forKey: "selectedGrade")
-			}
-		}
-		
-		defaults.synchronize()
-		
-		present(onboardingViewController, animated: true, completion: nil)
 	}
 }
