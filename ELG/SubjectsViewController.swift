@@ -8,11 +8,22 @@
 
 import UIKit
 
+protocol SubjectsViewControllerDelegate: AnyObject {
+	func didDismissViewController(viewController: UIViewController)
+}
+
 class SubjectsViewController: UITableViewController, UIAlertViewDelegate {
   // MARK: - Properties
   
+	weak var delegate: SubjectsViewControllerDelegate?
   var defaults: UserDefaults!
   let subjects = ["Astronomie", "Biologie", "Chemie", "Deutsch", "Englisch", "Ethik", "Französisch", "Freie Stillarbeit", "Geografie", "Geschichte", "Informatik", "Junior-Ingenieur-Akademie", "Kunst", "Latein", "Mathematik", "Medienkunde", "Methodentraining", "Musik", "Physik", "Rechtskunde", "Religion", "Russisch", "Sozialkunde", "Spanisch", "Sport", "Verfügung", "VNU", "Wirtschaftskunde"]
+	
+	@IBAction func cancelButtonTap(_ sender: UIBarButtonItem) {
+		// Dismiss view
+		self.delegate?.didDismissViewController(viewController: self)
+		dismiss(animated: true, completion: nil)
+	}
 	
 	// MARK: - UITableViewController
 	
@@ -73,54 +84,36 @@ class SubjectsViewController: UITableViewController, UIAlertViewDelegate {
       defaults.setValue("Kein Unterricht", forKey: "selectedSubject")
       defaults.synchronize()
       
-      // Pop view
-      
-      _ = self.navigationController?.popViewController(animated: true)
+      //_ = self.navigationController?.popViewController(animated: true)
+			
+			// Dismiss view
+			self.delegate?.didDismissViewController(viewController: self)
+			dismiss(animated: true, completion: nil)
     } else {
       defaults.setValue(subjects[indexPath.row], forKey: "selectedSubject")
       defaults.synchronize()
       
-      if #available(iOS 8, *) {
-        // Create and show alert
-        
-        let roomAlert = UIAlertController.init(title: "Raum", message: "Bitte trage den Raum für diese Stunde ein. Lasse das Textfeld frei, um keinen Raum einzutragen.", preferredStyle: .alert)
-        roomAlert.addTextField(configurationHandler: {(textField) -> Void in
-          textField.keyboardType = .numberPad
-        })
-        roomAlert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: {(action) -> Void in
-          if roomAlert.textFields![0].text != nil {
-            self.defaults.setValue(roomAlert.textFields![0].text, forKey: "selectedRoom")
-            self.defaults.synchronize()
-          }
-          
-          // Pop view
-          
-          _ = self.navigationController?.popViewController(animated: true)
-        }))
-        present(roomAlert, animated: true, completion: nil)
-      } else {
-        // Create and show alert
-        
-        let roomAlertView = UIAlertView.init(title: "Raum", message: "Bitte trage den Raum für diese Stunde ein.", delegate: self, cancelButtonTitle: "OK")
-        roomAlertView.alertViewStyle = .plainTextInput
-        roomAlertView.textField(at: 0)?.keyboardType = .numberPad
-        roomAlertView.show()
-      }
+			// Create and show alert
+			
+			let roomAlert = UIAlertController.init(title: "Raum", message: "Bitte trage den Raum für diese Stunde ein. Lasse das Textfeld frei, um keinen Raum einzutragen.", preferredStyle: .alert)
+			roomAlert.addTextField(configurationHandler: {(textField) -> Void in
+				textField.keyboardType = .numberPad
+			})
+			roomAlert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: {(action) -> Void in
+				if roomAlert.textFields![0].text != nil {
+					self.defaults.setValue(roomAlert.textFields![0].text, forKey: "selectedRoom")
+					self.defaults.synchronize()
+				}
+				
+				//_ = self.navigationController?.popViewController(animated: true)
+				
+				// Dismiss view
+				self.delegate?.didDismissViewController(viewController: self)
+				self.dismiss(animated: true, completion: nil)
+			}))
+			
+			// Present alert
+			present(roomAlert, animated: true, completion: nil)
     }
-  }
-  
-  // MARK: - UIAlertView
-  
-  func alertView(_ alertView: UIAlertView, clickedButtonAt buttonIndex: Int) {
-    // Check text field text and set user default
-    
-    if alertView.textField(at: 0)!.text != nil {
-      defaults.setValue(alertView.textField(at: 0)?.text, forKey: "selectedRoom")
-      defaults.synchronize()
-    }
-    
-    // Pop view
-    
-    navigationController?.popViewController(animated: true)
   }
 }

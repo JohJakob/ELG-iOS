@@ -8,12 +8,12 @@
 
 import UIKit
 
-class EditLessonsViewController: UITableViewController {
+class EditLessonsViewController: UITableViewController, SubjectsViewControllerDelegate {
   // MARK: - Properties
   
   var defaults: UserDefaults!
   var lessons: [String]!
-  var subjectsViewController = UIViewController()
+  var subjectsViewController = SubjectsViewController()
 	
 	// MARK: - UITableViewController
 	
@@ -21,10 +21,13 @@ class EditLessonsViewController: UITableViewController {
     super.viewDidLoad()
 		
 		if #available(iOS 11, *) {
-			subjectsViewController = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "SubjectsTableViewController")
+			subjectsViewController = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "SubjectsTableViewController") as! SubjectsViewController
 		} else {
-			subjectsViewController = UIStoryboard(name: "MainLegacy", bundle: Bundle.main).instantiateViewController(withIdentifier: "SubjectsTableViewController")
+			subjectsViewController = UIStoryboard(name: "MainLegacy", bundle: Bundle.main).instantiateViewController(withIdentifier: "SubjectsTableViewController") as! SubjectsViewController
 		}
+		
+		// Set subjects view controller delegate
+		subjectsViewController.delegate = self
     
     // Initialize user defaults
 		
@@ -34,47 +37,7 @@ class EditLessonsViewController: UITableViewController {
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     
-    // Check selected day to retrieve lessons and set navigation bar title
-    
-    switch defaults.integer(forKey: "selectedDay") {
-    case 0:
-      lessons = defaults.stringArray(forKey: "monday")
-      navigationItem.title = "Montag"
-      break
-    case 1:
-      lessons = defaults.stringArray(forKey: "tuesday")
-      navigationItem.title = "Dienstag"
-      break
-    case 2:
-      lessons = defaults.stringArray(forKey: "wednesday")
-      navigationItem.title = "Mittwoch"
-      break
-    case 3:
-      lessons = defaults.stringArray(forKey: "thursday")
-      navigationItem.title = "Donnerstag"
-      break
-    case 4:
-      lessons = defaults.stringArray(forKey: "friday")
-      navigationItem.title = "Freitag"
-      break
-    default:
-      break
-    }
-    
-    if lessons == nil {
-      switch defaults.integer(forKey: "selectedDay") {
-      case 4:
-        lessons = ["", "", "", "", "", ""]
-        break;
-      default:
-        lessons = ["", "", "", "", "", "", "", "", "", ""]
-        break
-      }
-    }
-    
-    // Reload table view
-    
-    tableView.reloadData()
+		updateLessons()
   }
   
   override func viewWillDisappear(_ animated: Bool) {
@@ -156,11 +119,28 @@ class EditLessonsViewController: UITableViewController {
     
     defaults.set(indexPath.row, forKey: "selectedLesson")
     defaults.synchronize()
-    
-    // Show new view
 		
-		navigationController?.show(subjectsViewController, sender: self)
+		//navigationController?.show(subjectsViewController, sender: self)
+		
+		// Create navigation controller for subject list view
+		let subjectsNavigationController = UINavigationController(rootViewController: subjectsViewController)
+		
+		// Set tint color of subject navigation controller
+		if #available(iOS 11, *) {
+			subjectsNavigationController.navigationBar.tintColor = UIColor(named: "AccentColor")
+		} else {
+			subjectsNavigationController.navigationBar.tintColor = UIColor.init(red: 0.498, green: 0.09, blue: 0.204, alpha: 1)
+		}
+		
+		// Present subject navigation controller
+		present(subjectsNavigationController, animated: true, completion: nil)
   }
+	
+	// MARK: - SubjectsViewControllerDelegate
+	
+	func didDismissViewController(viewController: UIViewController) {
+		updateLessons()
+	}
   
   // MARK: - Custom
   
@@ -171,6 +151,48 @@ class EditLessonsViewController: UITableViewController {
     defaults.removeObject(forKey: "selectedRoom")
     defaults.synchronize()
   }
+	
+	func updateLessons() {
+		// Check selected day to retrieve lessons and set navigation bar title
+    switch defaults.integer(forKey: "selectedDay") {
+    case 0:
+      lessons = defaults.stringArray(forKey: "monday")
+      navigationItem.title = "Montag"
+      break
+    case 1:
+      lessons = defaults.stringArray(forKey: "tuesday")
+      navigationItem.title = "Dienstag"
+      break
+    case 2:
+      lessons = defaults.stringArray(forKey: "wednesday")
+      navigationItem.title = "Mittwoch"
+      break
+    case 3:
+      lessons = defaults.stringArray(forKey: "thursday")
+      navigationItem.title = "Donnerstag"
+      break
+    case 4:
+      lessons = defaults.stringArray(forKey: "friday")
+      navigationItem.title = "Freitag"
+      break
+    default:
+      break
+    }
+    
+    if lessons == nil {
+      switch defaults.integer(forKey: "selectedDay") {
+      case 4:
+        lessons = ["", "", "", "", "", ""]
+        break;
+      default:
+        lessons = ["", "", "", "", "", "", "", "", "", ""]
+        break
+      }
+    }
+    
+    // Reload table view
+    tableView.reloadData()
+	}
   
   func saveLessons() {
     // Save lessons in user defaults
