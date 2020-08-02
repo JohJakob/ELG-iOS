@@ -74,6 +74,7 @@
 		CF785D611F4FFA3B00FAA90F /* OATransformLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = CF785D581F4FFA3B00FAA90F /* OATransformLayer.m */; };
 		CFA7A14D1F47478800482180 /* ActionSheetPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA7A14C1F47478800482180 /* ActionSheetPresentationController.swift */; };
 		CFA7A14F1F4749FB00482180 /* ActionSheetPresentationControllerDismissButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA7A14E1F4749FB00482180 /* ActionSheetPresentationControllerDismissButton.swift */; };
+		CFE67DD924D6B9DD00647E12 /* Privacy.html in Resources */ = {isa = PBXBuildFile; fileRef = CFE67DD824D6B9DD00647E12 /* Privacy.html */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -183,6 +184,7 @@
 		CF785D581F4FFA3B00FAA90F /* OATransformLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OATransformLayer.m; sourceTree = "<group>"; };
 		CFA7A14C1F47478800482180 /* ActionSheetPresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionSheetPresentationController.swift; sourceTree = "<group>"; };
 		CFA7A14E1F4749FB00482180 /* ActionSheetPresentationControllerDismissButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionSheetPresentationControllerDismissButton.swift; sourceTree = "<group>"; };
+		CFE67DD824D6B9DD00647E12 /* Privacy.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = Privacy.html; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -355,6 +357,7 @@
 				CF5EBF622469C86E0099E3BE /* MainLegacy.storyboard */,
 				B91DB9FE1E07165000D1EC86 /* OpenSource.html */,
 				B91DBA001E071A1300D1EC86 /* Imprint.html */,
+				CFE67DD824D6B9DD00647E12 /* Privacy.html */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -542,6 +545,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CFE67DD924D6B9DD00647E12 /* Privacy.html in Resources */,
 				B9B5C4F71D1FA6D000777BD9 /* NoConnection.html in Resources */,
 				B9CBF57D1D60CFBB00F67682 /* TextFieldTableViewCell.xib in Resources */,
 				CF5EBF642469C86E0099E3BE /* MainLegacy.storyboard in Resources */,
