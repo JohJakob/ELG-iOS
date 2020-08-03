@@ -153,7 +153,7 @@ class OmissionsViewController: UITableViewController {
       cell.detailsLabel.text = "Raum " + room + "   " + text + "   " + comment
     }
     
-    cell.detailsLabel.text = cell.detailsLabel.text?.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+    cell.detailsLabel.text = cell.detailsLabel.text?.trimmingCharacters(in: .whitespacesAndNewlines)
     
     cell.detailsLabel.text = cell.detailsLabel.text?.replacingOccurrences(of: "      ", with: "   ")
 		
