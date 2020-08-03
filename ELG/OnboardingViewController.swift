@@ -19,14 +19,7 @@ class OnboardingViewController: UITableViewController {
   
   @IBAction func doneButtonTap(_ sender: UIBarButtonItem) {
     // Initialize user defaults
-		
 		defaults = UserDefaults.init(suiteName: "group.com.johjakob.elg")
-    
-    // Set user default
-    
-		defaults.set(true, forKey: "launched\(String(describing: version))")
-    
-    defaults.synchronize()
     
     // Dismiss view
     

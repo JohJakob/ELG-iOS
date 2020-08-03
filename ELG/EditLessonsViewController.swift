@@ -8,12 +8,15 @@
 
 import UIKit
 
-class EditLessonsViewController: UITableViewController {
+class EditLessonsViewController: UITableViewController, SubjectsViewControllerDelegate {
   // MARK: - Properties
   
   var defaults: UserDefaults!
   var lessons: [String]!
-  var subjectsViewController = UIViewController()
+	var rooms: [String]!
+  var subjectsViewController = SubjectsViewController()
+	let weekdays = ["monday", "tuesday", "wednesday", "thursday", "friday"]
+	let weekdayTitles = ["Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag"]
 	
 	// MARK: - UITableViewController
 	
@@ -21,10 +24,13 @@ class EditLessonsViewController: UITableViewController {
     super.viewDidLoad()
 		
 		if #available(iOS 11, *) {
-			subjectsViewController = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "SubjectsTableViewController")
+			subjectsViewController = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "SubjectsTableViewController") as! SubjectsViewController
 		} else {
-			subjectsViewController = UIStoryboard(name: "MainLegacy", bundle: Bundle.main).instantiateViewController(withIdentifier: "SubjectsTableViewController")
+			subjectsViewController = UIStoryboard(name: "MainLegacy", bundle: Bundle.main).instantiateViewController(withIdentifier: "SubjectsTableViewController") as! SubjectsViewController
 		}
+		
+		// Set subjects view controller delegate
+		subjectsViewController.delegate = self
     
     // Initialize user defaults
 		
@@ -34,47 +40,7 @@ class EditLessonsViewController: UITableViewController {
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     
-    // Check selected day to retrieve lessons and set navigation bar title
-    
-    switch defaults.integer(forKey: "selectedDay") {
-    case 0:
-      lessons = defaults.stringArray(forKey: "monday")
-      navigationItem.title = "Montag"
-      break
-    case 1:
-      lessons = defaults.stringArray(forKey: "tuesday")
-      navigationItem.title = "Dienstag"
-      break
-    case 2:
-      lessons = defaults.stringArray(forKey: "wednesday")
-      navigationItem.title = "Mittwoch"
-      break
-    case 3:
-      lessons = defaults.stringArray(forKey: "thursday")
-      navigationItem.title = "Donnerstag"
-      break
-    case 4:
-      lessons = defaults.stringArray(forKey: "friday")
-      navigationItem.title = "Freitag"
-      break
-    default:
-      break
-    }
-    
-    if lessons == nil {
-      switch defaults.integer(forKey: "selectedDay") {
-      case 4:
-        lessons = ["", "", "", "", "", ""]
-        break;
-      default:
-        lessons = ["", "", "", "", "", "", "", "", "", ""]
-        break
-      }
-    }
-    
-    // Reload table view
-    
-    tableView.reloadData()
+		updateLessons()
   }
   
   override func viewWillDisappear(_ animated: Bool) {
@@ -111,37 +77,46 @@ class EditLessonsViewController: UITableViewController {
     return numberOfRows
   }
   
+	// TODO: Refactor
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "EditLessonsTableViewCell", for: indexPath)
     
-    // Check selected lesson, subject from subject list and set the table view cell's text
-    
+		// If table view cell is selected cell and selected subject is not nil
     if defaults.integer(forKey: "selectedLesson") == indexPath.row && defaults.string(forKey: "selectedSubject") != nil {
+			// If selected subject is “No Lesson”
       if defaults.string(forKey: "selectedSubject") == "Kein Unterricht" {
         cell.textLabel!.text = String(indexPath.row + 1) + ". Stunde"
+				cell.detailTextLabel!.text = ""
         
         lessons[indexPath.row] = ""
+				rooms[indexPath.row] = ""
       } else {
+				// If no room was set
         if defaults.string(forKey: "selectedRoom") == "" {
           cell.textLabel!.text = defaults.string(forKey: "selectedSubject")
+					cell.detailTextLabel!.text = ""
           
           lessons[indexPath.row] = defaults.string(forKey: "selectedSubject")!
+					rooms[indexPath.row] = ""
         } else {
-          cell.textLabel!.text = defaults.string(forKey: "selectedSubject")! + " (" + defaults.string(forKey: "selectedRoom")! + ")"
+          cell.textLabel!.text = defaults.string(forKey: "selectedSubject")!
+					cell.detailTextLabel!.text = defaults.string(forKey: "selectedRoom")
           
-          lessons[indexPath.row] = cell.textLabel!.text!
+					lessons[indexPath.row] = defaults.string(forKey: "selectedSubject") ?? ""
+					rooms[indexPath.row] = defaults.string(forKey: "selectedRoom") ?? ""
         }
       }
     } else {
       if lessons[indexPath.row] == "" {
         cell.textLabel!.text = String(indexPath.row + 1) + ". Stunde"
+				cell.detailTextLabel!.text = ""
       } else {
         cell.textLabel!.text = lessons[indexPath.row]
+				cell.detailTextLabel!.text = rooms[indexPath.row]
       }
     }
     
-    // Save lessons
-    
+    // Save lessons in user defaults
     saveLessons()
     
     return cell
@@ -156,11 +131,28 @@ class EditLessonsViewController: UITableViewController {
     
     defaults.set(indexPath.row, forKey: "selectedLesson")
     defaults.synchronize()
-    
-    // Show new view
 		
-		navigationController?.show(subjectsViewController, sender: self)
+		//navigationController?.show(subjectsViewController, sender: self)
+		
+		// Create navigation controller for subject list view
+		let subjectsNavigationController = UINavigationController(rootViewController: subjectsViewController)
+		
+		// Set tint color of subject navigation controller
+		if #available(iOS 11, *) {
+			subjectsNavigationController.navigationBar.tintColor = UIColor(named: "AccentColor")
+		} else {
+			subjectsNavigationController.navigationBar.tintColor = UIColor.init(red: 0.498, green: 0.09, blue: 0.204, alpha: 1)
+		}
+		
+		// Present subject navigation controller
+		present(subjectsNavigationController, animated: true, completion: nil)
   }
+	
+	// MARK: - SubjectsViewControllerDelegate
+	
+	func didDismissViewController(viewController: UIViewController) {
+		updateLessons()
+	}
   
   // MARK: - Custom
   
@@ -171,29 +163,39 @@ class EditLessonsViewController: UITableViewController {
     defaults.removeObject(forKey: "selectedRoom")
     defaults.synchronize()
   }
-  
-  func saveLessons() {
-    // Save lessons in user defaults
+	
+	///
+	/// Update lessons and rooms based on selected day
+	///
+	func updateLessons() {
+		// Get lessons and rooms for selected day
+		if defaults.object(forKey: weekdays[defaults.integer(forKey: "selectedDay")]) != nil {
+			lessons = defaults.stringArray(forKey: weekdays[defaults.integer(forKey: "selectedDay")])
+			rooms = defaults.stringArray(forKey: weekdays[defaults.integer(forKey: "selectedDay")] + "Rooms")
+		} else {
+			// Create empty arrays if the schedule for the selected day returns nil
+			if defaults.integer(forKey: "selectedDay") == 4 {
+				lessons = [String](repeating: "", count: 6)
+				rooms = [String](repeating: "", count: 6)
+			} else {
+				lessons = [String](repeating: "", count: 10)
+				rooms = [String](repeating: "", count: 10)
+			}
+		}
+		
+		// Set navigation bar title for selected day
+		navigationItem.title = weekdayTitles[defaults.integer(forKey: "selectedDay")]
     
-    switch defaults.integer(forKey: "selectedDay") {
-    case 0:
-      defaults.set(lessons, forKey: "monday")
-      break
-    case 1:
-      defaults.set(lessons, forKey: "tuesday")
-      break
-    case 2:
-      defaults.set(lessons, forKey: "wednesday")
-      break
-    case 3:
-      defaults.set(lessons, forKey: "thursday")
-      break
-    case 4:
-      defaults.set(lessons, forKey: "friday")
-      break
-    default:
-      break
-    }
+    // Reload table view
+    tableView.reloadData()
+	}
+  
+	///
+	/// Save lessons and rooms in user defaults
+	///
+  func saveLessons() {
+		defaults.set(lessons, forKey: weekdays[defaults.integer(forKey: "selectedDay")])
+		defaults.set(rooms, forKey: weekdays[defaults.integer(forKey: "selectedDay")] + "Rooms")
     
     defaults.synchronize()
   }

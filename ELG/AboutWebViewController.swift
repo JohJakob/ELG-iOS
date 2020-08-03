@@ -15,9 +15,9 @@ class AboutWebViewController: UIViewController, UIWebViewDelegate {
   
   var defaults: UserDefaults!
   var selectedAboutWebView = Int()
-  var didLaunch = Bool()
-  let titles = ["Was ist neu?", "Open Source", "Impressum"]
-  let pages = ["ReleaseNotes", "OpenSource", "Imprint"]
+  var currentVersionKey = String()
+  let titles = ["Was ist neu?", "Open Source", "Impressum", "Datenschutzerklärung"]
+  let pages = ["ReleaseNotes", "OpenSource", "Imprint", "Privacy"]
   var onboardingViewController = UIViewController()
   let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
 	
@@ -33,28 +33,28 @@ class AboutWebViewController: UIViewController, UIWebViewDelegate {
 		}
     
     // Initialize user defaults
-		
 		defaults = UserDefaults.init(suiteName: "group.com.johjakob.elg")
 		
-		// Set web view's delegate
-		
+		// Set web view delegate
 		aboutWebView.delegate = self
-  }
-  
-  override func viewWillAppear(_ animated: Bool) {
-    super.viewWillAppear(animated)
-    
-    // Retrieve user defaults
-    
-    retrieveUserDefaults()
-    
-    // Load page in web view
-    
-    loadPage()
-    
-    // Show button in navigation bar on first launch
-    
-    showFirstLaunchButton()
+		
+		// Check if this is the current version’s first launch
+		
+		// Create key name for current version
+		currentVersionKey = "launched" + version!
+		
+		// Show release notes on first launch
+		if defaults.object(forKey: currentVersionKey) == nil {
+			selectedAboutWebView = 0
+			
+			// Add dismiss button
+			createDismissButton()
+		} else {
+			getSelectedAboutWebView()
+		}
+		
+		// Load web page
+		loadPage()
   }
 	
 	override func didReceiveMemoryWarning() {
@@ -65,12 +65,13 @@ class AboutWebViewController: UIViewController, UIWebViewDelegate {
 	
   // MARK: - UIWebView
   
+	///
+	/// Override the web view’s loading behavior
+	///
   func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebView.NavigationType) -> Bool {
-    // Check web view navigation type
-
+    // Check if a hyperlink was tapped to open it in a browser
     if navigationType == .linkClicked {
-      // Open URL in shared app
-      
+      // Open URL in a browser
       UIApplication.shared.openURL(request.url!)
       
       return false
@@ -80,51 +81,55 @@ class AboutWebViewController: UIViewController, UIWebViewDelegate {
   }
   
   // MARK: - Custom
+	
+	///
+	/// Get selected view from user defaults
+	///
+	func getSelectedAboutWebView() {
+		selectedAboutWebView = defaults.integer(forKey: "selectedAboutWebView")
+	}
   
-  func retrieveUserDefaults() {
-    // Retrieve user defaults
-    
-		didLaunch = defaults.bool(forKey: "launched\(String(describing: version))")
-    selectedAboutWebView = defaults.integer(forKey: "selectedAboutWebView")
-    
-    // Check whether the app has been launched for the first time
-    
-    if !didLaunch {
-      selectedAboutWebView = 0
-    }
-  }
-  
+	///
+	/// Load web page
+	///
   func loadPage() {
     // Set navigation bar title
-    
     navigationItem.title = titles[selectedAboutWebView]
     
-    // Load page
-		
+    // Load web page
 		aboutWebView.loadRequest(URLRequest(url: Bundle.main.url(forResource: pages[selectedAboutWebView], withExtension: ".html")!))
   }
+	
+	///
+	/// Create dismiss button if the view was presented on the current version’s first launch
+	///
+	func createDismissButton() {
+		navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Fertig", style: .done, target: self, action: #selector(dismissButtonTapped))
+	}
   
-  func showFirstLaunchButton() {
-    // Check whether the app has been launched for the first time
-    
-    if !didLaunch {
-      /* navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Weiter", style: .plain, target: self, action: #selector(nextButtonTapped)) */
-			
-			// Add button to navigation bar
-			
-			navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Fertig", style: .done, target: self, action: #selector(doneButtonTapped))
-    }
-  }
-  
-  @objc func doneButtonTapped() {
-		// Set user default
-    
-		defaults.set(true, forKey: "launched\(String(describing: version))")
+	///
+	/// Handle the dismiss button action
+	///
+  @objc func dismissButtonTapped() {
+		// Get user defaults key for previously launched version
+		var previousVersionKey = String()
 		
-		defaults.synchronize()
+		if defaults.object(forKey: "previousVersionKeyName") != nil {
+			previousVersionKey = defaults.string(forKey: "previousVersionKeyName")!
+		}
+		
+		// Remove user defaults key for previously launched version
+		if self.defaults.object(forKey: previousVersionKey) != nil {
+			self.defaults.removeObject(forKey: previousVersionKey)
+		}
+		
+		// Set user defaults for current version
+		self.defaults.set(true, forKey: currentVersionKey)
+		self.defaults.set(currentVersionKey, forKey: "previousVersionKeyName")
+		
+		self.defaults.synchronize()
     
     // Dismiss view
-		
 		dismiss(animated: true, completion: nil)
   }
 }

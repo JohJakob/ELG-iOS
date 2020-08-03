@@ -153,7 +153,7 @@ class OmissionsViewController: UITableViewController {
       cell.detailsLabel.text = "Raum " + room + "   " + text + "   " + comment
     }
     
-    cell.detailsLabel.text = cell.detailsLabel.text?.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+    cell.detailsLabel.text = cell.detailsLabel.text?.trimmingCharacters(in: .whitespacesAndNewlines)
     
     cell.detailsLabel.text = cell.detailsLabel.text?.replacingOccurrences(of: "      ", with: "   ")
 		
@@ -251,7 +251,8 @@ class OmissionsViewController: UITableViewController {
     rows = defaults.mutableArrayValue(forKey: "offlineOmissions")
     ownOmissions = defaults.mutableArrayValue(forKey: "ownOfflineOmissions")
     
-    navigationItem.title = rows[0] as? String
+		// Set navigation item title
+		setTitle(with: rows[0] as! String)
     
     saveButton.isEnabled = false
   }
@@ -299,8 +300,9 @@ class OmissionsViewController: UITableViewController {
           }
         }
       }
-      
-      navigationItem.title = rows[0] as? String
+			
+			// Set navigation item title
+			setTitle(with: rows[0] as! String)
       
       tableView.separatorStyle = .singleLine
       
@@ -344,4 +346,33 @@ class OmissionsViewController: UITableViewController {
       noConnectionAlert.show()
     }
   }
+	
+	// MARK: - Private
+	
+	///
+	/// Set navigation item title
+	///
+	private func setTitle(with dateString: String) {
+		let dateFormatter = DateFormatter()
+		var datePrefix = String()
+		var title = String()
+		
+		// Create date from date string in cover plan
+		dateFormatter.dateFormat = "dd.MM.yyyy"
+		let date = dateFormatter.date(from: dateString)
+		
+		if Calendar.current.isDateInToday(date!) {
+			datePrefix = "Heute, "
+		} else if Calendar.current.isDateInTomorrow(date!) {
+			datePrefix = "Morgen, "
+		} else if Calendar.current.isDateInYesterday(date!) {
+			datePrefix = "Gestern, "
+		} else {
+			datePrefix = ""
+		}
+		
+		title = datePrefix + dateString
+		
+		navigationItem.title = title
+	}
 }

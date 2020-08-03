@@ -13,22 +13,18 @@ class TabBarController: UITabBarController, SFSafariViewControllerDelegate {
 	// MARK: - Properties
 	
 	var defaults: UserDefaults!
-	var onboardingViewController = UIViewController()
+	var onboardingNavigationController = UINavigationController()
 	let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
 	let grades = ["Keine Klasse", "5a", "5b", "5c", "5d", "5e", "6a", "6b", "6c", "6d", "6e", "7a", "7b", "7c", "7d", "7e", "8a", "8b", "8c", "8d", "8e", "9a", "9b", "9c", "9d", "9e", "10a", "10b", "10c", "10d", "10e", "11a", "11b", "11c", "11d", "11e", "12a", "12b", "12c", "12d", "12e"]
-	let previousGrades = ["Keine Klasse", "5a", "5b", "5c", "5d", "5e", "6a", "6b", "6c", "6d", "6e", "7a", "7b", "7c", "7d", "7e", "8a", "8b", "8c", "8d","9a", "9b", "9c", "9d", "10a", "10b", "10c", "10d", "11a", "11b", "11c", "11d", "11e", "12a", "12b", "12c", "12d", "12e"]
+	
+	let weekdays = ["monday", "tuesday", "wednesday", "thursday", "friday"]
 	
 	// MARK: - UITabBarController
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
-		if #available(iOS 11, *) {
-			onboardingViewController = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "OnboardingNavigationController")
-		} else {
-			onboardingViewController = UIStoryboard(name: "MainLegacy", bundle: Bundle.main).instantiateViewController(withIdentifier: "OnboardingNavigationController")
-		}
-		
+		// Initialize user defaults
 		defaults = UserDefaults.init(suiteName: "group.com.johjakob.elg")
 		
 		setUp()
@@ -37,11 +33,23 @@ class TabBarController: UITabBarController, SFSafariViewControllerDelegate {
 	override func viewDidAppear(_ animated: Bool) {
 		super.viewDidAppear(animated)
 		
-		defaults.removeObject(forKey: "launched3.0")
+		// Create key name for current version
+		let currentVersionKey = "launched" + version!
 		
-		/* if defaults.bool(forKey: "launched\(String(describing: version))") != true {
-			updateUserDefaults()
-		} */
+		// Check if this is the current version’s first launch
+		// Present release notes on first launch
+		if defaults.object(forKey: currentVersionKey) == nil {
+			// Migrate schedule from previous version
+			migrateSchedule()
+			
+			if #available(iOS 11, *) {
+				onboardingNavigationController = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "OnboardingNavigationController") as! UINavigationController
+			} else {
+				onboardingNavigationController = UIStoryboard(name: "MainLegacy", bundle: Bundle.main).instantiateViewController(withIdentifier: "OnboardingNavigationController") as! UINavigationController
+			}
+			
+			present(onboardingNavigationController, animated: true, completion: nil)
+		}
 	}
 	
 	override func didReceiveMemoryWarning() {
@@ -60,35 +68,58 @@ class TabBarController: UITabBarController, SFSafariViewControllerDelegate {
 		defaults.synchronize()
 	}
 	
-	private func updateUserDefaults() {
-		// Check and update start view settings from previous version
-		
-		if defaults.integer(forKey: "startView") == 0 || defaults.integer(forKey: "startView") == 4 {
-			defaults.set(0, forKey: "startView")
-		} else {
-			defaults.set(defaults.integer(forKey: "startView") - 1, forKey: "startView")
-		}
-		
-		// Compare indices of grade settings in previous and current grade lists
-		
-		if previousGrades[defaults.integer(forKey: "selectedGrade")] != grades[defaults.integer(forKey: "selectedGrade")] {
-			// Get index of previously selected grade in new grade list
-			
-			if let index = grades.firstIndex(of: previousGrades[defaults.integer(forKey: "selectedGrade")]) {
-				let distance = grades.distance(from: grades.startIndex, to: index)
+	///
+	/// Migrate schedule to work with new table view design in v3.0.3
+	///
+	private func migrateSchedule() {
+		for day in weekdays {
+			if defaults.object(forKey: day) != nil {
+				var lessons = defaults.stringArray(forKey: day)
+				var rooms = [String](repeating: "", count: lessons!.count)
 				
-				// Update grade settings to match new grade list
+				// Regular expression pattern to separate lesson and room from previous entries
+				let regexPattern = #"([\w\-\s]+)(\s\((\d{1,3})\))?"#
 				
-				defaults.set(distance, forKey: "grade")
+				// Split lessons and rooms
+				for (index, lesson) in lessons!.enumerated() {
+					let results = matches(for: regexPattern, in: lesson)
+					
+					if results.count == 2 {
+						lessons![index] = results[0].trimmingCharacters(in: .whitespacesAndNewlines)
+						rooms[index] = results[1]
+					} else if results.count == 1 {
+						lessons![index] = results[0].trimmingCharacters(in: .whitespacesAndNewlines)
+						
+						if defaults.object(forKey: day + "Rooms") != nil {
+							rooms[index] = defaults.stringArray(forKey: day + "Rooms")![index]
+						}
+					}
+				}
 				
-				// Remove old UserDefaults key
+				defaults.set(lessons, forKey: day)
+				defaults.set(rooms, forKey: day + "Rooms")
 				
-				defaults.removeObject(forKey: "selectedGrade")
+				defaults.synchronize()
 			}
 		}
-		
-		defaults.synchronize()
-		
-		present(onboardingViewController, animated: true, completion: nil)
+	}
+	
+	// MARK: - Utility
+	
+	func matches(for regex: String, in text: String) -> [String] {
+		do {
+			let regex = try NSRegularExpression(pattern: regex, options: [])
+			let range = NSRange(text.startIndex..., in: text)
+			
+			let results = regex.matches(in: text, options: [], range: range).map {
+				String(text[Range($0.range, in: text)!])
+			}
+			
+			return results
+    } catch let error {
+			print("Invalid regular expression: \(error.localizedDescription)")
+			
+			return []
+		}
 	}
 }
