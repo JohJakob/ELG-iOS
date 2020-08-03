@@ -13,7 +13,10 @@ class EditLessonsViewController: UITableViewController, SubjectsViewControllerDe
   
   var defaults: UserDefaults!
   var lessons: [String]!
+	var rooms: [String]!
   var subjectsViewController = SubjectsViewController()
+	let weekdays = ["monday", "tuesday", "wednesday", "thursday", "friday"]
+	let weekdayTitles = ["Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag"]
 	
 	// MARK: - UITableViewController
 	
@@ -74,37 +77,46 @@ class EditLessonsViewController: UITableViewController, SubjectsViewControllerDe
     return numberOfRows
   }
   
+	// TODO: Refactor
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "EditLessonsTableViewCell", for: indexPath)
     
-    // Check selected lesson, subject from subject list and set the table view cell's text
-    
+		// If table view cell is selected cell and selected subject is not nil
     if defaults.integer(forKey: "selectedLesson") == indexPath.row && defaults.string(forKey: "selectedSubject") != nil {
+			// If selected subject is “No Lesson”
       if defaults.string(forKey: "selectedSubject") == "Kein Unterricht" {
         cell.textLabel!.text = String(indexPath.row + 1) + ". Stunde"
+				cell.detailTextLabel!.text = ""
         
         lessons[indexPath.row] = ""
+				rooms[indexPath.row] = ""
       } else {
+				// If no room was set
         if defaults.string(forKey: "selectedRoom") == "" {
           cell.textLabel!.text = defaults.string(forKey: "selectedSubject")
+					cell.detailTextLabel!.text = ""
           
           lessons[indexPath.row] = defaults.string(forKey: "selectedSubject")!
+					rooms[indexPath.row] = ""
         } else {
-          cell.textLabel!.text = defaults.string(forKey: "selectedSubject")! + " (" + defaults.string(forKey: "selectedRoom")! + ")"
+          cell.textLabel!.text = defaults.string(forKey: "selectedSubject")!
+					cell.detailTextLabel!.text = defaults.string(forKey: "selectedRoom")
           
-          lessons[indexPath.row] = cell.textLabel!.text!
+					lessons[indexPath.row] = defaults.string(forKey: "selectedSubject") ?? ""
+					rooms[indexPath.row] = defaults.string(forKey: "selectedRoom") ?? ""
         }
       }
     } else {
       if lessons[indexPath.row] == "" {
         cell.textLabel!.text = String(indexPath.row + 1) + ". Stunde"
+				cell.detailTextLabel!.text = ""
       } else {
         cell.textLabel!.text = lessons[indexPath.row]
+				cell.detailTextLabel!.text = rooms[indexPath.row]
       }
     }
     
-    // Save lessons
-    
+    // Save lessons in user defaults
     saveLessons()
     
     return cell
@@ -152,70 +164,38 @@ class EditLessonsViewController: UITableViewController, SubjectsViewControllerDe
     defaults.synchronize()
   }
 	
+	///
+	/// Update lessons and rooms based on selected day
+	///
 	func updateLessons() {
-		// Check selected day to retrieve lessons and set navigation bar title
-    switch defaults.integer(forKey: "selectedDay") {
-    case 0:
-      lessons = defaults.stringArray(forKey: "monday")
-      navigationItem.title = "Montag"
-      break
-    case 1:
-      lessons = defaults.stringArray(forKey: "tuesday")
-      navigationItem.title = "Dienstag"
-      break
-    case 2:
-      lessons = defaults.stringArray(forKey: "wednesday")
-      navigationItem.title = "Mittwoch"
-      break
-    case 3:
-      lessons = defaults.stringArray(forKey: "thursday")
-      navigationItem.title = "Donnerstag"
-      break
-    case 4:
-      lessons = defaults.stringArray(forKey: "friday")
-      navigationItem.title = "Freitag"
-      break
-    default:
-      break
-    }
-    
-    if lessons == nil {
-      switch defaults.integer(forKey: "selectedDay") {
-      case 4:
-        lessons = ["", "", "", "", "", ""]
-        break;
-      default:
-        lessons = ["", "", "", "", "", "", "", "", "", ""]
-        break
-      }
-    }
+		// Get lessons and rooms for selected day
+		if defaults.object(forKey: weekdays[defaults.integer(forKey: "selectedDay")]) != nil {
+			lessons = defaults.stringArray(forKey: weekdays[defaults.integer(forKey: "selectedDay")])
+			rooms = defaults.stringArray(forKey: weekdays[defaults.integer(forKey: "selectedDay")] + "Rooms")
+		} else {
+			// Create empty arrays if the schedule for the selected day returns nil
+			if defaults.integer(forKey: "selectedDay") == 4 {
+				lessons = [String](repeating: "", count: 6)
+				rooms = [String](repeating: "", count: 6)
+			} else {
+				lessons = [String](repeating: "", count: 10)
+				rooms = [String](repeating: "", count: 10)
+			}
+		}
+		
+		// Set navigation bar title for selected day
+		navigationItem.title = weekdayTitles[defaults.integer(forKey: "selectedDay")]
     
     // Reload table view
     tableView.reloadData()
 	}
   
+	///
+	/// Save lessons and rooms in user defaults
+	///
   func saveLessons() {
-    // Save lessons in user defaults
-    
-    switch defaults.integer(forKey: "selectedDay") {
-    case 0:
-      defaults.set(lessons, forKey: "monday")
-      break
-    case 1:
-      defaults.set(lessons, forKey: "tuesday")
-      break
-    case 2:
-      defaults.set(lessons, forKey: "wednesday")
-      break
-    case 3:
-      defaults.set(lessons, forKey: "thursday")
-      break
-    case 4:
-      defaults.set(lessons, forKey: "friday")
-      break
-    default:
-      break
-    }
+		defaults.set(lessons, forKey: weekdays[defaults.integer(forKey: "selectedDay")])
+		defaults.set(rooms, forKey: weekdays[defaults.integer(forKey: "selectedDay")] + "Rooms")
     
     defaults.synchronize()
   }

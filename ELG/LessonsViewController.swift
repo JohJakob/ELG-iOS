@@ -12,7 +12,8 @@ class LessonsViewController: UITableViewController {
   // MARK: - Properties
   
   var defaults: UserDefaults!
-  var lessons: [String]!
+	var lessons = [String]()
+	var rooms = [String]()
 	let scheduleKeys = ["monday", "tuesday", "wednesday", "thursday", "friday"]
 	let navigationItemTitle = ["Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag"]
   var editLessonsViewController = UIViewController()
@@ -38,7 +39,8 @@ class LessonsViewController: UITableViewController {
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
 		
-		lessons = defaults.stringArray(forKey: scheduleKeys[defaults.integer(forKey: "selectedDay")])
+		lessons = defaults.stringArray(forKey: scheduleKeys[defaults.integer(forKey: "selectedDay")]) ?? []
+		rooms = defaults.stringArray(forKey: scheduleKeys[defaults.integer(forKey: "selectedDay")] + "Rooms") ?? []
 		
 		navigationItem.title = navigationItemTitle[defaults.integer(forKey: "selectedDay")]
     
@@ -62,7 +64,7 @@ class LessonsViewController: UITableViewController {
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     var numberOfRows = Int()
     
-    if lessons == nil {
+		if lessons.count == 0 {
       numberOfRows = 0
     } else {
       numberOfRows = lessons.count
@@ -110,6 +112,7 @@ class LessonsViewController: UITableViewController {
     let cell = tableView.dequeueReusableCell(withIdentifier: "LessonsTableViewCell", for: indexPath)
     
     cell.textLabel!.text = lessons[indexPath.row]
+		cell.detailTextLabel!.text = rooms[indexPath.row]
     
     return cell
   }
