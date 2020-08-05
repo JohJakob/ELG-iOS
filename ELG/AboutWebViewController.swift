@@ -57,6 +57,13 @@ class AboutWebViewController: UIViewController, UIWebViewDelegate {
 		loadPage()
   }
 	
+	override func viewWillDisappear(_ animated: Bool) {
+		super.viewWillDisappear(true)
+		
+		// Complete onboarding when the view is dismissed by swiping down
+		completeOnboarding()
+	}
+	
 	override func didReceiveMemoryWarning() {
 		super.didReceiveMemoryWarning()
 		
@@ -106,11 +113,11 @@ class AboutWebViewController: UIViewController, UIWebViewDelegate {
 	func createDismissButton() {
 		navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Fertig", style: .done, target: self, action: #selector(dismissButtonTapped))
 	}
-  
+	
 	///
-	/// Handle the dismiss button action
+	/// Complete onboarding process on first launch
 	///
-  @objc func dismissButtonTapped() {
+	func completeOnboarding() {
 		// Get user defaults key for previously launched version
 		var previousVersionKey = String()
 		
@@ -128,7 +135,15 @@ class AboutWebViewController: UIViewController, UIWebViewDelegate {
 		self.defaults.set(currentVersionKey, forKey: "previousVersionKeyName")
 		
 		self.defaults.synchronize()
-    
+	}
+  
+	///
+	/// Handle the dismiss button action
+	///
+  @objc func dismissButtonTapped() {
+    // Complete onboarding
+		completeOnboarding()
+		
     // Dismiss view
 		dismiss(animated: true, completion: nil)
   }
