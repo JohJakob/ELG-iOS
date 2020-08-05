@@ -40,7 +40,9 @@ class TabBarController: UITabBarController, SFSafariViewControllerDelegate {
 		// Present release notes on first launch
 		if defaults.object(forKey: currentVersionKey) == nil {
 			// Migrate schedule from previous version
-			migrateSchedule()
+			if defaults.bool(forKey: "migratedSchedule3.0.3") != true {
+				migrateSchedule()
+			}
 			
 			if #available(iOS 11, *) {
 				onboardingNavigationController = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "OnboardingNavigationController") as! UINavigationController
@@ -98,6 +100,9 @@ class TabBarController: UITabBarController, SFSafariViewControllerDelegate {
 				
 				defaults.set(lessons, forKey: day)
 				defaults.set(rooms, forKey: day + "Rooms")
+				
+				// Save schedule migration completion in user defaults
+				defaults.set(true, forKey: "migratedSchedule3.0.3")
 				
 				defaults.synchronize()
 			}
