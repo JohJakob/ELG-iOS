@@ -17,7 +17,7 @@ class OmissionsViewController: UITableViewController {
   var defaults: UserDefaults!
   var selectedGrade = Int()
   var rows = NSMutableArray()
-  var ownOmissions = NSMutableArray()
+  var userPlan = NSMutableArray()
   var offlineAvailable = Bool()
   var autoSave = Bool()
   var teacherMode = Bool()
@@ -37,18 +37,18 @@ class OmissionsViewController: UITableViewController {
     
     tableView.register(UINib(nibName: "OmissionsTableViewCell", bundle: nil), forCellReuseIdentifier: "OmissionsTableViewCell")
 		
-    let omissionsRefreshControl = UIRefreshControl.init()
+    let planRefreshControl = UIRefreshControl.init()
     
-    omissionsRefreshControl.addTarget(self, action: #selector(OmissionsViewController.refreshTableView), for: .valueChanged)
+    planRefreshControl.addTarget(self, action: #selector(OmissionsViewController.refreshTableView), for: .valueChanged)
     
-    refreshControl = omissionsRefreshControl
+    refreshControl = planRefreshControl
 
     getUserDefaults()
 		
 		if offlineAvailable {
-			getOfflineOmissions()
+			getOfflinePlan()
 		} else {
-			downloadOmissions()
+			downloadPlan()
 		}
   }
 	
@@ -86,7 +86,7 @@ class OmissionsViewController: UITableViewController {
     var numberOfRows: Int
     
     if section == 0 {
-      numberOfRows = ownOmissions.count
+      numberOfRows = userPlan.count
     } else {
       if rows.count < 3 {
         numberOfRows = 0
@@ -107,21 +107,21 @@ class OmissionsViewController: UITableViewController {
 			cell.gradeLabel.textColor = UIColor(named: "AccentColor")
 		}
 		
-    var omissionComponents: [String]
+    var planComponents: [String]
     
     if indexPath.section == 0 {
-      omissionComponents = (ownOmissions[indexPath.row] as AnyObject).components(separatedBy: "\",\"")
+      planComponents = (userPlan[indexPath.row] as AnyObject).components(separatedBy: "\",\"")
     } else {
-      omissionComponents = (rows[indexPath.row + 1] as AnyObject).components(separatedBy: "\",\"")
+      planComponents = (rows[indexPath.row + 1] as AnyObject).components(separatedBy: "\",\"")
     }
     
-    let grade = omissionComponents[0].replacingOccurrences(of: "\"", with: "")
-    let lesson = omissionComponents[1]
-    let teacher = omissionComponents[2]
-    let subject = omissionComponents[3]
-    let room = omissionComponents[4]
-    let text = omissionComponents[5]
-    let comment = omissionComponents[6].replacingOccurrences(of: "\"", with: "")
+    let grade = planComponents[0].replacingOccurrences(of: "\"", with: "")
+    let lesson = planComponents[1]
+    let teacher = planComponents[2]
+    let subject = planComponents[3]
+    let room = planComponents[4]
+    let text = planComponents[5]
+    let comment = planComponents[6].replacingOccurrences(of: "\"", with: "")
     
     if grade.count < 4 {
       cell.gradeLabel.text = grade
@@ -195,7 +195,7 @@ class OmissionsViewController: UITableViewController {
 		footerLabel.backgroundColor = ColorCompatibility.systemBackground
     
     if section == 0 {
-      if ownOmissions.count == 0 {
+      if userPlan.count == 0 {
         footerLabel.text = "Keine eigenen Vertretungen"
       }
     } else {
@@ -211,7 +211,7 @@ class OmissionsViewController: UITableViewController {
     var heightForFooter: CGFloat = 0
     
     if section == 0 {
-      if ownOmissions.count == 0 {
+      if userPlan.count == 0 {
         heightForFooter = 44
       } else {
         heightForFooter = 0
@@ -240,16 +240,16 @@ class OmissionsViewController: UITableViewController {
   @objc func refreshTableView() {
     getUserDefaults()
 		
-		downloadOmissions()
+		downloadPlan()
     
     tableView.reloadData()
     
     refreshControl?.endRefreshing()
   }
   
-  func getOfflineOmissions() {
+  func getOfflinePlan() {
     rows = defaults.mutableArrayValue(forKey: "offlineOmissions")
-    ownOmissions = defaults.mutableArrayValue(forKey: "ownOfflineOmissions")
+    userPlan = defaults.mutableArrayValue(forKey: "ownOfflineOmissions")
     
 		// Set navigation item title
 		setTitle(with: rows[0] as! String)
@@ -257,7 +257,7 @@ class OmissionsViewController: UITableViewController {
     saveButton.isEnabled = false
   }
   
-  func downloadOmissions() {
+  func downloadPlan() {
     let reachabilityStatus: NetworkStatus = Reachability.forInternetConnection().currentReachabilityStatus()
     
     if reachabilityStatus != NotReachable {
@@ -273,7 +273,7 @@ class OmissionsViewController: UITableViewController {
       
       rows = NSMutableArray.init(array: cleanedOmissions.components(separatedBy: "\n"))
       
-      ownOmissions = NSMutableArray()
+      userPlan = NSMutableArray()
       
       for i in 1 ..< rows.count - 1 {
         if (rows[i] as AnyObject).range(of: "MIPa").location != NSNotFound {
@@ -290,12 +290,12 @@ class OmissionsViewController: UITableViewController {
         
         if teacherMode {
           if teacher == teacherToken && teacher != "" {
-            ownOmissions.add(rows[i])
+            userPlan.add(rows[i])
           }
         } else {
           if selectedGrade != 0 {
             if grade.range(of: grades[selectedGrade]) != nil {
-              ownOmissions.add(rows[i])
+              userPlan.add(rows[i])
             }
           }
         }
@@ -334,7 +334,7 @@ class OmissionsViewController: UITableViewController {
       offlineAvailable = true
       
       defaults.set(rows, forKey: "offlineOmissions")
-      defaults.set(ownOmissions, forKey: "ownOfflineOmissions")
+      defaults.set(userPlan, forKey: "ownOfflineOmissions")
       defaults.set(offlineAvailable, forKey: "offlineAvailable")
       defaults.synchronize()
 			
