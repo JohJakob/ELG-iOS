@@ -227,9 +227,9 @@ class OmissionsViewController: UITableViewController {
     return heightForFooter
   }
   
-  // MARK: - Custom
+  // MARK: - Private
   
-  func getUserDefaults() {
+  private func getUserDefaults() {
     selectedGrade = defaults.integer(forKey: "grade")
     offlineAvailable = defaults.bool(forKey: "offlineAvailable")
     autoSave = defaults.bool(forKey: "autoSave")
@@ -237,7 +237,7 @@ class OmissionsViewController: UITableViewController {
     teacherToken = defaults.string(forKey: "teacherToken")!
   }
   
-  @objc func refreshTableView() {
+  @objc private func refreshTableView() {
     getUserDefaults()
 		
 		downloadPlan()
@@ -247,7 +247,7 @@ class OmissionsViewController: UITableViewController {
     refreshControl?.endRefreshing()
   }
   
-  func getOfflinePlan() {
+  private func getOfflinePlan() {
     rows = defaults.mutableArrayValue(forKey: "offlineOmissions")
     userPlan = defaults.mutableArrayValue(forKey: "ownOfflineOmissions")
     
@@ -257,21 +257,21 @@ class OmissionsViewController: UITableViewController {
     saveButton.isEnabled = false
   }
   
-  func downloadPlan() {
+  private func downloadPlan() {
     let reachabilityStatus: NetworkStatus = Reachability.forInternetConnection().currentReachabilityStatus()
     
     if reachabilityStatus != NotReachable {
-      var rawOmissions = String()
+      var rawPlan = String()
       
       do {
-        try rawOmissions = String(contentsOf: URL.init(string: "https://elg-halle.de/Aktuell/Intern/Vertretungsplan/vp.csv")!, encoding: String.Encoding.ascii)
+        try rawPlan = String(contentsOf: URL.init(string: "https://elg-halle.de/Aktuell/Intern/Vertretungsplan/vp.csv")!, encoding: String.Encoding.ascii)
       } catch {
         print(error)
       }
       
-      let cleanedOmissions = rawOmissions.replacingOccurrences(of: "\r", with: "")
+      let cleanedPlan = rawPlan.replacingOccurrences(of: "\r", with: "")
       
-      rows = NSMutableArray.init(array: cleanedOmissions.components(separatedBy: "\n"))
+      rows = NSMutableArray.init(array: cleanedPlan.components(separatedBy: "\n"))
       
       userPlan = NSMutableArray()
       
@@ -280,12 +280,12 @@ class OmissionsViewController: UITableViewController {
           rows.removeObject(at: i)
         }
         
-        let omissionComponents = (rows[i] as AnyObject).components(separatedBy: "\",\"")
-        let grade = omissionComponents[0].replacingOccurrences(of: "\"", with: "")
+        let planComponents = (rows[i] as AnyObject).components(separatedBy: "\",\"")
+        let grade = planComponents[0].replacingOccurrences(of: "\"", with: "")
         var teacher = String()
         
-        if omissionComponents.count >= 3 {
-          teacher = omissionComponents[2]
+        if planComponents.count >= 3 {
+          teacher = planComponents[2]
         }
         
         if teacherMode {
@@ -327,7 +327,7 @@ class OmissionsViewController: UITableViewController {
     }
   }
   
-  func saveOmissions() {
+  private func saveOmissions() {
     let reachabilityStatus: NetworkStatus = Reachability.forInternetConnection().currentReachabilityStatus()
     
     if reachabilityStatus != NotReachable {
@@ -346,8 +346,6 @@ class OmissionsViewController: UITableViewController {
       noConnectionAlert.show()
     }
   }
-	
-	// MARK: - Private
 	
 	///
 	/// Set navigation item title
