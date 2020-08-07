@@ -67,6 +67,9 @@ class OmissionsViewController: UITableViewController {
     
     if reachabilityStatus != NotReachable || (reachabilityStatus == NotReachable && offlineAvailable) {
       numberOfSections = 2
+			
+			// Remove background view
+			tableView.backgroundView = nil
     } else {
       numberOfSections = 0
 			
