@@ -16,11 +16,13 @@ class FoerdervereinViewController: UITableViewController, UIGestureRecognizerDel
 	@IBOutlet var segmentedControl: UISegmentedControl!
   
   var defaults: UserDefaults!
+	var feedPage: Int = 1
 	var articles = [[String: String]]()
 	var currentArticle = [String: String]()
 	let weekdays = ["Mon": "Montag", "Tue": "Dienstag", "Wed": "Mittwoch", "Thu": "Donnerstag", "Fri": "Freitag", "Sat": "Samstag", "Sun": "Sonntag"]
 	let months = ["Jan": "Januar", "Feb": "Februar", "Mar": "März", "Apr": "April", "May": "Mai", "Jun": "Juni", "Jul": "Juli", "Aug": "August", "Sep": "September", "Oct": "Oktober", "Nov": "November", "Dec": "Dezember"]
   let articleViewController = FoerdervereinArticleViewController()
+	fileprivate var loadMoreActivityIndicator: LoadMoreActivityIndicator!
 	
 	// MARK: - UITableViewController
 	
@@ -29,12 +31,6 @@ class FoerdervereinViewController: UITableViewController, UIGestureRecognizerDel
 		
 		initialize()
   }
-	
-	override func viewWillAppear(_ animated: Bool) {
-		super.viewWillAppear(animated)
-		
-		showArticles()
-	}
 	
 	override func didReceiveMemoryWarning() {
 		super.didReceiveMemoryWarning()
@@ -103,7 +99,11 @@ class FoerdervereinViewController: UITableViewController, UIGestureRecognizerDel
 	
 	// MARK: - Private
 	
+	///
+	/// Set up the view
+	///
 	private func initialize() {
+		// Initialize user defaults
 		defaults = UserDefaults.init(suiteName: "group.com.johjakob.elg")
 		
 		segmentedControl.addTarget(self, action: #selector(changeView), for: .valueChanged)
@@ -112,11 +112,19 @@ class FoerdervereinViewController: UITableViewController, UIGestureRecognizerDel
 		
 		let articlesRefreshControl = UIRefreshControl.init()
 		
-		articlesRefreshControl.addTarget(self, action: #selector(showArticles), for: .valueChanged)
+		articlesRefreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
 		
 		refreshControl = articlesRefreshControl
+		
+		if articles.count == 0 {
+			// Load articles from RSS feed
+			loadArticles()
+		}
 	}
 	
+	///
+	/// Handle moving between “News” and “Förderverein”
+	///
 	@objc private func changeView() {
 		var navigationStack = navigationController?.viewControllers
 		var localNavigationStack = navigationStack
@@ -136,6 +144,9 @@ class FoerdervereinViewController: UITableViewController, UIGestureRecognizerDel
 		navigationController?.setViewControllers(navigationStack!, animated: false)
 	}
 	
+	///
+	/// Set up table view
+	///
 	private func initializeTableView() {
 		tableView.register(SimpleFeedTableViewCell.self, forCellReuseIdentifier: "SimpleFeedTableViewCell")
 		
@@ -147,32 +158,70 @@ class FoerdervereinViewController: UITableViewController, UIGestureRecognizerDel
 		tableView.separatorStyle = .none
 	}
 	
-	@objc private func showArticles() {
+	///
+	/// Refresh control action
+	///
+	@objc private func refresh() {
+		// Reset current feed page
+		feedPage = 1
+		
+		// Reload articles from feed
+		loadArticles()
+		
+		if refreshControl!.isRefreshing {
+			refreshControl?.endRefreshing()
+		}
+	}
+	
+	///
+	/// Load articles from feed
+	///
+	private func loadArticles() {
 		let reachabilityStatus: NetworkStatus = Reachability.forInternetConnection().currentReachabilityStatus()
 		
 		if reachabilityStatus != NotReachable {
 			download(completion: { (items) in
-				self.articles = items
+				if self.feedPage == 1 {
+					// If current feed page is 1, reload all articles of this page
+					self.articles = items
+				} else {
+					// If current feed page is > 1, add articles of this page
+					self.articles.append(contentsOf: items)
+				}
+				
 				self.tableView.reloadData()
+				
+				// Initialize “Load more” activity indicator
+				self.loadMoreActivityIndicator = LoadMoreActivityIndicator(scrollView: self.tableView, spacingFromLastCell: 10, spacingFromLastCellWhenLoadingStarts: 60)
 			})
 		} else {
-			let noConnectionView = NoConnectionView()
-			
-			noConnectionView.textLabel.attributedText = noConnectionView.defaultText()
-			
-			tableView.backgroundColor = UIColor.groupTableViewBackground
-			tableView.separatorStyle = .none
-			tableView.backgroundView = noConnectionView
+			// Show message that there is no internet connection only if no articles have been loaded
+			if articles.count == 0 {
+				let noConnectionView = NoConnectionView()
+				
+				noConnectionView.textLabel.attributedText = noConnectionView.defaultText()
+				
+				tableView.backgroundColor = UIColor.groupTableViewBackground
+				tableView.separatorStyle = .none
+				tableView.backgroundView = noConnectionView
+			}
 		}
-		
-		refreshControl?.endRefreshing()
 	}
 	
+	///
+	/// Download articles from RSS feed and put their data into a dictionary
+	///
 	private func download(completion: @escaping (_ articles: [[String: String]]) -> ()) {
 		let reachabilityStatus: NetworkStatus = Reachability.forInternetConnection().currentReachabilityStatus()
 		
 		if reachabilityStatus != NotReachable {
-			var request = URLRequest(url: URL(string: "https://svelg.wordpress.com/feed")!)
+			var urlString = "https://svelg.wordpress.com/feed"
+			
+			if feedPage > 1 {
+				urlString += "/?paged=\(feedPage)"
+			}
+			
+			var request = URLRequest(url: URL(string: urlString)!)
 			
 			request.httpMethod = "GET"
 			
@@ -191,13 +240,16 @@ class FoerdervereinViewController: UITableViewController, UIGestureRecognizerDel
 					}
 					
 					guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
-						let responseErrorAlertController = UIAlertController(title: "Server-Fehler", message: "Die Artikel konnten nicht geladen werden.", preferredStyle: .alert)
+						/*let responseErrorAlertController = UIAlertController(title: "Server-Fehler", message: "Die Artikel konnten nicht geladen werden.", preferredStyle: .alert)
 						
 						responseErrorAlertController.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { _ in
 							self.dismiss(animated: true, completion: nil)
 						}))
 						
-						self.present(responseErrorAlertController, animated: true, completion: nil)
+						self.present(responseErrorAlertController, animated: true, completion: nil)*/
+						
+						// Decrement current feed page
+						self.feedPage -= 1
 						
 						return
 					}
@@ -221,6 +273,9 @@ class FoerdervereinViewController: UITableViewController, UIGestureRecognizerDel
 		}
 	}
 	
+	///
+	/// Reformat article’s date
+	///
 	private func transformDate(dateString: String) -> String {
 		var string = dateString
 		
@@ -254,5 +309,29 @@ class FoerdervereinViewController: UITableViewController, UIGestureRecognizerDel
 		UIView.animate(withDuration: 0.2, animations: {
 			cell.containerView.transform = CGAffineTransform(scaleX: 1, y: 1)
 		})
+	}
+}
+
+// MARK: - Extensions
+
+extension FoerdervereinViewController {
+	override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+			if loadMoreActivityIndicator != nil {
+				// Start “Load more” activity indicator
+				loadMoreActivityIndicator.start {
+				DispatchQueue.global(qos: .utility).async {
+					// Load more articles from next feed page
+					self.feedPage += 1
+					self.loadArticles()
+					
+					// Let activity indicator animate for a second to prevent animation glitches
+					sleep(1)
+					
+					DispatchQueue.main.async { [weak self] in
+						self?.loadMoreActivityIndicator.stop()
+					}
+				}
+			}
+		}
 	}
 }

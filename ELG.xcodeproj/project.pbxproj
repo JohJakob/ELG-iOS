@@ -74,6 +74,7 @@
 		CF785D611F4FFA3B00FAA90F /* OATransformLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = CF785D581F4FFA3B00FAA90F /* OATransformLayer.m */; };
 		CFA7A14D1F47478800482180 /* ActionSheetPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA7A14C1F47478800482180 /* ActionSheetPresentationController.swift */; };
 		CFA7A14F1F4749FB00482180 /* ActionSheetPresentationControllerDismissButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA7A14E1F4749FB00482180 /* ActionSheetPresentationControllerDismissButton.swift */; };
+		CFDC8AAF24DC1824001B11B8 /* LoadMoreActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDC8AAE24DC1824001B11B8 /* LoadMoreActivityIndicator.swift */; };
 		CFE67DD924D6B9DD00647E12 /* Privacy.html in Resources */ = {isa = PBXBuildFile; fileRef = CFE67DD824D6B9DD00647E12 /* Privacy.html */; };
 /* End PBXBuildFile section */
 
@@ -184,6 +185,7 @@
 		CF785D581F4FFA3B00FAA90F /* OATransformLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OATransformLayer.m; sourceTree = "<group>"; };
 		CFA7A14C1F47478800482180 /* ActionSheetPresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionSheetPresentationController.swift; sourceTree = "<group>"; };
 		CFA7A14E1F4749FB00482180 /* ActionSheetPresentationControllerDismissButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionSheetPresentationControllerDismissButton.swift; sourceTree = "<group>"; };
+		CFDC8AAE24DC1824001B11B8 /* LoadMoreActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadMoreActivityIndicator.swift; sourceTree = "<group>"; };
 		CFE67DD824D6B9DD00647E12 /* Privacy.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = Privacy.html; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -343,6 +345,7 @@
 				CF63C0021F6059F900A67315 /* FeedTableViewCell.swift */,
 				CF1DD7D91F753972006AA41B /* SimpleFeedTableViewCell.swift */,
 				CF46BECD1F70FA1D00ABEA66 /* NoConnectionView.swift */,
+				CFDC8AAE24DC1824001B11B8 /* LoadMoreActivityIndicator.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -576,6 +579,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B9BDBA0B1DE22EED0025E30A /* TeacherModeViewController.swift in Sources */,
+				CFDC8AAF24DC1824001B11B8 /* LoadMoreActivityIndicator.swift in Sources */,
 				B9CBF5801D61C0C300F67682 /* OnePasswordExtension.m in Sources */,
 				B98C637D1E193E7100B515E6 /* OnboardingViewController.swift in Sources */,
 				B9FB652D1DF5FEB3009B7D13 /* DetailViewController.swift in Sources */,
