@@ -1,0 +1,17 @@
+/* 
+  Localizable.strings
+  ELG
+
+  Created by Johannes Jakob on 16/08/2020
+  © 2020 Johannes Jakob
+*/
+
+// Views
+"News" = "News";
+"Schedule" = "Schedule";
+"Cover Plan" = "Cover Plan";
+"Settings" = "Settings";
+
+// News outlets
+"Friends' Association" = "Friends";
+"EliZE" = "EliZE";

@@ -1,5 +1,5 @@
 //
-//  SettingsViewController.swift
+//  CoverPlanViewController.swift
 //  ELG
 //
 //  Created by Johannes Jakob on 16/08/2020
@@ -7,12 +7,12 @@
 //
 
 ///
-/// App settings
+/// Cover plan
 ///
 
 import UIKit
 
-class SettingsViewController: UITableViewController {
+class CoverPlanViewController: UITableViewController {
 	// MARK: - UIViewController
 	
 	override func viewDidLoad() {

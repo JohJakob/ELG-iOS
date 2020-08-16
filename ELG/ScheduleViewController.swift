@@ -2,118 +2,94 @@
 //  ScheduleViewController.swift
 //  ELG
 //
-//  Created by Johannes Jakob on 26/06/2016
-//  © Elisabeth-Gymnasium Halle, Johannes Jakob
+//  Created by Johannes Jakob on 16/08/2020
+//  © 2020 Johannes Jakob
 //
+
+///
+/// Schedule overview
+///
 
 import UIKit
 
 class ScheduleViewController: UITableViewController {
-  // MARK: - Properties
-  
-  var defaults: UserDefaults!
-  var lessonsViewController = UIViewController()
-  
-  // Use when online schedule are available again
-  
-  /* let webScheduleViewController = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("WebScheduleViewController") */
-	
-	// MARK: - UITableViewController
-	
-  override func viewDidLoad() {
-    super.viewDidLoad()
+		// MARK: - UIViewController
 		
-		if #available(iOS 11, *) {
-			lessonsViewController = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "LessonsTableViewController")
-		} else {
-			lessonsViewController = UIStoryboard(name: "MainLegacy", bundle: Bundle.main).instantiateViewController(withIdentifier: "LessonsTableViewController")
-		}
-		
-		defaults = UserDefaults.init(suiteName: "group.com.johjakob.elg")
-  }
-	
-	override func viewDidAppear(_ animated: Bool) {
-		super.viewDidAppear(animated)
-		
-		if defaults.object(forKey: "selectedDay") != nil && defaults.integer(forKey: "startView") == 1 && defaults.bool(forKey: "didShowSchedule") == false {
-			defaults.set(true, forKey: "didShowSchedule")
-			defaults.synchronize()
-			
-			navigationController?.show(lessonsViewController, sender: self)
-		}
-	}
-	
-	override func didReceiveMemoryWarning() {
-		super.didReceiveMemoryWarning()
-		
-		print("Memory Warning")
-	}
-	
-  // MARK: - UITableView
-  
-  override func numberOfSections(in tableView: UITableView) -> Int {
-    return 1
-    
-    // Use when online schedule are available again
-    
-    /* return 2 */
-  }
-  
-  override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return 5
-    
-    // Use when online schedules are available again
-    
-    /* var numberOfRows: Int
-    
-    if section == 0 {
-      numberOfRows = 5
-    } else {
-      numberOfRows = 1
-    }
-    
-    return numberOfRows */
-  }
-  
-  override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCell(withIdentifier: "ScheduleTableViewCell", for: indexPath)
-    let days = ["Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag"]
-    
-    cell.textLabel!.text = days[indexPath.row]
-    
-    // Use when online schedules are available again
-    
-    /* switch indexPath.section {
-    case 0:
-      cell.textLabel!.text = days[indexPath.row];
-      break
-    case 1:
-      cell.textLabel!.text = "Stundenplan (Web)"
-      break
-    default:
-      break
-    } */
-    
-    return cell
-  }
-  
-  override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    tableView.deselectRow(at: indexPath, animated: true)
-		
-    defaults.set(indexPath.row, forKey: "selectedDay")
-    defaults.synchronize()
+    override func viewDidLoad() {
+        super.viewDidLoad()
 
-		navigationController?.show(lessonsViewController, sender: self)
-    
-    // Use when online schedules are available again
-    
-    /* if indexPath.section == 0 {
-      defaults.setInteger(indexPath.row, forKey: "selectedDay")
-      defaults.synchronize()
-		
-			navigationController?.showViewController(lessonsViewController, sender: self)
-    } else {
-			navigationController?.showViewController(webScheduleViewController, sender: self)
-    } */
-  }
+        // Uncomment the following line to preserve selection between presentations
+        // self.clearsSelectionOnViewWillAppear = false
+
+        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    }
+
+    // MARK: - Table view data source
+
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        // #warning Incomplete implementation, return the number of sections
+        return 0
+    }
+
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // #warning Incomplete implementation, return the number of rows
+        return 0
+    }
+
+    /*
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+
+        // Configure the cell...
+
+        return cell
+    }
+    */
+
+    /*
+    // Override to support conditional editing of the table view.
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        // Return false if you do not want the specified item to be editable.
+        return true
+    }
+    */
+
+    /*
+    // Override to support editing the table view.
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            // Delete the row from the data source
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        } else if editingStyle == .insert {
+            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+        }    
+    }
+    */
+
+    /*
+    // Override to support rearranging the table view.
+    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
+
+    }
+    */
+
+    /*
+    // Override to support conditional rearranging of the table view.
+    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+        // Return false if you do not want the item to be re-orderable.
+        return true
+    }
+    */
+
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+    }
+    */
+
 }

@@ -1,5 +1,5 @@
 //
-//  NewsViewController.swift
+//  TabNavigationController.swift
 //  ELG
 //
 //  Created by Johannes Jakob on 16/08/2020
@@ -7,12 +7,16 @@
 //
 
 ///
-/// News
+/// Navigation controller wrapping the tab view controllers
 ///
 
 import UIKit
 
-class NewsViewController: UIViewController {
+class TabNavigationController: UINavigationController {
+	// MARK: - Initializers
+	
+	
+	
 	// MARK: - UIViewController
 	
 	override func viewDidLoad() {
@@ -20,7 +24,6 @@ class NewsViewController: UIViewController {
 		
 		// Do any additional setup after loading the view.
 	}
-	
 	
 	/*
 	// MARK: - Navigation
@@ -31,5 +34,4 @@ class NewsViewController: UIViewController {
 	// Pass the selected object to the new view controller.
 	}
 	*/
-	
 }

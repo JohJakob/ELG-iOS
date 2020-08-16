@@ -1,5 +1,5 @@
 //
-//  SettingsViewController.swift
+//  ElizeViewController.swift
 //  ELG
 //
 //  Created by Johannes Jakob on 16/08/2020
@@ -7,12 +7,12 @@
 //
 
 ///
-/// App settings
+/// EliZE feed (school newspaper)
 ///
 
 import UIKit
 
-class SettingsViewController: UITableViewController {
+class ElizeViewController: UITableViewController {
 	// MARK: - UIViewController
 	
 	override func viewDidLoad() {

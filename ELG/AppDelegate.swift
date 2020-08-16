@@ -13,49 +13,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   var window: UIWindow?
 	
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
-		// Load storyboard according to the device’s iOS version
+		// Set root view controller
+		// Use a tab bar controller on iPhone and a split view controller on iPad
+		var rootViewController = UIViewController()
 		
-		var storyboard = UIStoryboard()
-		
-		if #available(iOS 11, *) {
-			storyboard = UIStoryboard.init(name: "Main", bundle: nil)
-		} else {
-			storyboard = UIStoryboard.init(name: "MainLegacy", bundle: nil)
+		if UIDevice().userInterfaceIdiom == .phone {
+			rootViewController = TabBarController()
+		} else if UIDevice().userInterfaceIdiom == .pad {
+			rootViewController = SplitViewController()
 		}
 		
 		window = UIWindow(frame: UIScreen.main.bounds)
-		window?.rootViewController = storyboard.instantiateInitialViewController()
-		window?.makeKeyAndVisible()
 		
-    let defaults = UserDefaults.init(suiteName: "group.com.johjakob.elg")
-		let startView = defaults?.integer(forKey: "startView")
-		
-		if let tabBarController = self.window?.rootViewController as? UITabBarController {
-			if startView == 1 {
-				let gregorianCalendar = NSCalendar(calendarIdentifier: .gregorian)
-				let dateComponents = (gregorianCalendar! as NSCalendar).components(.weekday, from: Date())
-				
-				if dateComponents.weekday != 1 && dateComponents.weekday != 7 {
-					defaults?.set(dateComponents.weekday! - 2, forKey: "selectedDay")
-				} else {
-					defaults?.set(0, forKey: "selectedDay")
-				}
-				
-				defaults?.set(false, forKey: "didShowSchedule")
-				
-				defaults?.synchronize()
-				
-				tabBarController.selectedIndex = 1
-			} else if startView == 2 {
-				tabBarController.selectedIndex = 2
-			}
-			
-			if #available(iOS 11, *) {
-				tabBarController.tabBar.tintColor = UIColor(named: "AccentColor")
-			} else {
-				tabBarController.tabBar.tintColor = UIColor(red: 0.498, green: 0.09, blue: 0.204, alpha: 1)
-			}
+		// Set global tint color
+		if #available(iOS 11, *) {
+			window?.tintColor = UIColor(named: "AccentColor")
+		} else {
+			window?.tintColor = UIColor(red: 0.498, green: 0.09, blue: 0.204, alpha: 1)
 		}
+		
+		window?.rootViewController = rootViewController
+		window?.makeKeyAndVisible()
 		
     return true
   }

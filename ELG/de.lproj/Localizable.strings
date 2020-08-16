@@ -1,0 +1,17 @@
+/* 
+  Localizable.strings
+  ELG
+
+  Created by Johannes Jakob on 16/08/2020
+  © 2020 Johannes Jakob
+*/
+
+// Views
+"News" = "News";
+"Schedule" = "Stundenplan";
+"Cover Plan" = "Vertretungsplan";
+"Settings" = "Einstellungen";
+
+// News outlets
+"Friends' Association" = "Förderverein";
+"EliZE" = "EliZE";

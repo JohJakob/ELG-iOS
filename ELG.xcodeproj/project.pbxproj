@@ -30,7 +30,6 @@
 		B9B5C4F01D1D80C200777BD9 /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B5C4EF1D1D80C200777BD9 /* NewsViewController.swift */; };
 		B9B5C4F51D1ECB7900777BD9 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = B9B5C4F41D1ECB7900777BD9 /* Reachability.m */; };
 		B9B5C4F71D1FA6D000777BD9 /* NoConnection.html in Resources */ = {isa = PBXBuildFile; fileRef = B9B5C4F61D1FA6D000777BD9 /* NoConnection.html */; };
-		B9B5C4F91D1FDA9F00777BD9 /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B5C4F81D1FDA9F00777BD9 /* ScheduleViewController.swift */; };
 		B9B5C4FB1D1FFF6100777BD9 /* LessonsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B5C4FA1D1FFF6100777BD9 /* LessonsViewController.swift */; };
 		B9BDBA091DE1C00A0025E30A /* SetStartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9BDBA081DE1C00A0025E30A /* SetStartViewController.swift */; };
 		B9BDBA0B1DE22EED0025E30A /* TeacherModeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9BDBA0A1DE22EED0025E30A /* TeacherModeViewController.swift */; };
@@ -57,6 +56,19 @@
 		CF40B53A1F2B7CE100FB8ADC /* UIImage+Shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF40B5391F2B7CE100FB8ADC /* UIImage+Shadow.swift */; };
 		CF40B53C1F2BCD8A00FB8ADC /* FloatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF40B53B1F2BCD8A00FB8ADC /* FloatingView.swift */; };
 		CF46BECE1F70FA1D00ABEA66 /* NoConnectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF46BECD1F70FA1D00ABEA66 /* NoConnectionView.swift */; };
+		CF52488E24E988A000EDCF3D /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF52488D24E988A000EDCF3D /* TabBarController.swift */; };
+		CF52489024E9890C00EDCF3D /* SplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF52488F24E9890C00EDCF3D /* SplitViewController.swift */; };
+		CF52489424E9907F00EDCF3D /* Tabman in Frameworks */ = {isa = PBXBuildFile; productRef = CF52489324E9907F00EDCF3D /* Tabman */; };
+		CF52489624E990D200EDCF3D /* NewsTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF52489524E990D200EDCF3D /* NewsTabViewController.swift */; };
+		CF52489824E9915000EDCF3D /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF52489724E9915000EDCF3D /* ScheduleViewController.swift */; };
+		CF52489A24E9921E00EDCF3D /* ScheduleCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF52489924E9921E00EDCF3D /* ScheduleCollectionViewController.swift */; };
+		CF52489C24E9925400EDCF3D /* CoverPlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF52489B24E9925400EDCF3D /* CoverPlanViewController.swift */; };
+		CF52489E24E992A400EDCF3D /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF52489D24E992A400EDCF3D /* SettingsViewController.swift */; };
+		CF5248A624E9998C00EDCF3D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = CF5248A424E9998C00EDCF3D /* Localizable.strings */; };
+		CF5248A924E99B5400EDCF3D /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5248A824E99B5400EDCF3D /* NewsViewController.swift */; };
+		CF5248AB24E99B8B00EDCF3D /* FoerdervereinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5248AA24E99B8B00EDCF3D /* FoerdervereinViewController.swift */; };
+		CF5248AD24E99BBE00EDCF3D /* ElizeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5248AC24E99BBE00EDCF3D /* ElizeViewController.swift */; };
+		CF5248AF24E9C02800EDCF3D /* TabNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5248AE24E9C02800EDCF3D /* TabNavigationController.swift */; };
 		CF5EB0D92468460400E5D144 /* ColorCompatibility in Frameworks */ = {isa = PBXBuildFile; productRef = CF5EB0D82468460400E5D144 /* ColorCompatibility */; };
 		CF5EB0DC2468490900E5D144 /* SWXMLHash in Frameworks */ = {isa = PBXBuildFile; productRef = CF5EB0DB2468490900E5D144 /* SWXMLHash */; };
 		CF5EB0DE2468492100E5D144 /* ColorCompatibility in Frameworks */ = {isa = PBXBuildFile; productRef = CF5EB0DD2468492100E5D144 /* ColorCompatibility */; };
@@ -135,7 +147,6 @@
 		B9B5C4F31D1ECB7900777BD9 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		B9B5C4F41D1ECB7900777BD9 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		B9B5C4F61D1FA6D000777BD9 /* NoConnection.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = NoConnection.html; sourceTree = "<group>"; };
-		B9B5C4F81D1FDA9F00777BD9 /* ScheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
 		B9B5C4FA1D1FFF6100777BD9 /* LessonsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LessonsViewController.swift; sourceTree = "<group>"; };
 		B9BDBA081DE1C00A0025E30A /* SetStartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetStartViewController.swift; sourceTree = "<group>"; };
 		B9BDBA0A1DE22EED0025E30A /* TeacherModeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeacherModeViewController.swift; sourceTree = "<group>"; };
@@ -163,6 +174,19 @@
 		CF40B5391F2B7CE100FB8ADC /* UIImage+Shadow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Shadow.swift"; sourceTree = "<group>"; };
 		CF40B53B1F2BCD8A00FB8ADC /* FloatingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatingView.swift; sourceTree = "<group>"; };
 		CF46BECD1F70FA1D00ABEA66 /* NoConnectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoConnectionView.swift; sourceTree = "<group>"; };
+		CF52488D24E988A000EDCF3D /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		CF52488F24E9890C00EDCF3D /* SplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitViewController.swift; sourceTree = "<group>"; };
+		CF52489524E990D200EDCF3D /* NewsTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTabViewController.swift; sourceTree = "<group>"; };
+		CF52489724E9915000EDCF3D /* ScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
+		CF52489924E9921E00EDCF3D /* ScheduleCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleCollectionViewController.swift; sourceTree = "<group>"; };
+		CF52489B24E9925400EDCF3D /* CoverPlanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoverPlanViewController.swift; sourceTree = "<group>"; };
+		CF52489D24E992A400EDCF3D /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		CF5248A524E9998C00EDCF3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		CF5248A724E999C100EDCF3D /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
+		CF5248A824E99B5400EDCF3D /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
+		CF5248AA24E99B8B00EDCF3D /* FoerdervereinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoerdervereinViewController.swift; sourceTree = "<group>"; };
+		CF5248AC24E99BBE00EDCF3D /* ElizeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElizeViewController.swift; sourceTree = "<group>"; };
+		CF5248AE24E9C02800EDCF3D /* TabNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabNavigationController.swift; sourceTree = "<group>"; };
 		CF5EBF632469C86E0099E3BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainLegacy.storyboard; sourceTree = "<group>"; };
 		CF63C0021F6059F900A67315 /* FeedTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedTableViewCell.swift; sourceTree = "<group>"; };
 		CF785D471F4FFA3B00FAA90F /* _OALayoutGuide.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _OALayoutGuide.h; sourceTree = "<group>"; };
@@ -315,11 +339,13 @@
 		B9B5C4EA1D1D4C4300777BD9 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				CF52489124E98EAB00EDCF3D /* Shared */,
+				CF52488B24E9884800EDCF3D /* iPhone */,
+				CF52488C24E9885300EDCF3D /* iPad */,
 				CF40B5351F286D5300FB8ADC /* TabBarController.swift */,
 				B9B5C4D61D1D494800777BD9 /* MasterViewController.swift */,
 				B9FB652C1DF5FEB3009B7D13 /* DetailViewController.swift */,
 				B9B5C4EF1D1D80C200777BD9 /* NewsViewController.swift */,
-				B9B5C4F81D1FDA9F00777BD9 /* ScheduleViewController.swift */,
 				B9B5C4FA1D1FFF6100777BD9 /* LessonsViewController.swift */,
 				B9CCE7D51D20FE3B00F44447 /* WebScheduleViewController.swift */,
 				B960D7801D35464E00BCA477 /* EditScheduleViewController.swift */,
@@ -362,6 +388,7 @@
 				B91DB9FE1E07165000D1EC86 /* OpenSource.html */,
 				B91DBA001E071A1300D1EC86 /* Imprint.html */,
 				CFE67DD824D6B9DD00647E12 /* Privacy.html */,
+				CF5248A424E9998C00EDCF3D /* Localizable.strings */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -386,6 +413,38 @@
 				B9B5C4F21D1ECB7800777BD9 /* ELG-Bridging-Header.h */,
 			);
 			name = Classes;
+			sourceTree = "<group>";
+		};
+		CF52488B24E9884800EDCF3D /* iPhone */ = {
+			isa = PBXGroup;
+			children = (
+				CF52488D24E988A000EDCF3D /* TabBarController.swift */,
+				CF5248AE24E9C02800EDCF3D /* TabNavigationController.swift */,
+			);
+			name = iPhone;
+			sourceTree = "<group>";
+		};
+		CF52488C24E9885300EDCF3D /* iPad */ = {
+			isa = PBXGroup;
+			children = (
+				CF52488F24E9890C00EDCF3D /* SplitViewController.swift */,
+			);
+			name = iPad;
+			sourceTree = "<group>";
+		};
+		CF52489124E98EAB00EDCF3D /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				CF52489524E990D200EDCF3D /* NewsTabViewController.swift */,
+				CF52489924E9921E00EDCF3D /* ScheduleCollectionViewController.swift */,
+				CF52489724E9915000EDCF3D /* ScheduleViewController.swift */,
+				CF52489B24E9925400EDCF3D /* CoverPlanViewController.swift */,
+				CF52489D24E992A400EDCF3D /* SettingsViewController.swift */,
+				CF5248A824E99B5400EDCF3D /* NewsViewController.swift */,
+				CF5248AA24E99B8B00EDCF3D /* FoerdervereinViewController.swift */,
+				CF5248AC24E99BBE00EDCF3D /* ElizeViewController.swift */,
+			);
+			name = Shared;
 			sourceTree = "<group>";
 		};
 		CF785D461F4FFA1100FAA90F /* OAStackView */ = {
@@ -521,6 +580,7 @@
 			knownRegions = (
 				en,
 				Base,
+				de,
 			);
 			mainGroup = B9B5C4C81D1D494700777BD9;
 			packageReferences = (
@@ -551,6 +611,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF5248A624E9998C00EDCF3D /* Localizable.strings in Resources */,
 				CFE67DD924D6B9DD00647E12 /* Privacy.html in Resources */,
 				B9B5C4F71D1FA6D000777BD9 /* NoConnection.html in Resources */,
 				B9CBF57D1D60CFBB00F67682 /* TextFieldTableViewCell.xib in Resources */,
@@ -581,19 +642,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF52489824E9915000EDCF3D /* ScheduleViewController.swift in Sources */,
 				B9BDBA0B1DE22EED0025E30A /* TeacherModeViewController.swift in Sources */,
 				CFDC8AAF24DC1824001B11B8 /* LoadMoreActivityIndicator.swift in Sources */,
 				B9CBF5801D61C0C300F67682 /* OnePasswordExtension.m in Sources */,
+				CF5248AD24E99BBE00EDCF3D /* ElizeViewController.swift in Sources */,
 				B98C637D1E193E7100B515E6 /* OnboardingViewController.swift in Sources */,
 				B9FB652D1DF5FEB3009B7D13 /* DetailViewController.swift in Sources */,
 				CF785D5B1F4FFA3B00FAA90F /* OAStackView+Constraint.m in Sources */,
 				CF40B53C1F2BCD8A00FB8ADC /* FloatingView.swift in Sources */,
 				B95732F31D5F04E800A758AC /* FoerdervereinViewController.swift in Sources */,
 				CF2A0EFB1F4EA52F00C5105A /* ActionSheetPresentationControllerPickerViewController.swift in Sources */,
+				CF5248AB24E99B8B00EDCF3D /* FoerdervereinViewController.swift in Sources */,
+				CF52489A24E9921E00EDCF3D /* ScheduleCollectionViewController.swift in Sources */,
 				CF785D5C1F4FFA3B00FAA90F /* OAStackView+Hiding.m in Sources */,
 				CF1DD7DA1F753972006AA41B /* SimpleFeedTableViewCell.swift in Sources */,
 				B960D7851D37F68F00BCA477 /* SubjectsViewController.swift in Sources */,
 				CF785D591F4FFA3B00FAA90F /* _OALayoutGuide.m in Sources */,
+				CF5248A924E99B5400EDCF3D /* NewsViewController.swift in Sources */,
 				B960D7811D35464E00BCA477 /* EditScheduleViewController.swift in Sources */,
 				CF22A0901F6FD6E700B0ECC4 /* GenericNavigationController.swift in Sources */,
 				CF785D5E1F4FFA3B00FAA90F /* OAStackViewAlignmentStrategy.m in Sources */,
@@ -608,18 +674,23 @@
 				CF2A0EF91F4EA42000C5105A /* ActionSheetPresentationControllerSectionView.swift in Sources */,
 				CF63C0031F6059F900A67315 /* FeedTableViewCell.swift in Sources */,
 				B9BDBA091DE1C00A0025E30A /* SetStartViewController.swift in Sources */,
+				CF52489624E990D200EDCF3D /* NewsTabViewController.swift in Sources */,
+				CF5248AF24E9C02800EDCF3D /* TabNavigationController.swift in Sources */,
 				CF785D5F1F4FFA3B00FAA90F /* OAStackViewAlignmentStrategyBaseline.m in Sources */,
 				B9CBF5711D5F332B00F67682 /* FoerdervereinArticleViewController.swift in Sources */,
+				CF52489024E9890C00EDCF3D /* SplitViewController.swift in Sources */,
 				CF40B5341F28602900FB8ADC /* PickerTableViewCell.swift in Sources */,
 				B9B5C4D51D1D494800777BD9 /* AppDelegate.swift in Sources */,
 				B9B5C4F01D1D80C200777BD9 /* NewsViewController.swift in Sources */,
 				B9B5C4F51D1ECB7900777BD9 /* Reachability.m in Sources */,
+				CF52488E24E988A000EDCF3D /* TabBarController.swift in Sources */,
 				B9CBF5751D60493D00F67682 /* GradeViewController.swift in Sources */,
 				CF785D611F4FFA3B00FAA90F /* OATransformLayer.m in Sources */,
 				B9B5C4FB1D1FFF6100777BD9 /* LessonsViewController.swift in Sources */,
+				CF52489C24E9925400EDCF3D /* CoverPlanViewController.swift in Sources */,
 				B9CBF5731D5F68BE00F67682 /* SettingsViewController.swift in Sources */,
+				CF52489E24E992A400EDCF3D /* SettingsViewController.swift in Sources */,
 				B9CCE7D61D20FE3B00F44447 /* WebScheduleViewController.swift in Sources */,
-				B9B5C4F91D1FDA9F00777BD9 /* ScheduleViewController.swift in Sources */,
 				B960D7831D3547FA00BCA477 /* EditLessonsViewController.swift in Sources */,
 				B9562A6E1D4126B3001BD19E /* OmissionsViewController.swift in Sources */,
 				CF40B5361F286D5300FB8ADC /* TabBarController.swift in Sources */,
@@ -672,6 +743,15 @@
 				B9F590C21D3BE9BF00562E17 /* Base */,
 			);
 			name = OmissionsTableViewCell.xib;
+			sourceTree = "<group>";
+		};
+		CF5248A424E9998C00EDCF3D /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CF5248A524E9998C00EDCF3D /* Base */,
+				CF5248A724E999C100EDCF3D /* de */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 		CF5EBF622469C86E0099E3BE /* MainLegacy.storyboard */ = {
@@ -746,6 +826,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -804,6 +885,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
