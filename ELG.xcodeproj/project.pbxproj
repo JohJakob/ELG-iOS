@@ -81,6 +81,7 @@
 		CF785D611F4FFA3B00FAA90F /* OATransformLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = CF785D581F4FFA3B00FAA90F /* OATransformLayer.m */; };
 		CFA7A14D1F47478800482180 /* ActionSheetPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA7A14C1F47478800482180 /* ActionSheetPresentationController.swift */; };
 		CFA7A14F1F4749FB00482180 /* ActionSheetPresentationControllerDismissButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA7A14E1F4749FB00482180 /* ActionSheetPresentationControllerDismissButton.swift */; };
+		CFD9A60624E9D3F100C870BA /* Connectivity in Frameworks */ = {isa = PBXBuildFile; productRef = CFD9A60524E9D3F100C870BA /* Connectivity */; };
 		CFDC8AAF24DC1824001B11B8 /* LoadMoreActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDC8AAE24DC1824001B11B8 /* LoadMoreActivityIndicator.swift */; };
 		CFE67DD924D6B9DD00647E12 /* Privacy.html in Resources */ = {isa = PBXBuildFile; fileRef = CFE67DD824D6B9DD00647E12 /* Privacy.html */; };
 /* End PBXBuildFile section */
@@ -220,6 +221,7 @@
 				CF52489424E9907F00EDCF3D /* Tabman in Frameworks */,
 				CF5EB0DC2468490900E5D144 /* SWXMLHash in Frameworks */,
 				B9F73BFA1DEDFE77004F3470 /* MessageUI.framework in Frameworks */,
+				CFD9A60624E9D3F100C870BA /* Connectivity in Frameworks */,
 				B9CBF5841D61D90C00F67682 /* WebKit.framework in Frameworks */,
 				CF5EB0D92468460400E5D144 /* ColorCompatibility in Frameworks */,
 			);
@@ -518,6 +520,7 @@
 				CF5EB0D82468460400E5D144 /* ColorCompatibility */,
 				CF5EB0DB2468490900E5D144 /* SWXMLHash */,
 				CF52489324E9907F00EDCF3D /* Tabman */,
+				CFD9A60524E9D3F100C870BA /* Connectivity */,
 			);
 			productName = ELG;
 			productReference = B9B5C4D11D1D494800777BD9 /* ELG.app */;
@@ -570,6 +573,7 @@
 				CF5EB0D72468460400E5D144 /* XCRemoteSwiftPackageReference "ColorCompatibility" */,
 				CF5EB0DA2468490900E5D144 /* XCRemoteSwiftPackageReference "SWXMLHash" */,
 				CF52489224E9907F00EDCF3D /* XCRemoteSwiftPackageReference "Tabman" */,
+				CFD9A60424E9D3F100C870BA /* XCRemoteSwiftPackageReference "Connectivity" */,
 			);
 			productRefGroup = B9B5C4D21D1D494800777BD9 /* Products */;
 			projectDirPath = "";
@@ -1029,6 +1033,14 @@
 				minimumVersion = 5.0.1;
 			};
 		};
+		CFD9A60424E9D3F100C870BA /* XCRemoteSwiftPackageReference "Connectivity" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/rwbutler/Connectivity";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.2.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1056,6 +1068,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = CF5EB0DA2468490900E5D144 /* XCRemoteSwiftPackageReference "SWXMLHash" */;
 			productName = SWXMLHash;
+		};
+		CFD9A60524E9D3F100C870BA /* Connectivity */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CFD9A60424E9D3F100C870BA /* XCRemoteSwiftPackageReference "Connectivity" */;
+			productName = Connectivity;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
