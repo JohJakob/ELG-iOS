@@ -204,6 +204,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF52489424E9907F00EDCF3D /* Tabman in Frameworks */,
 				CF5EB0DC2468490900E5D144 /* SWXMLHash in Frameworks */,
 				B9F73BFA1DEDFE77004F3470 /* MessageUI.framework in Frameworks */,
 				B9CBF5841D61D90C00F67682 /* WebKit.framework in Frameworks */,
@@ -474,6 +475,7 @@
 			packageProductDependencies = (
 				CF5EB0D82468460400E5D144 /* ColorCompatibility */,
 				CF5EB0DB2468490900E5D144 /* SWXMLHash */,
+				CF52489324E9907F00EDCF3D /* Tabman */,
 			);
 			productName = ELG;
 			productReference = B9B5C4D11D1D494800777BD9 /* ELG.app */;
@@ -524,6 +526,7 @@
 			packageReferences = (
 				CF5EB0D72468460400E5D144 /* XCRemoteSwiftPackageReference "ColorCompatibility" */,
 				CF5EB0DA2468490900E5D144 /* XCRemoteSwiftPackageReference "SWXMLHash" */,
+				CF52489224E9907F00EDCF3D /* XCRemoteSwiftPackageReference "Tabman" */,
 			);
 			productRefGroup = B9B5C4D21D1D494800777BD9 /* Products */;
 			projectDirPath = "";
@@ -942,6 +945,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		CF52489224E9907F00EDCF3D /* XCRemoteSwiftPackageReference "Tabman" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/uias/Tabman";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.9.1;
+			};
+		};
 		CF5EB0D72468460400E5D144 /* XCRemoteSwiftPackageReference "ColorCompatibility" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/noahsark769/ColorCompatibility.git";
@@ -961,6 +972,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		CF52489324E9907F00EDCF3D /* Tabman */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CF52489224E9907F00EDCF3D /* XCRemoteSwiftPackageReference "Tabman" */;
+			productName = Tabman;
+		};
 		CF5EB0D82468460400E5D144 /* ColorCompatibility */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = CF5EB0D72468460400E5D144 /* XCRemoteSwiftPackageReference "ColorCompatibility" */;
