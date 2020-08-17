@@ -15,13 +15,14 @@ import WebKit
 import Connectivity
 import EasyPeasy
 
-class NewsViewController: UIViewController {
+class NewsViewController: UIViewController, WKUIDelegate {
 	// MARK: - Properties
 	
 	var webView: WKWebView!
 	var activityIndicator = UIActivityIndicatorView(style: .gray)
 	var refreshControl = UIRefreshControl()
 	
+	var refreshing = false
 	let urlString = "https://elg-halle.de/Aktuell/News/news.asp"
 	
 	fileprivate let connectivity: Connectivity = Connectivity()
@@ -43,14 +44,18 @@ class NewsViewController: UIViewController {
 		startConnectivityChecks()
 		
 		// Set up web view
-		webView = WKWebView()
+		let webConfiguration = WKWebViewConfiguration()
+		webView = WKWebView(frame: .zero, configuration: webConfiguration)
+		webView.uiDelegate = self
 		webView.navigationDelegate = self
-		webView.autoresizingMask = [.flexibleWidth, .flexibleHeight, .flexibleTopMargin, .flexibleRightMargin, .flexibleBottomMargin, .flexibleLeftMargin]
-		webView.allowsBackForwardNavigationGestures = true
 		
 		// Set up activity indicator
 		activityIndicator.hidesWhenStopped = true
 		activityIndicator.translatesAutoresizingMaskIntoConstraints = false
+		
+		// Set up refresh control
+		refreshControl.addTarget(self, action: #selector(self.refresh), for: .valueChanged)
+		webView.scrollView.addSubview(refreshControl)
 		
 		// Check internet connection
 		connectivity.checkConnectivity() { connectivity in
@@ -86,12 +91,17 @@ class NewsViewController: UIViewController {
 		webView.load(request)
 	}
 	
+	@objc private func refresh() {
+		refreshing = true
+		
+		loadRequest()
+	}
+	
 	///
 	/// Add web view and activity indicator to view
 	///
 	private func addWebView() {
-		view.addSubview(webView)
-		webView.frame = view.bounds
+		view = webView
 		
 		view.addSubview(activityIndicator)
 		activityIndicator.easy.layout(Center(0))
@@ -100,15 +110,23 @@ class NewsViewController: UIViewController {
 
 extension NewsViewController: WKNavigationDelegate {
 	func webView(_ webView: WKWebView, didCommit navigation: WKNavigation!) {
-		activityIndicator.startAnimating()
+		if !refreshing {
+			activityIndicator.startAnimating()
+		}
 	}
 	
 	func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
 		activityIndicator.stopAnimating()
+		refreshControl.endRefreshing()
+		
+		refreshing = false
 	}
 	
 	func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
 		activityIndicator.stopAnimating()
+		refreshControl.endRefreshing()
+		
+		refreshing = false
 	}
 }
 
