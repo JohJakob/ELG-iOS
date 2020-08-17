@@ -7,29 +7,103 @@
 //
 
 ///
-/// News
+/// Elisabeth-Gymnasium Halle news
 ///
 
 import UIKit
+import WebKit
+import Connectivity
 
 class NewsViewController: UIViewController {
+	// MARK: - Properties
+	
+	var webView: WKWebView!
+	
+	fileprivate let refreshControl = UIRefreshControl()
+	fileprivate let connectivity: Connectivity = Connectivity()
+	
+	// MARK: - Initializers
+	
+	deinit {
+		connectivity.stopNotifier()
+	}
+	
 	// MARK: - UIViewController
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
-		// Do any additional setup after loading the view.
+		// Create web view
+		webView = WKWebView()
+		webView.navigationDelegate = self
+		
+		// Check internet connection
+		connectivity.checkConnectivity() { connectivity in
+			switch connectivity.status {
+				case .connected, .connectedViaWiFi, .connectedViaCellular:
+					view = webView
+				
+			}
+		}
+		
+		// Set web view as content view
+		view = webView
 	}
 	
-	
-	/*
-	// MARK: - Navigation
-	
-	// In a storyboard-based application, you will often want to do a little preparation before navigation
-	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-	// Get the new view controller using segue.destination.
-	// Pass the selected object to the new view controller.
+	override func didReceiveMemoryWarning() {
+		super.didReceiveMemoryWarning()
+		
+		connectivity.stopNotifier()
 	}
-	*/
 	
+	// MARK: - Private
+	
+	///
+	/// Load news page in web view
+	///
+	private func loadRequest() {
+		
+	}
+}
+
+extension NewsViewController: WKNavigationDelegate {
+	
+}
+
+///
+/// Connectivity extension
+///
+private extension NewsViewController {
+	func configureConnectivityNotifier() {
+		let connectivityChanged: (Connectivity) -> Void = { [weak self] connectivity in
+			self?.updateConnectionStatus(connectivity.status)
+		}
+		
+		connectivity.whenConnected = connectivityChanged
+	}
+	
+	func performSingleConnectivityCheck() {
+		connectivity.checkConnectivity() { connectivity in
+			self.updateConnectionStatus(connectivity.status)
+		}
+	}
+	
+	func startConnectivityChecks() {
+		connectivity.startNotifier()
+	}
+	
+	func stopConnectivityChecks() {
+		connectivity.stopNotifier()
+	}
+	
+	func updateConnectionStatus(_ status: Connectivity.Status) {
+		switch status {
+			case .connected, .connectedViaWiFi, .connectedViaCellular:
+				break
+			case .notConnected, .connectedViaWiFiWithoutInternet, .connectedViaCellularWithoutInternet:
+				break
+			case .determining:
+				break
+		}
+	}
 }
