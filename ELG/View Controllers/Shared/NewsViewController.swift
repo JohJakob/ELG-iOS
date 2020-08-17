@@ -19,8 +19,12 @@ class NewsViewController: UIViewController {
 	
 	var webView: WKWebView!
 	
+	let urlString = "https://elg-halle.de/Aktuell/News/news.asp"
+	
 	fileprivate let refreshControl = UIRefreshControl()
 	fileprivate let connectivity: Connectivity = Connectivity()
+	fileprivate var notConnectedView = NotConnectedView()
+	fileprivate let notConnectedViewTag = 1
 	
 	// MARK: - Initializers
 	
@@ -33,6 +37,9 @@ class NewsViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
+		configureConnectivityNotifier()
+		startConnectivityChecks()
+		
 		// Create web view
 		webView = WKWebView()
 		webView.navigationDelegate = self
@@ -43,7 +50,9 @@ class NewsViewController: UIViewController {
 				case .connected, .connectedViaWiFi, .connectedViaCellular:
 					self.view.addSubview(self.webView)
 				case .notConnected, .connectedViaWiFiWithoutInternet, .connectedViaCellularWithoutInternet:
-					self.view.addSubview(NotConnectedView(frame: self.view.bounds))
+					self.notConnectedView = NotConnectedView(frame: self.view.bounds)
+					self.notConnectedView.tag = self.notConnectedViewTag
+					self.view.addSubview(self.notConnectedView)
 				case .determining:
 					self.view.addSubview(self.webView)
 			}
@@ -62,7 +71,9 @@ class NewsViewController: UIViewController {
 	/// Load news page in web view
 	///
 	private func loadRequest() {
+		let request = URLRequest(url: URL(string: urlString)!)
 		
+		webView.load(request)
 	}
 }
 
@@ -99,7 +110,10 @@ private extension NewsViewController {
 	func updateConnectionStatus(_ status: Connectivity.Status) {
 		switch status {
 			case .connected, .connectedViaWiFi, .connectedViaCellular:
-				break
+				if let viewWithTag = view.viewWithTag(notConnectedViewTag) {
+					viewWithTag.removeFromSuperview()
+					view.addSubview(webView)
+				}
 			case .notConnected, .connectedViaWiFiWithoutInternet, .connectedViaCellularWithoutInternet:
 				break
 			case .determining:
