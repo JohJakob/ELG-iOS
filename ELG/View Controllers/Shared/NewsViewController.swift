@@ -13,15 +13,17 @@
 import UIKit
 import WebKit
 import Connectivity
+import EasyPeasy
 
 class NewsViewController: UIViewController {
 	// MARK: - Properties
 	
 	var webView: WKWebView!
+	var activityIndicator = UIActivityIndicatorView(style: .gray)
+	var refreshControl = UIRefreshControl()
 	
 	let urlString = "https://elg-halle.de/Aktuell/News/news.asp"
 	
-	fileprivate let refreshControl = UIRefreshControl()
 	fileprivate let connectivity: Connectivity = Connectivity()
 	fileprivate var notConnectedView = NotConnectedView()
 	fileprivate let notConnectedViewTag = 1
@@ -40,21 +42,29 @@ class NewsViewController: UIViewController {
 		configureConnectivityNotifier()
 		startConnectivityChecks()
 		
-		// Create web view
+		// Set up web view
 		webView = WKWebView()
 		webView.navigationDelegate = self
+		webView.autoresizingMask = [.flexibleWidth, .flexibleHeight, .flexibleTopMargin, .flexibleRightMargin, .flexibleBottomMargin, .flexibleLeftMargin]
+		webView.allowsBackForwardNavigationGestures = true
+		
+		// Set up activity indicator
+		activityIndicator.hidesWhenStopped = true
+		activityIndicator.translatesAutoresizingMaskIntoConstraints = false
 		
 		// Check internet connection
 		connectivity.checkConnectivity() { connectivity in
 			switch connectivity.status {
 				case .connected, .connectedViaWiFi, .connectedViaCellular:
-					self.view.addSubview(self.webView)
+					self.addWebView()
+				
+					self.loadRequest()
 				case .notConnected, .connectedViaWiFiWithoutInternet, .connectedViaCellularWithoutInternet:
 					self.notConnectedView = NotConnectedView(frame: self.view.bounds)
 					self.notConnectedView.tag = self.notConnectedViewTag
 					self.view.addSubview(self.notConnectedView)
 				case .determining:
-					self.view.addSubview(self.webView)
+					self.addWebView()
 			}
 		}
 	}
@@ -75,10 +85,31 @@ class NewsViewController: UIViewController {
 		
 		webView.load(request)
 	}
+	
+	///
+	/// Add web view and activity indicator to view
+	///
+	private func addWebView() {
+		view.addSubview(webView)
+		webView.frame = view.bounds
+		
+		view.addSubview(activityIndicator)
+		activityIndicator.easy.layout(Center(0))
+	}
 }
 
 extension NewsViewController: WKNavigationDelegate {
+	func webView(_ webView: WKWebView, didCommit navigation: WKNavigation!) {
+		activityIndicator.startAnimating()
+	}
 	
+	func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+		activityIndicator.stopAnimating()
+	}
+	
+	func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
+		activityIndicator.stopAnimating()
+	}
 }
 
 ///

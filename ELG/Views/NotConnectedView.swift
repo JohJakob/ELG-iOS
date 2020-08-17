@@ -87,7 +87,7 @@ final class NotConnectedView: UIView {
 	// MARK: - Private
 	
 	private func createView() {
-		autoresizingMask = [.flexibleWidth, .flexibleHeight, .flexibleTopMargin, .flexibleLeftMargin, .flexibleBottomMargin, .flexibleRightMargin]
+		autoresizingMask = [.flexibleWidth, .flexibleHeight, .flexibleTopMargin, .flexibleRightMargin, .flexibleBottomMargin, .flexibleLeftMargin]
 		
 		headingLabel.text = defaultHeadingText
 		descriptionLabel.text = defaultDescriptionText
