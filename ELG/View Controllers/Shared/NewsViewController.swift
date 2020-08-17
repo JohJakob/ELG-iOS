@@ -41,13 +41,13 @@ class NewsViewController: UIViewController {
 		connectivity.checkConnectivity() { connectivity in
 			switch connectivity.status {
 				case .connected, .connectedViaWiFi, .connectedViaCellular:
-					view = webView
-				
+					self.view.addSubview(self.webView)
+				case .notConnected, .connectedViaWiFiWithoutInternet, .connectedViaCellularWithoutInternet:
+					self.view.addSubview(NotConnectedView(frame: self.view.bounds))
+				case .determining:
+					self.view.addSubview(self.webView)
 			}
 		}
-		
-		// Set web view as content view
-		view = webView
 	}
 	
 	override func didReceiveMemoryWarning() {

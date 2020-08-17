@@ -13,6 +13,7 @@
 import UIKit
 import Tabman
 import Pageboy
+import ColorCompatibility
 
 class NewsTabViewController: TabmanViewController {
 	// MARK: - Properties
@@ -32,18 +33,6 @@ class NewsTabViewController: TabmanViewController {
 		createTabBar()
 	}
 	
-	
-	/*
-	// MARK: - Navigation
-	
-	// In a storyboard-based application, you will often want to do a little preparation before navigation
-	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-	// Get the new view controller using segue.destination.
-	// Pass the selected object to the new view controller.
-	}
-	*/
-	
-	
 	// MARK: - Private
 	
 	///
@@ -60,13 +49,8 @@ class NewsTabViewController: TabmanViewController {
 		bar.scrollMode = .swipe
 		
 		bar.buttons.customize { (button) in
-			button.font = UIFont.systemFont(ofSize: 15)
-			
-			if #available(iOS 13, *) {
-				button.tintColor = UIColor.label
-			} else {
-				button.tintColor = UIColor.darkText
-			}
+			button.font = .systemFont(ofSize: 15)
+			button.tintColor = ColorCompatibility.secondaryLabel
 			
 			if #available(iOS 11, *) {
 				button.selectedTintColor = UIColor(named: "AccentColor")

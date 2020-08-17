@@ -15,3 +15,7 @@
 // News outlets
 "Friends' Association" = "Förderverein";
 "EliZE" = "EliZE";
+
+// No internet connection
+"No Internet Connection" = "Keine Internetverbindung";
+"Please check your settings and try again." = "Bitte überprüfe Deine Einstellungen und versuche es erneut.";
