@@ -48,6 +48,7 @@ class NewsViewController: UIViewController, WKUIDelegate {
 		webView = WKWebView(frame: .zero, configuration: webConfiguration)
 		webView.uiDelegate = self
 		webView.navigationDelegate = self
+		webView.translatesAutoresizingMaskIntoConstraints = false
 		
 		// Set up activity indicator
 		activityIndicator.hidesWhenStopped = true
@@ -101,7 +102,8 @@ class NewsViewController: UIViewController, WKUIDelegate {
 	/// Add web view and activity indicator to view
 	///
 	private func addWebView() {
-		view = webView
+		view.addSubview(webView)
+		webView.easy.layout(Edges())
 		
 		view.addSubview(activityIndicator)
 		activityIndicator.easy.layout(Center(0))
