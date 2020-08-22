@@ -29,6 +29,9 @@ class NewsTabViewController: TabmanViewController {
 		
 		self.dataSource = self
 		
+		// Disable scrolling between tabs to keep news web view’s navigation gestures
+		isScrollEnabled = false
+		
 		// Create Tabman bar
 		createTabBar()
 	}
@@ -39,17 +42,17 @@ class NewsTabViewController: TabmanViewController {
 	/// Create Tabman bar
 	///
 	private func createTabBar() {
-		let bar = TMBar.ButtonBar();
+		let bar = TMBar.ButtonBar()
 		
 		bar.backgroundView.style = .clear
 		
 		bar.layout.contentMode = .fit
 		bar.layout.transitionStyle = .snap
 		
-		bar.scrollMode = .swipe
+		bar.scrollMode = .none
 		
 		bar.buttons.customize { (button) in
-			button.font = .systemFont(ofSize: 15)
+			button.font = .systemFont(ofSize: 15, weight: .medium)
 			button.tintColor = ColorCompatibility.secondaryLabel
 			
 			if #available(iOS 11, *) {
