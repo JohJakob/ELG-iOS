@@ -109,6 +109,18 @@ class NewsViewController: UIViewController, WKUIDelegate {
 		view.addSubview(activityIndicator)
 		activityIndicator.easy.layout(Center(0))
 	}
+	
+	///
+	/// Inject styles into web view to improve the pages’ appearance
+	private func injectStyles(into webView: WKWebView) {
+		guard let path = Bundle.main.path(forResource: "NewsStyles", ofType: "css") else { return }
+		let rawCssString = try! String(contentsOfFile: path)
+		let cssArray = rawCssString.components(separatedBy: .whitespacesAndNewlines)
+		let cssString = cssArray.joined()
+		let jsString = "var style = document.createElement(\"style\"); style.innerHTML = \"\(cssString)\"; document.head.appendChild(style);"
+		
+		webView.evaluateJavaScript(jsString, completionHandler: nil)
+	}
 }
 
 extension NewsViewController: WKNavigationDelegate {
@@ -123,6 +135,9 @@ extension NewsViewController: WKNavigationDelegate {
 		refreshControl.endRefreshing()
 		
 		refreshing = false
+		
+		// Inject styles
+		injectStyles(into: webView)
 	}
 	
 	func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {

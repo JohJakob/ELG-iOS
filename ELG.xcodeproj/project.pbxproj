@@ -83,6 +83,7 @@
 		CFE2D39B24EA78C200FEF272 /* EasyPeasy in Frameworks */ = {isa = PBXBuildFile; productRef = CFE2D39A24EA78C200FEF272 /* EasyPeasy */; };
 		CFE2D39E24EA7A7500FEF272 /* OmissionsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CFE2D39D24EA7A7500FEF272 /* OmissionsTableViewCell.xib */; };
 		CFE67DD924D6B9DD00647E12 /* Privacy.html in Resources */ = {isa = PBXBuildFile; fileRef = CFE67DD824D6B9DD00647E12 /* Privacy.html */; };
+		CFE6980124EBD42D009EC995 /* NewsStyles.css in Resources */ = {isa = PBXBuildFile; fileRef = CFE6980024EBD42D009EC995 /* NewsStyles.css */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -197,6 +198,7 @@
 		CFDC8AAE24DC1824001B11B8 /* LoadMoreActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadMoreActivityIndicator.swift; sourceTree = "<group>"; };
 		CFE2D39D24EA7A7500FEF272 /* OmissionsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OmissionsTableViewCell.xib; sourceTree = "<group>"; };
 		CFE67DD824D6B9DD00647E12 /* Privacy.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = Privacy.html; sourceTree = "<group>"; };
+		CFE6980024EBD42D009EC995 /* NewsStyles.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = NewsStyles.css; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -373,6 +375,7 @@
 				B91DB9FE1E07165000D1EC86 /* OpenSource.html */,
 				B91DBA001E071A1300D1EC86 /* Imprint.html */,
 				CFE67DD824D6B9DD00647E12 /* Privacy.html */,
+				CFE6980024EBD42D009EC995 /* NewsStyles.css */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -600,6 +603,7 @@
 				B9B5C4F71D1FA6D000777BD9 /* NoConnection.html in Resources */,
 				B9CBF57D1D60CFBB00F67682 /* TextFieldTableViewCell.xib in Resources */,
 				CF5EBF642469C86E0099E3BE /* MainLegacy.storyboard in Resources */,
+				CFE6980124EBD42D009EC995 /* NewsStyles.css in Resources */,
 				B9B5C4E11D1D494800777BD9 /* LaunchScreen.storyboard in Resources */,
 				B9B5C4DE1D1D494800777BD9 /* Assets.xcassets in Resources */,
 				B9B5C4DC1D1D494800777BD9 /* Main.storyboard in Resources */,
