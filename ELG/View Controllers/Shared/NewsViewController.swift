@@ -49,6 +49,7 @@ class NewsViewController: UIViewController, WKUIDelegate {
 		webView.uiDelegate = self
 		webView.navigationDelegate = self
 		webView.translatesAutoresizingMaskIntoConstraints = false
+		webView.allowsBackForwardNavigationGestures = true
 		
 		// Set up activity indicator
 		activityIndicator.hidesWhenStopped = true
