@@ -21,7 +21,6 @@ class FoerdervereinViewController: UITableViewController, UIGestureRecognizerDel
 	var currentArticle = [String: String]()
 	let weekdays = ["Mon": "Montag", "Tue": "Dienstag", "Wed": "Mittwoch", "Thu": "Donnerstag", "Fri": "Freitag", "Sat": "Samstag", "Sun": "Sonntag"]
 	let months = ["Jan": "Januar", "Feb": "Februar", "Mar": "März", "Apr": "April", "May": "Mai", "Jun": "Juni", "Jul": "Juli", "Aug": "August", "Sep": "September", "Oct": "Oktober", "Nov": "November", "Dec": "Dezember"]
-  let articleViewController = FoerdervereinArticleViewController()
 	fileprivate var loadMoreActivityIndicator: LoadMoreActivityIndicator!
 	
 	// MARK: - UITableViewController
@@ -78,23 +77,11 @@ class FoerdervereinViewController: UITableViewController, UIGestureRecognizerDel
 	}
 	
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-		if #available(iOS 9, *) {
-			// Initialize SFSafariViewController and later to open selected article (iOS 9+)
-			
-			let safariView = SFSafariViewController(url: URL(string: articles[indexPath.row]["link"] ?? "https://svelg.wordpress.com")!)
-			
-			safariView.delegate = self
-			
-			self.present(safariView, animated: true, completion: nil)
-		} else {
-			// Save selected article metadata to UserDefaults and navigate to FoerdervereinArticleViewController (iOS 8)
-			
-			defaults.setValue(articles[indexPath.row]["heading"], forKey: "selectedArticleTitle")
-			defaults.setValue(articles[indexPath.row]["link"], forKey: "selectedArticleLink")
-			defaults.synchronize()
-			
-			navigationController?.show(articleViewController, sender: self)
-		}
+		let safariView = SFSafariViewController(url: URL(string: articles[indexPath.row]["link"] ?? "https://svelg.wordpress.com")!)
+		
+		safariView.delegate = self
+		
+		self.present(safariView, animated: true, completion: nil)
   }
 	
 	// MARK: - Private

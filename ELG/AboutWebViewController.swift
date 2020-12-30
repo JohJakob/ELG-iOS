@@ -7,12 +7,13 @@
 //
 
 import UIKit
+import WebKit
 
-class AboutWebViewController: UIViewController, UIWebViewDelegate {
+class AboutWebViewController: UIViewController, WKNavigationDelegate {
   // MARK: - Properties
   
-  @IBOutlet weak fileprivate var aboutWebView: UIWebView!
-  
+	fileprivate var aboutWebView = WKWebView()
+	
   var defaults: UserDefaults!
   var selectedAboutWebView = Int()
   var currentVersionKey = String()
@@ -35,8 +36,13 @@ class AboutWebViewController: UIViewController, UIWebViewDelegate {
     // Initialize user defaults
 		defaults = UserDefaults.init(suiteName: "group.com.johjakob.elg")
 		
-		// Set web view delegate
-		aboutWebView.delegate = self
+		// Set up web view
+		aboutWebView = WKWebView(frame: view.frame)
+		aboutWebView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+		aboutWebView.navigationDelegate = self
+		
+		// Add web view to view
+		view.addSubview(aboutWebView)
 		
 		// Check if this is the current version’s first launch
 		
@@ -70,22 +76,20 @@ class AboutWebViewController: UIViewController, UIWebViewDelegate {
 		print("Memory Warning")
 	}
 	
-  // MARK: - UIWebView
-  
-	///
-	/// Override the web view’s loading behavior
-	///
-  func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebView.NavigationType) -> Bool {
-    // Check if a hyperlink was tapped to open it in a browser
-    if navigationType == .linkClicked {
-      // Open URL in a browser
-      UIApplication.shared.openURL(request.url!)
-      
-      return false
-    }
-		
-    return true
-  }
+  // MARK: - WKWebView
+	
+	func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
+		if navigationAction.navigationType == .linkActivated {
+			if let url = navigationAction.request.url {
+				decisionHandler(.cancel)
+				UIApplication.shared.openURL(url)
+			} else {
+				decisionHandler(.allow)
+			}
+		} else {
+			decisionHandler(.allow)
+		}
+	}
   
   // MARK: - Custom
 	
@@ -104,7 +108,7 @@ class AboutWebViewController: UIViewController, UIWebViewDelegate {
     navigationItem.title = titles[selectedAboutWebView]
     
     // Load web page
-		aboutWebView.loadRequest(URLRequest(url: Bundle.main.url(forResource: pages[selectedAboutWebView], withExtension: ".html")!))
+		aboutWebView.load(URLRequest(url: Bundle.main.url(forResource: pages[selectedAboutWebView], withExtension: ".html")!))
   }
 	
 	///

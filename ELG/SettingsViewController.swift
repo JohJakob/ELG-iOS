@@ -24,7 +24,6 @@ class SettingsViewController: UITableViewController, UIPickerViewDelegate, UIPic
   
   // Use when online schedules are available again
   
-  /* let loginViewController = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("LoginTableViewController") */
   var editScheduleViewController = UIViewController()
   var teacherModeViewController = UIViewController()
 	var aboutViewController = UIViewController()
@@ -75,10 +74,6 @@ class SettingsViewController: UITableViewController, UIPickerViewDelegate, UIPic
     switch section {
     case 0:
       numberOfRows = 2
-      
-      // Use when online schedules are available again
-      
-      /* numberOfRows = 3 */
       break
     case 1:
       numberOfRows = 2
@@ -169,16 +164,7 @@ class SettingsViewController: UITableViewController, UIPickerViewDelegate, UIPic
         break
       case 1:
 				navigationController?.show(editScheduleViewController, sender: self)
-        
-        // Use when online schedules are available again
-        
-        /* navigationController?.showViewController(loginViewController, sender: self) */
         break
-      // Use when online schedules are available again
-        
-      /* case 2:
-				navigationController?.showViewController(editScheduleViewController, sender: self)
-        break */
       default:
         break
       }

@@ -13,10 +13,6 @@ class ScheduleViewController: UITableViewController {
   
   var defaults: UserDefaults!
   var lessonsViewController = UIViewController()
-  
-  // Use when online schedule are available again
-  
-  /* let webScheduleViewController = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("WebScheduleViewController") */
 	
 	// MARK: - UITableViewController
 	
@@ -53,26 +49,10 @@ class ScheduleViewController: UITableViewController {
   
   override func numberOfSections(in tableView: UITableView) -> Int {
     return 1
-    
-    // Use when online schedule are available again
-    
-    /* return 2 */
   }
   
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return 5
-    
-    // Use when online schedules are available again
-    
-    /* var numberOfRows: Int
-    
-    if section == 0 {
-      numberOfRows = 5
-    } else {
-      numberOfRows = 1
-    }
-    
-    return numberOfRows */
   }
   
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -80,19 +60,6 @@ class ScheduleViewController: UITableViewController {
     let days = ["Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag"]
     
     cell.textLabel!.text = days[indexPath.row]
-    
-    // Use when online schedules are available again
-    
-    /* switch indexPath.section {
-    case 0:
-      cell.textLabel!.text = days[indexPath.row];
-      break
-    case 1:
-      cell.textLabel!.text = "Stundenplan (Web)"
-      break
-    default:
-      break
-    } */
     
     return cell
   }
@@ -104,16 +71,5 @@ class ScheduleViewController: UITableViewController {
     defaults.synchronize()
 
 		navigationController?.show(lessonsViewController, sender: self)
-    
-    // Use when online schedules are available again
-    
-    /* if indexPath.section == 0 {
-      defaults.setInteger(indexPath.row, forKey: "selectedDay")
-      defaults.synchronize()
-		
-			navigationController?.showViewController(lessonsViewController, sender: self)
-    } else {
-			navigationController?.showViewController(webScheduleViewController, sender: self)
-    } */
   }
 }

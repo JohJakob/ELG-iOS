@@ -34,15 +34,11 @@
 		B9B5C4FB1D1FFF6100777BD9 /* LessonsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B5C4FA1D1FFF6100777BD9 /* LessonsViewController.swift */; };
 		B9BDBA091DE1C00A0025E30A /* SetStartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9BDBA081DE1C00A0025E30A /* SetStartViewController.swift */; };
 		B9BDBA0B1DE22EED0025E30A /* TeacherModeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9BDBA0A1DE22EED0025E30A /* TeacherModeViewController.swift */; };
-		B9CBF5711D5F332B00F67682 /* FoerdervereinArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CBF5701D5F332B00F67682 /* FoerdervereinArticleViewController.swift */; };
 		B9CBF5731D5F68BE00F67682 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CBF5721D5F68BE00F67682 /* SettingsViewController.swift */; };
 		B9CBF5751D60493D00F67682 /* GradeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CBF5741D60493D00F67682 /* GradeViewController.swift */; };
-		B9CBF5771D609DD900F67682 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CBF5761D609DD800F67682 /* LoginViewController.swift */; };
 		B9CBF57C1D60CFBB00F67682 /* TextFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CBF57A1D60CFBB00F67682 /* TextFieldTableViewCell.swift */; };
 		B9CBF57D1D60CFBB00F67682 /* TextFieldTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9CBF57B1D60CFBB00F67682 /* TextFieldTableViewCell.xib */; };
-		B9CBF5801D61C0C300F67682 /* OnePasswordExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = B9CBF57F1D61C0C300F67682 /* OnePasswordExtension.m */; };
 		B9CBF5841D61D90C00F67682 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9CBF5831D61D90C00F67682 /* WebKit.framework */; };
-		B9CCE7D61D20FE3B00F44447 /* WebScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CCE7D51D20FE3B00F44447 /* WebScheduleViewController.swift */; };
 		B9DEB5691DEB102F00B700AE /* AboutWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9DEB5681DEB102F00B700AE /* AboutWebViewController.swift */; };
 		B9F590C31D3BE9BF00562E17 /* OmissionsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9F590C11D3BE9BF00562E17 /* OmissionsTableViewCell.xib */; };
 		B9F73BFA1DEDFE77004F3470 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9F73BF91DEDFE77004F3470 /* MessageUI.framework */; };
@@ -139,16 +135,11 @@
 		B9B5C4FA1D1FFF6100777BD9 /* LessonsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LessonsViewController.swift; sourceTree = "<group>"; };
 		B9BDBA081DE1C00A0025E30A /* SetStartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetStartViewController.swift; sourceTree = "<group>"; };
 		B9BDBA0A1DE22EED0025E30A /* TeacherModeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeacherModeViewController.swift; sourceTree = "<group>"; };
-		B9CBF5701D5F332B00F67682 /* FoerdervereinArticleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoerdervereinArticleViewController.swift; sourceTree = "<group>"; };
 		B9CBF5721D5F68BE00F67682 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		B9CBF5741D60493D00F67682 /* GradeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradeViewController.swift; sourceTree = "<group>"; };
-		B9CBF5761D609DD800F67682 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		B9CBF57A1D60CFBB00F67682 /* TextFieldTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldTableViewCell.swift; sourceTree = "<group>"; };
 		B9CBF57B1D60CFBB00F67682 /* TextFieldTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextFieldTableViewCell.xib; sourceTree = "<group>"; };
-		B9CBF57E1D61C0C300F67682 /* OnePasswordExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OnePasswordExtension.h; sourceTree = "<group>"; };
-		B9CBF57F1D61C0C300F67682 /* OnePasswordExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OnePasswordExtension.m; sourceTree = "<group>"; };
 		B9CBF5831D61D90C00F67682 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
-		B9CCE7D51D20FE3B00F44447 /* WebScheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebScheduleViewController.swift; sourceTree = "<group>"; };
 		B9DEB5681DEB102F00B700AE /* AboutWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutWebViewController.swift; sourceTree = "<group>"; };
 		B9F590C21D3BE9BF00562E17 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/OmissionsTableViewCell.xib; sourceTree = "<group>"; };
 		B9F73BF91DEDFE77004F3470 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
@@ -320,16 +311,13 @@
 				B9B5C4EF1D1D80C200777BD9 /* NewsViewController.swift */,
 				B9B5C4F81D1FDA9F00777BD9 /* ScheduleViewController.swift */,
 				B9B5C4FA1D1FFF6100777BD9 /* LessonsViewController.swift */,
-				B9CCE7D51D20FE3B00F44447 /* WebScheduleViewController.swift */,
 				B960D7801D35464E00BCA477 /* EditScheduleViewController.swift */,
 				B960D7821D3547FA00BCA477 /* EditLessonsViewController.swift */,
 				B960D7841D37F68F00BCA477 /* SubjectsViewController.swift */,
 				B9562A6D1D4126B3001BD19E /* OmissionsViewController.swift */,
 				B95732F21D5F04E800A758AC /* FoerdervereinViewController.swift */,
-				B9CBF5701D5F332B00F67682 /* FoerdervereinArticleViewController.swift */,
 				B9CBF5721D5F68BE00F67682 /* SettingsViewController.swift */,
 				B9CBF5741D60493D00F67682 /* GradeViewController.swift */,
-				B9CBF5761D609DD800F67682 /* LoginViewController.swift */,
 				B9BDBA0A1DE22EED0025E30A /* TeacherModeViewController.swift */,
 				B9BDBA081DE1C00A0025E30A /* SetStartViewController.swift */,
 				B972692D1DEB0292006819D3 /* AboutViewController.swift */,
@@ -380,8 +368,6 @@
 			children = (
 				B9B5C4F31D1ECB7900777BD9 /* Reachability.h */,
 				B9B5C4F41D1ECB7900777BD9 /* Reachability.m */,
-				B9CBF57E1D61C0C300F67682 /* OnePasswordExtension.h */,
-				B9CBF57F1D61C0C300F67682 /* OnePasswordExtension.m */,
 				B9B5C4F21D1ECB7800777BD9 /* ELG-Bridging-Header.h */,
 			);
 			name = Classes;
@@ -580,7 +566,6 @@
 			files = (
 				B9BDBA0B1DE22EED0025E30A /* TeacherModeViewController.swift in Sources */,
 				CFDC8AAF24DC1824001B11B8 /* LoadMoreActivityIndicator.swift in Sources */,
-				B9CBF5801D61C0C300F67682 /* OnePasswordExtension.m in Sources */,
 				B98C637D1E193E7100B515E6 /* OnboardingViewController.swift in Sources */,
 				B9FB652D1DF5FEB3009B7D13 /* DetailViewController.swift in Sources */,
 				CF785D5B1F4FFA3B00FAA90F /* OAStackView+Constraint.m in Sources */,
@@ -594,7 +579,6 @@
 				B960D7811D35464E00BCA477 /* EditScheduleViewController.swift in Sources */,
 				CF22A0901F6FD6E700B0ECC4 /* GenericNavigationController.swift in Sources */,
 				CF785D5E1F4FFA3B00FAA90F /* OAStackViewAlignmentStrategy.m in Sources */,
-				B9CBF5771D609DD900F67682 /* LoginViewController.swift in Sources */,
 				CF46BECE1F70FA1D00ABEA66 /* NoConnectionView.swift in Sources */,
 				CF785D601F4FFA3B00FAA90F /* OAStackViewDistributionStrategy.m in Sources */,
 				B982C8781D5DF35600B021C9 /* OmissionsTableViewCell.swift in Sources */,
@@ -606,7 +590,6 @@
 				CF63C0031F6059F900A67315 /* FeedTableViewCell.swift in Sources */,
 				B9BDBA091DE1C00A0025E30A /* SetStartViewController.swift in Sources */,
 				CF785D5F1F4FFA3B00FAA90F /* OAStackViewAlignmentStrategyBaseline.m in Sources */,
-				B9CBF5711D5F332B00F67682 /* FoerdervereinArticleViewController.swift in Sources */,
 				CF40B5341F28602900FB8ADC /* PickerTableViewCell.swift in Sources */,
 				B9B5C4D51D1D494800777BD9 /* AppDelegate.swift in Sources */,
 				B9B5C4F01D1D80C200777BD9 /* NewsViewController.swift in Sources */,
@@ -615,7 +598,6 @@
 				CF785D611F4FFA3B00FAA90F /* OATransformLayer.m in Sources */,
 				B9B5C4FB1D1FFF6100777BD9 /* LessonsViewController.swift in Sources */,
 				B9CBF5731D5F68BE00F67682 /* SettingsViewController.swift in Sources */,
-				B9CCE7D61D20FE3B00F44447 /* WebScheduleViewController.swift in Sources */,
 				B9B5C4F91D1FDA9F00777BD9 /* ScheduleViewController.swift in Sources */,
 				B960D7831D3547FA00BCA477 /* EditLessonsViewController.swift in Sources */,
 				B9562A6E1D4126B3001BD19E /* OmissionsViewController.swift in Sources */,
@@ -689,7 +671,7 @@
 				CODE_SIGN_ENTITLEMENTS = OmissionsWidget/OmissionsWidget.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = TRLMQKJQ97;
 				ENABLE_HARDENED_RUNTIME = NO;
 				INFOPLIST_FILE = OmissionsWidget/Info.plist;
@@ -718,7 +700,7 @@
 				CODE_SIGN_ENTITLEMENTS = OmissionsWidget/OmissionsWidget.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = TRLMQKJQ97;
 				ENABLE_HARDENED_RUNTIME = NO;
 				INFOPLIST_FILE = OmissionsWidget/Info.plist;
@@ -862,7 +844,7 @@
 				CODE_SIGN_ENTITLEMENTS = ELG/ELG.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = TRLMQKJQ97;
 				ENABLE_HARDENED_RUNTIME = NO;
 				INFOPLIST_FILE = ELG/Info.plist;
@@ -892,7 +874,7 @@
 				CODE_SIGN_ENTITLEMENTS = ELG/ELG.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = TRLMQKJQ97;
 				ENABLE_HARDENED_RUNTIME = NO;
 				INFOPLIST_FILE = ELG/Info.plist;
