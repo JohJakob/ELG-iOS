@@ -671,7 +671,7 @@
 				CODE_SIGN_ENTITLEMENTS = OmissionsWidget/OmissionsWidget.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = TRLMQKJQ97;
 				ENABLE_HARDENED_RUNTIME = NO;
 				INFOPLIST_FILE = OmissionsWidget/Info.plist;
@@ -700,7 +700,7 @@
 				CODE_SIGN_ENTITLEMENTS = OmissionsWidget/OmissionsWidget.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = TRLMQKJQ97;
 				ENABLE_HARDENED_RUNTIME = NO;
 				INFOPLIST_FILE = OmissionsWidget/Info.plist;
@@ -844,7 +844,7 @@
 				CODE_SIGN_ENTITLEMENTS = ELG/ELG.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = TRLMQKJQ97;
 				ENABLE_HARDENED_RUNTIME = NO;
 				INFOPLIST_FILE = ELG/Info.plist;
@@ -874,7 +874,7 @@
 				CODE_SIGN_ENTITLEMENTS = ELG/ELG.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = TRLMQKJQ97;
 				ENABLE_HARDENED_RUNTIME = NO;
 				INFOPLIST_FILE = ELG/Info.plist;
