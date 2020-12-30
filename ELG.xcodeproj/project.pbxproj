@@ -34,7 +34,6 @@
 		B9B5C4FB1D1FFF6100777BD9 /* LessonsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B5C4FA1D1FFF6100777BD9 /* LessonsViewController.swift */; };
 		B9BDBA091DE1C00A0025E30A /* SetStartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9BDBA081DE1C00A0025E30A /* SetStartViewController.swift */; };
 		B9BDBA0B1DE22EED0025E30A /* TeacherModeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9BDBA0A1DE22EED0025E30A /* TeacherModeViewController.swift */; };
-		B9CBF5711D5F332B00F67682 /* FoerdervereinArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CBF5701D5F332B00F67682 /* FoerdervereinArticleViewController.swift */; };
 		B9CBF5731D5F68BE00F67682 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CBF5721D5F68BE00F67682 /* SettingsViewController.swift */; };
 		B9CBF5751D60493D00F67682 /* GradeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CBF5741D60493D00F67682 /* GradeViewController.swift */; };
 		B9CBF57C1D60CFBB00F67682 /* TextFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CBF57A1D60CFBB00F67682 /* TextFieldTableViewCell.swift */; };
@@ -136,7 +135,6 @@
 		B9B5C4FA1D1FFF6100777BD9 /* LessonsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LessonsViewController.swift; sourceTree = "<group>"; };
 		B9BDBA081DE1C00A0025E30A /* SetStartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetStartViewController.swift; sourceTree = "<group>"; };
 		B9BDBA0A1DE22EED0025E30A /* TeacherModeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeacherModeViewController.swift; sourceTree = "<group>"; };
-		B9CBF5701D5F332B00F67682 /* FoerdervereinArticleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoerdervereinArticleViewController.swift; sourceTree = "<group>"; };
 		B9CBF5721D5F68BE00F67682 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		B9CBF5741D60493D00F67682 /* GradeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradeViewController.swift; sourceTree = "<group>"; };
 		B9CBF57A1D60CFBB00F67682 /* TextFieldTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldTableViewCell.swift; sourceTree = "<group>"; };
@@ -318,7 +316,6 @@
 				B960D7841D37F68F00BCA477 /* SubjectsViewController.swift */,
 				B9562A6D1D4126B3001BD19E /* OmissionsViewController.swift */,
 				B95732F21D5F04E800A758AC /* FoerdervereinViewController.swift */,
-				B9CBF5701D5F332B00F67682 /* FoerdervereinArticleViewController.swift */,
 				B9CBF5721D5F68BE00F67682 /* SettingsViewController.swift */,
 				B9CBF5741D60493D00F67682 /* GradeViewController.swift */,
 				B9BDBA0A1DE22EED0025E30A /* TeacherModeViewController.swift */,
@@ -593,7 +590,6 @@
 				CF63C0031F6059F900A67315 /* FeedTableViewCell.swift in Sources */,
 				B9BDBA091DE1C00A0025E30A /* SetStartViewController.swift in Sources */,
 				CF785D5F1F4FFA3B00FAA90F /* OAStackViewAlignmentStrategyBaseline.m in Sources */,
-				B9CBF5711D5F332B00F67682 /* FoerdervereinArticleViewController.swift in Sources */,
 				CF40B5341F28602900FB8ADC /* PickerTableViewCell.swift in Sources */,
 				B9B5C4D51D1D494800777BD9 /* AppDelegate.swift in Sources */,
 				B9B5C4F01D1D80C200777BD9 /* NewsViewController.swift in Sources */,
