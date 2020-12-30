@@ -37,7 +37,6 @@
 		B9CBF5711D5F332B00F67682 /* FoerdervereinArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CBF5701D5F332B00F67682 /* FoerdervereinArticleViewController.swift */; };
 		B9CBF5731D5F68BE00F67682 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CBF5721D5F68BE00F67682 /* SettingsViewController.swift */; };
 		B9CBF5751D60493D00F67682 /* GradeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CBF5741D60493D00F67682 /* GradeViewController.swift */; };
-		B9CBF5771D609DD900F67682 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CBF5761D609DD800F67682 /* LoginViewController.swift */; };
 		B9CBF57C1D60CFBB00F67682 /* TextFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CBF57A1D60CFBB00F67682 /* TextFieldTableViewCell.swift */; };
 		B9CBF57D1D60CFBB00F67682 /* TextFieldTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9CBF57B1D60CFBB00F67682 /* TextFieldTableViewCell.xib */; };
 		B9CBF5841D61D90C00F67682 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9CBF5831D61D90C00F67682 /* WebKit.framework */; };
@@ -141,7 +140,6 @@
 		B9CBF5701D5F332B00F67682 /* FoerdervereinArticleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoerdervereinArticleViewController.swift; sourceTree = "<group>"; };
 		B9CBF5721D5F68BE00F67682 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		B9CBF5741D60493D00F67682 /* GradeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradeViewController.swift; sourceTree = "<group>"; };
-		B9CBF5761D609DD800F67682 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		B9CBF57A1D60CFBB00F67682 /* TextFieldTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldTableViewCell.swift; sourceTree = "<group>"; };
 		B9CBF57B1D60CFBB00F67682 /* TextFieldTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextFieldTableViewCell.xib; sourceTree = "<group>"; };
 		B9CBF5831D61D90C00F67682 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
@@ -326,7 +324,6 @@
 				B9CBF5701D5F332B00F67682 /* FoerdervereinArticleViewController.swift */,
 				B9CBF5721D5F68BE00F67682 /* SettingsViewController.swift */,
 				B9CBF5741D60493D00F67682 /* GradeViewController.swift */,
-				B9CBF5761D609DD800F67682 /* LoginViewController.swift */,
 				B9BDBA0A1DE22EED0025E30A /* TeacherModeViewController.swift */,
 				B9BDBA081DE1C00A0025E30A /* SetStartViewController.swift */,
 				B972692D1DEB0292006819D3 /* AboutViewController.swift */,
@@ -588,7 +585,6 @@
 				B960D7811D35464E00BCA477 /* EditScheduleViewController.swift in Sources */,
 				CF22A0901F6FD6E700B0ECC4 /* GenericNavigationController.swift in Sources */,
 				CF785D5E1F4FFA3B00FAA90F /* OAStackViewAlignmentStrategy.m in Sources */,
-				B9CBF5771D609DD900F67682 /* LoginViewController.swift in Sources */,
 				CF46BECE1F70FA1D00ABEA66 /* NoConnectionView.swift in Sources */,
 				CF785D601F4FFA3B00FAA90F /* OAStackViewDistributionStrategy.m in Sources */,
 				B982C8781D5DF35600B021C9 /* OmissionsTableViewCell.swift in Sources */,
