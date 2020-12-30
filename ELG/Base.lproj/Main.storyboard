@@ -202,25 +202,9 @@
                     <view key="view" contentMode="scaleToFill" id="PTp-mG-4mI">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <webView contentMode="scaleToFill" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ABI-Uw-fq8">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <dataDetectorType key="dataDetectorTypes"/>
-                            </webView>
-                        </subviews>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="ABI-Uw-fq8" secondAttribute="trailing" id="3rV-TN-y71"/>
-                            <constraint firstAttribute="bottom" secondItem="ABI-Uw-fq8" secondAttribute="bottom" id="EKP-fF-PNv"/>
-                            <constraint firstItem="ABI-Uw-fq8" firstAttribute="top" secondItem="PTp-mG-4mI" secondAttribute="top" id="HEh-nT-S7y"/>
-                            <constraint firstItem="ABI-Uw-fq8" firstAttribute="leading" secondItem="PTp-mG-4mI" secondAttribute="leading" id="oka-SU-FVI"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="X96-dA-aTq"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
-                    <connections>
-                        <outlet property="aboutWebView" destination="ABI-Uw-fq8" id="cjt-ps-CQX"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5hH-6r-jn6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -399,11 +383,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <webView contentMode="scaleToFill" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qU7-xy-L8r">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <dataDetectorType key="dataDetectorTypes" link="YES"/>
-                            </webView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="V5H-jN-B5x">
                                 <rect key="frame" x="177.5" y="323.5" width="20" height="20"/>
                             </activityIndicatorView>
@@ -411,11 +390,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="V5H-jN-B5x" firstAttribute="centerY" secondItem="NDd-x8-SfF" secondAttribute="centerY" id="8qI-kd-VuM"/>
-                            <constraint firstAttribute="bottom" secondItem="qU7-xy-L8r" secondAttribute="bottom" id="Bxs-T0-TVD"/>
-                            <constraint firstItem="qU7-xy-L8r" firstAttribute="leading" secondItem="NDd-x8-SfF" secondAttribute="leading" id="nbu-mE-t23"/>
                             <constraint firstItem="V5H-jN-B5x" firstAttribute="centerX" secondItem="NDd-x8-SfF" secondAttribute="centerX" id="oUQ-h2-GE6"/>
-                            <constraint firstItem="qU7-xy-L8r" firstAttribute="top" secondItem="NDd-x8-SfF" secondAttribute="top" id="oki-6e-gDG"/>
-                            <constraint firstAttribute="trailing" secondItem="qU7-xy-L8r" secondAttribute="trailing" id="vek-UH-rhs"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
@@ -432,7 +407,6 @@
                     </navigationItem>
                     <connections>
                         <outlet property="activityIndicator" destination="V5H-jN-B5x" id="3Yo-Wo-83j"/>
-                        <outlet property="newsWebView" destination="qU7-xy-L8r" id="Eor-mJ-Ykv"/>
                         <outlet property="segmentedControl" destination="ZEj-Fb-YOu" id="Hv9-8A-Ys0"/>
                     </connections>
                 </viewController>
