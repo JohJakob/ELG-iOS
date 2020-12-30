@@ -534,48 +534,6 @@
             </objects>
             <point key="canvasLocation" x="3099" y="129"/>
         </scene>
-        <!--Schedule Web-->
-        <scene sceneID="XCH-0p-IQh">
-            <objects>
-                <viewController storyboardIdentifier="WebScheduleViewController" title="Schedule Web" id="JOv-Oh-0dj" customClass="WebScheduleViewController" customModule="ELG" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="CyS-0C-VmV"/>
-                        <viewControllerLayoutGuide type="bottom" id="NaB-CA-PS6"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="a6t-85-Rtj">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <webView contentMode="scaleToFill" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="feR-Bk-u1o">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <dataDetectorType key="dataDetectorTypes" link="YES"/>
-                            </webView>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="bq3-Fp-v3i">
-                                <rect key="frame" x="177.5" y="323.5" width="20" height="20"/>
-                            </activityIndicatorView>
-                        </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="feR-Bk-u1o" firstAttribute="leading" secondItem="a6t-85-Rtj" secondAttribute="leading" id="36x-jt-NaN"/>
-                            <constraint firstAttribute="trailing" secondItem="feR-Bk-u1o" secondAttribute="trailing" id="QxC-jl-cHF"/>
-                            <constraint firstItem="feR-Bk-u1o" firstAttribute="centerY" secondItem="bq3-Fp-v3i" secondAttribute="centerY" id="Z46-10-ck9"/>
-                            <constraint firstItem="feR-Bk-u1o" firstAttribute="centerX" secondItem="bq3-Fp-v3i" secondAttribute="centerX" id="fAW-kK-Ytb"/>
-                            <constraint firstItem="feR-Bk-u1o" firstAttribute="top" secondItem="a6t-85-Rtj" secondAttribute="top" id="lKd-LC-ZQ7"/>
-                            <constraint firstItem="feR-Bk-u1o" firstAttribute="bottom" secondItem="NaB-CA-PS6" secondAttribute="top" id="leK-a0-Sk4"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="Stundenplan (Web)" id="w3P-2t-kKi"/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
-                    <connections>
-                        <outlet property="activityIndicator" destination="bq3-Fp-v3i" id="lMj-Ik-zPx"/>
-                        <outlet property="scheduleWebView" destination="feR-Bk-u1o" id="5h3-Yt-Cdv"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="N8W-bU-Ubx" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3918.5" y="128.5"/>
-        </scene>
         <!--Edit Schedule-->
         <scene sceneID="Jgw-N0-QBf">
             <objects>
