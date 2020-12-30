@@ -344,9 +344,13 @@ class OmissionsViewController: UITableViewController {
       saveButton.isEnabled = false
     } else {
       saveButton.isEnabled = false
-      
-      let noConnectionAlert = UIAlertView(title: "Keine Internetverbindung", message: "Es besteht keine Verbindung zum Internet. Dadurch kann der Vertretungsplan nicht gesichert werden. Bitte überprüfe Deine Einstellungen.", delegate: self, cancelButtonTitle: "OK")
-      noConnectionAlert.show()
+			
+			let noConnectionAlertController = UIAlertController(title: "Keine Internetverbindung", message: "Es besteht keine Verbindung zum Internet. Dadurch kann der Vertretungsplan nicht gesichert werden. Bitte überprüfe Deine Einstellungen.", preferredStyle: .alert)
+			noConnectionAlertController.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { _ in
+				self.dismiss(animated: true, completion: nil)
+			}))
+			
+			present(noConnectionAlertController, animated: true, completion: nil)
     }
   }
 	

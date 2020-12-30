@@ -191,8 +191,12 @@ class AboutViewController: UITableViewController, MFMailComposeViewControllerDel
 					} else {
 						// Show alert
 						
-						let mailErrorAlert = UIAlertView(title: "Senden nicht möglich", message: "Dein Gerät kann keine E-Mails senden. Bitte überprüfe Deine Einstellungen.", delegate: self, cancelButtonTitle: "OK")
-						mailErrorAlert.show()
+						let mailErrorAlertController = UIAlertController(title: "Senden nicht möglich", message: "Dein Gerät kann keine E-Mails senden. Bitte überprüfe Deine Einstellungen.", preferredStyle: .alert)
+						mailErrorAlertController.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { _ in
+							self.dismiss(animated: true, completion: nil)
+						}))
+						
+						present(mailErrorAlertController, animated: true, completion: nil)
 					}
 				} else {
 					// Open URL

@@ -82,8 +82,12 @@ final class NewsViewController: UIViewController, UIWebViewDelegate {
     activityIndicator.stopAnimating()
 		refreshControl.endRefreshing()
 		
-    let webViewErrorAlert = UIAlertView(title: "Fehler", message: "Beim Laden ist ein Fehler aufgetreten.", delegate: self, cancelButtonTitle: "OK")
-    webViewErrorAlert.show()
+		let webViewErrorAlertController = UIAlertController(title: "Laden nicht möglich", message: "Beim Laden ist ein Fehler aufgetreten. Bitte versuche es erneut.", preferredStyle: .alert)
+		webViewErrorAlertController.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { _ in
+			self.dismiss(animated: true, completion: nil)
+		}))
+		
+		present(webViewErrorAlertController, animated: true, completion: nil)
 		
 		refreshing = false
   }
