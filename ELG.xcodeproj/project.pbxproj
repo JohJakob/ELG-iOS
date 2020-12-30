@@ -40,7 +40,6 @@
 		B9CBF5771D609DD900F67682 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CBF5761D609DD800F67682 /* LoginViewController.swift */; };
 		B9CBF57C1D60CFBB00F67682 /* TextFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CBF57A1D60CFBB00F67682 /* TextFieldTableViewCell.swift */; };
 		B9CBF57D1D60CFBB00F67682 /* TextFieldTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9CBF57B1D60CFBB00F67682 /* TextFieldTableViewCell.xib */; };
-		B9CBF5801D61C0C300F67682 /* OnePasswordExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = B9CBF57F1D61C0C300F67682 /* OnePasswordExtension.m */; };
 		B9CBF5841D61D90C00F67682 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9CBF5831D61D90C00F67682 /* WebKit.framework */; };
 		B9CCE7D61D20FE3B00F44447 /* WebScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CCE7D51D20FE3B00F44447 /* WebScheduleViewController.swift */; };
 		B9DEB5691DEB102F00B700AE /* AboutWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9DEB5681DEB102F00B700AE /* AboutWebViewController.swift */; };
@@ -145,8 +144,6 @@
 		B9CBF5761D609DD800F67682 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		B9CBF57A1D60CFBB00F67682 /* TextFieldTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldTableViewCell.swift; sourceTree = "<group>"; };
 		B9CBF57B1D60CFBB00F67682 /* TextFieldTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextFieldTableViewCell.xib; sourceTree = "<group>"; };
-		B9CBF57E1D61C0C300F67682 /* OnePasswordExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OnePasswordExtension.h; sourceTree = "<group>"; };
-		B9CBF57F1D61C0C300F67682 /* OnePasswordExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OnePasswordExtension.m; sourceTree = "<group>"; };
 		B9CBF5831D61D90C00F67682 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		B9CCE7D51D20FE3B00F44447 /* WebScheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebScheduleViewController.swift; sourceTree = "<group>"; };
 		B9DEB5681DEB102F00B700AE /* AboutWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutWebViewController.swift; sourceTree = "<group>"; };
@@ -380,8 +377,6 @@
 			children = (
 				B9B5C4F31D1ECB7900777BD9 /* Reachability.h */,
 				B9B5C4F41D1ECB7900777BD9 /* Reachability.m */,
-				B9CBF57E1D61C0C300F67682 /* OnePasswordExtension.h */,
-				B9CBF57F1D61C0C300F67682 /* OnePasswordExtension.m */,
 				B9B5C4F21D1ECB7800777BD9 /* ELG-Bridging-Header.h */,
 			);
 			name = Classes;
@@ -580,7 +575,6 @@
 			files = (
 				B9BDBA0B1DE22EED0025E30A /* TeacherModeViewController.swift in Sources */,
 				CFDC8AAF24DC1824001B11B8 /* LoadMoreActivityIndicator.swift in Sources */,
-				B9CBF5801D61C0C300F67682 /* OnePasswordExtension.m in Sources */,
 				B98C637D1E193E7100B515E6 /* OnboardingViewController.swift in Sources */,
 				B9FB652D1DF5FEB3009B7D13 /* DetailViewController.swift in Sources */,
 				CF785D5B1F4FFA3B00FAA90F /* OAStackView+Constraint.m in Sources */,
