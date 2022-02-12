@@ -26,6 +26,22 @@ class NewsViewController: UIViewController, WKNavigationDelegate {
   override func viewDidLoad() {
     super.viewDidLoad()
 		
+		// HACK: Force Navigation Bar to be translucent on iOS 15
+		if #available(iOS 15, *) {
+			let navigationBarAppearance = UINavigationBarAppearance()
+			let tabBarAppearance = UITabBarAppearance()
+			
+			navigationBarAppearance.configureWithDefaultBackground()
+			self.navigationController?.navigationBar.standardAppearance = navigationBarAppearance
+			self.navigationController?.navigationBar.compactAppearance = navigationBarAppearance
+			self.navigationController?.navigationBar.scrollEdgeAppearance = navigationBarAppearance
+			self.navigationController?.navigationBar.compactScrollEdgeAppearance = navigationBarAppearance
+			
+			tabBarAppearance.configureWithDefaultBackground()
+			self.tabBarController?.tabBar.standardAppearance = tabBarAppearance
+			self.tabBarController?.tabBar.scrollEdgeAppearance = tabBarAppearance
+		}
+		
 		if #available(iOS 11, *) {
 			foerdervereinViewController = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "FoerdervereinTableViewController")
 		} else {
