@@ -111,7 +111,7 @@ class NewsViewController: UIViewController, WKNavigationDelegate {
     let reachabilityStatus: NetworkStatus = Reachability.forInternetConnection().currentReachabilityStatus()
     
     if reachabilityStatus != NotReachable {
-      newsWebView.load(URLRequest(url: URL(string: "https://elg-halle.de/Aktuell/News/news.asp")!))
+      newsWebView.load(URLRequest(url: URL(string: "https://www.ess-elisabeth.de/aktuelles/neuigkeiten")!))
 			newsWebView.backgroundColor = UIColor.white
 			
 			refreshControl.tintColor = UIColor.lightGray
