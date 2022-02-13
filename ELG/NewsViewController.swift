@@ -26,6 +26,22 @@ class NewsViewController: UIViewController, WKNavigationDelegate {
   override func viewDidLoad() {
     super.viewDidLoad()
 		
+		// HACK: Force Navigation Bar to be translucent on iOS 15
+		if #available(iOS 15, *) {
+			let navigationBarAppearance = UINavigationBarAppearance()
+			let tabBarAppearance = UITabBarAppearance()
+			
+			navigationBarAppearance.configureWithDefaultBackground()
+			self.navigationController?.navigationBar.standardAppearance = navigationBarAppearance
+			self.navigationController?.navigationBar.compactAppearance = navigationBarAppearance
+			self.navigationController?.navigationBar.scrollEdgeAppearance = navigationBarAppearance
+			self.navigationController?.navigationBar.compactScrollEdgeAppearance = navigationBarAppearance
+			
+			tabBarAppearance.configureWithDefaultBackground()
+			self.tabBarController?.tabBar.standardAppearance = tabBarAppearance
+			self.tabBarController?.tabBar.scrollEdgeAppearance = tabBarAppearance
+		}
+		
 		if #available(iOS 11, *) {
 			foerdervereinViewController = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "FoerdervereinTableViewController")
 		} else {
@@ -95,7 +111,7 @@ class NewsViewController: UIViewController, WKNavigationDelegate {
     let reachabilityStatus: NetworkStatus = Reachability.forInternetConnection().currentReachabilityStatus()
     
     if reachabilityStatus != NotReachable {
-      newsWebView.load(URLRequest(url: URL(string: "https://elg-halle.de/Aktuell/News/news.asp")!))
+      newsWebView.load(URLRequest(url: URL(string: "https://www.ess-elisabeth.de/aktuelles/neuigkeiten")!))
 			newsWebView.backgroundColor = UIColor.white
 			
 			refreshControl.tintColor = UIColor.lightGray
