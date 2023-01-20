@@ -13,12 +13,12 @@ import ColorCompatibility
 class NewsViewController: UIViewController, WKNavigationDelegate {
   // MARK: - Properties
 	
-	@IBOutlet weak fileprivate var segmentedControl: UISegmentedControl!
+	//@IBOutlet weak fileprivate var segmentedControl: UISegmentedControl!
   @IBOutlet weak fileprivate var activityIndicator: UIActivityIndicatorView!
 	
 	fileprivate var newsWebView = WKWebView()
 	var refreshing = false
-	var foerdervereinViewController = UIViewController()
+	//var foerdervereinViewController = UIViewController()
 	let refreshControl = UIRefreshControl()
 	
 	// MARK: - UIViewController
@@ -42,11 +42,11 @@ class NewsViewController: UIViewController, WKNavigationDelegate {
 			self.tabBarController?.tabBar.scrollEdgeAppearance = tabBarAppearance
 		}
 		
-		if #available(iOS 11, *) {
+		/*if #available(iOS 11, *) {
 			foerdervereinViewController = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "FoerdervereinTableViewController")
 		} else {
 			foerdervereinViewController = UIStoryboard(name: "MainLegacy", bundle: Bundle.main).instantiateViewController(withIdentifier: "FoerdervereinTableViewController")
-		}
+		}*/
 		
 		initialize()
   }
@@ -90,7 +90,7 @@ class NewsViewController: UIViewController, WKNavigationDelegate {
   // MARK: - Private
 	
 	private func initialize() {
-		segmentedControl.addTarget(self, action: #selector(changeView), for: .valueChanged)
+		//segmentedControl.addTarget(self, action: #selector(changeView), for: .valueChanged)
 		
 		refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
 		
@@ -123,7 +123,7 @@ class NewsViewController: UIViewController, WKNavigationDelegate {
     }
   }
 	
-	@objc private func changeView() {
+	/*@objc private func changeView() {
 		var navigationStack = navigationController?.viewControllers
 		var localNavigationStack = navigationStack
 		
@@ -133,7 +133,7 @@ class NewsViewController: UIViewController, WKNavigationDelegate {
 		
 		navigationStack!.insert(foerdervereinViewController, at: (localNavigationStack?.count)!)
 		navigationController?.setViewControllers(navigationStack!, animated: false)
-	}
+	}*/
 	
 	@objc private func refresh() {
 		refreshing = true

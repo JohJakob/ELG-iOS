@@ -10,7 +10,7 @@
 		B913C91B1E0B1E190061B531 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B913C91A1E0B1E190061B531 /* NotificationCenter.framework */; };
 		B913C91E1E0B1E190061B531 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B913C91D1E0B1E190061B531 /* TodayViewController.swift */; };
 		B913C9211E0B1E190061B531 /* MainWidget.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B913C91F1E0B1E190061B531 /* MainWidget.storyboard */; };
-		B913C9251E0B1E190061B531 /* OmissionsWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = B913C9181E0B1E190061B531 /* OmissionsWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		B913C9251E0B1E190061B531 /* OmissionsWidget.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = B913C9181E0B1E190061B531 /* OmissionsWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		B913C9321E0B22F10061B531 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = B913C9311E0B22F10061B531 /* Reachability.m */; };
 		B91DB9FF1E07165000D1EC86 /* OpenSource.html in Resources */ = {isa = PBXBuildFile; fileRef = B91DB9FE1E07165000D1EC86 /* OpenSource.html */; };
 		B91DBA011E071A1300D1EC86 /* Imprint.html in Resources */ = {isa = PBXBuildFile; fileRef = B91DBA001E071A1300D1EC86 /* Imprint.html */; };
@@ -85,15 +85,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		B913C9291E0B1E190061B531 /* Embed App Extensions */ = {
+		B913C9291E0B1E190061B531 /* Embed Foundation Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				B913C9251E0B1E190061B531 /* OmissionsWidget.appex in Embed App Extensions */,
+				B913C9251E0B1E190061B531 /* OmissionsWidget.appex in Embed Foundation Extensions */,
 			);
-			name = "Embed App Extensions";
+			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -449,7 +449,7 @@
 				B9B5C4CD1D1D494700777BD9 /* Sources */,
 				B9B5C4CE1D1D494700777BD9 /* Frameworks */,
 				B9B5C4CF1D1D494700777BD9 /* Resources */,
-				B913C9291E0B1E190061B531 /* Embed App Extensions */,
+				B913C9291E0B1E190061B531 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
@@ -472,7 +472,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 1230;
+				LastUpgradeCheck = 1420;
 				ORGANIZATIONNAME = "Elisabeth-Gymnasium Halle";
 				TargetAttributes = {
 					B913C9171E0B1E190061B531 = {
@@ -671,17 +671,17 @@
 				CODE_SIGN_ENTITLEMENTS = OmissionsWidget/OmissionsWidget.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = TRLMQKJQ97;
 				ENABLE_HARDENED_RUNTIME = NO;
 				INFOPLIST_FILE = OmissionsWidget/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 3.0.7;
+				MARKETING_VERSION = 3.0.8;
 				PRODUCT_BUNDLE_IDENTIFIER = com.hardykrause.ELG.Widget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -700,17 +700,17 @@
 				CODE_SIGN_ENTITLEMENTS = OmissionsWidget/OmissionsWidget.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = TRLMQKJQ97;
 				ENABLE_HARDENED_RUNTIME = NO;
 				INFOPLIST_FILE = OmissionsWidget/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 3.0.7;
+				MARKETING_VERSION = 3.0.8;
 				PRODUCT_BUNDLE_IDENTIFIER = com.hardykrause.ELG.Widget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -844,16 +844,17 @@
 				CODE_SIGN_ENTITLEMENTS = ELG/ELG.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = TRLMQKJQ97;
 				ENABLE_HARDENED_RUNTIME = NO;
 				INFOPLIST_FILE = ELG/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.0.7;
+				MARKETING_VERSION = 3.0.8;
 				PRODUCT_BUNDLE_IDENTIFIER = com.hardykrause.ELG;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -874,16 +875,17 @@
 				CODE_SIGN_ENTITLEMENTS = ELG/ELG.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = TRLMQKJQ97;
 				ENABLE_HARDENED_RUNTIME = NO;
 				INFOPLIST_FILE = ELG/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.0.7;
+				MARKETING_VERSION = 3.0.8;
 				PRODUCT_BUNDLE_IDENTIFIER = com.hardykrause.ELG;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
