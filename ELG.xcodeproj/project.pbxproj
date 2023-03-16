@@ -6,10 +6,36 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		CF9E11F229C35C5E00D3541E /* ELGApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9E11F129C35C5E00D3541E /* ELGApp.swift */; };
+		CF9E11F429C35C5E00D3541E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9E11F329C35C5E00D3541E /* ContentView.swift */; };
+		CF9E11F629C35C5F00D3541E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF9E11F529C35C5F00D3541E /* Assets.xcassets */; };
+		CF9E11F929C35C5F00D3541E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF9E11F829C35C5F00D3541E /* Preview Assets.xcassets */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		CF9E11EF29C35C5E00D3541E /* ELG.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ELG.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CF9E11F129C35C5E00D3541E /* ELGApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ELGApp.swift; sourceTree = "<group>"; };
+		CF9E11F329C35C5E00D3541E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		CF9E11F529C35C5F00D3541E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CF9E11F829C35C5F00D3541E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CF9E11EC29C35C5E00D3541E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
 /* Begin PBXGroup section */
 		B9B5C4C81D1D494700777BD9 = {
 			isa = PBXGroup;
 			children = (
+				CF9E11F029C35C5E00D3541E /* ELG */,
 				B9B5C4D21D1D494800777BD9 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -17,11 +43,51 @@
 		B9B5C4D21D1D494800777BD9 /* Products */ = {
 			isa = PBXGroup;
 			children = (
+				CF9E11EF29C35C5E00D3541E /* ELG.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
+		CF9E11F029C35C5E00D3541E /* ELG */ = {
+			isa = PBXGroup;
+			children = (
+				CF9E11F129C35C5E00D3541E /* ELGApp.swift */,
+				CF9E11F329C35C5E00D3541E /* ContentView.swift */,
+				CF9E11F529C35C5F00D3541E /* Assets.xcassets */,
+				CF9E11F729C35C5F00D3541E /* Preview Content */,
+			);
+			path = ELG;
+			sourceTree = "<group>";
+		};
+		CF9E11F729C35C5F00D3541E /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				CF9E11F829C35C5F00D3541E /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CF9E11EE29C35C5E00D3541E /* ELG */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CF9E11FA29C35C5F00D3541E /* Build configuration list for PBXNativeTarget "ELG" */;
+			buildPhases = (
+				CF9E11EB29C35C5E00D3541E /* Sources */,
+				CF9E11EC29C35C5E00D3541E /* Frameworks */,
+				CF9E11ED29C35C5E00D3541E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ELG;
+			productName = ELG;
+			productReference = CF9E11EF29C35C5E00D3541E /* ELG.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		B9B5C4C91D1D494700777BD9 /* Project object */ = {
@@ -30,6 +96,13 @@
 				LastSwiftUpdateCheck = 1420;
 				LastUpgradeCheck = 1420;
 				ORGANIZATIONNAME = "Elisabeth-Gymnasium Halle";
+				TargetAttributes = {
+					CF9E11EE29C35C5E00D3541E = {
+						CreatedOnToolsVersion = 14.2;
+						DevelopmentTeam = TRLMQKJQ97;
+						ProvisioningStyle = Automatic;
+					};
+				};
 			};
 			buildConfigurationList = B9B5C4CC1D1D494700777BD9 /* Build configuration list for PBXProject "ELG" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -46,9 +119,34 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
+				CF9E11EE29C35C5E00D3541E /* ELG */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CF9E11ED29C35C5E00D3541E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CF9E11F929C35C5F00D3541E /* Preview Assets.xcassets in Resources */,
+				CF9E11F629C35C5F00D3541E /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CF9E11EB29C35C5E00D3541E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CF9E11F429C35C5E00D3541E /* ContentView.swift in Sources */,
+				CF9E11F229C35C5E00D3541E /* ELGApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
 		B9B5C4E31D1D494800777BD9 /* Debug */ = {
@@ -163,6 +261,76 @@
 			};
 			name = Release;
 		};
+		CF9E11FB29C35C5F00D3541E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"ELG/Preview Content\"";
+				DEVELOPMENT_TEAM = TRLMQKJQ97;
+				ENABLE_PREVIEWS = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hardykrause.ELG;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		CF9E11FC29C35C5F00D3541E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"ELG/Preview Content\"";
+				DEVELOPMENT_TEAM = TRLMQKJQ97;
+				ENABLE_PREVIEWS = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 1.0;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hardykrause.ELG;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -171,6 +339,15 @@
 			buildConfigurations = (
 				B9B5C4E31D1D494800777BD9 /* Debug */,
 				B9B5C4E41D1D494800777BD9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CF9E11FA29C35C5F00D3541E /* Build configuration list for PBXNativeTarget "ELG" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CF9E11FB29C35C5F00D3541E /* Debug */,
+				CF9E11FC29C35C5F00D3541E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
