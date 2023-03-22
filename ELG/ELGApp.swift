@@ -17,7 +17,6 @@ let emptySchedule: [Weekday.RawValue: Schedule] = [Weekday.monday.rawValue: Sche
 let extensionDefaults = UserDefaults(suiteName: "group.com.johjakob.elg")!
 
 extension Defaults.Keys {
-	static let hasOnboarded = Key<Bool>("hasOnboarded", default: false, suite: extensionDefaults)
 	static let scheduleCollection = Key<[Weekday.RawValue: Schedule]>("schedule", default: emptySchedule, suite: extensionDefaults)
 }
 
