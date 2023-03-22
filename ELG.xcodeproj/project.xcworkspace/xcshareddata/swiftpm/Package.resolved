@@ -1,0 +1,23 @@
+{
+  "pins" : [
+    {
+      "identity" : "defaults",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/sindresorhus/Defaults",
+      "state" : {
+        "branch" : "main",
+        "revision" : "d71bfd8ffbf944ef08eacbca5fb96d6f69bf7696"
+      }
+    },
+    {
+      "identity" : "safesfsymbols",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/sparrowcode/SafeSFSymbols",
+      "state" : {
+        "revision" : "0909c9b1132fca42aa1609f0dc5399ddb39e3b7b",
+        "version" : "1.1.4"
+      }
+    }
+  ],
+  "version" : 2
+}

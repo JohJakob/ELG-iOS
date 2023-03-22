@@ -3,14 +3,26 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CF09A4AC29C8A3DC00B2B0E4 /* SafeSFSymbols in Frameworks */ = {isa = PBXBuildFile; productRef = CF09A4AB29C8A3DC00B2B0E4 /* SafeSFSymbols */; };
 		CF9E11F229C35C5E00D3541E /* ELGApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9E11F129C35C5E00D3541E /* ELGApp.swift */; };
 		CF9E11F429C35C5E00D3541E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9E11F329C35C5E00D3541E /* ContentView.swift */; };
 		CF9E11F629C35C5F00D3541E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF9E11F529C35C5F00D3541E /* Assets.xcassets */; };
 		CF9E11F929C35C5F00D3541E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF9E11F829C35C5F00D3541E /* Preview Assets.xcassets */; };
+		CF9E120029C5D9FD00D3541E /* ScheduleWeekdayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9E11FF29C5D9FD00D3541E /* ScheduleWeekdayView.swift */; };
+		CF9E120329C5DDD700D3541E /* Defaults in Frameworks */ = {isa = PBXBuildFile; productRef = CF9E120229C5DDD700D3541E /* Defaults */; };
+		CF9E120929C5F50F00D3541E /* ScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9E120829C5F50F00D3541E /* ScheduleView.swift */; };
+		CF9E120C29C5F5BA00D3541E /* Weekday.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9E120B29C5F5BA00D3541E /* Weekday.swift */; };
+		CF9E120E29C5FB3B00D3541E /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9E120D29C5FB3B00D3541E /* Schedule.swift */; };
+		CF9E121029C5FB8E00D3541E /* ScheduleItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9E120F29C5FB8E00D3541E /* ScheduleItem.swift */; };
+		CF9E121229C5FCBB00D3541E /* SubstitutionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9E121129C5FCBB00D3541E /* SubstitutionItem.swift */; };
+		CF9E121429C6113F00D3541E /* Subjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9E121329C6113F00D3541E /* Subjects.swift */; };
+		CF9E121629C659A800D3541E /* SubjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9E121529C659A800D3541E /* SubjectView.swift */; };
+		CFB794F129CA0A1F0021C9B7 /* ScheduleCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB794F029CA0A1F0021C9B7 /* ScheduleCollection.swift */; };
+		CFB794F829CB309A0021C9B7 /* ScheduleListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB794F729CB309A0021C9B7 /* ScheduleListItemView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +31,17 @@
 		CF9E11F329C35C5E00D3541E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		CF9E11F529C35C5F00D3541E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CF9E11F829C35C5F00D3541E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		CF9E11FF29C5D9FD00D3541E /* ScheduleWeekdayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleWeekdayView.swift; sourceTree = "<group>"; };
+		CF9E120429C5DE0A00D3541E /* ELG.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ELG.entitlements; sourceTree = "<group>"; };
+		CF9E120829C5F50F00D3541E /* ScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleView.swift; sourceTree = "<group>"; };
+		CF9E120B29C5F5BA00D3541E /* Weekday.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weekday.swift; sourceTree = "<group>"; };
+		CF9E120D29C5FB3B00D3541E /* Schedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
+		CF9E120F29C5FB8E00D3541E /* ScheduleItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleItem.swift; sourceTree = "<group>"; };
+		CF9E121129C5FCBB00D3541E /* SubstitutionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubstitutionItem.swift; sourceTree = "<group>"; };
+		CF9E121329C6113F00D3541E /* Subjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subjects.swift; sourceTree = "<group>"; };
+		CF9E121529C659A800D3541E /* SubjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectView.swift; sourceTree = "<group>"; };
+		CFB794F029CA0A1F0021C9B7 /* ScheduleCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleCollection.swift; sourceTree = "<group>"; };
+		CFB794F729CB309A0021C9B7 /* ScheduleListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleListItemView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -26,6 +49,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF09A4AC29C8A3DC00B2B0E4 /* SafeSFSymbols in Frameworks */,
+				CF9E120329C5DDD700D3541E /* Defaults in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -35,6 +60,7 @@
 		B9B5C4C81D1D494700777BD9 = {
 			isa = PBXGroup;
 			children = (
+				CF9E11FD29C5D99A00D3541E /* Shared */,
 				CF9E11F029C35C5E00D3541E /* ELG */,
 				B9B5C4D21D1D494800777BD9 /* Products */,
 			);
@@ -51,6 +77,7 @@
 		CF9E11F029C35C5E00D3541E /* ELG */ = {
 			isa = PBXGroup;
 			children = (
+				CF9E120429C5DE0A00D3541E /* ELG.entitlements */,
 				CF9E11F129C35C5E00D3541E /* ELGApp.swift */,
 				CF9E11F329C35C5E00D3541E /* ContentView.swift */,
 				CF9E11F529C35C5F00D3541E /* Assets.xcassets */,
@@ -65,6 +92,55 @@
 				CF9E11F829C35C5F00D3541E /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		CF9E11FD29C5D99A00D3541E /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				CF9E120529C5DE6800D3541E /* Data */,
+				CF9E120A29C5F59400D3541E /* Models */,
+				CF9E11FE29C5D9A700D3541E /* Views */,
+				CFB794F229CB17D10021C9B7 /* Styles */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		CF9E11FE29C5D9A700D3541E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CF9E11FF29C5D9FD00D3541E /* ScheduleWeekdayView.swift */,
+				CF9E120829C5F50F00D3541E /* ScheduleView.swift */,
+				CF9E121529C659A800D3541E /* SubjectView.swift */,
+				CFB794F729CB309A0021C9B7 /* ScheduleListItemView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		CF9E120529C5DE6800D3541E /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				CF9E121329C6113F00D3541E /* Subjects.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		CF9E120A29C5F59400D3541E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				CF9E120B29C5F5BA00D3541E /* Weekday.swift */,
+				CF9E120D29C5FB3B00D3541E /* Schedule.swift */,
+				CF9E120F29C5FB8E00D3541E /* ScheduleItem.swift */,
+				CF9E121129C5FCBB00D3541E /* SubstitutionItem.swift */,
+				CFB794F029CA0A1F0021C9B7 /* ScheduleCollection.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		CFB794F229CB17D10021C9B7 /* Styles */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Styles;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +159,10 @@
 			dependencies = (
 			);
 			name = ELG;
+			packageProductDependencies = (
+				CF9E120229C5DDD700D3541E /* Defaults */,
+				CF09A4AB29C8A3DC00B2B0E4 /* SafeSFSymbols */,
+			);
 			productName = ELG;
 			productReference = CF9E11EF29C35C5E00D3541E /* ELG.app */;
 			productType = "com.apple.product-type.application";
@@ -99,8 +179,6 @@
 				TargetAttributes = {
 					CF9E11EE29C35C5E00D3541E = {
 						CreatedOnToolsVersion = 14.2;
-						DevelopmentTeam = TRLMQKJQ97;
-						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -114,6 +192,8 @@
 			);
 			mainGroup = B9B5C4C81D1D494700777BD9;
 			packageReferences = (
+				CF9E120129C5DDD700D3541E /* XCRemoteSwiftPackageReference "Defaults" */,
+				CF09A4AA29C8A3DC00B2B0E4 /* XCRemoteSwiftPackageReference "SafeSFSymbols" */,
 			);
 			productRefGroup = B9B5C4D21D1D494800777BD9 /* Products */;
 			projectDirPath = "";
@@ -141,8 +221,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CFB794F129CA0A1F0021C9B7 /* ScheduleCollection.swift in Sources */,
+				CF9E121429C6113F00D3541E /* Subjects.swift in Sources */,
+				CF9E120E29C5FB3B00D3541E /* Schedule.swift in Sources */,
+				CF9E120C29C5F5BA00D3541E /* Weekday.swift in Sources */,
 				CF9E11F429C35C5E00D3541E /* ContentView.swift in Sources */,
+				CF9E121029C5FB8E00D3541E /* ScheduleItem.swift in Sources */,
+				CF9E120929C5F50F00D3541E /* ScheduleView.swift in Sources */,
+				CFB794F829CB309A0021C9B7 /* ScheduleListItemView.swift in Sources */,
+				CF9E121229C5FCBB00D3541E /* SubstitutionItem.swift in Sources */,
+				CF9E121629C659A800D3541E /* SubjectView.swift in Sources */,
 				CF9E11F229C35C5E00D3541E /* ELGApp.swift in Sources */,
+				CF9E120029C5D9FD00D3541E /* ScheduleWeekdayView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -198,7 +288,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -251,10 +341,11 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -271,6 +362,7 @@
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = ELG/ELG.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ELG/Preview Content\"";
@@ -284,9 +376,12 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 1.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 4.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.hardykrause.ELG;
@@ -308,6 +403,7 @@
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = ELG/ELG.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ELG/Preview Content\"";
@@ -321,9 +417,12 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 1.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 4.0;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.hardykrause.ELG;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -355,6 +454,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		CF09A4AA29C8A3DC00B2B0E4 /* XCRemoteSwiftPackageReference "SafeSFSymbols" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sparrowcode/SafeSFSymbols";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+		CF9E120129C5DDD700D3541E /* XCRemoteSwiftPackageReference "Defaults" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sindresorhus/Defaults";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		CF09A4AB29C8A3DC00B2B0E4 /* SafeSFSymbols */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CF09A4AA29C8A3DC00B2B0E4 /* XCRemoteSwiftPackageReference "SafeSFSymbols" */;
+			productName = SafeSFSymbols;
+		};
+		CF9E120229C5DDD700D3541E /* Defaults */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CF9E120129C5DDD700D3541E /* XCRemoteSwiftPackageReference "Defaults" */;
+			productName = Defaults;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B9B5C4C91D1D494700777BD9 /* Project object */;
 }
