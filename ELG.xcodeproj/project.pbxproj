@@ -97,6 +97,7 @@
 		CF9E11FD29C5D99A00D3541E /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				CFB794FB29CB58590021C9B7 /* Classes */,
 				CF9E120529C5DE6800D3541E /* Data */,
 				CF9E120A29C5F59400D3541E /* Models */,
 				CF9E11FE29C5D9A700D3541E /* Views */,
@@ -131,7 +132,6 @@
 				CF9E120D29C5FB3B00D3541E /* Schedule.swift */,
 				CF9E120F29C5FB8E00D3541E /* ScheduleItem.swift */,
 				CF9E121129C5FCBB00D3541E /* SubstitutionItem.swift */,
-				CFB794F029CA0A1F0021C9B7 /* ScheduleCollection.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -141,6 +141,14 @@
 			children = (
 			);
 			path = Styles;
+			sourceTree = "<group>";
+		};
+		CFB794FB29CB58590021C9B7 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				CFB794F029CA0A1F0021C9B7 /* ScheduleCollection.swift */,
+			);
+			path = Classes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
