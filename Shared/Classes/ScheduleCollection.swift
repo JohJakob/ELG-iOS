@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import Combine
 import Defaults
 
 class ScheduleCollection: ObservableObject {
