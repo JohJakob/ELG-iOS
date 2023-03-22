@@ -12,7 +12,7 @@ import Defaults
 typealias Defaults = _Defaults
 typealias Default = _Default
 
-let emptySchedule: [Weekday.RawValue: Schedule] = [Weekday.monday.rawValue: Schedule(entries: []), Weekday.tuesday.rawValue: Schedule(entries: [ScheduleItem(subject: .arts), ScheduleItem(subject: .astronomy)]), Weekday.wednesday.rawValue: Schedule(entries: []), Weekday.thursday.rawValue: Schedule(entries: []), Weekday.friday.rawValue: Schedule(entries: [])]
+let emptySchedule: [Weekday.RawValue: Schedule] = [Weekday.monday.rawValue: Schedule(entries: []), Weekday.tuesday.rawValue: Schedule(entries: []), Weekday.wednesday.rawValue: Schedule(entries: []), Weekday.thursday.rawValue: Schedule(entries: []), Weekday.friday.rawValue: Schedule(entries: [])]
 
 let extensionDefaults = UserDefaults(suiteName: "group.com.johjakob.elg")!
 
