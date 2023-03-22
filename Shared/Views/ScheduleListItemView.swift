@@ -21,7 +21,7 @@ struct ScheduleListItemView: View {
 					.foregroundColor(.primary)
 			} icon: {
 				if (!isEditing) {
-					Image(systemName: "\(index + 1).circle.fill")
+					Image(systemName: "\(index + 1).circle")
 						.foregroundColor(Color(uiColor: .tertiaryLabel))
 						.imageScale(.large)
 				}
