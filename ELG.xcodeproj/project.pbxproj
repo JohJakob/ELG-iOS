@@ -23,6 +23,14 @@
 		CF9E121629C659A800D3541E /* SubjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9E121529C659A800D3541E /* SubjectView.swift */; };
 		CFB794F129CA0A1F0021C9B7 /* ScheduleCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB794F029CA0A1F0021C9B7 /* ScheduleCollection.swift */; };
 		CFB794F829CB309A0021C9B7 /* ScheduleListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB794F729CB309A0021C9B7 /* ScheduleListItemView.swift */; };
+		CFB794FA29CB53D20021C9B7 /* SubstitutionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB794F929CB53D20021C9B7 /* SubstitutionView.swift */; };
+		CFB794FD29CB58A20021C9B7 /* Substitutions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB794FC29CB58A20021C9B7 /* Substitutions.swift */; };
+		CFB7950029CB590A0021C9B7 /* SwiftCSV in Frameworks */ = {isa = PBXBuildFile; productRef = CFB794FF29CB590A0021C9B7 /* SwiftCSV */; };
+		CFB7950229CB66F20021C9B7 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB7950129CB66F20021C9B7 /* NetworkMonitor.swift */; };
+		CFB7950429CB6B450021C9B7 /* SubstitutionsError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB7950329CB6B450021C9B7 /* SubstitutionsError.swift */; };
+		CFB7950829CC66D10021C9B7 /* SPIndicator in Frameworks */ = {isa = PBXBuildFile; productRef = CFB7950729CC66D10021C9B7 /* SPIndicator */; };
+		CFB7950A29CC8C970021C9B7 /* SubstitutionItemCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB7950929CC8C970021C9B7 /* SubstitutionItemCard.swift */; };
+		CFB7950C29CC945E0021C9B7 /* SubstitutionSchoolClassView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB7950B29CC945E0021C9B7 /* SubstitutionSchoolClassView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +50,13 @@
 		CF9E121529C659A800D3541E /* SubjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectView.swift; sourceTree = "<group>"; };
 		CFB794F029CA0A1F0021C9B7 /* ScheduleCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleCollection.swift; sourceTree = "<group>"; };
 		CFB794F729CB309A0021C9B7 /* ScheduleListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleListItemView.swift; sourceTree = "<group>"; };
+		CFB794F929CB53D20021C9B7 /* SubstitutionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubstitutionView.swift; sourceTree = "<group>"; };
+		CFB794FC29CB58A20021C9B7 /* Substitutions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Substitutions.swift; sourceTree = "<group>"; };
+		CFB7950129CB66F20021C9B7 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
+		CFB7950329CB6B450021C9B7 /* SubstitutionsError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubstitutionsError.swift; sourceTree = "<group>"; };
+		CFB7950529CC54D40021C9B7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		CFB7950929CC8C970021C9B7 /* SubstitutionItemCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubstitutionItemCard.swift; sourceTree = "<group>"; };
+		CFB7950B29CC945E0021C9B7 /* SubstitutionSchoolClassView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubstitutionSchoolClassView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,8 +64,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CFB7950029CB590A0021C9B7 /* SwiftCSV in Frameworks */,
 				CF09A4AC29C8A3DC00B2B0E4 /* SafeSFSymbols in Frameworks */,
 				CF9E120329C5DDD700D3541E /* Defaults in Frameworks */,
+				CFB7950829CC66D10021C9B7 /* SPIndicator in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -77,6 +94,7 @@
 		CF9E11F029C35C5E00D3541E /* ELG */ = {
 			isa = PBXGroup;
 			children = (
+				CFB7950529CC54D40021C9B7 /* Info.plist */,
 				CF9E120429C5DE0A00D3541E /* ELG.entitlements */,
 				CF9E11F129C35C5E00D3541E /* ELGApp.swift */,
 				CF9E11F329C35C5E00D3541E /* ContentView.swift */,
@@ -113,6 +131,9 @@
 				CF9E120829C5F50F00D3541E /* ScheduleView.swift */,
 				CF9E121529C659A800D3541E /* SubjectView.swift */,
 				CFB794F729CB309A0021C9B7 /* ScheduleListItemView.swift */,
+				CFB794F929CB53D20021C9B7 /* SubstitutionView.swift */,
+				CFB7950929CC8C970021C9B7 /* SubstitutionItemCard.swift */,
+				CFB7950B29CC945E0021C9B7 /* SubstitutionSchoolClassView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -132,6 +153,7 @@
 				CF9E120D29C5FB3B00D3541E /* Schedule.swift */,
 				CF9E120F29C5FB8E00D3541E /* ScheduleItem.swift */,
 				CF9E121129C5FCBB00D3541E /* SubstitutionItem.swift */,
+				CFB7950329CB6B450021C9B7 /* SubstitutionsError.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -147,6 +169,8 @@
 			isa = PBXGroup;
 			children = (
 				CFB794F029CA0A1F0021C9B7 /* ScheduleCollection.swift */,
+				CFB794FC29CB58A20021C9B7 /* Substitutions.swift */,
+				CFB7950129CB66F20021C9B7 /* NetworkMonitor.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -170,6 +194,8 @@
 			packageProductDependencies = (
 				CF9E120229C5DDD700D3541E /* Defaults */,
 				CF09A4AB29C8A3DC00B2B0E4 /* SafeSFSymbols */,
+				CFB794FF29CB590A0021C9B7 /* SwiftCSV */,
+				CFB7950729CC66D10021C9B7 /* SPIndicator */,
 			);
 			productName = ELG;
 			productReference = CF9E11EF29C35C5E00D3541E /* ELG.app */;
@@ -202,6 +228,8 @@
 			packageReferences = (
 				CF9E120129C5DDD700D3541E /* XCRemoteSwiftPackageReference "Defaults" */,
 				CF09A4AA29C8A3DC00B2B0E4 /* XCRemoteSwiftPackageReference "SafeSFSymbols" */,
+				CFB794FE29CB590A0021C9B7 /* XCRemoteSwiftPackageReference "SwiftCSV" */,
+				CFB7950629CC66D10021C9B7 /* XCRemoteSwiftPackageReference "SPIndicator" */,
 			);
 			productRefGroup = B9B5C4D21D1D494800777BD9 /* Products */;
 			projectDirPath = "";
@@ -232,14 +260,20 @@
 				CFB794F129CA0A1F0021C9B7 /* ScheduleCollection.swift in Sources */,
 				CF9E121429C6113F00D3541E /* Subjects.swift in Sources */,
 				CF9E120E29C5FB3B00D3541E /* Schedule.swift in Sources */,
+				CFB794FA29CB53D20021C9B7 /* SubstitutionView.swift in Sources */,
 				CF9E120C29C5F5BA00D3541E /* Weekday.swift in Sources */,
 				CF9E11F429C35C5E00D3541E /* ContentView.swift in Sources */,
+				CFB794FD29CB58A20021C9B7 /* Substitutions.swift in Sources */,
 				CF9E121029C5FB8E00D3541E /* ScheduleItem.swift in Sources */,
+				CFB7950229CB66F20021C9B7 /* NetworkMonitor.swift in Sources */,
 				CF9E120929C5F50F00D3541E /* ScheduleView.swift in Sources */,
 				CFB794F829CB309A0021C9B7 /* ScheduleListItemView.swift in Sources */,
 				CF9E121229C5FCBB00D3541E /* SubstitutionItem.swift in Sources */,
+				CFB7950A29CC8C970021C9B7 /* SubstitutionItemCard.swift in Sources */,
 				CF9E121629C659A800D3541E /* SubjectView.swift in Sources */,
+				CFB7950429CB6B450021C9B7 /* SubstitutionsError.swift in Sources */,
 				CF9E11F229C35C5E00D3541E /* ELGApp.swift in Sources */,
+				CFB7950C29CC945E0021C9B7 /* SubstitutionSchoolClassView.swift in Sources */,
 				CF9E120029C5D9FD00D3541E /* ScheduleWeekdayView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -378,6 +412,7 @@
 				ENABLE_PREVIEWS = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ELG/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -419,6 +454,7 @@
 				ENABLE_PREVIEWS = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ELG/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -480,6 +516,22 @@
 				kind = branch;
 			};
 		};
+		CFB794FE29CB590A0021C9B7 /* XCRemoteSwiftPackageReference "SwiftCSV" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/swiftcsv/SwiftCSV.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.8.1;
+			};
+		};
+		CFB7950629CC66D10021C9B7 /* XCRemoteSwiftPackageReference "SPIndicator" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ivanvorobei/SPIndicator";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.6.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -492,6 +544,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = CF9E120129C5DDD700D3541E /* XCRemoteSwiftPackageReference "Defaults" */;
 			productName = Defaults;
+		};
+		CFB794FF29CB590A0021C9B7 /* SwiftCSV */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CFB794FE29CB590A0021C9B7 /* XCRemoteSwiftPackageReference "SwiftCSV" */;
+			productName = SwiftCSV;
+		};
+		CFB7950729CC66D10021C9B7 /* SPIndicator */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CFB7950629CC66D10021C9B7 /* XCRemoteSwiftPackageReference "SPIndicator" */;
+			productName = SPIndicator;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

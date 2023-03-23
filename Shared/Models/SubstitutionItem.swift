@@ -9,11 +9,13 @@
 import Foundation
 import Defaults
 
-struct SubstitutionItem: Codable, Defaults.Serializable {
-	var schoolClass: String? = nil
-	var lesson: String? = nil
-	var substitution: String? = nil
-	var subject: String? = nil
+struct SubstitutionItem: Codable, Identifiable, Defaults.Serializable {
+	var id: UUID = UUID()
+	
+	var schoolClass: [String]
+	var lesson: String
+	var teacher: String? = nil
+	var subject: String
 	var room: String? = nil
 	var text: String? = nil
 	var note: String? = nil

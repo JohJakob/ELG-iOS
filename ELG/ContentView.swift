@@ -18,6 +18,10 @@ struct ContentView: View {
 				.tabItem {
 					Label("Schedule", systemImage: "calendar")
 				}
+			SubstitutionView()
+				.tabItem {
+					Label("Substitutions", systemImage: "party.popper.fill")
+				}
 		}
 	}
 }

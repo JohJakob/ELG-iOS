@@ -18,13 +18,18 @@ let extensionDefaults = UserDefaults(suiteName: "group.com.johjakob.elg")!
 
 extension Defaults.Keys {
 	static let scheduleCollection = Key<[Weekday.RawValue: Schedule]>("schedule", default: emptySchedule, suite: extensionDefaults)
+	static let substitutionsDate = Key<String>("substitutionsDate", default: "", suite: extensionDefaults)
+	static let substitutions = Key<[SubstitutionItem]>("substitutions", default: [], suite: extensionDefaults)
 }
 
 @main
 struct ELGApp: App {
+	@StateObject var networkMonitor = NetworkMonitor()
+	
 	var body: some Scene {
 		WindowGroup {
 			ContentView()
+				.environmentObject(networkMonitor)
 		}
 	}
 }
