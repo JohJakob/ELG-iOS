@@ -118,19 +118,6 @@ struct ScheduleView: View {
 	}
 }
 
-extension Binding where Value == Schedule? {
-	func toNonOptional() -> Binding<Schedule> {
-		return Binding<Schedule>(
-			get: {
-				return self.wrappedValue ?? Schedule(entries: [])
-			},
-			set: {
-				self.wrappedValue = $0
-			}
-		)
-	}
-}
-
 struct ScheduleView_Previews: PreviewProvider {
 	static var previews: some View {
 		ScheduleView(weekday: .monday, selectedSubject: .none)
