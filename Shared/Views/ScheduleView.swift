@@ -102,10 +102,9 @@ struct ScheduleView: View {
 									.foregroundColor(.primary)
 								Image(.chevron.down)
 									.imageScale(.medium)
-									.foregroundColor(isEditing ? .secondary : .primary)
+									.foregroundColor(.primary)
 							}
 						}
-						.disabled(isEditing)
 					}
 				}
 				ToolbarItem {
