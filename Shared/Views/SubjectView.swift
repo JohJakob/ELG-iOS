@@ -11,13 +11,13 @@ import SafeSFSymbols
 
 struct SubjectView: View {
 	@ObservedObject var scheduleCollection: ScheduleCollection
-	
-	@Binding var weekday: Weekday
 	@Binding var showSubjectModal: Bool
-	@Binding var selectedLesson: Int?
-	@Binding var selectedSubject: Subjects
+	let weekday: Weekday
+	let selectedLesson: Int?
+	let previousSubject: Subjects
 	
 	@State var showRoomInputAlert = false
+	@State var newSubject = Subjects.none
 	@State var room = ""
 	
 	var body: some View {
@@ -26,11 +26,11 @@ struct SubjectView: View {
 				Section {
 					Button {
 						updateLesson(scheduleCollection: scheduleCollection, weekday: weekday, lesson: selectedLesson, subject: .none, room: nil)
-						self.showSubjectModal.toggle()
+						self.showSubjectModal = false
 					} label: {
 						HStack {
 							Text(Subjects.none.rawValue)
-							if (selectedSubject == .none && selectedLesson != nil) {
+							if (previousSubject == .none && selectedLesson != nil) {
 								Spacer()
 								Image(.checkmark)
 									.foregroundColor(Color("AccentColor"))
@@ -40,14 +40,15 @@ struct SubjectView: View {
 					.foregroundColor(.primary)
 				}
 				Section {
-					ForEach(Subjects.allCases.sorted(by: { $0.rawValue < $1.rawValue })) { subject in
+					ForEach(Subjects.allCases.sorted(by: { $0.rawValue < $1.rawValue }), id: \.id) { subject in
 						if (subject != .none) {
 							Button {
+								newSubject = subject
 								showRoomInputAlert = true
 							} label: {
 								HStack {
 									Text(subject.rawValue)
-									if (selectedSubject == subject) {
+									if (previousSubject == subject) {
 										Spacer()
 										Image(.checkmark)
 											.foregroundColor(Color("AccentColor"))
@@ -55,25 +56,26 @@ struct SubjectView: View {
 								}
 							}
 							.foregroundColor(.primary)
-							.alert("Enter Room Number", isPresented: $showRoomInputAlert, actions: {
-								TextField("Room Number", text: $room)
-									.keyboardType(.numberPad)
-								Button("OK", action: {
-									updateLesson(scheduleCollection: scheduleCollection, weekday: weekday, lesson: selectedLesson, subject: subject, room: room)
-									self.showSubjectModal.toggle()
-								})
-							}, message: {
-								Text("Please enter a room number for this lesson or continue without.")
-							})
 						}
 					}
 				}
 			}
+			.alert("Enter Room Number", isPresented: $showRoomInputAlert, actions: {
+				TextField("Room Number", text: $room)
+					.keyboardType(.numberPad)
+				Button("OK", action: {
+					showRoomInputAlert = false
+					updateLesson(scheduleCollection: scheduleCollection, weekday: weekday, lesson: selectedLesson, subject: newSubject, room: room)
+					self.showSubjectModal = false
+				})
+			}, message: {
+				Text("Please enter a room number for this lesson or continue without.")
+			})
 			.navigationTitle("Select Subject")
 			.navigationBarTitleDisplayMode(.inline)
 			.toolbar {
 				Button("Cancel") {
-					self.showSubjectModal.toggle()
+					self.showSubjectModal = false
 				}
 			}
 		}
@@ -90,12 +92,9 @@ func updateLesson(scheduleCollection: ScheduleCollection, weekday: Weekday, less
 }
 
 struct SubjectView_Previews: PreviewProvider {
-	@State static var weekday = Weekday.monday
 	@State static var showSubjectModal = true
-	@State static var selectedLesson: Int? = nil
-	@State static var selectedSubject = Subjects.none
 	
 	static var previews: some View {
-		SubjectView(scheduleCollection: ScheduleCollection(), weekday: $weekday, showSubjectModal: $showSubjectModal, selectedLesson: $selectedLesson, selectedSubject: $selectedSubject)
+		SubjectView(scheduleCollection: ScheduleCollection(), showSubjectModal: $showSubjectModal, weekday: .monday, selectedLesson: nil, previousSubject: .none)
 	}
 }

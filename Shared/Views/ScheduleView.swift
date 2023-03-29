@@ -10,7 +10,7 @@ import SwiftUI
 import SafeSFSymbols
 
 struct ScheduleView: View {
-	@ObservedObject var scheduleCollection = ScheduleCollection()
+	@StateObject var scheduleCollection = ScheduleCollection()
 	@State var weekday: Weekday
 	@State var isEditing = false
 	@State var selectedLesson: Int?
@@ -40,9 +40,6 @@ struct ScheduleView: View {
 											} label: {
 												ScheduleListItemView(isEditing: isEditing, index: index, subject: scheduleCollection[weekday].entries[index].subject, room: scheduleCollection[weekday].entries[index].room)
 											}
-											.sheet(isPresented: $showSubjectModal) {
-												SubjectView(scheduleCollection: scheduleCollection, weekday: $weekday, showSubjectModal: $showSubjectModal, selectedLesson: $selectedLesson, selectedSubject: $selectedSubject)
-											}
 										} else {
 											ScheduleListItemView(isEditing: isEditing, index: index, subject: scheduleCollection[weekday].entries[index].subject, room: scheduleCollection[weekday].entries[index].room)
 										}
@@ -64,9 +61,6 @@ struct ScheduleView: View {
 									} label: {
 										Label("Add lesson", systemImage: "plus")
 									}
-									.sheet(isPresented: $showSubjectModal) {
-										SubjectView(scheduleCollection: scheduleCollection, weekday: $weekday, showSubjectModal: $showSubjectModal, selectedLesson: $selectedLesson, selectedSubject: $selectedSubject)
-									}
 								}
 							} else if (isEditing && scheduleCollection[weekday].entries.count == 10) {
 								Text("10 lessons? That’s tough.")
@@ -74,6 +68,9 @@ struct ScheduleView: View {
 							}
 						}
 					}
+				}
+				.sheet(isPresented: $showSubjectModal) {
+					SubjectView(scheduleCollection: scheduleCollection, showSubjectModal: $showSubjectModal, weekday: weekday, selectedLesson: selectedLesson, previousSubject: selectedSubject)
 				}
 				.environment(\.editMode, .constant(isEditing ? .active : .inactive))
 				.listStyle(InsetGroupedListStyle())
