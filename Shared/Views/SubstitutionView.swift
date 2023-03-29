@@ -23,6 +23,7 @@ struct SubstitutionView: View {
 				VStack {
 					if (substitutions.items.isEmpty) {
 						Text("No substitutions")
+							.font(.title2)
 							.foregroundColor(.secondary)
 					} else {
 						List {

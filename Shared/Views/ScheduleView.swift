@@ -25,6 +25,7 @@ struct ScheduleView: View {
 				VStack {
 					if (scheduleCollection[weekday].entries.isEmpty && !isEditing) {
 						Text("No lessons")
+							.font(.title2)
 							.foregroundColor(.secondary)
 					} else {
 						List {
