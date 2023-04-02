@@ -44,7 +44,7 @@ struct SubstitutionView: View {
 							if (networkMonitor.isConnected) {
 								await substitutions.update()
 							} else {
-								let indicator = SPIndicatorView(title: "No Internet Connection", preset: .custom(UIImage(.wifi.slash).withTintColor(.red, renderingMode: .automatic)))
+								let indicator = SPIndicatorView(title: "No Internet Connection", preset: .custom(UIImage(systemName: "wifi.slash")!.withTintColor(.red, renderingMode: .automatic)))
 								indicator.present(duration: 2, haptic: .error)
 							}
 						}
