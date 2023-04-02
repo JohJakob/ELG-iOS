@@ -14,6 +14,7 @@ struct SubstitutionItemCard: View {
 	let dataFont = Font.system(size: 32).monospaced()
 	let smallDataFont = Font.system(size: 24).monospaced()
 	let tinyDataFont = Font.system(size: 14)
+	let padding: CGFloat = 8
 	
 	var body: some View {
 		HStack(alignment: .top, spacing: 8) {
@@ -23,7 +24,7 @@ struct SubstitutionItemCard: View {
 					.foregroundColor(.secondary)
 				SubstitutionSchoolClassView(classes: item.schoolClass)
 			}
-			.padding(EdgeInsets(top: 8, leading: 0, bottom: 8, trailing: 0))
+			.padding([.top, .bottom], padding)
 			VerticalDivider()
 				.stroke(style: StrokeStyle(lineWidth: 0.25, dash: [4]))
 				.foregroundColor(.secondary)
@@ -35,7 +36,7 @@ struct SubstitutionItemCard: View {
 				Text(item.lesson)
 					.font(dataFont)
 			}
-			.padding(EdgeInsets(top: 8, leading: 0, bottom: 8, trailing: 0))
+			.padding([.top, .bottom], padding)
 			Divider()
 			VStack(alignment: .leading, spacing: 4) {
 				VStack(alignment: .leading) {
@@ -74,9 +75,9 @@ struct SubstitutionItemCard: View {
 					}
 				}
 			}
-			.padding(EdgeInsets(top: 8, leading: 0, bottom: 8, trailing: 0))
+			.padding([.top, .bottom], padding)
 		}
-		.padding(EdgeInsets(top: 0, leading: 8, bottom: 0, trailing: 8))
+		.padding([.leading, .trailing], padding)
 	}
 }
 
