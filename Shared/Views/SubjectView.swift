@@ -7,7 +7,6 @@
 //
 
 import SwiftUI
-import SafeSFSymbols
 
 struct SubjectView: View {
 	@ObservedObject var scheduleCollection: ScheduleCollection
@@ -32,7 +31,7 @@ struct SubjectView: View {
 							Text(Subjects.none.rawValue)
 							if (previousSubject == .none && selectedLesson != nil) {
 								Spacer()
-								Image(.checkmark)
+								Image(systemName: "checkmark")
 									.foregroundColor(Color("AccentColor"))
 							}
 						}
@@ -50,7 +49,7 @@ struct SubjectView: View {
 									Text(subject.rawValue)
 									if (previousSubject == subject) {
 										Spacer()
-										Image(.checkmark)
+										Image(systemName: "checkmark")
 											.foregroundColor(Color("AccentColor"))
 									}
 								}

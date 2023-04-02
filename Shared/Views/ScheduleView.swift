@@ -7,7 +7,6 @@
 //
 
 import SwiftUI
-import SafeSFSymbols
 
 struct ScheduleView: View {
 	@StateObject var scheduleCollection = ScheduleCollection()
@@ -88,7 +87,7 @@ struct ScheduleView: View {
 										Text(day.rawValue)
 									} icon: {
 										if (day == weekday) {
-											Image(.checkmark)
+											Image(systemName: "checkmark")
 										}
 									}
 								}
@@ -98,7 +97,7 @@ struct ScheduleView: View {
 								Text(weekday.rawValue)
 									.font(.headline)
 									.foregroundColor(.primary)
-								Image(.chevron.down)
+								Image(systemName: "chevron.down")
 									.imageScale(.medium)
 									.foregroundColor(.primary)
 							}

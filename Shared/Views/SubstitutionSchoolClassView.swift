@@ -7,7 +7,6 @@
 //
 
 import SwiftUI
-import SafeSFSymbols
 
 struct SubstitutionSchoolClassView: View {
 	let classes: [String]
@@ -20,7 +19,7 @@ struct SubstitutionSchoolClassView: View {
 			if (classes.count > 1 && classes.count < 5) {
 				VStack(alignment: .leading, spacing: 4) {
 					Text(classes.first!.padding(toLength: 3, withPad: " ", startingAt: 0))
-					Image(.chevron.compactDown)
+					Image(systemName: "chevron.compact.down")
 						.imageScale(.small)
 						.foregroundColor(Color(uiColor: .tertiaryLabel))
 					Text(classes.last!.padding(toLength: 3, withPad: " ", startingAt: 0))

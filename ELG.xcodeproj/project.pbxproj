@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CF09A4AC29C8A3DC00B2B0E4 /* SafeSFSymbols in Frameworks */ = {isa = PBXBuildFile; productRef = CF09A4AB29C8A3DC00B2B0E4 /* SafeSFSymbols */; };
 		CF9E11F229C35C5E00D3541E /* ELGApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9E11F129C35C5E00D3541E /* ELGApp.swift */; };
 		CF9E11F429C35C5E00D3541E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9E11F329C35C5E00D3541E /* ContentView.swift */; };
 		CF9E11F629C35C5F00D3541E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF9E11F529C35C5F00D3541E /* Assets.xcassets */; };
@@ -65,7 +64,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				CFB7950029CB590A0021C9B7 /* SwiftCSV in Frameworks */,
-				CF09A4AC29C8A3DC00B2B0E4 /* SafeSFSymbols in Frameworks */,
 				CF9E120329C5DDD700D3541E /* Defaults in Frameworks */,
 				CFB7950829CC66D10021C9B7 /* SPIndicator in Frameworks */,
 			);
@@ -193,7 +191,6 @@
 			name = ELG;
 			packageProductDependencies = (
 				CF9E120229C5DDD700D3541E /* Defaults */,
-				CF09A4AB29C8A3DC00B2B0E4 /* SafeSFSymbols */,
 				CFB794FF29CB590A0021C9B7 /* SwiftCSV */,
 				CFB7950729CC66D10021C9B7 /* SPIndicator */,
 			);
@@ -227,7 +224,6 @@
 			mainGroup = B9B5C4C81D1D494700777BD9;
 			packageReferences = (
 				CF9E120129C5DDD700D3541E /* XCRemoteSwiftPackageReference "Defaults" */,
-				CF09A4AA29C8A3DC00B2B0E4 /* XCRemoteSwiftPackageReference "SafeSFSymbols" */,
 				CFB794FE29CB590A0021C9B7 /* XCRemoteSwiftPackageReference "SwiftCSV" */,
 				CFB7950629CC66D10021C9B7 /* XCRemoteSwiftPackageReference "SPIndicator" */,
 			);
@@ -500,14 +496,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		CF09A4AA29C8A3DC00B2B0E4 /* XCRemoteSwiftPackageReference "SafeSFSymbols" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/sparrowcode/SafeSFSymbols";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
-			};
-		};
 		CF9E120129C5DDD700D3541E /* XCRemoteSwiftPackageReference "Defaults" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/sindresorhus/Defaults";
@@ -535,11 +523,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		CF09A4AB29C8A3DC00B2B0E4 /* SafeSFSymbols */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = CF09A4AA29C8A3DC00B2B0E4 /* XCRemoteSwiftPackageReference "SafeSFSymbols" */;
-			productName = SafeSFSymbols;
-		};
 		CF9E120229C5DDD700D3541E /* Defaults */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = CF9E120129C5DDD700D3541E /* XCRemoteSwiftPackageReference "Defaults" */;
